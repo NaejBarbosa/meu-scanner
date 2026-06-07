@@ -55,8 +55,8 @@ export default function Scanner({ onDetected }: ScannerProps) {
         }
       });
       setScanning(true);
-    } catch {
-      alert('Não foi possível acessar a câmera traseira.');
+    } catch (err: any) {
+      alert('Erro ao acessar câmera: ' + (err.message || 'verifique permissões'));
       stopScanning();
     } finally {
       setProcessing(false);
@@ -101,86 +101,108 @@ export default function Scanner({ onDetected }: ScannerProps) {
     return text;
   };
 
-  // ========== EXTRAÇÃO DA REGIÃO CENTRAL USANDO CANVAS OCULTO ==========
+  // ========== EXTRAÇÃO DA REGIÃO CENTRAL - MÉTODO ROBUSTO ==========
   const detectCentralRegion = async () => {
     if (!containerRef.current || !imageElementRef.current) {
-      alert('Imagem não carregada corretamente.');
+      alert('Erro: elementos da interface não carregados');
       return;
     }
 
     setProcessing(true);
     try {
       const container = containerRef.current;
-      const imgElement = imageElementRef.current;
+      const img = imageElementRef.current;
       const wrapper = transformWrapperRef.current;
 
-      if (!wrapper) throw new Error('TransformWrapper não inicializado');
+      // 1. Obtém a transformação CSS aplicada à imagem pela biblioteca
+      const transformStyle = window.getComputedStyle(img).transform;
+      // Ex: matrix(1.5, 0, 0, 1.5, 100, 50)
+      let scale = 1;
+      let translateX = 0;
+      let translateY = 0;
 
-      // Obtém o estado atual da transformação (escala e posição)
-      const { scale, positionX, positionY } = wrapper.state;
-      
-      // Dimensões do container (área visível)
+      if (transformStyle && transformStyle !== 'none') {
+        const matrix = transformStyle.match(/matrix\(([^)]+)\)/);
+        if (matrix && matrix[1]) {
+          const values = matrix[1].split(',').map(parseFloat);
+          scale = Math.sqrt(values[0] * values[0] + values[1] * values[1]); // fator de escala
+          translateX = values[4];
+          translateY = values[5];
+        }
+      } else if (wrapper && wrapper.state) {
+        // Fallback: pegar da lib caso transformStyle não funcione
+        scale = wrapper.state.scale || 1;
+        translateX = wrapper.state.positionX || 0;
+        translateY = wrapper.state.positionY || 0;
+      }
+
+      // Dimensões do container
       const containerRect = container.getBoundingClientRect();
       const containerWidth = containerRect.width;
       const containerHeight = containerRect.height;
-      
-      // Tamanho original da imagem
-      const imgNaturalWidth = imgElement.naturalWidth;
-      const imgNaturalHeight = imgElement.naturalHeight;
-      
-      // Tamanho da imagem exibida após escala
+
+      // Tamanho natural da imagem
+      const imgNaturalWidth = img.naturalWidth;
+      const imgNaturalHeight = img.naturalHeight;
+      if (imgNaturalWidth === 0 || imgNaturalHeight === 0) {
+        throw new Error('Imagem não carregada completamente');
+      }
+
+      // Tamanho exibido da imagem (após escala)
       const imgDisplayWidth = imgNaturalWidth * scale;
       const imgDisplayHeight = imgNaturalHeight * scale;
-      
-      // Posição da imagem dentro do container (considerando o pan)
-      const imgLeft = positionX + (containerWidth - imgDisplayWidth) / 2;
-      const imgTop = positionY + (containerHeight - imgDisplayHeight) / 2;
-      
-      // Tamanho do quadrado verde (60% do menor lado do container)
+
+      // Posição da imagem no container (considerando translate)
+      // A biblioteca centraliza a imagem por padrão, então o ponto (0,0) da imagem está no centro do container
+      const imgLeft = translateX + (containerWidth - imgDisplayWidth) / 2;
+      const imgTop = translateY + (containerHeight - imgDisplayHeight) / 2;
+
+      // Área verde central (60% do menor lado do container)
       const boxSize = Math.min(containerWidth, containerHeight) * 0.6;
       const boxX = (containerWidth - boxSize) / 2;
       const boxY = (containerHeight - boxSize) / 2;
-      
-      // Coordenadas da região central em relação à imagem original
+
+      // Coordenadas da área verde em relação à imagem original
       const relativeX = (boxX - imgLeft) / scale;
       const relativeY = (boxY - imgTop) / scale;
       const relativeW = boxSize / scale;
       const relativeH = boxSize / scale;
-      
-      // Valida se a região está dentro da imagem original
+
+      // Valida se está dentro da imagem
       if (relativeX < 0 || relativeY < 0 || relativeX + relativeW > imgNaturalWidth || relativeY + relativeH > imgNaturalHeight) {
-        alert('A área de leitura está fora da imagem. Centralize a imagem e ajuste o zoom para que o código fique dentro do quadrado verde.');
+        alert(`A área verde está fora da imagem. Ajuste a posição/zoom.
+Valores: X=${relativeX.toFixed(0)}, Y=${relativeY.toFixed(0)}, Largura imagem=${imgNaturalWidth}, Altura=${imgNaturalHeight}`);
         setProcessing(false);
         return;
       }
-      
-      // Cria um canvas temporário para extrair a região exata
+
+      // Cria canvas para recortar a região
       const canvas = document.createElement('canvas');
       canvas.width = boxSize;
       canvas.height = boxSize;
       const ctx = canvas.getContext('2d');
-      if (!ctx) throw new Error('Não foi possível criar canvas');
-      
-      // Desenha a parte correspondente da imagem original
+      if (!ctx) throw new Error('Falha ao criar contexto canvas');
+
+      // Desenha a região recortada da imagem original
       ctx.drawImage(
-        imgElement,
+        img,
         relativeX, relativeY, relativeW, relativeH,
         0, 0, boxSize, boxSize
       );
-      
-      // Converte o canvas para ImageBitmap e tenta detectar
+
+      // Tenta detectar o código
       const bitmap = await createImageBitmap(canvas);
       const decoded = await detectFromImageBitmap(bitmap);
-      
+
       if (decoded) {
         onDetected(decoded);
         fecharPreview();
       } else {
-        alert('Nenhum código detectado na área verde. Tente ajustar o zoom e posição para que o código fique bem nítido dentro do quadrado.');
+        alert('Nenhum código detectado na área verde. Tente ampliar o zoom e centralizar bem o código.');
       }
-    } catch (err) {
-      console.error('Erro detalhado:', err);
-      alert('Erro ao processar a região central. Verifique o console para mais detalhes.');
+    } catch (err: any) {
+      console.error(err);
+      alert(`Erro detalhado: ${err.message || err}\n\nTente novamente com outra imagem ou contate o suporte.`);
     } finally {
       setProcessing(false);
     }
@@ -201,7 +223,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     const imageUrl = URL.createObjectURL(file);
     setImagePreviewUrl(imageUrl);
 
-    // Tentativa de detecção automática (imagem inteira)
+    // Detecção automática na imagem inteira
     let decoded: string | null = null;
     try {
       const img = new Image();
@@ -226,10 +248,9 @@ export default function Scanner({ onDetected }: ScannerProps) {
       return;
     }
 
-    // Se falhou, abre o modo manual com zoom/pan
+    // Falhou: abre modo manual
     setProcessing(false);
     setShowCrop(true);
-    // Aguarda o elemento img ser montado no modal
     setTimeout(() => {
       if (imageElementRef.current) {
         imageElementRef.current.src = imageUrl;
@@ -275,7 +296,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
                 />
               </TransformComponent>
             </TransformWrapper>
-            {/* Máscara central (quadrado verde com fundo escuro ao redor) */}
+            {/* Máscara central */}
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
               <div
                 className="border-4 border-green-500"
