@@ -1,7 +1,6 @@
 // components/Scanner.tsx
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
-import jsQR from 'jsqr';
 
 interface ScannerProps {
   onDetected: (decodedText: string) => void;
@@ -9,6 +8,7 @@ interface ScannerProps {
 
 export default function Scanner({ onDetected }: ScannerProps) {
   const [scanning, setScanning] = useState(false);
+  const [processing, setProcessing] = useState(false);
   const scannerRef = useRef<Html5Qrcode | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -19,7 +19,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
         { facingMode: 'environment' },
         { fps: 10, qrbox: { width: 250, height: 250 } },
         (decodedText) => {
-          // Ao detectar, para a câmera e envia o texto
           stopScanning();
           onDetected(decodedText);
         },
@@ -40,43 +39,43 @@ export default function Scanner({ onDetected }: ScannerProps) {
     }
   };
 
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const img = new Image();
-      img.src = ev.target?.result as string;
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext('2d');
-        ctx?.drawImage(img, 0, 0);
-        const imageData = ctx?.getImageData(0, 0, canvas.width, canvas.height);
-        if (imageData) {
-          const code = jsQR(imageData.data, imageData.width, imageData.height);
-          if (code) {
-            onDetected(code.data);
-          } else {
-            alert('Nenhum QR Code encontrado na imagem');
-          }
-        }
-      };
-    };
-    reader.readAsDataURL(file);
+    setProcessing(true);
+    try {
+      // usa instância separada para não atrapalhar a câmera
+      const tempScanner = new Html5Qrcode('reader-temp');
+      const result = await tempScanner.scanFile(file, true); // true = mostrar imagem?
+      if (result) {
+        onDetected(result);
+      } else {
+        alert('Nenhum QR Code encontrado na imagem');
+      }
+      tempScanner.clear();
+    } catch (err) {
+      console.error(err);
+      alert('Nenhum QR Code encontrado ou imagem inválida');
+    } finally {
+      setProcessing(false);
+      // limpa o input para permitir selecionar a mesma imagem novamente
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
   };
 
   return (
     <div className="flex flex-col items-center gap-3">
       <div id="reader" className="w-full max-w-sm" />
+      {/* div oculta para o scanFile (não usado para câmera) */}
+      <div id="reader-temp" style={{ display: 'none' }} />
 
       <div className="flex gap-2">
         {!scanning ? (
           <button
             onClick={startScanning}
             className="px-4 py-2 bg-green-600 text-white rounded"
+            disabled={processing}
           >
             Iniciar Scanner
           </button>
@@ -84,6 +83,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
           <button
             onClick={stopScanning}
             className="px-4 py-2 bg-red-600 text-white rounded"
+            disabled={processing}
           >
             Parar Scanner
           </button>
@@ -91,8 +91,9 @@ export default function Scanner({ onDetected }: ScannerProps) {
         <button
           onClick={() => fileInputRef.current?.click()}
           className="px-4 py-2 bg-blue-600 text-white rounded"
+          disabled={processing || scanning}
         >
-          Ler da Galeria
+          {processing ? 'Processando...' : 'Ler da Galeria'}
         </button>
         <input
           ref={fileInputRef}
