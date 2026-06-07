@@ -44,18 +44,15 @@ export default function Scanner({ onDetected }: ScannerProps) {
       const reader = new BrowserMultiFormatReader();
       readerRef.current = reader;
 
-      // Obtém a lista de dispositivos de vídeo
-      const videoInputDevices = await reader.listVideoInputDevices();
+      // Força o uso da câmera traseira via constraints
+      const constraints = {
+        video: {
+          facingMode: { exact: "environment" }
+        }
+      };
 
-      // Usa a câmera traseira (environment) ou a primeira disponível
-      const deviceId = videoInputDevices.find(
-        (device) => device.label.toLowerCase().includes('environment')
-      )?.deviceId || videoInputDevices[0]?.deviceId;
-
-      if (!deviceId) throw new Error('Nenhuma câmera encontrada');
-
-      // Inicia a decodificação contínua
-      await reader.decodeFromVideoDevice(deviceId, videoRef.current!, (result, err) => {
+      // Inicia a decodificação contínua com as constraints
+      await reader.decodeFromConstraints(constraints, videoRef.current!, (result, err) => {
         if (result && !processing) {
           const text = result.getText();
           if (text) {
@@ -68,7 +65,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
       setScanning(true);
     } catch (err) {
       console.error('Erro ao iniciar câmera:', err);
-      alert('Não foi possível acessar a câmera ou nenhum código suportado foi encontrado.');
+      alert('Não foi possível acessar a câmera traseira. Verifique as permissões.');
       stopScanning();
     } finally {
       setProcessing(false);
@@ -85,17 +82,10 @@ export default function Scanner({ onDetected }: ScannerProps) {
     try {
       // Cria uma URL temporária para o arquivo
       const imageUrl = URL.createObjectURL(file);
-      const img = new Image();
-      img.src = imageUrl;
 
-      // Aguarda o carregamento da imagem
-      await new Promise((resolve, reject) => {
-        img.onload = resolve;
-        img.onerror = reject;
-      });
-
-      // Tenta decodificar a partir do elemento img
-      const result = await reader.decodeFromImageElement(img);
+      // Usa decodeFromImageUrl que aguarda o carregamento completo
+      const result = await reader.decodeFromImageUrl(imageUrl);
+      
       if (result) {
         const text = result.getText();
         if (text) {
@@ -115,7 +105,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
       } else if (err instanceof ChecksumException || err instanceof FormatException) {
         alert('Código corrompido ou formato inválido.');
       } else {
-        alert('Erro ao ler a imagem.');
+        alert('Erro ao ler a imagem. Tente outra foto mais nítida.');
       }
     } finally {
       setProcessing(false);
@@ -133,6 +123,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
         className="w-full max-w-sm rounded border bg-black"
         style={{ aspectRatio: '4/3' }}
         playsInline
+        autoPlay
       />
 
       <div className="flex gap-2">
