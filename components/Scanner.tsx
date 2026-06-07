@@ -1,11 +1,6 @@
 // components/Scanner.tsx
 import { useRef, useState, useEffect } from 'react';
-import {
-  BrowserMultiFormatReader,
-  NotFoundException,
-  ChecksumException,
-  FormatException,
-} from '@zxing/library';
+import { BrowserMultiFormatReader } from '@zxing/library';
 
 interface ScannerProps {
   onDetected: (decodedText: string) => void;
@@ -18,16 +13,18 @@ export default function Scanner({ onDetected }: ScannerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const readerRef = useRef<BrowserMultiFormatReader | null>(null);
 
-  // Estados do upload com zoom/pan
+  // Estados do crop com zoom/pan
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
   const [showCrop, setShowCrop] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const imageContainerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const originalImageRef = useRef<HTMLImageElement | null>(null);
 
-  // Transformações da imagem (pan e zoom)
+  // Transformações: posição (x,y) e escala (zoom)
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
+  // Dimensões originais da imagem (após redimensionamento lógico)
+  const [imgDisplaySize, setImgDisplaySize] = useState({ w: 0, h: 0 });
+  // Estado de interação
   const [isPanning, setIsPanning] = useState(false);
   const [panStart, setPanStart] = useState({ x: 0, y: 0 });
   const [initialDistance, setInitialDistance] = useState<number | null>(null);
@@ -40,7 +37,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     };
   }, []);
 
-  // ========== CÂMERA (igual antes) ==========
+  // ========== CÂMERA ==========
   const stopScanning = async () => {
     if (readerRef.current) {
       readerRef.current.reset();
@@ -66,7 +63,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
         }
       });
       setScanning(true);
-    } catch (err) {
+    } catch {
       alert('Não foi possível acessar a câmera traseira.');
       stopScanning();
     } finally {
@@ -74,7 +71,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     }
   };
 
-  // ========== DETECÇÃO NATIVA + FALLBACK ==========
+  // ========== DETECÇÃO (nativa + fallback) ==========
   const detectWithNativeAPI = async (imageBitmap: ImageBitmap): Promise<string | null> => {
     if (!('BarcodeDetector' in window)) return null;
     try {
@@ -98,11 +95,9 @@ export default function Scanner({ onDetected }: ScannerProps) {
     }
   };
 
-  // Detecta código em um ImageBitmap (retorno)
   const detectFromImageBitmap = async (bitmap: ImageBitmap): Promise<string | null> => {
     let text = await detectWithNativeAPI(bitmap);
     if (!text) {
-      // fallback: cria canvas temporário para gerar dataURL
       const canvas = document.createElement('canvas');
       canvas.width = bitmap.width;
       canvas.height = bitmap.height;
@@ -114,53 +109,71 @@ export default function Scanner({ onDetected }: ScannerProps) {
     return text;
   };
 
-  // ========== ZOOM E PAN NA IMAGEM ==========
+  // ========== DESENHO DO CANVAS COM MÁSCARA ==========
   const updateCanvas = () => {
     const canvas = canvasRef.current;
     const img = originalImageRef.current;
     if (!canvas || !img) return;
 
-    const container = imageContainerRef.current;
-    if (!container) return;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Tamanho do canvas igual ao container
-    canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
+    // Obtém o tamanho do canvas (da tela)
+    const container = canvas.parentElement;
+    if (!container) return;
+    const canvasWidth = container.clientWidth;
+    const canvasHeight = container.clientHeight;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Calcula a área de desenho da imagem (considerando transform)
+    // Primeiro, qual o tamanho da imagem em pixels no canvas (sem escala, apenas centralizada)
+    // Para que ela caiba inicialmente, calculamos uma escala base que faça a imagem inteira caber no canvas.
+    const baseScale = Math.min(canvasWidth / img.width, canvasHeight / img.height);
+    const displayWidth = img.width * baseScale;
+    const displayHeight = img.height * baseScale;
+    // Guarda para limites de pan
+    setImgDisplaySize({ w: displayWidth, h: displayHeight });
+
+    // Aplica escala do usuário (zoom) em cima da baseScale
+    const finalScale = baseScale * transform.scale;
+
+    // Centraliza a imagem inicialmente (x, y relativos ao centro)
+    const centerX = canvasWidth / 2;
+    const centerY = canvasHeight / 2;
+    let offsetX = transform.x + (centerX - (displayWidth * transform.scale) / 2);
+    let offsetY = transform.y + (centerY - (displayHeight * transform.scale) / 2);
+
+    // Limites de pan (para não deixar a imagem sair completamente)
+    const maxX = Math.max(0, (displayWidth * transform.scale) - canvasWidth) / 2;
+    const minX = -maxX;
+    const maxY = Math.max(0, (displayHeight * transform.scale) - canvasHeight) / 2;
+    const minY = -maxY;
+    offsetX = Math.min(maxX, Math.max(minX, offsetX));
+    offsetY = Math.min(maxY, Math.max(minY, offsetY));
+
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     ctx.save();
-
-    // Aplica transformação (translação + escala)
-    ctx.translate(canvas.width / 2 + transform.x, canvas.height / 2 + transform.y);
-    ctx.scale(transform.scale, transform.scale);
-    ctx.drawImage(img, -img.width / 2, -img.height / 2);
+    ctx.translate(offsetX, offsetY);
+    ctx.scale(finalScale, finalScale);
+    ctx.drawImage(img, 0, 0, img.width, img.height);
     ctx.restore();
 
-    // Desenha a máscara: área externa escura/borrada
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.fillStyle = 'rgba(0,0,0,0.7)';
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const boxSize = Math.min(canvas.width, canvas.height) * 0.6; // área quadrada 60% do menor lado
-    const boxX = centerX - boxSize / 2;
-    const boxY = centerY - boxSize / 2;
-
-    // Desenha retângulo escuro por toda a tela e depois recorta o quadrado central
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Desenha máscara escura fora do quadrado central
+    const boxSize = Math.min(canvasWidth, canvasHeight) * 0.6;
+    const boxX = (canvasWidth - boxSize) / 2;
+    const boxY = (canvasHeight - boxSize) / 2;
+    ctx.fillStyle = 'rgba(0,0,0,0.75)';
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     ctx.globalCompositeOperation = 'destination-out';
     ctx.fillRect(boxX, boxY, boxSize, boxSize);
     ctx.globalCompositeOperation = 'source-over';
-
-    // Desenha borda verde ao redor da área de leitura
     ctx.strokeStyle = '#00ff00';
     ctx.lineWidth = 4;
     ctx.strokeRect(boxX, boxY, boxSize, boxSize);
   };
 
-  // Eventos de pan (mouse / toque único)
+  // ========== EVENTOS DE PAN (MOUSE E TOQUE) ==========
   const handlePanStart = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
@@ -185,7 +198,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     setIsPanning(false);
   };
 
-  // Eventos de zoom (pinch)
+  // ========== ZOOM POR PINCH (DOIS DEDOS) ==========
   const handleTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length === 2) {
       const dx = e.touches[0].clientX - e.touches[1].clientX;
@@ -202,9 +215,8 @@ export default function Scanner({ onDetected }: ScannerProps) {
       const dx = e.touches[0].clientX - e.touches[1].clientX;
       const dy = e.touches[0].clientY - e.touches[1].clientY;
       const newDistance = Math.hypot(dx, dy);
-      const scaleFactor = newDistance / initialDistance;
-      let newScale = initialScale * scaleFactor;
-      newScale = Math.min(Math.max(0.5, newScale), 5);
+      let newScale = initialScale * (newDistance / initialDistance);
+      newScale = Math.min(Math.max(0.3, newScale), 5);
       setTransform({ ...transform, scale: newScale });
     }
   };
@@ -213,44 +225,46 @@ export default function Scanner({ onDetected }: ScannerProps) {
     setInitialDistance(null);
   };
 
-  // ========== EXTRAIR REGIÃO CENTRAL E DETECTAR ==========
+  // Botões de zoom +/-
+  const zoomIn = () => {
+    setTransform(prev => ({ ...prev, scale: Math.min(prev.scale + 0.2, 5) }));
+  };
+  const zoomOut = () => {
+    setTransform(prev => ({ ...prev, scale: Math.max(prev.scale - 0.2, 0.3) }));
+  };
+  const resetView = () => {
+    setTransform({ x: 0, y: 0, scale: 1 });
+  };
+
+  // ========== DETECTAR REGIÃO CENTRAL ==========
   const detectCentralRegion = async () => {
     const canvas = canvasRef.current;
-    const img = originalImageRef.current;
-    if (!canvas || !img) return;
-
+    if (!canvas) return;
     setProcessing(true);
     try {
-      const container = imageContainerRef.current;
-      if (!container) return;
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      const boxSize = Math.min(canvasWidth, canvasHeight) * 0.6;
+      const boxX = (canvasWidth - boxSize) / 2;
+      const boxY = (canvasHeight - boxSize) / 2;
 
-      const boxSize = Math.min(canvas.width, canvas.height) * 0.6;
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
-      const cropX = centerX - boxSize / 2;
-      const cropY = centerY - boxSize / 2;
-
-      // Extrai os pixels da região central (coordenadas do canvas)
-      const imageData = canvas.getContext('2d')?.getImageData(cropX, cropY, boxSize, boxSize);
-      if (!imageData) throw new Error('Não foi possível extrair a região');
+      // Extrai a região do canvas (já com transformações aplicadas)
+      const imageData = canvas.getContext('2d')?.getImageData(boxX, boxY, boxSize, boxSize);
+      if (!imageData) throw new Error('Não foi possível extrair região');
 
       const offCanvas = document.createElement('canvas');
       offCanvas.width = boxSize;
       offCanvas.height = boxSize;
       offCanvas.getContext('2d')?.putImageData(imageData, 0, 0);
-
-      // Converte para ImageBitmap para detecção
       const bitmap = await createImageBitmap(offCanvas);
       const decoded = await detectFromImageBitmap(bitmap);
-
       if (decoded) {
         onDetected(decoded);
         fecharPreview();
       } else {
-        alert('Nenhum código detectado na área central. Ajuste a posição e o zoom para que o código fique dentro do quadrado verde.');
+        alert('Nenhum código detectado na área central. Ajuste a posição/zoom e tente novamente.');
       }
     } catch (err) {
-      console.error(err);
       alert('Erro ao processar a região central.');
     } finally {
       setProcessing(false);
@@ -265,7 +279,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     originalImageRef.current = null;
   };
 
-  // ========== UPLOAD DA IMAGEM (tenta auto, depois manual) ==========
+  // ========== UPLOAD E TENTATIVA AUTOMÁTICA ==========
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -274,7 +288,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
     const imageUrl = URL.createObjectURL(file);
     setImagePreviewUrl(imageUrl);
 
-    // Tentativa automática
     let decoded: string | null = null;
     try {
       const img = new Image();
@@ -299,44 +312,44 @@ export default function Scanner({ onDetected }: ScannerProps) {
       return;
     }
 
-    // Falhou -> abre modo zoom/pan
+    // Falha: abre modo manual
     setProcessing(false);
     setShowCrop(true);
     const img = new Image();
     img.onload = () => {
       originalImageRef.current = img;
-      // Reinicia transformação
       setTransform({ x: 0, y: 0, scale: 1 });
       setTimeout(() => updateCanvas(), 10);
     };
     img.src = imageUrl;
   };
 
-  // Atualiza canvas quando a imagem ou transformação mudar
+  // Redesenha quando transform mudar ou canvas redimensionar
   useEffect(() => {
     if (showCrop && originalImageRef.current) {
       updateCanvas();
     }
   }, [showCrop, transform, originalImageRef.current]);
 
-  // Observer para redimensionamento do container
+  // Observa redimensionamento da janela
   useEffect(() => {
     if (!showCrop) return;
-    const resizeObserver = new ResizeObserver(() => updateCanvas());
-    if (imageContainerRef.current) resizeObserver.observe(imageContainerRef.current);
-    return () => resizeObserver.disconnect();
+    const handleResize = () => updateCanvas();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [showCrop]);
 
   // ========== RENDER ==========
   return (
     <div className="flex flex-col items-center gap-3">
-      {/* Modal com zoom/pan */}
+      {/* Modal de ajuste */}
       {showCrop && imagePreviewUrl && (
         <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col items-center justify-center p-4">
-          <h3 className="text-white text-lg mb-2">Arraste e dê zoom para posicionar o código no quadrado verde</h3>
+          <h3 className="text-white text-lg mb-2 text-center">
+            Arraste e dê zoom para posicionar o código <strong>dentro do quadrado verde</strong>
+          </h3>
           <div
-            ref={imageContainerRef}
-            className="relative w-full max-w-lg h-[60vh] bg-black rounded-lg overflow-hidden touch-none"
+            className="relative w-full max-w-lg h-[60vh] bg-black rounded-lg overflow-hidden"
             style={{ touchAction: 'none' }}
           >
             <canvas
@@ -353,22 +366,16 @@ export default function Scanner({ onDetected }: ScannerProps) {
             />
           </div>
           <div className="flex gap-2 mt-4">
-            <button
-              onClick={detectCentralRegion}
-              disabled={processing}
-              className="px-4 py-2 bg-green-600 text-white rounded disabled:opacity-50"
-            >
-              {processing ? 'Detectando...' : 'Detectar na área verde'}
+            <button onClick={zoomIn} className="px-3 py-1 bg-gray-700 text-white rounded text-lg font-bold">+</button>
+            <button onClick={zoomOut} className="px-3 py-1 bg-gray-700 text-white rounded text-lg font-bold">-</button>
+            <button onClick={resetView} className="px-3 py-1 bg-gray-600 text-white rounded">Centralizar</button>
+            <button onClick={detectCentralRegion} disabled={processing} className="px-4 py-2 bg-green-600 text-white rounded">
+              {processing ? 'Detectando...' : 'Detectar'}
             </button>
-            <button
-              onClick={fecharPreview}
-              className="px-4 py-2 bg-red-600 text-white rounded"
-            >
-              Cancelar
-            </button>
+            <button onClick={fecharPreview} className="px-4 py-2 bg-red-600 text-white rounded">Cancelar</button>
           </div>
           <p className="text-gray-300 text-sm mt-2">
-            Use um dedo para arrastar • Dois dedos para zoom
+            • 1 dedo: arrastar • 2 dedos: zoom
           </p>
         </div>
       )}
