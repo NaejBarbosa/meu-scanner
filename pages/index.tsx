@@ -12,10 +12,15 @@ interface ProdutoValido {
   produtoDescr: string;
 }
 
-interface ConfirmacaoData {
+interface ItemRegistrado {
+  id: string; // timestamp + ean
   ean: string;
   validade: string;
-  produto?: ProdutoValido;
+  marcaId: string;
+  marcaDescr: string;
+  produtoClasse: string;
+  produtoDescr: string;
+  dataRegistro: Date;
 }
 
 export default function Home() {
@@ -23,8 +28,14 @@ export default function Home() {
   const [scannedEans, setScannedEans] = useState<Set<string>>(new Set());
   const [currentScan, setCurrentScan] = useState<{ ean: string; validade: string } | null>(null);
   const [modoManual, setModoManual] = useState(false);
-  const [confirmacao, setConfirmacao] = useState<ConfirmacaoData | null>(null);
+  const [confirmacao, setConfirmacao] = useState<{
+    ean: string;
+    validade: string;
+    produto?: ProdutoValido;
+  } | null>(null);
+  const [itensRegistrados, setItensRegistrados] = useState<ItemRegistrado[]>([]);
 
+  // Carrega a base de produtos válidos
   useEffect(() => {
     fetch('/api/validar')
       .then((res) => res.json())
@@ -32,7 +43,8 @@ export default function Home() {
       .catch((err) => console.error('Erro ao carregar base', err));
   }, []);
 
-  const salvarRegistro = async (registro: any, ean: string) => {
+  // Salva no banco_cadastro
+  const salvarRegistro = async (registro: any, ean: string): Promise<boolean> => {
     try {
       const res = await fetch('/api/cadastrar', {
         method: 'POST',
@@ -41,10 +53,9 @@ export default function Home() {
       });
       if (res.ok) {
         setScannedEans((prev) => new Set(prev).add(ean));
-        alert('✅ Registro salvo com sucesso!');
         return true;
       } else {
-        alert('❌ Erro ao salvar');
+        alert('❌ Erro ao salvar no banco_cadastro');
         return false;
       }
     } catch (error) {
@@ -53,59 +64,82 @@ export default function Home() {
     }
   };
 
+  // Adiciona item à tabela de registros da sessão
+  const adicionarItemRegistrado = (produto: ProdutoValido, ean: string, validade: string) => {
+    const novoItem: ItemRegistrado = {
+      id: `${Date.now()}-${ean}`,
+      ean,
+      validade,
+      marcaId: produto.marcaId,
+      marcaDescr: produto.marcaDescr,
+      produtoClasse: produto.produtoClasse,
+      produtoDescr: produto.produtoDescr,
+      dataRegistro: new Date(),
+    };
+    setItensRegistrados((prev) => [...prev, novoItem]);
+  };
+
+  // Handler chamado pelo Scanner ao decodificar
   const handleQRCode = (text: string) => {
-    // ALERTA DE DEPURAÇÃO: texto bruto recebido
-    alert(`[Index] Texto bruto recebido: ${text}`);
-    
     const dados = extrairDados(text);
     if (!dados) {
-      alert(`[Index] Formato inválido. Texto: ${text}`);
+      alert(`❌ Formato inválido\n\nTexto recebido:\n${text}`);
       return;
     }
-
-    alert(`[Index] Extraído: EAN=${dados.ean}, Validade=${dados.validade}`);
 
     const { ean, validade } = dados;
 
     if (scannedEans.has(ean)) {
-      alert('⚠️ Este código já foi processado anteriormente.');
+      alert('⚠️ Este código já foi processado e salvo anteriormente.');
       return;
     }
 
     const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean);
+    // Exibe modal com os dados do produto (se encontrado)
     setConfirmacao({ ean, validade, produto: produtoEncontrado });
-    alert(`[Index] Exibindo modal de confirmação para EAN ${ean}`);
   };
 
-  const handleConfirmacaoSalvar = async () => {
+  // Ação quando o usuário clica em "Gravar" no modal
+  const handleGravar = async () => {
     if (!confirmacao) return;
     const { ean, validade, produto } = confirmacao;
 
-    if (produto) {
-      const registro = {
-        marcaId: produto.marcaId,
-        marcaDescr: produto.marcaDescr,
-        produtoClasse: produto.produtoClasse,
-        produtoEan: ean,
-        produtoDescr: produto.produtoDescr,
-        produtoValidade: validade,
-      };
-      await salvarRegistro(registro, ean);
-    } else {
+    if (!produto) {
+      // Produto não encontrado: vai para cadastro manual
       setCurrentScan({ ean, validade });
       setModoManual(true);
+      setConfirmacao(null);
+      return;
     }
-    setConfirmacao(null);
+
+    // Produto encontrado: salva no banco_cadastro e adiciona à tabela
+    const registro = {
+      marcaId: produto.marcaId,
+      marcaDescr: produto.marcaDescr,
+      produtoClasse: produto.produtoClasse,
+      produtoEan: ean,
+      produtoDescr: produto.produtoDescr,
+      produtoValidade: validade,
+    };
+    const sucesso = await salvarRegistro(registro, ean);
+    if (sucesso) {
+      adicionarItemRegistrado(produto, ean, validade);
+      alert('✅ Produto registrado com sucesso!');
+      setConfirmacao(null);
+    }
   };
 
+  // Nova leitura: fecha modal, permite novo scan
   const handleNovaLeitura = () => {
     setConfirmacao(null);
   };
 
+  // Descartar: simplesmente fecha o modal sem fazer nada
   const handleDescartar = () => {
     setConfirmacao(null);
   };
 
+  // Cadastro manual (quando produto não existe na base)
   const handleManualSubmit = async (produto: ProdutoValido, validadeFinal: string) => {
     if (!currentScan) return;
     const registro = {
@@ -116,7 +150,11 @@ export default function Home() {
       produtoDescr: produto.produtoDescr,
       produtoValidade: validadeFinal,
     };
-    await salvarRegistro(registro, currentScan.ean);
+    const sucesso = await salvarRegistro(registro, currentScan.ean);
+    if (sucesso) {
+      adicionarItemRegistrado(produto, currentScan.ean, validadeFinal);
+      alert('✅ Produto manual registrado!');
+    }
     setModoManual(false);
     setCurrentScan(null);
   };
@@ -125,15 +163,17 @@ export default function Home() {
     <main className="min-h-screen p-4 bg-gray-100">
       <h1 className="text-2xl font-bold mb-4">Scanner de Produtos</h1>
 
+      {/* Scanner */}
       <Scanner onDetected={handleQRCode} />
 
+      {/* Modal de confirmação com dados do produto */}
       {confirmacao && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-            <h2 className="text-xl font-bold mb-4">📋 Dados extraídos</h2>
-            <div className="mb-4 space-y-2">
+            <h2 className="text-xl font-bold mb-4">📦 Produto detectado</h2>
+            <div className="mb-4 border rounded p-3 bg-gray-50">
               <p><strong>EAN:</strong> {confirmacao.ean}</p>
-              <p><strong>Validade:</strong> {confirmacao.validade}</p>
+              <p><strong>Validade calculada:</strong> {confirmacao.validade}</p>
               {confirmacao.produto ? (
                 <>
                   <p><strong>Marca:</strong> {confirmacao.produto.marcaDescr}</p>
@@ -141,24 +181,21 @@ export default function Home() {
                   <p><strong>Classe:</strong> {confirmacao.produto.produtoClasse}</p>
                 </>
               ) : (
-                <p className="text-red-600">
-                  <strong>⚠️ Produto não encontrado na base!</strong><br />
-                  Será necessário cadastro manual.
-                </p>
+                <p className="text-red-600">⚠️ Produto não encontrado na base. Será necessário cadastro manual.</p>
               )}
             </div>
             <div className="flex flex-col gap-2">
               <button
-                onClick={handleConfirmacaoSalvar}
+                onClick={handleGravar}
                 className="bg-green-600 text-white py-2 rounded hover:bg-green-700"
               >
-                {confirmacao.produto ? '✅ Salvar dados' : '📝 Ir para cadastro manual'}
+                💾 Gravar no banco_cadastro
               </button>
               <button
                 onClick={handleNovaLeitura}
                 className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
               >
-                📷 Fazer mais leitura
+                📷 Nova leitura
               </button>
               <button
                 onClick={handleDescartar}
@@ -171,6 +208,7 @@ export default function Home() {
         </div>
       )}
 
+      {/* Cadastro manual (caso produto não exista) */}
       {modoManual && currentScan && (
         <div className="mt-6 p-4 bg-white rounded shadow">
           <h2 className="text-xl font-semibold">Produto não encontrado na base</h2>
@@ -181,6 +219,40 @@ export default function Home() {
             onSelect={(produto, validadeFinal) => handleManualSubmit(produto, validadeFinal)}
             validadeAtual={currentScan.validade}
           />
+        </div>
+      )}
+
+      {/* Tabela de produtos já registrados na sessão */}
+      {itensRegistrados.length > 0 && (
+        <div className="mt-8 bg-white rounded shadow p-4">
+          <h2 className="text-xl font-bold mb-3">📋 Produtos registrados nesta sessão</h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full border-collapse border border-gray-300 text-sm">
+              <thead className="bg-gray-200">
+                <tr>
+                  <th className="border p-2">EAN</th>
+                  <th className="border p-2">Marca</th>
+                  <th className="border p-2">Produto</th>
+                  <th className="border p-2">Validade</th>
+                  <th className="border p-2">Data/Hora</th>
+                </tr>
+              </thead>
+              <tbody>
+                {itensRegistrados.map((item) => (
+                  <tr key={item.id} className="hover:bg-gray-50">
+                    <td className="border p-2 font-mono">{item.ean}</td>
+                    <td className="border p-2">{item.marcaDescr}</td>
+                    <td className="border p-2">{item.produtoDescr}</td>
+                    <td className="border p-2">{item.validade}</td>
+                    <td className="border p-2">{item.dataRegistro.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-2">
+            * Os registros acima já foram salvos no banco_cadastro.
+          </p>
         </div>
       )}
     </main>
