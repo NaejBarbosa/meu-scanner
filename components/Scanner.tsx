@@ -1,13 +1,15 @@
-// components/Scanner.tsx (sem alertas de depuração)
+// components/Scanner.tsx
 import { useRef, useState, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+import { useTheme } from '../context/ThemeContext';
 
 interface ScannerProps {
   onDetected: (decodedText: string) => void;
 }
 
 export default function Scanner({ onDetected }: ScannerProps) {
+  const { theme } = useTheme();
   const [scanning, setScanning] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [debugMessage, setDebugMessage] = useState<string | null>(null);
@@ -171,11 +173,9 @@ export default function Scanner({ onDetected }: ScannerProps) {
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
     setProcessing(true);
     const imageUrl = URL.createObjectURL(file);
     setImagePreviewUrl(imageUrl);
-
     let decoded: string | null = null;
     try {
       const img = new Image();
@@ -202,7 +202,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
     } catch (err) {
       console.error(err);
     }
-
     if (decoded) {
       URL.revokeObjectURL(imageUrl);
       setProcessing(false);
@@ -210,7 +209,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
       if (fileInputRef.current) fileInputRef.current.value = '';
       return;
     }
-
     setProcessing(false);
     setShowCrop(true);
     setTimeout(() => {
@@ -222,9 +220,9 @@ export default function Scanner({ onDetected }: ScannerProps) {
   };
 
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className="p-4">
       {debugMessage && (
-        <div className="fixed bottom-4 left-4 right-4 bg-black text-white p-3 rounded-lg z-50 text-center text-sm">
+        <div className="fixed bottom-4 left-4 right-4 bg-black bg-opacity-80 text-white p-3 rounded-lg z-50 text-center text-sm">
           {debugMessage}
         </div>
       )}
@@ -242,22 +240,24 @@ export default function Scanner({ onDetected }: ScannerProps) {
             </div>
           </div>
           <div className="flex gap-2 mt-4">
-            <button onClick={detectCentralRegion} disabled={processing} className="px-4 py-2 bg-green-600 text-white rounded">
-              {processing ? 'Lendo...' : '🔍 DETECTAR'}
-            </button>
+            <button onClick={detectCentralRegion} disabled={processing} className="px-4 py-2 bg-green-600 text-white rounded">🔍 DETECTAR</button>
             <button onClick={fecharPreview} className="px-4 py-2 bg-red-600 text-white rounded">Cancelar</button>
           </div>
         </div>
       )}
-      <video ref={videoRef} className="w-full max-w-sm rounded border bg-black" style={{ aspectRatio: '4/3' }} playsInline autoPlay />
-      <div className="flex gap-2">
+      <video ref={videoRef} className="w-full rounded-lg border bg-black" style={{ aspectRatio: '4/3' }} playsInline autoPlay />
+      <div className="flex gap-3 mt-4 justify-center">
         {!scanning ? (
-          <button onClick={startScanning} className="px-4 py-2 bg-green-600 text-white rounded" disabled={processing}>Iniciar Scanner</button>
+          <button onClick={startScanning} className="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors font-medium" disabled={processing}>
+            ▶ Iniciar Scanner
+          </button>
         ) : (
-          <button onClick={stopScanning} className="px-4 py-2 bg-red-600 text-white rounded" disabled={processing}>Parar Scanner</button>
+          <button onClick={stopScanning} className="px-5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors font-medium" disabled={processing}>
+            ⏹ Parar Scanner
+          </button>
         )}
-        <button onClick={() => fileInputRef.current?.click()} className="px-4 py-2 bg-blue-600 text-white rounded" disabled={processing || scanning}>
-          {processing ? 'Aguarde...' : '📁 Ler da Galeria'}
+        <button onClick={() => fileInputRef.current?.click()} className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium" disabled={processing || scanning}>
+          📁 Ler da Galeria
         </button>
         <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
       </div>
