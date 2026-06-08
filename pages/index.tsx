@@ -12,14 +12,18 @@ interface ProdutoValido {
   produtoDescr: string;
 }
 
+interface ConfirmacaoData {
+  ean: string;
+  validade: string;
+  produto?: ProdutoValido;
+}
+
 export default function Home() {
   const [produtosValidos, setProdutosValidos] = useState<ProdutoValido[]>([]);
   const [scannedEans, setScannedEans] = useState<Set<string>>(new Set());
-  const [currentScan, setCurrentScan] = useState<{
-    ean: string;
-    validade: string;
-  } | null>(null);
+  const [currentScan, setCurrentScan] = useState<{ ean: string; validade: string } | null>(null);
   const [modoManual, setModoManual] = useState(false);
+  const [confirmacao, setConfirmacao] = useState<ConfirmacaoData | null>(null);
 
   useEffect(() => {
     fetch('/api/validar')
@@ -38,16 +42,18 @@ export default function Home() {
       if (res.ok) {
         setScannedEans((prev) => new Set(prev).add(ean));
         alert('✅ Registro salvo com sucesso!');
+        return true;
       } else {
         alert('❌ Erro ao salvar');
+        return false;
       }
     } catch (error) {
       alert('❌ Erro de conexão');
+      return false;
     }
   };
 
   const handleQRCode = (text: string) => {
-    // 1. Extrai os dados do texto bruto
     const dados = extrairDados(text);
     if (!dados) {
       alert(`❌ Formato inválido\n\nTexto recebido:\n${text}`);
@@ -56,43 +62,45 @@ export default function Home() {
 
     const { ean, validade } = dados;
 
-    // 2. Exibe os dados extraídos para confirmação
-    const confirmacao = confirm(
-      `📦 Dados extraídos:\n\n` +
-      `EAN: ${ean}\n` +
-      `Validade calculada: ${validade}\n\n` +
-      `Deseja prosseguir com o cadastro?`
-    );
-    if (!confirmacao) return;
-
-    // 3. Verifica se já foi processado
     if (scannedEans.has(ean)) {
       alert('⚠️ Este código já foi processado anteriormente.');
       return;
     }
 
-    // 4. Busca na base de produtos válidos
-    const encontrado = produtosValidos.find((p) => p.produtoEan === ean);
-    if (encontrado) {
-      salvarRegistro(
-        {
-          marcaId: encontrado.marcaId,
-          marcaDescr: encontrado.marcaDescr,
-          produtoClasse: encontrado.produtoClasse,
-          produtoEan: ean,
-          produtoDescr: encontrado.produtoDescr,
-          produtoValidade: validade,
-        },
-        ean
-      );
+    const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean);
+    setConfirmacao({ ean, validade, produto: produtoEncontrado });
+  };
+
+  const handleConfirmacaoSalvar = async () => {
+    if (!confirmacao) return;
+    const { ean, validade, produto } = confirmacao;
+
+    if (produto) {
+      const registro = {
+        marcaId: produto.marcaId,
+        marcaDescr: produto.marcaDescr,
+        produtoClasse: produto.produtoClasse,
+        produtoEan: ean,
+        produtoDescr: produto.produtoDescr,
+        produtoValidade: validade,
+      };
+      await salvarRegistro(registro, ean);
     } else {
-      // Produto não encontrado → entra no modo manual
       setCurrentScan({ ean, validade });
       setModoManual(true);
     }
+    setConfirmacao(null);
   };
 
-  const handleManualSubmit = (produto: ProdutoValido, validadeFinal: string) => {
+  const handleNovaLeitura = () => {
+    setConfirmacao(null);
+  };
+
+  const handleDescartar = () => {
+    setConfirmacao(null);
+  };
+
+  const handleManualSubmit = async (produto: ProdutoValido, validadeFinal: string) => {
     if (!currentScan) return;
     const registro = {
       marcaId: produto.marcaId,
@@ -102,7 +110,7 @@ export default function Home() {
       produtoDescr: produto.produtoDescr,
       produtoValidade: validadeFinal,
     };
-    salvarRegistro(registro, currentScan.ean);
+    await salvarRegistro(registro, currentScan.ean);
     setModoManual(false);
     setCurrentScan(null);
   };
@@ -113,12 +121,55 @@ export default function Home() {
 
       <Scanner onDetected={handleQRCode} />
 
+      {confirmacao && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+            <h2 className="text-xl font-bold mb-4">📋 Dados extraídos</h2>
+            <div className="mb-4 space-y-2">
+              <p><strong>EAN:</strong> {confirmacao.ean}</p>
+              <p><strong>Validade:</strong> {confirmacao.validade}</p>
+              {confirmacao.produto ? (
+                <>
+                  <p><strong>Marca:</strong> {confirmacao.produto.marcaDescr}</p>
+                  <p><strong>Produto:</strong> {confirmacao.produto.produtoDescr}</p>
+                  <p><strong>Classe:</strong> {confirmacao.produto.produtoClasse}</p>
+                </>
+              ) : (
+                <p className="text-red-600">
+                  <strong>⚠️ Produto não encontrado na base!</strong><br />
+                  Será necessário cadastro manual.
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={handleConfirmacaoSalvar}
+                className="bg-green-600 text-white py-2 rounded hover:bg-green-700"
+              >
+                {confirmacao.produto ? '✅ Salvar dados' : '📝 Ir para cadastro manual'}
+              </button>
+              <button
+                onClick={handleNovaLeitura}
+                className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              >
+                📷 Fazer mais leitura
+              </button>
+              <button
+                onClick={handleDescartar}
+                className="bg-gray-400 text-white py-2 rounded hover:bg-gray-500"
+              >
+                ❌ Descartar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {modoManual && currentScan && (
         <div className="mt-6 p-4 bg-white rounded shadow">
           <h2 className="text-xl font-semibold">Produto não encontrado na base</h2>
           <p><strong>EAN:</strong> {currentScan.ean}</p>
           <p><strong>Validade calculada:</strong> {currentScan.validade}</p>
-
           <AutocompleteManual
             produtosValidos={produtosValidos}
             onSelect={(produto, validadeFinal) => handleManualSubmit(produto, validadeFinal)}
