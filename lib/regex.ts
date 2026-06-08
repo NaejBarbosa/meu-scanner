@@ -1,84 +1,193 @@
-// lib/regex.ts
+// pages/index.tsx
+import { useState, useEffect } from 'react';
+import Scanner from '../components/Scanner';
+import AutocompleteManual from '../components/AutocompleteManual';
+import { extrairDados } from '../lib/regex';
 
-/**
- * Valida se uma data é real (considera anos bissextos)
- * @param year - ano (ex: 2026)
- * @param month - mês (1-12)
- * @param day - dia (1-31)
- */
-function isValidDate(year: number, month: number, day: number): boolean {
-  const date = new Date(year, month - 1, day);
-  return (
-    date.getFullYear() === year &&
-    date.getMonth() === month - 1 &&
-    date.getDate() === day
-  );
+interface ProdutoValido {
+  marcaId: string;
+  marcaDescr: string;
+  produtoClasse: string;
+  produtoEan: string;
+  produtoDescr: string;
 }
 
-/**
- * Formata uma data Date para dd/mm/aaaa
- */
-function formatToDDMMYYYY(date: Date): string {
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+interface ConfirmacaoData {
+  ean: string;
+  validade: string;
+  produto?: ProdutoValido;
 }
 
-/**
- * Extrai EAN e data de validade do texto bruto do Data Matrix
- * @param qrData - string no formato "315315;17896419732515;202603197004783;"
- * @returns objeto com ean (13 dígitos) e validade (dd/mm/aaaa) ou null
- */
-export function extrairDados(qrData: string) {
-  const clean = qrData.trim();
-  console.log('[extrairDados] Texto bruto:', clean);
+export default function Home() {
+  const [produtosValidos, setProdutosValidos] = useState<ProdutoValido[]>([]);
+  const [scannedEans, setScannedEans] = useState<Set<string>>(new Set());
+  const [currentScan, setCurrentScan] = useState<{ ean: string; validade: string } | null>(null);
+  const [modoManual, setModoManual] = useState(false);
+  const [confirmacao, setConfirmacao] = useState<ConfirmacaoData | null>(null);
 
-  // Regex: captura os 13 dígitos do EAN (após o "1") e os 8 dígitos da data de fabricação
-  const regex = /^\d+;1(\d{13});(\d{8})/;
-  const match = clean.match(regex);
+  useEffect(() => {
+    fetch('/api/validar')
+      .then((res) => res.json())
+      .then((data) => setProdutosValidos(data))
+      .catch((err) => console.error('Erro ao carregar base', err));
+  }, []);
 
-  if (!match || !match[1] || !match[2]) {
-    console.error('[extrairDados] Regex falhou. Texto:', clean);
-    return null;
-  }
-
-  const ean13 = match[1];           // ex: "7896419732515"
-  const dataFabStr = match[2];      // ex: "20260319"
-
-  // Converte string "YYYYMMDD" para números
-  const anoFab = parseInt(dataFabStr.substring(0, 4), 10);
-  const mesFab = parseInt(dataFabStr.substring(4, 6), 10);
-  const diaFab = parseInt(dataFabStr.substring(6, 8), 10);
-
-  // Valida a data de fabricação
-  if (!isValidDate(anoFab, mesFab, diaFab)) {
-    console.error('[extrairDados] Data de fabricação inválida:', dataFabStr);
-    return null;
-  }
-
-  // Cria objeto Date para a fabricação (atenção: mês zero-indexed)
-  const dataFabricacao = new Date(anoFab, mesFab - 1, diaFab);
-
-  // Calcula validade = fabricação + 365 dias
-  const dataValidade = new Date(dataFabricacao);
-  dataValidade.setDate(dataValidade.getDate() + 365);
-
-  // Valida se a data resultante é real (ex: 31/12/2024 + 365 dias = 31/12/2025)
-  const anoVal = dataValidade.getFullYear();
-  const mesVal = dataValidade.getMonth() + 1;
-  const diaVal = dataValidade.getDate();
-  if (!isValidDate(anoVal, mesVal, diaVal)) {
-    console.error('[extrairDados] Data de validade calculada inválida:', dataValidade);
-    return null;
-  }
-
-  const validadeFormatada = formatToDDMMYYYY(dataValidade);
-
-  console.log('[extrairDados] Sucesso -> EAN:', ean13, 'Validade:', validadeFormatada);
-
-  return {
-    ean: ean13,
-    validade: validadeFormatada,      // dd/mm/aaaa
+  const salvarRegistro = async (registro: any, ean: string) => {
+    try {
+      const res = await fetch('/api/cadastrar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(registro),
+      });
+      if (res.ok) {
+        setScannedEans((prev) => new Set(prev).add(ean));
+        alert('✅ Registro salvo com sucesso!');
+        return true;
+      } else {
+        alert('❌ Erro ao salvar');
+        return false;
+      }
+    } catch (error) {
+      alert('❌ Erro de conexão');
+      return false;
+    }
   };
+
+  const handleQRCode = (text: string) => {
+    const dados = extrairDados(text);
+    if (!dados) {
+      alert(`❌ Formato inválido\n\nTexto recebido:\n${text}`);
+      return;
+    }
+
+    const { ean, validade } = dados;
+
+    // Verifica se já foi processado
+    if (scannedEans.has(ean)) {
+      alert('⚠️ Este código já foi processado anteriormente.');
+      return;
+    }
+
+    // Busca produto na base
+    const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean);
+
+    // Exibe modal com os dados extraídos
+    setConfirmacao({
+      ean,
+      validade,
+      produto: produtoEncontrado,
+    });
+  };
+
+  const handleConfirmacaoSalvar = async () => {
+    if (!confirmacao) return;
+    const { ean, validade, produto } = confirmacao;
+
+    if (produto) {
+      const registro = {
+        marcaId: produto.marcaId,
+        marcaDescr: produto.marcaDescr,
+        produtoClasse: produto.produtoClasse,
+        produtoEan: ean,
+        produtoDescr: produto.produtoDescr,
+        produtoValidade: validade,
+      };
+      await salvarRegistro(registro, ean);
+    } else {
+      // Produto não encontrado: vai para cadastro manual
+      setCurrentScan({ ean, validade });
+      setModoManual(true);
+    }
+    setConfirmacao(null);
+  };
+
+  const handleNovaLeitura = () => {
+    setConfirmacao(null);
+  };
+
+  const handleDescartar = () => {
+    setConfirmacao(null);
+  };
+
+  const handleManualSubmit = async (produto: ProdutoValido, validadeFinal: string) => {
+    if (!currentScan) return;
+    const registro = {
+      marcaId: produto.marcaId,
+      marcaDescr: produto.marcaDescr,
+      produtoClasse: produto.produtoClasse,
+      produtoEan: currentScan.ean,
+      produtoDescr: produto.produtoDescr,
+      produtoValidade: validadeFinal,
+    };
+    await salvarRegistro(registro, currentScan.ean);
+    setModoManual(false);
+    setCurrentScan(null);
+  };
+
+  return (
+    <main className="min-h-screen p-4 bg-gray-100">
+      <h1 className="text-2xl font-bold mb-4">Scanner de Produtos</h1>
+
+      <Scanner onDetected={handleQRCode} />
+
+      {/* Modal de confirmação com dados extraídos */}
+      {confirmacao && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+            <h2 className="text-xl font-bold mb-4">📋 Dados extraídos</h2>
+            <div className="mb-4 space-y-2">
+              <p><strong>EAN:</strong> {confirmacao.ean}</p>
+              <p><strong>Validade:</strong> {confirmacao.validade}</p>
+              {confirmacao.produto ? (
+                <>
+                  <p><strong>Marca:</strong> {confirmacao.produto.marcaDescr}</p>
+                  <p><strong>Produto:</strong> {confirmacao.produto.produtoDescr}</p>
+                  <p><strong>Classe:</strong> {confirmacao.produto.produtoClasse}</p>
+                </>
+              ) : (
+                <p className="text-red-600">
+                  <strong>⚠️ Produto não encontrado na base!</strong><br />
+                  Será necessário cadastro manual.
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={handleConfirmacaoSalvar}
+                className="bg-green-600 text-white py-2 rounded hover:bg-green-700"
+              >
+                {confirmacao.produto ? '✅ Salvar dados' : '📝 Ir para cadastro manual'}
+              </button>
+              <button
+                onClick={handleNovaLeitura}
+                className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              >
+                📷 Fazer mais leitura
+              </button>
+              <button
+                onClick={handleDescartar}
+                className="bg-gray-400 text-white py-2 rounded hover:bg-gray-500"
+              >
+                ❌ Descartar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {modoManual && currentScan && (
+        <div className="mt-6 p-4 bg-white rounded shadow">
+          <h2 className="text-xl font-semibold">Produto não encontrado na base</h2>
+          <p><strong>EAN:</strong> {currentScan.ean}</p>
+          <p><strong>Validade calculada:</strong> {currentScan.validade}</p>
+
+          <AutocompleteManual
+            produtosValidos={produtosValidos}
+            onSelect={(produto, validadeFinal) => handleManualSubmit(produto, validadeFinal)}
+            validadeAtual={currentScan.validade}
+          />
+        </div>
+      )}
+    </main>
+  );
 }
