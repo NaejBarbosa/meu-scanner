@@ -22,12 +22,13 @@ interface ItemRegistrado {
   produtoClasse: string;
   produtoDescr: string;
   dataRegistro: Date;
+  // Novo campo para controle de envio (opcional)
 }
 
 function HomeContent() {
   const { theme, toggleTheme } = useTheme();
   const [produtosValidos, setProdutosValidos] = useState<ProdutoValido[]>([]);
-  const [scannedEans, setScannedEans] = useState<Set<string>>(new Set());
+  const [scannedEans, setScannedEans] = useState<Set<string>>(new Set()); // Apenas para evitar duplicados na mesma sessão
   const [currentScan, setCurrentScan] = useState<{ ean: string; validade: string } | null>(null);
   const [modoManual, setModoManual] = useState(false);
   const [confirmacao, setConfirmacao] = useState<{
@@ -44,29 +45,10 @@ function HomeContent() {
       .catch((err) => console.error('Erro ao carregar base', err));
   }, []);
 
-  const salvarRegistro = async (registro: any, ean: string): Promise<boolean> => {
-    try {
-      const res = await fetch('/api/cadastrar', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(registro),
-      });
-      if (res.ok) {
-        setScannedEans((prev) => new Set(prev).add(ean));
-        return true;
-      } else {
-        alert('❌ Erro ao salvar no banco_cadastro');
-        return false;
-      }
-    } catch (error) {
-      alert('❌ Erro de conexão');
-      return false;
-    }
-  };
-
-  const adicionarItemRegistrado = (produto: ProdutoValido, ean: string, validade: string) => {
+  // Função para adicionar item à lista local (sem gravar no banco ainda)
+  const adicionarItemNaLista = (produto: ProdutoValido, ean: string, validade: string) => {
     const novoItem: ItemRegistrado = {
-      id: `${Date.now()}-${ean}`,
+      id: `${Date.now()}-${ean}-${Math.random()}`,
       ean,
       validade,
       marcaId: produto.marcaId,
@@ -76,6 +58,54 @@ function HomeContent() {
       dataRegistro: new Date(),
     };
     setItensRegistrados((prev) => [...prev, novoItem]);
+    setScannedEans((prev) => new Set(prev).add(ean));
+  };
+
+  // Função para gravar TODOS os itens da lista no Google Sheets
+  const gravarTodosNoBanco = async () => {
+    if (itensRegistrados.length === 0) {
+      alert('Nenhum item na lista para gravar.');
+      return;
+    }
+
+    let sucesso = true;
+    for (const item of itensRegistrados) {
+      const registro = {
+        marcaId: item.marcaId,
+        marcaDescr: item.marcaDescr,
+        produtoClasse: item.produtoClasse,
+        produtoEan: item.ean,
+        produtoDescr: item.produtoDescr,
+        produtoValidade: item.validade,
+      };
+      try {
+        const res = await fetch('/api/cadastrar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(registro),
+        });
+        if (!res.ok) {
+          sucesso = false;
+          console.error(`Erro ao gravar EAN ${item.ean}`);
+        }
+      } catch (error) {
+        sucesso = false;
+        console.error(error);
+      }
+    }
+
+    if (sucesso) {
+      alert(`✅ ${itensRegistrados.length} produto(s) gravado(s) com sucesso no banco_cadastro!`);
+      setItensRegistrados([]); // Limpa a lista após gravar
+      setScannedEans(new Set()); // Limpa o controle de duplicados
+    } else {
+      alert('❌ Houve erro ao gravar um ou mais produtos. Verifique o console.');
+    }
+  };
+
+  // Remover item individualmente da lista local
+  const removerItemDaLista = (id: string) => {
+    setItensRegistrados((prev) => prev.filter((item) => item.id !== id));
   };
 
   const handleQRCode = (text: string) => {
@@ -86,36 +116,27 @@ function HomeContent() {
     }
     const { ean, validade } = dados;
     if (scannedEans.has(ean)) {
-      alert('⚠️ Este código já foi processado.');
+      alert('⚠️ Este código já foi adicionado à lista nesta sessão.');
       return;
     }
     const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean);
     setConfirmacao({ ean, validade, produto: produtoEncontrado });
   };
 
-  const handleGravar = async () => {
+  // Ação do botão "+ Adicionar à lista"
+  const handleAdicionarLista = () => {
     if (!confirmacao) return;
     const { ean, validade, produto } = confirmacao;
     if (!produto) {
+      // Se não encontrou na base, abre o cadastro manual
       setCurrentScan({ ean, validade });
       setModoManual(true);
       setConfirmacao(null);
       return;
     }
-    const registro = {
-      marcaId: produto.marcaId,
-      marcaDescr: produto.marcaDescr,
-      produtoClasse: produto.produtoClasse,
-      produtoEan: ean,
-      produtoDescr: produto.produtoDescr,
-      produtoValidade: validade,
-    };
-    const sucesso = await salvarRegistro(registro, ean);
-    if (sucesso) {
-      adicionarItemRegistrado(produto, ean, validade);
-      alert('✅ Produto registrado com sucesso!');
-      setConfirmacao(null);
-    }
+    adicionarItemNaLista(produto, ean, validade);
+    alert('✅ Produto adicionado à lista!');
+    setConfirmacao(null);
   };
 
   const handleNovaLeitura = () => {
@@ -126,21 +147,11 @@ function HomeContent() {
     setConfirmacao(null);
   };
 
+  // Submissão do cadastro manual (quando produto não está na base)
   const handleManualSubmit = async (produto: ProdutoValido, validadeFinal: string) => {
     if (!currentScan) return;
-    const registro = {
-      marcaId: produto.marcaId,
-      marcaDescr: produto.marcaDescr,
-      produtoClasse: produto.produtoClasse,
-      produtoEan: currentScan.ean,
-      produtoDescr: produto.produtoDescr,
-      produtoValidade: validadeFinal,
-    };
-    const sucesso = await salvarRegistro(registro, currentScan.ean);
-    if (sucesso) {
-      adicionarItemRegistrado(produto, currentScan.ean, validadeFinal);
-      alert('✅ Produto manual registrado!');
-    }
+    adicionarItemNaLista(produto, currentScan.ean, validadeFinal);
+    alert('✅ Produto manual adicionado à lista!');
     setModoManual(false);
     setCurrentScan(null);
   };
@@ -178,7 +189,7 @@ function HomeContent() {
           <Scanner onDetected={handleQRCode} />
         </div>
 
-        {/* Modal de confirmação - modernizado */}
+        {/* Modal de confirmação - com botão "+ Adicionar à lista" */}
         {confirmacao && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fadeIn">
             <div className={`rounded-2xl shadow-2xl max-w-md w-full p-6 transform transition-all duration-300 scale-100 ${
@@ -208,8 +219,8 @@ function HomeContent() {
                 )}
               </div>
               <div className="flex flex-col gap-3">
-                <button onClick={handleGravar} className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 rounded-xl transition-all duration-200 transform hover:scale-[1.02] shadow-lg">
-                  💾 Gravar no banco_cadastro
+                <button onClick={handleAdicionarLista} className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 rounded-xl transition-all duration-200 transform hover:scale-[1.02] shadow-lg">
+                  + Adicionar à lista
                 </button>
                 <button onClick={handleNovaLeitura} className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-3 rounded-xl transition-all duration-200">
                   📷 Nova leitura
@@ -248,14 +259,22 @@ function HomeContent() {
           </div>
         )}
 
-        {/* Tabela de registros com design clean */}
+        {/* Lista de produtos adicionados (pendentes de gravação) */}
         {itensRegistrados.length > 0 && (
           <div className={`mt-10 rounded-2xl shadow-xl p-4 border ${
             theme === 'dark' ? 'bg-gray-800/50 border-gray-700' : 'bg-white/80 border-gray-200'
           } backdrop-blur-sm transition-all duration-300`}>
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-              <span className="text-blue-400">📋</span> Produtos registrados nesta sessão
-            </h2>
+            <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
+              <h2 className="text-xl font-bold flex items-center gap-2">
+                <span className="text-blue-400">📋</span> Produtos adicionados (pendentes)
+              </h2>
+              <button
+                onClick={gravarTodosNoBanco}
+                className="px-5 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-md flex items-center gap-2"
+              >
+                💾 Gravar todos no banco
+              </button>
+            </div>
             <div className="overflow-x-auto">
               <table className="min-w-full text-sm">
                 <thead className={theme === 'dark' ? 'bg-gray-700/50' : 'bg-gray-100/80'}>
@@ -264,7 +283,7 @@ function HomeContent() {
                     <th className="px-4 py-2 text-left">Marca</th>
                     <th className="px-4 py-2 text-left">Produto</th>
                     <th className="px-4 py-2 text-left">Validade</th>
-                    <th className="px-4 py-2 text-left rounded-r-xl">Data/Hora</th>
+                    <th className="px-4 py-2 text-left rounded-r-xl">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -274,13 +293,22 @@ function HomeContent() {
                       <td className="px-4 py-2">{item.marcaDescr}</td>
                       <td className="px-4 py-2">{item.produtoDescr}</td>
                       <td className="px-4 py-2 font-medium">{item.validade}</td>
-                      <td className="px-4 py-2 text-xs opacity-80">{new Date(item.dataRegistro).toLocaleString()}</td>
+                      <td className="px-4 py-2">
+                        <button
+                          onClick={() => removerItemDaLista(item.id)}
+                          className="text-red-500 hover:text-red-400 transition-colors text-sm flex items-center gap-1"
+                        >
+                          🗑️ Remover
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="text-xs mt-4 opacity-60 text-center">* Registros salvos permanentemente no banco_cadastro</p>
+            <p className="text-xs mt-4 opacity-60 text-center">
+              * Itens apenas na lista local. Clique em "Gravar todos no banco" para salvar permanentemente.
+            </p>
           </div>
         )}
       </div>
@@ -295,7 +323,3 @@ export default function Home() {
     </ThemeProvider>
   );
 }
-
-/* Adicione no seu globals.css se quiser a animação fadeIn */
-/* @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-   .animate-fadeIn { animation: fadeIn 0.2s ease-out; } */
