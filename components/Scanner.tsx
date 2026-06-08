@@ -1,4 +1,4 @@
-// components/Scanner.tsx
+// components/Scanner.tsx (sem alertas de depuração)
 import { useRef, useState, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
@@ -13,7 +13,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
   const [debugMessage, setDebugMessage] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const readerRef = useRef<BrowserMultiFormatReader | null>(null);
-
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
   const [showCrop, setShowCrop] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -46,7 +45,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
         if (result && !processing) {
           const text = result.getText();
           if (text) {
-            alert(`[Scanner] Texto bruto capturado pela câmera: ${text}`);
             stopScanning();
             onDetected(text);
           }
@@ -66,10 +64,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     try {
       const detector = new (window as any).BarcodeDetector({ formats: ['qr_code', 'data_matrix', 'aztec', 'pdf417'] });
       const barcodes = await detector.detect(imageBitmap);
-      if (barcodes.length > 0 && barcodes[0].rawValue) {
-        return barcodes[0].rawValue;
-      }
-      return null;
+      return barcodes[0]?.rawValue || null;
     } catch {
       return null;
     }
@@ -93,7 +88,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
       return;
     }
     setProcessing(true);
-    setDebugMessage("🔍 Lendo região central...");
     try {
       const container = containerRef.current;
       const img = imageElementRef.current;
@@ -154,12 +148,10 @@ export default function Scanner({ onDetected }: ScannerProps) {
       }
 
       if (decoded) {
-        alert(`[Scanner] Texto bruto da região central: ${decoded}`);
-        setDebugMessage(`✅ Texto: ${decoded.substring(0, 40)}...`);
         onDetected(decoded);
         fecharPreview();
       } else {
-        setDebugMessage("❌ Nenhum código detectado. Aumente o zoom e centralize bem o código.");
+        setDebugMessage("❌ Nenhum código detectado.");
       }
     } catch (err: any) {
       setDebugMessage(`💥 Erro: ${err.message || err}`);
@@ -181,7 +173,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
     if (!file) return;
 
     setProcessing(true);
-    setDebugMessage("📤 Carregando...");
     const imageUrl = URL.createObjectURL(file);
     setImagePreviewUrl(imageUrl);
 
@@ -213,10 +204,8 @@ export default function Scanner({ onDetected }: ScannerProps) {
     }
 
     if (decoded) {
-      alert(`[Scanner] Texto bruto da imagem: ${decoded}`);
       URL.revokeObjectURL(imageUrl);
       setProcessing(false);
-      setDebugMessage(null);
       onDetected(decoded);
       if (fileInputRef.current) fileInputRef.current.value = '';
       return;
@@ -235,100 +224,39 @@ export default function Scanner({ onDetected }: ScannerProps) {
   return (
     <div className="flex flex-col items-center gap-3">
       {debugMessage && (
-        <div className="fixed bottom-4 left-4 right-4 bg-black bg-opacity-90 text-white p-3 rounded-lg z-50 text-center text-sm shadow-lg border border-yellow-500">
+        <div className="fixed bottom-4 left-4 right-4 bg-black text-white p-3 rounded-lg z-50 text-center text-sm">
           {debugMessage}
         </div>
       )}
-
       {showCrop && imagePreviewUrl && (
         <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col items-center justify-center p-4">
-          <h3 className="text-white text-lg mb-2 text-center">
-            Posicione o código <strong className="text-green-400">dentro do quadrado verde</strong>
-          </h3>
-          <div
-            ref={containerRef}
-            className="relative w-full max-w-lg h-[60vh] bg-black rounded-lg overflow-hidden"
-            style={{ touchAction: 'none' }}
-          >
-            <TransformWrapper
-              ref={transformWrapperRef}
-              initialScale={1}
-              minScale={0.5}
-              maxScale={5}
-              centerOnInit={true}
-              limitToBounds={true}
-              panning={{ velocityDisabled: true }}
-              pinch={{ step: 5 }}
-            >
-              <TransformComponent
-                wrapperStyle={{ width: '100%', height: '100%' }}
-                contentStyle={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              >
-                <img
-                  ref={imageElementRef}
-                  src={imagePreviewUrl}
-                  alt="Preview"
-                  style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-                  draggable={false}
-                  crossOrigin="anonymous"
-                />
+          <h3 className="text-white text-lg mb-2">Posicione o código no quadrado verde</h3>
+          <div ref={containerRef} className="relative w-full max-w-lg h-[60vh] bg-black rounded-lg overflow-hidden">
+            <TransformWrapper ref={transformWrapperRef} initialScale={1} minScale={0.5} maxScale={5} centerOnInit={true} limitToBounds={true}>
+              <TransformComponent>
+                <img ref={imageElementRef} src={imagePreviewUrl} alt="Preview" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
               </TransformComponent>
             </TransformWrapper>
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-              <div
-                className="border-4 border-green-500"
-                style={{
-                  width: '60%',
-                  height: '60%',
-                  boxShadow: '0 0 0 9999px rgba(0,0,0,0.75)',
-                }}
-              />
+              <div className="border-4 border-green-500" style={{ width: '60%', height: '60%', boxShadow: '0 0 0 9999px rgba(0,0,0,0.75)' }} />
             </div>
           </div>
           <div className="flex gap-2 mt-4">
-            <button
-              onClick={detectCentralRegion}
-              disabled={processing}
-              className="px-4 py-2 bg-green-600 text-white rounded disabled:opacity-50"
-            >
+            <button onClick={detectCentralRegion} disabled={processing} className="px-4 py-2 bg-green-600 text-white rounded">
               {processing ? 'Lendo...' : '🔍 DETECTAR'}
             </button>
-            <button
-              onClick={fecharPreview}
-              className="px-4 py-2 bg-red-600 text-white rounded"
-            >
-              Cancelar
-            </button>
+            <button onClick={fecharPreview} className="px-4 py-2 bg-red-600 text-white rounded">Cancelar</button>
           </div>
-          <p className="text-gray-300 text-sm mt-2">
-            🖱️ 1 dedo: arrastar • ✌️ 2 dedos: zoom
-          </p>
         </div>
       )}
-
-      <video
-        ref={videoRef}
-        className="w-full max-w-sm rounded border bg-black"
-        style={{ aspectRatio: '4/3' }}
-        playsInline
-        autoPlay
-      />
-
+      <video ref={videoRef} className="w-full max-w-sm rounded border bg-black" style={{ aspectRatio: '4/3' }} playsInline autoPlay />
       <div className="flex gap-2">
         {!scanning ? (
-          <button onClick={startScanning} className="px-4 py-2 bg-green-600 text-white rounded" disabled={processing}>
-            Iniciar Scanner
-          </button>
+          <button onClick={startScanning} className="px-4 py-2 bg-green-600 text-white rounded" disabled={processing}>Iniciar Scanner</button>
         ) : (
-          <button onClick={stopScanning} className="px-4 py-2 bg-red-600 text-white rounded" disabled={processing}>
-            Parar Scanner
-          </button>
+          <button onClick={stopScanning} className="px-4 py-2 bg-red-600 text-white rounded" disabled={processing}>Parar Scanner</button>
         )}
-        <button
-          onClick={() => fileInputRef.current?.click()}
-          className="px-4 py-2 bg-blue-600 text-white rounded"
-          disabled={processing || scanning}
-        >
+        <button onClick={() => fileInputRef.current?.click()} className="px-4 py-2 bg-blue-600 text-white rounded" disabled={processing || scanning}>
           {processing ? 'Aguarde...' : '📁 Ler da Galeria'}
         </button>
         <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
