@@ -1,4 +1,3 @@
-// components/Scanner.tsx
 import { useRef, useState, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
@@ -54,7 +53,8 @@ export default function Scanner({ onDetected }: ScannerProps) {
       });
       setScanning(true);
     } catch (err: any) {
-      alert('Erro ao acessar câmera: ' + (err.message || 'verifique permissões'));
+      setDebugMessage('Erro ao acessar camera: ' + (err.message || 'verifique permissoes'));
+      setTimeout(() => setDebugMessage(null), 5000);
       stopScanning();
     } finally {
       setProcessing(false);
@@ -86,7 +86,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
 
   const detectCentralRegion = async () => {
     if (!containerRef.current || !imageElementRef.current) {
-      setDebugMessage("❌ Elementos não carregados");
+      setDebugMessage("Elementos nao carregados");
       return;
     }
     setProcessing(true);
@@ -114,7 +114,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
       const containerRect = container.getBoundingClientRect();
       const cw = containerRect.width, ch = containerRect.height;
       const imgW = img.naturalWidth, imgH = img.naturalHeight;
-      if (imgW === 0 || imgH === 0) throw new Error('Imagem não carregada');
+      if (imgW === 0 || imgH === 0) throw new Error('Imagem nao carregada');
 
       const dispW = imgW * scale, dispH = imgH * scale;
       const left = translateX + (cw - dispW)/2;
@@ -130,7 +130,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
       const relH = boxSize / scale;
 
       if (relX < 0 || relY < 0 || relX+relW > imgW || relY+relH > imgH) {
-        setDebugMessage("⚠️ Área verde fora da imagem. Centralize e ajuste o zoom.");
+        setDebugMessage("Area verde fora da imagem. Centralize e ajuste o zoom.");
         setProcessing(false);
         return;
       }
@@ -153,10 +153,10 @@ export default function Scanner({ onDetected }: ScannerProps) {
         onDetected(decoded);
         fecharPreview();
       } else {
-        setDebugMessage("❌ Nenhum código detectado.");
+        setDebugMessage("Nenhum codigo detectado.");
       }
     } catch (err: any) {
-      setDebugMessage(`💥 Erro: ${err.message || err}`);
+      setDebugMessage(`Erro: ${err.message || err}`);
     } finally {
       setProcessing(false);
       setTimeout(() => setDebugMessage(null), 5000);
@@ -214,54 +214,133 @@ export default function Scanner({ onDetected }: ScannerProps) {
     setTimeout(() => {
       if (imageElementRef.current) {
         imageElementRef.current.src = imageUrl;
-        setDebugMessage("🔎 Ajuste o código no quadrado verde e clique em DETECTAR");
+        setDebugMessage("Ajuste o codigo no quadrado verde e clique em DETECTAR");
       }
     }, 50);
   };
 
   return (
     <div className="p-5">
+      {/* Debug Message */}
       {debugMessage && (
-        <div className="fixed bottom-6 left-6 right-6 bg-black/80 backdrop-blur-sm text-white p-3 rounded-xl z-50 text-center text-sm font-medium shadow-xl">
-          {debugMessage}
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
+          <div className="px-5 py-3 bg-slate-900/95 dark:bg-slate-950 text-white rounded-xl shadow-elevated backdrop-blur-sm text-sm font-medium max-w-md text-center">
+            {debugMessage}
+          </div>
         </div>
       )}
+
+      {/* Crop Modal */}
       {showCrop && imagePreviewUrl && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex flex-col items-center justify-center p-4">
-          <h3 className="text-white text-xl mb-4 font-semibold">Posicione o código no quadrado verde</h3>
-          <div ref={containerRef} className="relative w-full max-w-lg h-[60vh] bg-black/50 rounded-2xl overflow-hidden border-2 border-white/20">
+        <div className="fixed inset-0 bg-slate-900/95 dark:bg-slate-950/98 z-50 flex flex-col items-center justify-center p-4 animate-fade-in">
+          <div className="max-w-lg w-full text-center mb-6">
+            <h3 className="text-white text-xl font-semibold mb-2">Ajuste o Codigo</h3>
+            <p className="text-slate-400 text-sm">Posicione o codigo Data Matrix dentro da area verde</p>
+          </div>
+
+          <div ref={containerRef} className="relative w-full max-w-lg h-[50vh] bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-elevated">
             <TransformWrapper ref={transformWrapperRef} initialScale={1} minScale={0.5} maxScale={5} centerOnInit={true} limitToBounds={true}>
               <TransformComponent>
-                <img ref={imageElementRef} src={imagePreviewUrl} alt="Preview" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                <img ref={imageElementRef} src={imagePreviewUrl} alt="Preview" className="max-w-full max-h-full object-contain" />
               </TransformComponent>
             </TransformWrapper>
+
+            {/* Crop Overlay */}
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-              <div className="border-4 border-green-500 rounded-xl" style={{ width: '60%', height: '60%', boxShadow: '0 0 0 9999px rgba(0,0,0,0.75)' }} />
+              <div className="relative">
+                <div
+                  className="border-4 border-success-500 rounded-2xl shadow-[0_0_0_9999px_rgba(0,0,0,0.7)]"
+                  style={{ width: '60vw', maxWidth: '300px', height: '60vw', maxHeight: '300px' }}
+                />
+                <div className="absolute -top-1 -left-1 w-4 h-4 border-t-4 border-l-4 border-success-400 rounded-tl-lg" />
+                <div className="absolute -top-1 -right-1 w-4 h-4 border-t-4 border-r-4 border-success-400 rounded-tr-lg" />
+                <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-4 border-l-4 border-success-400 rounded-bl-lg" />
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-4 border-r-4 border-success-400 rounded-br-lg" />
+              </div>
             </div>
           </div>
-          <div className="flex gap-4 mt-6">
-            <button onClick={detectCentralRegion} disabled={processing} className="px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-xl transition-all transform hover:scale-105 shadow-lg">
-              🔍 DETECTAR
+
+          <div className="flex gap-3 mt-6">
+            <button onClick={detectCentralRegion} disabled={processing} className="btn-success">
+              {processing ? (
+                <>
+                  <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Processando...
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  Detectar
+                </>
+              )}
             </button>
-            <button onClick={fecharPreview} className="px-6 py-2 bg-red-500/80 hover:bg-red-600/80 text-white font-semibold rounded-xl transition-all">
+            <button onClick={fecharPreview} className="btn-danger">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
               Cancelar
             </button>
           </div>
         </div>
       )}
-      <video ref={videoRef} className="w-full rounded-xl border-2 border-gray-600 shadow-inner" style={{ aspectRatio: '4/3' }} playsInline autoPlay />
-      <div className="flex flex-wrap gap-4 mt-6 justify-center">
+
+      {/* Video Preview */}
+      <div className="relative bg-slate-900 rounded-xl overflow-hidden shadow-inner">
+        <video
+          ref={videoRef}
+          className="w-full rounded-xl bg-slate-800"
+          style={{ aspectRatio: '4/3' }}
+          playsInline
+          autoPlay
+        />
+
+        {/* Scanning Overlay */}
+        {scanning && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="relative">
+              <div className="w-48 h-48 border-2 border-success-400 rounded-2xl animate-pulse-subtle" />
+              <div className="absolute -top-0.5 -left-0.5 w-6 h-6 border-t-4 border-l-4 border-success-300 rounded-tl-lg" />
+              <div className="absolute -top-0.5 -right-0.5 w-6 h-6 border-t-4 border-r-4 border-success-300 rounded-tr-lg" />
+              <div className="absolute -bottom-0.5 -left-0.5 w-6 h-6 border-b-4 border-l-4 border-success-300 rounded-bl-lg" />
+              <div className="absolute -bottom-0.5 -right-0.5 w-6 h-6 border-b-4 border-r-4 border-success-300 rounded-br-lg" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Controls */}
+      <div className="flex flex-wrap gap-3 mt-5 justify-center">
         {!scanning ? (
-          <button onClick={startScanning} className="px-6 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl transition-all duration-200 font-medium shadow-md flex items-center gap-2" disabled={processing}>
-            ▶ Iniciar Scanner
+          <button onClick={startScanning} className="btn-success" disabled={processing}>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Iniciar Scanner
           </button>
         ) : (
-          <button onClick={stopScanning} className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white rounded-xl transition-all duration-200 font-medium shadow-md flex items-center gap-2" disabled={processing}>
-            ⏹ Parar Scanner
+          <button onClick={stopScanning} className="btn-danger" disabled={processing}>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+            </svg>
+            Parar Scanner
           </button>
         )}
-        <button onClick={() => fileInputRef.current?.click()} className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl transition-all duration-200 font-medium shadow-md flex items-center gap-2" disabled={processing || scanning}>
-          📁 Ler da Galeria
+        <button
+          onClick={() => fileInputRef.current?.click()}
+          className="btn-primary"
+          disabled={processing || scanning}
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l2.586-2.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Ler da Galeria
         </button>
         <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
       </div>
