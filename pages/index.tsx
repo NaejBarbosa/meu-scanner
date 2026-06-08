@@ -261,12 +261,14 @@ function HomeContent() {
           </div>
         )}
 
-        {/* Lista de produtos pendentes - COM LARGURAS EXPLÍCITAS */}
+        {/* Lista de produtos pendentes - VERSÃO REFORÇADA */}
         {itensRegistrados.length > 0 && (
           <div className={`mt-10 rounded-2xl shadow-xl overflow-hidden border ${
             theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'
           } transition-all duration-300`}>
-            <div className="p-4 border-b border-gray-700/20 flex justify-between items-center flex-wrap gap-2">
+            <div className={`p-4 border-b flex justify-between items-center flex-wrap gap-2 ${
+              theme === 'dark' ? 'border-gray-800' : 'border-gray-200'
+            }`}>
               <h2 className={`text-xl font-bold flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
                 <span className="text-blue-500">📋</span> Produtos adicionados (pendentes)
               </h2>
@@ -279,24 +281,24 @@ function HomeContent() {
               </button>
             </div>
             <div className="overflow-x-auto">
-              <table className="min-w-full text-sm table-auto">
-                <thead className={theme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-50'}>
+              <table className="min-w-[800px] md:min-w-full w-full text-sm">
+                <thead className={theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-100'}>
                   <tr>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/6`}>EAN</th>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/5`}>Marca</th>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/3`}>Produto</th>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/6`}>Validade</th>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/6`}>Ações</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>EAN</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Marca</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Produto</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Validade</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   {itensRegistrados.map((item) => (
-                    <tr key={item.id} className={`border-t ${theme === 'dark' ? 'border-gray-800 hover:bg-gray-800/30' : 'border-gray-100 hover:bg-gray-50'} transition-colors`}>
-                      <td className="px-4 py-2 font-mono text-xs break-all">{item.ean}</td>
-                      <td className="px-4 py-2 break-words">{item.marcaDescr}</td>
-                      <td className="px-4 py-2 break-words">{item.produtoDescr}</td>
-                      <td className="px-4 py-2 font-medium whitespace-nowrap">{item.validade}</td>
-                      <td className="px-4 py-2">
+                    <tr key={item.id} className={`border-t ${theme === 'dark' ? 'border-gray-800 hover:bg-gray-800/40' : 'border-gray-200 hover:bg-gray-50'} transition-colors`}>
+                      <td className="px-4 py-3 font-mono text-xs break-all max-w-[150px]">{item.ean}</td>
+                      <td className="px-4 py-3 break-words max-w-[200px]">{item.marcaDescr}</td>
+                      <td className="px-4 py-3 break-words max-w-[250px]">{item.produtoDescr}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">{item.validade}</td>
+                      <td className="px-4 py-3">
                         <button
                           onClick={() => removerItemDaLista(item.id)}
                           className="text-red-500 hover:text-red-400 transition-colors text-sm flex items-center gap-1"
@@ -309,7 +311,7 @@ function HomeContent() {
                 </tbody>
               </table>
             </div>
-            <div className={`p-3 text-center text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} border-t border-gray-700/20`}>
+            <div className={`p-3 text-center text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} border-t ${theme === 'dark' ? 'border-gray-800' : 'border-gray-200'}`}>
               * Itens apenas na lista local. Clique em "Gravar todos" para salvar permanentemente.
             </div>
           </div>
