@@ -1,4 +1,4 @@
-// components/Scanner.tsx - Versão otimizada e focada em Data Matrix
+// components/Scanner.tsx
 import { useRef, useState, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
@@ -27,7 +27,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
     };
   }, []);
 
-  // ========== CÂMERA ==========
   const stopScanning = async () => {
     if (readerRef.current) {
       readerRef.current.reset();
@@ -61,7 +60,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
     }
   };
 
-  // ========== DETECÇÃO DIRETA (sem pré-processamento pesado) ==========
   const detectWithNative = async (imageBitmap: ImageBitmap): Promise<string | null> => {
     if (!('BarcodeDetector' in window)) return null;
     try {
@@ -71,8 +69,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
         return barcodes[0].rawValue;
       }
       return null;
-    } catch (err) {
-      console.warn("BarcodeDetector error", err);
+    } catch {
       return null;
     }
   };
@@ -82,14 +79,13 @@ export default function Scanner({ onDetected }: ScannerProps) {
     try {
       const result = await reader.decodeFromImageUrl(imageUrl);
       return result ? result.getText() : null;
-    } catch (err) {
+    } catch {
       return null;
     } finally {
       reader.reset();
     }
   };
 
-  // ========== EXTRAÇÃO DA REGIÃO CENTRAL (sem processamento adicional) ==========
   const detectCentralRegion = async () => {
     if (!containerRef.current || !imageElementRef.current) {
       setDebugMessage("❌ Elementos não carregados");
@@ -102,7 +98,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
       const img = imageElementRef.current;
       const wrapper = transformWrapperRef.current;
 
-      // Obtém transformação
       const transformStyle = window.getComputedStyle(img).transform;
       let scale = 1, translateX = 0, translateY = 0;
       if (transformStyle && transformStyle !== 'none') {
@@ -143,32 +138,28 @@ export default function Scanner({ onDetected }: ScannerProps) {
         return;
       }
 
-      // Cria canvas com a região recortada (em tamanho original da região)
       const canvas = document.createElement('canvas');
-      canvas.width = Math.max(200, Math.min(boxSize, 800)); // limita para não ficar enorme
-      canvas.height = Math.max(200, Math.min(boxSize, 800));
+      canvas.width = Math.min(boxSize, 600);
+      canvas.height = Math.min(boxSize, 600);
       const ctx = canvas.getContext('2d');
       if (!ctx) throw new Error();
-      
-      // Desenha a região já redimensionada para um tamanho razoável (ajuda na performance)
       ctx.drawImage(img, relX, relY, relW, relH, 0, 0, canvas.width, canvas.height);
-      
-      // Tenta detectar com API nativa
+
       const bitmap = await createImageBitmap(canvas);
       let decoded = await detectWithNative(bitmap);
-      
-      // Fallback para ZXing
       if (!decoded) {
         const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
         decoded = await detectWithZXing(dataUrl);
       }
 
       if (decoded) {
-        setDebugMessage(`✅ Código lido: ${decoded.substring(0, 30)}...`);
+        // EXIBE ALERTA COM O TEXTO BRUTO PARA DIAGNÓSTICO
+        alert(`✅ Código detectado!\n\nTexto bruto:\n${decoded}`);
+        setDebugMessage(`✅ Texto: ${decoded.substring(0, 40)}...`);
         onDetected(decoded);
         fecharPreview();
       } else {
-        setDebugMessage("❌ Nenhum código detectado. Aumente o zoom e centralize bem o código no quadrado verde.");
+        setDebugMessage("❌ Nenhum código detectado. Aumente o zoom e centralize bem o código.");
       }
     } catch (err: any) {
       setDebugMessage(`💥 Erro: ${err.message || err}`);
@@ -185,7 +176,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
-  // ========== UPLOAD DA IMAGEM (detecção automática simples) ==========
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -195,19 +185,17 @@ export default function Scanner({ onDetected }: ScannerProps) {
     const imageUrl = URL.createObjectURL(file);
     setImagePreviewUrl(imageUrl);
 
-    // Tenta detectar automaticamente na imagem inteira (apenas uma tentativa rápida)
     let decoded: string | null = null;
     try {
       const img = new Image();
       img.src = imageUrl;
       await new Promise((resolve, reject) => { img.onload = resolve; img.onerror = reject; });
-      // Reduz a imagem para no máximo 1000px para acelerar
       const maxDim = 1000;
       let width = img.width, height = img.height;
       if (width > maxDim || height > maxDim) {
-        const scale = maxDim / Math.max(width, height);
-        width = Math.floor(width * scale);
-        height = Math.floor(height * scale);
+        const scaleFactor = maxDim / Math.max(width, height);
+        width = Math.floor(width * scaleFactor);
+        height = Math.floor(height * scaleFactor);
       }
       const canvas = document.createElement('canvas');
       canvas.width = width;
@@ -225,6 +213,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     }
 
     if (decoded) {
+      alert(`✅ Detecção automática!\n\nTexto bruto:\n${decoded}`);
       URL.revokeObjectURL(imageUrl);
       setProcessing(false);
       setDebugMessage(null);
@@ -233,7 +222,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
       return;
     }
 
-    // Se falhou, abre modo manual
     setProcessing(false);
     setShowCrop(true);
     setTimeout(() => {
@@ -244,7 +232,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
     }, 50);
   };
 
-  // ========== RENDER ==========
   return (
     <div className="flex flex-col items-center gap-3">
       {debugMessage && (
