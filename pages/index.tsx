@@ -21,7 +21,6 @@ export default function Home() {
   } | null>(null);
   const [modoManual, setModoManual] = useState(false);
 
-  // Carrega banco_valida
   useEffect(() => {
     fetch('/api/validar')
       .then((res) => res.json())
@@ -38,32 +37,43 @@ export default function Home() {
       });
       if (res.ok) {
         setScannedEans((prev) => new Set(prev).add(ean));
-        alert('Registro salvo com sucesso!');
+        alert('✅ Registro salvo com sucesso!');
       } else {
-        alert('Erro ao salvar');
+        alert('❌ Erro ao salvar');
       }
     } catch (error) {
-      alert('Erro de conexão ao salvar');
+      alert('❌ Erro de conexão');
     }
   };
 
   const handleQRCode = (text: string) => {
+    // 1. Extrai os dados do texto bruto
     const dados = extrairDados(text);
     if (!dados) {
-      alert('QR Code não reconhecido (formato inválido)');
+      alert(`❌ Formato inválido\n\nTexto recebido:\n${text}`);
       return;
     }
 
     const { ean, validade } = dados;
 
+    // 2. Exibe os dados extraídos para confirmação
+    const confirmacao = confirm(
+      `📦 Dados extraídos:\n\n` +
+      `EAN: ${ean}\n` +
+      `Validade calculada: ${validade}\n\n` +
+      `Deseja prosseguir com o cadastro?`
+    );
+    if (!confirmacao) return;
+
+    // 3. Verifica se já foi processado
     if (scannedEans.has(ean)) {
-      alert('Este QR Code já foi processado!');
+      alert('⚠️ Este código já foi processado anteriormente.');
       return;
     }
 
+    // 4. Busca na base de produtos válidos
     const encontrado = produtosValidos.find((p) => p.produtoEan === ean);
     if (encontrado) {
-      // Produto conhecido – salva automaticamente
       salvarRegistro(
         {
           marcaId: encontrado.marcaId,
@@ -76,23 +86,11 @@ export default function Home() {
         ean
       );
     } else {
-      // Produto não encontrado → modo manual
+      // Produto não encontrado → entra no modo manual
       setCurrentScan({ ean, validade });
       setModoManual(true);
     }
   };
-
-  const handleManualSelect = (produtoSelecionado: ProdutoValido) => {
-    if (!currentScan) return;
-    // Neste ponto, o componente AutocompleteManual já permite editar a validade.
-    // Vamos pegar a validade do estado interno do componente? 
-    // Precisamos de uma forma de obter o valor editado. 
-    // O componente emite o produto selecionado, mas a validade ficou lá dentro.
-    // Ajustaremos: o onSelect enviará também a validade final.
-  };
-
-  // Ajuste no AutocompleteManual: o onSelect deve receber { produto, validade }
-  // Vamos modificar a assinatura do AutocompleteManual e do handler.
 
   const handleManualSubmit = (produto: ProdutoValido, validadeFinal: string) => {
     if (!currentScan) return;
@@ -118,18 +116,12 @@ export default function Home() {
       {modoManual && currentScan && (
         <div className="mt-6 p-4 bg-white rounded shadow">
           <h2 className="text-xl font-semibold">Produto não encontrado na base</h2>
-          <p>
-            <strong>EAN:</strong> {currentScan.ean}
-          </p>
-          <p>
-            <strong>Validade calculada:</strong> {currentScan.validade}
-          </p>
+          <p><strong>EAN:</strong> {currentScan.ean}</p>
+          <p><strong>Validade calculada:</strong> {currentScan.validade}</p>
 
           <AutocompleteManual
             produtosValidos={produtosValidos}
-            onSelect={(produto, validadeFinal) =>
-              handleManualSubmit(produto, validadeFinal)
-            }
+            onSelect={(produto, validadeFinal) => handleManualSubmit(produto, validadeFinal)}
             validadeAtual={currentScan.validade}
           />
         </div>
