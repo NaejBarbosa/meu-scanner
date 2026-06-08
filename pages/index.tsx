@@ -33,7 +33,7 @@ function HomeContent() {
   const [confirmacao, setConfirmacao] = useState<{
     ean: string;
     validade: string;
-    produto?: ProdutoValido;
+    produit?: ProdutoValido;
   } | null>(null);
   const [itensRegistrados, setItensRegistrados] = useState<ItemRegistrado[]>([]);
 
@@ -212,7 +212,6 @@ function HomeContent() {
               produtosValidos={produtosValidos}
               onSelect={handleManualSubmit}
               validadeAtual={currentScan.validade}
-              theme={theme}
             />
           </div>
         )}
