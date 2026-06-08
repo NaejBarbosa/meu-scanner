@@ -151,25 +151,31 @@ function HomeContent() {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-300 ${theme === 'dark' ? 'bg-gray-950' : 'bg-gradient-to-br from-gray-50 to-gray-100'}`}>
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className={`min-h-screen transition-colors duration-300 ${
+      theme === 'dark' ? 'bg-gray-950' : 'bg-gradient-to-br from-indigo-50 via-white to-blue-50'
+    }`}>
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
         <div className="flex justify-between items-center mb-10">
           <div>
-            <h1 className={`text-4xl font-bold tracking-tight ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+            <h1 className={`text-4xl font-bold tracking-tight ${
+              theme === 'dark' ? 'text-white' : 'text-gray-800'
+            }`}>
               Scanner de Produtos
             </h1>
-            <p className={`text-sm mt-1 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
+            <p className={`text-sm mt-1 ${
+              theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+            }`}>
               Leitura de Data Matrix e registro automático
             </p>
           </div>
           <button
             onClick={toggleTheme}
-            className={`p-3 rounded-full transition-all duration-300 ${
+            className={`p-3 rounded-full transition-all duration-300 shadow-md ${
               theme === 'dark' 
                 ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' 
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            } shadow-md`}
+                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+            }`}
             aria-label="Alternar tema"
           >
             {theme === 'dark' ? '☀️' : '🌙'}
@@ -178,7 +184,7 @@ function HomeContent() {
 
         {/* Scanner Card */}
         <div className={`rounded-2xl shadow-xl overflow-hidden border ${
-          theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'
+          theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'
         } transition-all duration-300`}>
           <Scanner onDetected={handleQRCode} />
         </div>
@@ -186,7 +192,7 @@ function HomeContent() {
         {/* Modal de confirmação */}
         {confirmacao && (
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
-            <div className={`rounded-2xl shadow-2xl max-w-md w-full p-6 transform transition-all duration-300 ${
+            <div className={`rounded-2xl shadow-2xl max-w-md w-full p-6 ${
               theme === 'dark' ? 'bg-gray-900 border border-gray-800' : 'bg-white border border-gray-200'
             }`}>
               <div className="flex items-center gap-3 mb-4">
@@ -197,7 +203,7 @@ function HomeContent() {
                   Produto detectado
                 </h2>
               </div>
-              <div className={`mb-6 rounded-xl p-4 ${theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-100/80'}`}>
+              <div className={`mb-6 rounded-xl p-4 ${theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-50'}`}>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <span className="font-semibold">EAN:</span>
                   <span className="font-mono break-all">{confirmacao.ean}</span>
@@ -232,17 +238,17 @@ function HomeContent() {
         {/* Cadastro manual */}
         {modoManual && currentScan && (
           <div className={`mt-8 rounded-2xl shadow-xl p-6 border ${
-            theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'
+            theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'
           } transition-all duration-300`}>
             <h2 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
               <span className="text-amber-500">⚠️</span> Produto não encontrado na base
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div className={`p-3 rounded-xl ${theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-100'}`}>
+              <div className={`p-3 rounded-xl ${theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-50'}`}>
                 <span className="text-xs uppercase tracking-wide opacity-70">EAN lido</span>
                 <p className="font-mono text-lg font-bold break-all">{currentScan.ean}</p>
               </div>
-              <div className={`p-3 rounded-xl ${theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-100'}`}>
+              <div className={`p-3 rounded-xl ${theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-50'}`}>
                 <span className="text-xs uppercase tracking-wide opacity-70">Validade calculada</span>
                 <p className="text-lg font-bold">{currentScan.validade}</p>
               </div>
@@ -255,12 +261,12 @@ function HomeContent() {
           </div>
         )}
 
-        {/* Lista de produtos pendentes */}
+        {/* Lista de produtos pendentes - COM LARGURAS EXPLÍCITAS */}
         {itensRegistrados.length > 0 && (
-          <div className={`mt-10 rounded-2xl shadow-xl p-4 border ${
-            theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'
+          <div className={`mt-10 rounded-2xl shadow-xl overflow-hidden border ${
+            theme === 'dark' ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'
           } transition-all duration-300`}>
-            <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
+            <div className="p-4 border-b border-gray-700/20 flex justify-between items-center flex-wrap gap-2">
               <h2 className={`text-xl font-bold flex items-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
                 <span className="text-blue-500">📋</span> Produtos adicionados (pendentes)
               </h2>
@@ -272,24 +278,24 @@ function HomeContent() {
                 {isSubmitting ? '⏳ Gravando...' : '💾 Gravar todos'}
               </button>
             </div>
-            <div className="overflow-x-auto rounded-xl">
-              <table className="min-w-full text-sm">
-                <thead className={theme === 'dark' ? 'bg-gray-800/80' : 'bg-gray-100'}>
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-sm table-auto">
+                <thead className={theme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-50'}>
                   <tr>
-                    <th className={`px-4 py-3 text-left rounded-tl-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>EAN</th>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Marca</th>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Produto</th>
-                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Validade</th>
-                    <th className={`px-4 py-3 text-left rounded-tr-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>Ações</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/6`}>EAN</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/5`}>Marca</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/3`}>Produto</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/6`}>Validade</th>
+                    <th className={`px-4 py-3 text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} w-1/6`}>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {itensRegistrados.map((item, idx) => (
-                    <tr key={item.id} className={`border-t ${theme === 'dark' ? 'border-gray-800 hover:bg-gray-800/50' : 'border-gray-200 hover:bg-gray-50'} transition-colors`}>
+                  {itensRegistrados.map((item) => (
+                    <tr key={item.id} className={`border-t ${theme === 'dark' ? 'border-gray-800 hover:bg-gray-800/30' : 'border-gray-100 hover:bg-gray-50'} transition-colors`}>
                       <td className="px-4 py-2 font-mono text-xs break-all">{item.ean}</td>
-                      <td className="px-4 py-2">{item.marcaDescr}</td>
-                      <td className="px-4 py-2">{item.produtoDescr}</td>
-                      <td className="px-4 py-2 font-medium">{item.validade}</td>
+                      <td className="px-4 py-2 break-words">{item.marcaDescr}</td>
+                      <td className="px-4 py-2 break-words">{item.produtoDescr}</td>
+                      <td className="px-4 py-2 font-medium whitespace-nowrap">{item.validade}</td>
                       <td className="px-4 py-2">
                         <button
                           onClick={() => removerItemDaLista(item.id)}
@@ -303,9 +309,9 @@ function HomeContent() {
                 </tbody>
               </table>
             </div>
-            <p className={`text-xs mt-4 opacity-60 text-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
+            <div className={`p-3 text-center text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} border-t border-gray-700/20`}>
               * Itens apenas na lista local. Clique em "Gravar todos" para salvar permanentemente.
-            </p>
+            </div>
           </div>
         )}
       </div>
