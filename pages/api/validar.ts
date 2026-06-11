@@ -8,15 +8,17 @@ export default async function handler(
 ) {
   try {
     const sheetId = process.env.BANCO_VALIDA_SHEET_ID as string;
-    // Colunas A..E: marca-id, marca-descr, produto-classe, produto-ean, produto-descr
-    const data = await getSheetData(sheetId, 'A:E');
+    // Colunas A..G: marca-id, marca-descr, produto-classe, produto-ean, produto-dun, produto-conservacao, produto-descr
+    const data = await getSheetData(sheetId, 'A:G');
     // Ignorar cabeçalho (linha 1)
     const rows = data.slice(1).map((row) => ({
       marcaId: row[0],
       marcaDescr: row[1],
       produtoClasse: row[2],
       produtoEan: row[3],
-      produtoDescr: row[4],
+      produtoDun: row[4] || '',
+      produtoConservacao: row[5] || '',
+      produtoDescr: row[6] || row[4] || '', // Fallback para coluna antiga se não houver 7 colunas
     }));
     res.status(200).json(rows);
   } catch (error) {

@@ -6,6 +6,8 @@ interface ProdutoValido {
   marcaDescr: string;
   produtoClasse: string;
   produtoEan: string;
+  produtoDun: string;
+  produtoConservacao: string;
   produtoDescr: string;
 }
 
@@ -143,6 +145,16 @@ export default function AutocompleteManual({ produtosValidos, onSelect, validade
             <div className="bg-white dark:bg-slate-800/50 rounded-lg p-2.5">
               <span className="text-xs text-slate-500 dark:text-slate-400 uppercase font-medium">EAN</span>
               <p className="font-mono text-slate-900 dark:text-slate-100">{produtoEscolhido.produtoEan}</p>
+            </div>
+            {produtoEscolhido.produtoDun && (
+              <div className="bg-white dark:bg-slate-800/50 rounded-lg p-2.5">
+                <span className="text-xs text-slate-500 dark:text-slate-400 uppercase font-medium">DUN</span>
+                <p className="font-mono text-slate-900 dark:text-slate-100">{produtoEscolhido.produtoDun}</p>
+              </div>
+            )}
+            <div className="bg-white dark:bg-slate-800/50 rounded-lg p-2.5">
+              <span className="text-xs text-slate-500 dark:text-slate-400 uppercase font-medium">Conservacao</span>
+              <p className="text-slate-900 dark:text-slate-100">{produtoEscolhido.produtoConservacao || '-'}</p>
             </div>
           </div>
 

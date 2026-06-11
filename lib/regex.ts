@@ -38,22 +38,25 @@ export function validarDataReal(dateStr: string): boolean {
 }
 
 /**
- * Extrai EAN e data de validade do texto bruto do Data Matrix
+ * Extrai DUN, EAN e data de validade do texto bruto do Data Matrix
  * @param qrData - string no formato "315315;17896419732515;202603197004783;"
- * @returns objeto com ean (13 dígitos) e validade (dd/mm/aaaa) ou null
+ * @returns objeto com dun (14 dígitos), ean (13 dígitos) e validade (dd/mm/aaaa) ou null
  */
 function extrairDadosDataMatrix(qrData: string) {
   const clean = qrData.trim();
-  // Regex: captura os 13 dígitos do EAN (após o "1") e os 8 dígitos da data de fabricação
-  const regex = /^\d+;1(\d{13});(\d{8})/;
+  // Regex: captura o DUN completo (14 dígitos incluindo o "1") e os 8 dígitos da data de fabricação
+  // Antes: /^\d+;1(\d{13});(\d{8})/ - descartava o "1"
+  // Agora: /^\d+;(1\d{13});(\d{8})/ - captura o DUN completo (14 dígitos)
+  const regex = /^\d+;(1\d{13});(\d{8})/;
   const match = clean.match(regex);
 
   if (!match || !match[1] || !match[2]) {
     return null;
   }
 
-  const ean13 = match[1];           // ex: "7896419732515"
-  const dataFabStr = match[2];      // ex: "20260319"
+  const dun14 = match[1];            // ex: "17896419732515" (14 dígitos, incluindo o "1")
+  const ean13 = dun14.substring(1);  // ex: "7896419732515" (13 dígitos, sem o "1")
+  const dataFabStr = match[2];       // ex: "20260319"
 
   // Converte string "YYYYMMDD" para números
   const anoFab = parseInt(dataFabStr.substring(0, 4), 10);
@@ -83,15 +86,16 @@ function extrairDadosDataMatrix(qrData: string) {
   const validadeFormatada = formatToDDMMYYYY(dataValidade);
 
   return {
+    dun: dun14,
     ean: ean13,
     validade: validadeFormatada,      // dd/mm/aaaa
   };
 }
 
 /**
- * Extrai EAN e data de validade do texto bruto
+ * Extrai DUN, EAN e data de validade do texto bruto
  * @param text - string escaneada (pode ser Data Matrix, QRCode, código de barras, etc.)
- * @returns { ean: string, validade: string | null, tipo: 'datamatrix' | 'ean_validade' | 'ean' | null }
+ * @returns { dun?: string, ean: string, validade: string | null, tipo: 'datamatrix' | 'dun' | 'ean_validade' | 'ean' | null }
  */
 export function extrairDados(text: string) {
   const clean = text.trim();
@@ -100,7 +104,7 @@ export function extrairDados(text: string) {
   // Tentativa 1: Data Matrix completo (formato: "315315;17896419732515;202603197004783;")
   const dmResult = extrairDadosDataMatrix(clean);
   if (dmResult) {
-    console.log('[extrairDados] Data Matrix detectado -> EAN:', dmResult.ean, 'Validade:', dmResult.validade);
+    console.log('[extrairDados] Data Matrix detectado -> DUN:', dmResult.dun, 'EAN:', dmResult.ean, 'Validade:', dmResult.validade);
     return { ...dmResult, tipo: 'datamatrix' as const };
   }
 
@@ -134,8 +138,17 @@ export function extrairDados(text: string) {
     }
   }
 
-  // Tentativa 4: Código de barras com EAN + outro número (ex: "789641973251512345")
-  // Procura por EAN-13 com 13 dígitos delimitado por word boundary
+  // Tentativa 4: DUN-14 isolado (14 dígitos) - usado para identificação de embalagens
+  const dunRegex = /\b(1\d{13})\b/;
+  const dunMatch = clean.match(dunRegex);
+  if (dunMatch) {
+    const dun = dunMatch[1];
+    const ean = dun.substring(1); // EAN é o DUN sem o primeiro dígito
+    console.log('[extrairDados] DUN-14 detectado -> DUN:', dun, 'EAN:', ean);
+    return { dun, ean, validade: null, tipo: 'dun' as const };
+  }
+
+  // Tentativa 5: Código de barras com EAN-13 (13 dígitos)
   const eanRegex = /\b(\d{13})\b/;
   const eanMatch = clean.match(eanRegex);
   if (eanMatch) {
@@ -144,7 +157,7 @@ export function extrairDados(text: string) {
     return { ean, validade: null, tipo: 'ean' as const };
   }
 
-  // Tentativa 5: EAN com 8 dígitos (EAN-8)
+  // Tentativa 6: EAN com 8 dígitos (EAN-8)
   const ean8Regex = /\b(\d{8})\b/;
   const ean8Match = clean.match(ean8Regex);
   if (ean8Match) {

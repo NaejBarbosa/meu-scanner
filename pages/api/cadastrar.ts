@@ -48,7 +48,9 @@ export default async function handler(
     marcaDescr,
     produtoClasse,
     produtoEan,
+    produtoDun,
     produtoDescr,
+    produtoConservacao,
     produtoValidade,
   } = req.body;
 
@@ -64,15 +66,17 @@ export default async function handler(
     // Gera o timestamp de Santa Catarina
     const registroTimestamp = getSantaCatarinaTimestamp();
 
-    // Agora a planilha tem 8 colunas: A=ID, B=Timestamp, C=MarcaId, D=MarcaDesc, E=ProdutoClasse, F=ProdutoEan, G=ProdutoDesc, H=ProdutoValidade
-    await appendRow(sheetId, 'A:H', [
+    // Agora a planilha tem 10 colunas: A=ID, B=Timestamp, C=MarcaId, D=MarcaDesc, E=ProdutoClasse, F=ProdutoEan, G=ProdutoDun, H=ProdutoDesc, I=ProdutoConservacao, J=ProdutoValidade
+    await appendRow(sheetId, 'A:J', [
       registroId,
       registroTimestamp,
       marcaId || '',
       marcaDescr || '',
       produtoClasse || '',
       produtoEan,
+      produtoDun || '',
       produtoDescr || '',
+      produtoConservacao || '',
       produtoValidade,
     ]);
 

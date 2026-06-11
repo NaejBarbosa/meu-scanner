@@ -10,17 +10,21 @@ interface ProdutoValido {
   marcaDescr: string;
   produtoClasse: string;
   produtoEan: string;
+  produtoDun: string;
+  produtoConservacao: string;
   produtoDescr: string;
 }
 
 interface ItemRegistrado {
   id: string;
   ean: string;
+  dun: string;
   validade: string;
   marcaId: string;
   marcaDescr: string;
   produtoClasse: string;
   produtoDescr: string;
+  produtoConservacao: string;
   dataRegistro: Date;
 }
 
@@ -28,11 +32,12 @@ function HomeContent() {
   const { theme, toggleTheme } = useTheme();
   const [produtosValidos, setProdutosValidos] = useState<ProdutoValido[]>([]);
   const [scannedEans, setScannedEans] = useState<Set<string>>(new Set());
-  const [currentScan, setCurrentScan] = useState<{ ean: string; validade: string } | null>(null);
+  const [currentScan, setCurrentScan] = useState<{ ean: string; dun: string; validade: string } | null>(null);
   const [modoManual, setModoManual] = useState(false);
   const [modoValidadeManual, setModoValidadeManual] = useState(false);
   const [confirmacao, setConfirmacao] = useState<{
     ean: string;
+    dun: string;
     validade: string;
     produto?: ProdutoValido;
   } | null>(null);
@@ -52,15 +57,17 @@ function HomeContent() {
     setTimeout(() => setToast(null), 4000);
   };
 
-  const adicionarItemNaLista = (produto: ProdutoValido, ean: string, validade: string) => {
+  const adicionarItemNaLista = (produto: ProdutoValido, ean: string, dun: string, validade: string) => {
     const novoItem: ItemRegistrado = {
       id: `${Date.now()}-${ean}-${Math.random()}`,
       ean,
+      dun,
       validade,
       marcaId: produto.marcaId,
       marcaDescr: produto.marcaDescr,
       produtoClasse: produto.produtoClasse,
       produtoDescr: produto.produtoDescr,
+      produtoConservacao: produto.produtoConservacao,
       dataRegistro: new Date(),
     };
     setItensRegistrados((prev) => [...prev, novoItem]);
@@ -83,7 +90,9 @@ function HomeContent() {
         marcaDescr: item.marcaDescr,
         produtoClasse: item.produtoClasse,
         produtoEan: item.ean,
+        produtoDun: item.dun,
         produtoDescr: item.produtoDescr,
+        produtoConservacao: item.produtoConservacao,
         produtoValidade: item.validade,
       };
       try {
@@ -119,31 +128,31 @@ function HomeContent() {
       showToast('Formato inválido. Escaneie um Data Matrix, QRCode ou código de barras válido.', 'error');
       return;
     }
-    const { ean, validade, tipo } = dados;
+    const { ean, dun, validade, tipo } = dados;
     if (scannedEans.has(ean)) {
       showToast('Este código já foi adicionado à lista nesta sessão.', 'error');
       return;
     }
-    // Se o tipo é apenas EAN (sem validade), abre o modal de validade manual
-    if (tipo === 'ean') {
-      setCurrentScan({ ean, validade: '' });
+    // Se o tipo é apenas EAN/DUN (sem validade), abre o modal de validade manual
+    if (tipo === 'ean' || tipo === 'dun') {
+      setCurrentScan({ ean, dun: dun || '', validade: '' });
       setModoValidadeManual(true);
       return;
     }
-    const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean);
-    setConfirmacao({ ean, validade: validade!, produto: produtoEncontrado });
+    const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean || p.produtoDun === dun);
+    setConfirmacao({ ean, dun: dun || '', validade: validade!, produto: produtoEncontrado });
   };
 
   const handleAdicionarLista = () => {
     if (!confirmacao) return;
-    const { ean, validade, produto } = confirmacao;
+    const { ean, dun, validade, produto } = confirmacao;
     if (!produto) {
-      setCurrentScan({ ean, validade });
+      setCurrentScan({ ean, dun, validade });
       setModoManual(true);
       setConfirmacao(null);
       return;
     }
-    adicionarItemNaLista(produto, ean, validade);
+    adicionarItemNaLista(produto, ean, dun, validade);
     setConfirmacao(null);
   };
 
@@ -152,19 +161,19 @@ function HomeContent() {
 
   const handleManualSubmit = (produto: ProdutoValido, validadeFinal: string) => {
     if (!currentScan) return;
-    adicionarItemNaLista(produto, currentScan.ean, validadeFinal);
+    adicionarItemNaLista(produto, currentScan.ean, currentScan.dun, validadeFinal);
     setModoManual(false);
     setCurrentScan(null);
   };
 
   const handleValidadeConfirm = (validade: string) => {
     if (!currentScan) return;
-    const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === currentScan.ean);
+    const produtoEncontrado = produtosValidos.find((p) => p.produtoEan === currentScan.ean || p.produtoDun === currentScan.dun);
     if (produtoEncontrado) {
-      setConfirmacao({ ean: currentScan.ean, validade, produto: produtoEncontrado });
+      setConfirmacao({ ean: currentScan.ean, dun: currentScan.dun, validade, produto: produtoEncontrado });
     } else {
       setModoManual(true);
-      setCurrentScan({ ean: currentScan.ean, validade });
+      setCurrentScan({ ean: currentScan.ean, dun: currentScan.dun, validade });
     }
     setModoValidadeManual(false);
   };
@@ -292,6 +301,12 @@ function HomeContent() {
                   <span className="font-medium text-slate-500 dark:text-slate-400">EAN</span>
                   <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.ean}</span>
                 </div>
+                {confirmacao.dun && (
+                  <div className="flex justify-between items-start gap-4 text-sm">
+                    <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
+                    <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.dun}</span>
+                  </div>
+                )}
                 <div className="flex justify-between items-center text-sm">
                   <span className="font-medium text-slate-500 dark:text-slate-400">Validade</span>
                   <span className="font-semibold text-slate-900 dark:text-slate-100">{confirmacao.validade}</span>
@@ -311,6 +326,14 @@ function HomeContent() {
                         <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
                         <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
                       </div>
+                      {confirmacao.produto.produtoConservacao && (
+                        <div className="flex justify-between items-center text-sm">
+                          <span className="font-medium text-slate-500 dark:text-slate-400">Conservacao</span>
+                          <span className={`badge ${confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') ? 'badge-primary' : 'badge-warning'}`}>
+                            {confirmacao.produto.produtoConservacao}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </>
                 ) : (
@@ -381,6 +404,12 @@ function HomeContent() {
                   <span className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide font-medium">Validade Informada</span>
                   <p className="text-lg font-bold text-slate-900 dark:text-slate-100 mt-1">{currentScan.validade}</p>
                 </div>
+                {currentScan.dun && (
+                  <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 sm:col-span-2">
+                    <span className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide font-medium">DUN Lido</span>
+                    <p className="font-mono text-lg font-bold text-slate-900 dark:text-slate-100 mt-1 break-all">{currentScan.dun}</p>
+                  </div>
+                )}
               </div>
               <AutocompleteManual
                 produtosValidos={produtosValidos}
@@ -441,6 +470,7 @@ function HomeContent() {
                     <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">EAN</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Marca</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Produto</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Conserv.</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Validade</th>
                     <th className="px-4 py-3 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Acoes</th>
                   </tr>
@@ -453,13 +483,25 @@ function HomeContent() {
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       <td className="px-4 py-3">
-                        <span className="font-mono text-sm text-slate-900 dark:text-slate-100">{item.ean}</span>
+                        <div className="flex flex-col">
+                          <span className="font-mono text-sm text-slate-900 dark:text-slate-100">{item.ean}</span>
+                          {item.dun && <span className="font-mono text-xs text-slate-500 dark:text-slate-400">D: {item.dun}</span>}
+                        </div>
                       </td>
                       <td className="px-4 py-3">
                         <span className="text-sm text-slate-700 dark:text-slate-300">{item.marcaDescr}</span>
                       </td>
                       <td className="px-4 py-3">
                         <span className="text-sm text-slate-700 dark:text-slate-300">{item.produtoDescr}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        {item.produtoConservacao ? (
+                          <span className={`badge text-xs ${item.produtoConservacao.toLowerCase().includes('congelado') ? 'badge-primary' : 'badge-warning'}`}>
+                            {item.produtoConservacao}
+                          </span>
+                        ) : (
+                          <span className="text-sm text-slate-400">-</span>
+                        )}
                       </td>
                       <td className="px-4 py-3">
                         <span className="badge badge-success text-xs">{item.validade}</span>
