@@ -131,34 +131,43 @@ function HomeContent() {
       return;
     }
 
-    // Priorizar busca por DUN se disponível, senão por EAN
+    // ========== CORREÇÃO: Sempre usar os dados da base quando disponíveis ==========
     let produtoEncontrado: ProdutoValido | undefined = undefined;
+
+    // 1) Se temos DUN (do código), busca o produto pelo DUN
     if (dun) {
       produtoEncontrado = produtosValidos.find((p) => p.produtoDun === dun);
       if (!produtoEncontrado) {
-        showToast('Código DUN não identificado na base.', 'error');
+        showToast(`DUN ${dun} não identificado na base.`, 'error');
         return;
       }
-    } else if (ean) {
+      // ✅ Usa o EAN cadastrado na base, nunca o derivado do DUN
+      ean = produtoEncontrado.produtoEan;
+    }
+    // 2) Senão, busca pelo EAN (caso o código seja só EAN)
+    else if (ean) {
       produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean);
       if (!produtoEncontrado) {
-        showToast('Código não identificado na base.', 'error');
+        showToast(`EAN ${ean} não identificado na base.`, 'error');
         return;
       }
-      // Se veio só EAN, tenta obter o DUN do produto encontrado
-      if (!dun && produtoEncontrado.produtoDun) {
+      // ✅ Busca o DUN correspondente na base (se existir)
+      if (produtoEncontrado.produtoDun) {
         dun = produtoEncontrado.produtoDun;
       }
-    } else {
+    }
+    // 3) Caso não tenha nem DUN nem EAN reconhecido (fallback)
+    else {
       showToast('Código não possui DUN ou EAN válido.', 'error');
       return;
     }
+    // ========== FIM DA CORREÇÃO ==========
 
-    // Se já veio com validade, mostra confirmação direta
+    // Se já veio com validade (ex: QRCode com data), mostra confirmação direta
     if (validade) {
       setConfirmacao({ ean, dun: dun || '', validade, produto: produtoEncontrado });
     } else {
-      // Aguarda digitar a validade
+      // Aguarda digitar a validade (caso não tenha vindo no código)
       setCurrentScan({ ean, dun: dun || '', validade: '' });
       setPendingProduct(produtoEncontrado);
       setModoValidadeManual(true);
