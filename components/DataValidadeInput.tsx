@@ -82,12 +82,9 @@ export default function DataValidadeInput({ ean, onConfirm, onCancel }: DataVali
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
-      {/* Backdrop */}
-      <div className="absolute inset-0 bg-slate-900/70 dark:bg-slate-950/85 backdrop-blur-sm" onClick={onCancel} />
-
-      {/* Modal */}
-      <div className="relative z-10 w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden animate-scale-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
+      {/* Modal card com margem para não encostar nas bordas */}
+      <div className="relative z-10 w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden animate-scale-in m-4">
         {/* Header */}
         <div className="px-5 pt-5 pb-4">
           <div className="flex items-center gap-3">
@@ -140,7 +137,7 @@ export default function DataValidadeInput({ ean, onConfirm, onCancel }: DataVali
               <span className="text-2xl font-bold text-slate-400 dark:text-slate-600">/</span>
             </div>
 
-            {/* Mes */}
+            {/* Mês */}
             <div className="flex-1 max-w-[80px]">
               <input
                 ref={mesRef}
@@ -152,9 +149,9 @@ export default function DataValidadeInput({ ean, onConfirm, onCancel }: DataVali
                 onKeyDown={(e) => handleKeyDown(e, diaRef, anoRef)}
                 className="w-full h-14 text-center text-2xl font-bold font-mono text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 rounded-xl placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all"
                 maxLength={2}
-                aria-label="Mes"
+                aria-label="Mês"
               />
-              <span className="block text-center text-[10px] text-slate-400 dark:text-slate-500 mt-1 font-medium uppercase tracking-wide">Mes</span>
+              <span className="block text-center text-[10px] text-slate-400 dark:text-slate-500 mt-1 font-medium uppercase tracking-wide">Mês</span>
             </div>
 
             {/* Separator */}

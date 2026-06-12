@@ -125,7 +125,7 @@ function HomeContent() {
       showToast('Formato inválido. Escaneie um Data Matrix, QRCode ou código de barras válido.', 'error');
       return;
     }
-    const { ean, dun, validade, tipo } = dados;
+    let { ean, dun, validade, tipo } = dados;
     if (scannedEans.has(ean)) {
       showToast('Este código já foi adicionado à lista nesta sessão.', 'error');
       return;
@@ -144,6 +144,10 @@ function HomeContent() {
       if (!produtoEncontrado) {
         showToast('Código não identificado na base.', 'error');
         return;
+      }
+      // Se veio só EAN, tenta obter o DUN do produto encontrado
+      if (!dun && produtoEncontrado.produtoDun) {
+        dun = produtoEncontrado.produtoDun;
       }
     } else {
       showToast('Código não possui DUN ou EAN válido.', 'error');
@@ -165,7 +169,7 @@ function HomeContent() {
     if (!currentScan || !pendingProduct) return;
     setConfirmacao({
       ean: currentScan.ean,
-      dun: currentScan.dun,
+      dun: currentScan.dun || pendingProduct.produtoDun,
       validade,
       produto: pendingProduct,
     });
@@ -287,10 +291,10 @@ function HomeContent() {
           <Scanner onDetected={handleQRCode} />
         </div>
 
-        {/* Modal de confirmação */}
+        {/* Modal de confirmação com backdrop corrigido e conservação */}
         {confirmacao && (
-          <div className="fixed inset-0 bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="card-elevated max-w-md w-full p-6 animate-scale-in">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
+            <div className="card-elevated max-w-md w-full p-6 animate-scale-in m-4">
               <div className="flex items-start gap-4 mb-5">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-700 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -304,7 +308,6 @@ function HomeContent() {
               </div>
 
               <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
-                {/* DUN antes do EAN */}
                 {confirmacao.dun && (
                   <div className="flex justify-between items-start gap-4 text-sm">
                     <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
@@ -332,6 +335,19 @@ function HomeContent() {
                     <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
                     <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
                   </div>
+                  {/* Conservação */}
+                  {confirmacao.produto.produtoConservacao && (
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="font-medium text-slate-500 dark:text-slate-400">Conservação</span>
+                      <span className={`badge ${
+                        confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
+                          ? 'badge-primary' 
+                          : 'badge-warning'
+                      }`}>
+                        {confirmacao.produto.produtoConservacao}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -355,7 +371,7 @@ function HomeContent() {
           </div>
         )}
 
-        {/* Modal para digitar validade */}
+        {/* Modal DataValidadeInput com backdrop corrigido */}
         {modoValidadeManual && currentScan && (
           <DataValidadeInput
             ean={currentScan.ean}
@@ -364,7 +380,7 @@ function HomeContent() {
           />
         )}
 
-        {/* Lista de produtos pendentes - sem colunas EAN/DUN */}
+        {/* Lista de produtos pendentes - ajustada para não comprimir */}
         {itensRegistrados.length > 0 && (
           <div className="card-elevated overflow-hidden animate-slideUp">
             <div className="p-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex justify-between items-center flex-wrap gap-3">
@@ -389,29 +405,33 @@ function HomeContent() {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
+              <table className="w-full table-auto border-separate border-spacing-0">
                 <thead className="bg-slate-100 dark:bg-slate-800/50">
                   <tr>
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Marca</th>
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Produto</th>
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Classe</th>
-                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Validade</th>
-                    <th className="px-4 py-3 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Ações</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Marca</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Produto</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Classe</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Validade</th>
+                    <th className="px-4 py-3 text-right text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Ações</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
-                  {itensRegistrados.map((item, index) => (
+                  {itensRegistrados.map((item) => (
                     <tr key={item.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-                      <td className="px-4 py-3 text-sm text-slate-700 dark:text-slate-300">{item.marcaDescr}</td>
-                      <td className="px-4 py-3 text-sm text-slate-700 dark:text-slate-300">{item.produtoDescr}</td>
-                      <td className="px-4 py-3 text-sm">
+                      <td className="px-4 py-3 text-sm text-slate-700 dark:text-slate-300 whitespace-nowrap">{item.marcaDescr}</td>
+                      <td className="px-4 py-3 text-sm text-slate-700 dark:text-slate-300 whitespace-nowrap">{item.produtoDescr}</td>
+                      <td className="px-4 py-3 text-sm whitespace-nowrap">
                         <span className="badge badge-primary">{item.produtoClasse}</span>
                       </td>
-                      <td className="px-4 py-3 text-sm">
+                      <td className="px-4 py-3 text-sm whitespace-nowrap">
                         <span className="badge badge-success">{item.validade}</span>
                       </td>
-                      <td className="px-4 py-3 text-right">
-                        <button onClick={() => removerItemDaLista(item.id)} className="p-2 rounded-lg text-danger-600 dark:text-danger-400 hover:bg-danger-50 dark:hover:bg-danger-900/20">
+                      <td className="px-4 py-3 text-right whitespace-nowrap">
+                        <button
+                          onClick={() => removerItemDaLista(item.id)}
+                          className="p-2 rounded-lg text-danger-600 dark:text-danger-400 hover:bg-danger-50 dark:hover:bg-danger-900/20"
+                          title="Remover item"
+                        >
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                           </svg>
