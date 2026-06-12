@@ -1,3 +1,4 @@
+// meu-scanner/components/Scanner.tsx
 import { useRef, useState, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
@@ -220,7 +221,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
   };
 
   return (
-    <div className="p-5">
+    <div className="relative">
       {/* Debug Message */}
       {debugMessage && (
         <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center items-center px-4 pointer-events-none animate-slideUp">
@@ -248,7 +249,6 @@ export default function Scanner({ onDetected }: ScannerProps) {
               </TransformComponent>
             </TransformWrapper>
 
-            {/* Crop Overlay */}
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
               <div className="relative">
                 <div
@@ -292,34 +292,42 @@ export default function Scanner({ onDetected }: ScannerProps) {
         </div>
       )}
 
-      {/* Video Preview */}
-      <div className="relative bg-slate-900 rounded-xl overflow-hidden shadow-inner">
+      {/* Área do Scanner - estilo Google Lens */}
+      <div className="relative w-full min-h-[80vh] bg-black rounded-2xl overflow-hidden shadow-2xl">
+        {/* Vídeo com object-fit cover para zoom natural */}
         <video
           ref={videoRef}
-          className="w-full rounded-xl bg-slate-800"
-          style={{ aspectRatio: '4/3' }}
+          className="absolute inset-0 w-full h-full object-cover"
           playsInline
           autoPlay
         />
 
-        {/* Scanning Overlay */}
-        {scanning && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="relative">
-              <div className="w-48 h-48 border-2 border-success-400 rounded-2xl animate-pulse-subtle" />
-              <div className="absolute -top-0.5 -left-0.5 w-6 h-6 border-t-4 border-l-4 border-success-300 rounded-tl-lg" />
-              <div className="absolute -top-0.5 -right-0.5 w-6 h-6 border-t-4 border-r-4 border-success-300 rounded-tr-lg" />
-              <div className="absolute -bottom-0.5 -left-0.5 w-6 h-6 border-b-4 border-l-4 border-success-300 rounded-bl-lg" />
-              <div className="absolute -bottom-0.5 -right-0.5 w-6 h-6 border-b-4 border-r-4 border-success-300 rounded-br-lg" />
-            </div>
+        {/* Overlay escurecido nas bordas, mantendo centro claro */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 pointer-events-none" />
+
+        {/* Viewfinder central sutil (quatro cantos) */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="relative w-64 h-64 md:w-80 md:h-80">
+            {/* Cantos L-shaped */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white/80 rounded-tl-xl" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-white/80 rounded-tr-xl" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-white/80 rounded-bl-xl" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-white/80 rounded-br-xl" />
+            {/* Animação sutil de pulsação */}
+            <div className="absolute inset-0 border border-white/20 rounded-2xl animate-pulse-subtle" />
           </div>
-        )}
+        </div>
+
+        {/* Instrução flutuante minimalista */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md px-4 py-2 rounded-full text-white text-sm font-medium whitespace-nowrap">
+          Centralize o código no quadro
+        </div>
       </div>
 
-      {/* Controls */}
-      <div className="flex flex-wrap gap-3 mt-5 justify-center">
+      {/* Controles flutuantes sobre o vídeo */}
+      <div className="absolute bottom-24 left-0 right-0 flex flex-wrap gap-3 justify-center px-4 z-10">
         {!scanning ? (
-          <button onClick={startScanning} className="btn-success" disabled={processing}>
+          <button onClick={startScanning} className="btn-success shadow-lg" disabled={processing}>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -327,7 +335,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
             Iniciar Scanner
           </button>
         ) : (
-          <button onClick={stopScanning} className="btn-danger" disabled={processing}>
+          <button onClick={stopScanning} className="btn-danger shadow-lg" disabled={processing}>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
@@ -337,7 +345,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
         )}
         <button
           onClick={() => fileInputRef.current?.click()}
-          className="btn-primary"
+          className="btn-primary shadow-lg"
           disabled={processing || scanning}
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
