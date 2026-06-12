@@ -1,4 +1,3 @@
-// pages/index.tsx (trechos principais - substituir o arquivo completo)
 import { useState, useEffect } from 'react';
 import Scanner from '../components/Scanner';
 import DataValidadeInput from '../components/DataValidadeInput';
@@ -33,7 +32,7 @@ function HomeContent() {
   const [produtosValidos, setProdutosValidos] = useState<ProdutoValido[]>([]);
   const [scannedEans, setScannedEans] = useState<Set<string>>(new Set());
   const [currentScan, setCurrentScan] = useState<{ ean: string; dun: string; validade: string } | null>(null);
-  const [pendingProduct, setPendingProduct] = useState<ProdutoValido | null>(null); // produto já validado
+  const [pendingProduct, setPendingProduct] = useState<ProdutoValido | null>(null);
   const [modoValidadeManual, setModoValidadeManual] = useState(false);
   const [confirmacao, setConfirmacao] = useState<{
     ean: string;
@@ -193,15 +192,100 @@ function HomeContent() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      {/* Header (mantido igual) */}
+      {/* Header */}
       <header className="sticky top-0 z-40 glass border-b border-slate-200 dark:border-slate-800">
-        {/* ... mesmo conteúdo ... */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-md">
+                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                </svg>
+              </div>
+              <div>
+                <h1 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+                  Controle de Recebimento
+                </h1>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Escaneamento de Código de Barras / QRCode / Data Matrix
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              aria-label="Alternar tema"
+            >
+              {theme === 'dark' ? (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        {/* Stats Cards (igual) */}
+        {/* Stats Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="card p-4 animate-slideUp" style={{ animationDelay: '0ms' }}>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+                <svg className="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide">Produtos na Base</p>
+                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">{produtosValidos.length}</p>
+              </div>
+            </div>
+          </div>
+          <div className="card p-4 animate-slideUp" style={{ animationDelay: '50ms' }}>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-success-100 dark:bg-success-900/30 flex items-center justify-center">
+                <svg className="w-5 h-5 text-success-600 dark:text-success-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide">Escaneados</p>
+                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">{scannedEans.size}</p>
+              </div>
+            </div>
+          </div>
+          <div className="card p-4 animate-slideUp" style={{ animationDelay: '100ms' }}>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-warning-100 dark:bg-warning-900/30 flex items-center justify-center">
+                <svg className="w-5 h-5 text-warning-600 dark:text-warning-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide">Pendentes</p>
+                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">{itensRegistrados.length}</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        {/* Scanner Card (igual) */}
+        {/* Scanner Card */}
+        <div className="card-elevated overflow-hidden animate-slideUp" style={{ animationDelay: '150ms' }}>
+          <div className="p-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+            <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <svg className="w-5 h-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+              </svg>
+              Escaneador de Código
+            </h2>
+          </div>
+          <Scanner onDetected={handleQRCode} />
+        </div>
 
         {/* Modal de confirmação */}
         {confirmacao && (
@@ -342,7 +426,34 @@ function HomeContent() {
         )}
       </main>
 
-      {/* Toast (igual) */}
+      {/* Toast */}
+      {toast && (
+        <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center items-center px-4 pointer-events-none animate-slideUp">
+          <div className={`pointer-events-auto inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl shadow-elevated max-w-full ${
+            toast.type === 'success' ? 'bg-success-600 text-white' :
+            toast.type === 'error' ? 'bg-danger-600 text-white' :
+            'bg-primary-600 text-white'
+          }`}>
+            {toast.type === 'success' && (
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+            {toast.type === 'error' && (
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            )}
+            {toast.type === 'info' && (
+              <svg className="w-5 h-5 flex-shrink-0 animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            )}
+            <span className="font-medium text-sm whitespace-nowrap">{toast.message}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
