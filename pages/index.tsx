@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Scanner from '../components/Scanner';
 import DataValidadeInput from '../components/DataValidadeInput';
+import CadastroProdutoModal from '../components/CadastroProdutoModal';
 import { extrairDados } from '../lib/regex';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
 
@@ -43,6 +44,12 @@ function HomeContent() {
   const [itensRegistrados, setItensRegistrados] = useState<ItemRegistrado[]>([]);
   const [toast, setToast] = useState<{ message: string; type: 'info' | 'success' | 'error' } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showCadastroModal, setShowCadastroModal] = useState(false);
+  const [cadastroInitialData, setCadastroInitialData] = useState<{
+    ean?: string;
+    dun?: string;
+    tipoDetectado: 'ean' | 'dun';
+  } | null>(null);
 
   useEffect(() => {
     fetch('/api/validar')
@@ -119,6 +126,44 @@ function HomeContent() {
     setItensRegistrados((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const processarProdutoEncontrado = (
+    produto: ProdutoValido,
+    ean: string,
+    dun: string,
+    validade: string | null
+  ) => {
+    if (validade) {
+      setConfirmacao({ ean, dun, validade, produto });
+    } else {
+      setCurrentScan({ ean, dun, validade: '' });
+      setPendingProduct(produto);
+      setModoValidadeManual(true);
+    }
+  };
+
+  const handleCadastroSucesso = (novoProduto: ProdutoValido) => {
+    // Adiciona o novo produto à lista local de produtos válidos
+    setProdutosValidos(prev => [...prev, novoProduto]);
+
+    // Recupera os dados que estavam pendentes no modal
+    if (!cadastroInitialData) return;
+
+    const { ean, dun, tipoDetectado } = cadastroInitialData;
+    // O novo produto já contém os campos atualizados (EAN e DUN podem ter sido preenchidos no modal)
+    const eanFinal = novoProduto.produtoEan;
+    const dunFinal = novoProduto.produtoDun;
+
+    // Neste ponto, o código original detectado pode ter sido EAN ou DUN.
+    // Como não temos a validade original (o texto escaneado pode ter data), 
+    // vamos tratar como se não houvesse validade – o fluxo padrão pedirá a data manual.
+    // Se desejar preservar a validade, seria necessário armazenar o texto bruto; 
+    // para simplificar, seguimos a mesma lógica de quando o código não traz validade.
+    processarProdutoEncontrado(novoProduto, eanFinal, dunFinal, null);
+
+    setShowCadastroModal(false);
+    setCadastroInitialData(null);
+  };
+
   const handleQRCode = (text: string) => {
     const dados = extrairDados(text);
     if (!dados) {
@@ -131,27 +176,29 @@ function HomeContent() {
       return;
     }
 
-    // ========== CORREÇÃO: Sempre usar os dados da base quando disponíveis ==========
     let produtoEncontrado: ProdutoValido | undefined = undefined;
 
     // 1) Se temos DUN (do código), busca o produto pelo DUN
     if (dun) {
       produtoEncontrado = produtosValidos.find((p) => p.produtoDun === dun);
       if (!produtoEncontrado) {
-        showToast(`DUN ${dun} não identificado na base.`, 'error');
+        // Abre modal de cadastro com o DUN detectado
+        setCadastroInitialData({ dun, tipoDetectado: 'dun' });
+        setShowCadastroModal(true);
         return;
       }
-      // ✅ Usa o EAN cadastrado na base, nunca o derivado do DUN
+      // Usa o EAN cadastrado na base, nunca o derivado do DUN
       ean = produtoEncontrado.produtoEan;
     }
     // 2) Senão, busca pelo EAN (caso o código seja só EAN)
     else if (ean) {
       produtoEncontrado = produtosValidos.find((p) => p.produtoEan === ean);
       if (!produtoEncontrado) {
-        showToast(`EAN ${ean} não identificado na base.`, 'error');
+        setCadastroInitialData({ ean, tipoDetectado: 'ean' });
+        setShowCadastroModal(true);
         return;
       }
-      // ✅ Busca o DUN correspondente na base (se existir)
+      // Busca o DUN correspondente na base (se existir)
       if (produtoEncontrado.produtoDun) {
         dun = produtoEncontrado.produtoDun;
       }
@@ -161,17 +208,9 @@ function HomeContent() {
       showToast('Código não possui DUN ou EAN válido.', 'error');
       return;
     }
-    // ========== FIM DA CORREÇÃO ==========
 
-    // Se já veio com validade (ex: QRCode com data), mostra confirmação direta
-    if (validade) {
-      setConfirmacao({ ean, dun: dun || '', validade, produto: produtoEncontrado });
-    } else {
-      // Aguarda digitar a validade (caso não tenha vindo no código)
-      setCurrentScan({ ean, dun: dun || '', validade: '' });
-      setPendingProduct(produtoEncontrado);
-      setModoValidadeManual(true);
-    }
+    // Se chegou aqui, o produto foi encontrado na base
+    processarProdutoEncontrado(produtoEncontrado, ean, dun || '', validade);
   };
 
   const handleValidadeConfirm = (validade: string) => {
@@ -386,6 +425,20 @@ function HomeContent() {
             ean={currentScan.ean}
             onConfirm={handleValidadeConfirm}
             onCancel={handleValidadeCancel}
+          />
+        )}
+
+        {/* Modal de Cadastro de Produto (quando não encontrado na base) */}
+        {showCadastroModal && cadastroInitialData && (
+          <CadastroProdutoModal
+            initialEan={cadastroInitialData.ean}
+            initialDun={cadastroInitialData.dun}
+            tipoDetectado={cadastroInitialData.tipoDetectado}
+            onClose={() => {
+              setShowCadastroModal(false);
+              setCadastroInitialData(null);
+            }}
+            onSuccess={handleCadastroSucesso}
           />
         )}
 
