@@ -275,7 +275,14 @@ export default function CadastroProdutoModal({
       });
 
       if (!res.ok) {
-        throw new Error('Erro ao salvar no servidor.');
+        let errMsg = 'Erro ao salvar no servidor.';
+        try {
+          const errorData = await res.json();
+          if (errorData && errorData.error) {
+            errMsg = errorData.error;
+          }
+        } catch (_) {}
+        throw new Error(errMsg);
       }
 
       onSuccess(novoProduto);

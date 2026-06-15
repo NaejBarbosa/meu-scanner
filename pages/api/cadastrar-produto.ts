@@ -20,7 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const sheetId = process.env.BANCO_VALIDA_SHEET_ID as string;
+    const sheetId = process.env.BANCO_VALIDA_SHEET_ID;
+    if (!sheetId) {
+      return res.status(500).json({ error: 'Erro: A variável de ambiente BANCO_VALIDA_SHEET_ID não está configurada no servidor.' });
+    }
     
     // As colunas da aba banco_valida são: 
     // marca-id, marca-descr, produto-classe, produto-ean, produto-dun, produto-conservacao, produto-descr
@@ -35,8 +38,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ]);
 
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Erro ao cadastrar produto:', error);
-    res.status(500).json({ error: 'Erro ao gravar no banco_valida' });
+    const msg = error?.message || error?.toString() || 'Erro interno do servidor';
+    res.status(500).json({ error: `Erro na gravação do Sheets: ${msg}` });
   }
 }
