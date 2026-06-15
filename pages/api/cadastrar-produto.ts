@@ -25,9 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: 'Erro: A variável de ambiente BANCO_VALIDA_SHEET_ID não está configurada no servidor.' });
     }
     
-    // As colunas da aba banco_valida são: 
-    // marca-id, marca-descr, produto-classe, produto-ean, produto-dun, produto-conservacao, produto-descr
-    await appendRow(sheetId, 'banco_valida!A:G', [
+    const rowValues = [
       marcaId,
       marcaDescr,
       produtoClasse,
@@ -35,9 +33,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       produtoDun || '',
       produtoConservacao,
       produtoDescr,
-    ]);
+    ];
 
-    res.status(200).json({ success: true });
+    console.log('[API Cadastrar Produto] Tentando gravar na planilha:', sheetId);
+    console.log('[API Cadastrar Produto] Conteúdo da linha:', JSON.stringify(rowValues));
+
+    // As colunas da aba banco_valida são: 
+    // marca-id, marca-descr, produto-classe, produto-ean, produto-dun, produto-conservacao, produto-descr
+    const result = await appendRow(sheetId, 'banco_valida!A:G', rowValues);
+
+    console.log('[API Cadastrar Produto] Sucesso no Sheets API! Retorno:', JSON.stringify(result));
+
+    res.status(200).json({ success: true, details: result });
   } catch (error: any) {
     console.error('Erro ao cadastrar produto:', error);
     const msg = error?.message || error?.toString() || 'Erro interno do servidor';

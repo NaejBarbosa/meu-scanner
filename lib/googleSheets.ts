@@ -27,10 +27,11 @@ export async function appendRow(
   values: any[]
 ) {
   const sheets = await getSheetsClient();
-  await sheets.spreadsheets.values.append({
+  const res = await sheets.spreadsheets.values.append({
     spreadsheetId,
     range,
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: [values] },
   });
+  return res.data;
 }
