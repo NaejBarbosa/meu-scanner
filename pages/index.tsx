@@ -45,12 +45,21 @@ function HomeContent() {
   const [toast, setToast] = useState<{ message: string; type: 'info' | 'success' | 'error' } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cadastroNaoIdentificado, setCadastroNaoIdentificado] = useState<{ ean: string; dun: string; validadeTemp?: string } | null>(null);
+  const [isRefreshingBase, setIsRefreshingBase] = useState(false);
 
-  useEffect(() => {
+  const recarregarBase = () => {
+    setIsRefreshingBase(true);
     fetch('/api/validar')
       .then((res) => res.json())
-      .then((data) => setProdutosValidos(data))
-      .catch((err) => console.error('Erro ao carregar base', err));
+      .then((data) => {
+        setProdutosValidos(data);
+      })
+      .catch((err) => console.error('Erro ao carregar base', err))
+      .finally(() => setIsRefreshingBase(false));
+  };
+
+  useEffect(() => {
+    recarregarBase();
   }, []);
 
   const showToast = (message: string, type: 'info' | 'success' | 'error') => {
@@ -279,9 +288,21 @@ function HomeContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
-              <div>
+              <div className="flex-1">
                 <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide">Produtos na Base</p>
-                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">{produtosValidos.length}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">{produtosValidos.length}</p>
+                  <button
+                    onClick={recarregarBase}
+                    disabled={isRefreshingBase}
+                    className="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors disabled:opacity-50"
+                    title="Sincronizar base"
+                  >
+                    <svg className={`w-4 h-4 ${isRefreshingBase ? 'animate-spin' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89H18" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
