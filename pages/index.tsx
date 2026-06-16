@@ -356,105 +356,7 @@ function HomeContent() {
           <Scanner onDetected={handleQRCode} />
         </div>
 
-        {/* Modal de confirmação com backdrop corrigido e conservação */}
-        {confirmacao && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
-            <div className="card-elevated max-w-md w-full p-6 animate-scale-in m-4">
-              <div className="flex items-start gap-4 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-700 flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Produto Detectado</h2>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Confirme os dados antes de adicionar</p>
-                </div>
-              </div>
 
-              <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
-                {confirmacao.dun && (
-                  <div className="flex justify-between items-start gap-4 text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
-                    <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.dun}</span>
-                  </div>
-                )}
-                <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">EAN</span>
-                  <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.ean}</span>
-                </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">Validade</span>
-                  <span className="font-semibold text-slate-900 dark:text-slate-100">{confirmacao.validade}</span>
-                </div>
-                <div className="border-t border-slate-200 dark:border-slate-700 pt-3 mt-3 space-y-2">
-                  <div className="flex justify-between items-start gap-4 text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">Marca</span>
-                    <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.marcaDescr}</span>
-                  </div>
-                  <div className="flex justify-between items-start gap-4 text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">Produto</span>
-                    <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.produtoDescr}</span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
-                    <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
-                  </div>
-                  {/* Conservação */}
-                  {confirmacao.produto.produtoConservacao && (
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="font-medium text-slate-500 dark:text-slate-400">Conservação</span>
-                      <span className={`badge ${
-                        confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
-                          ? 'badge-primary' 
-                          : 'badge-warning'
-                      }`}>
-                        {confirmacao.produto.produtoConservacao}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <button onClick={handleAdicionarLista} className="btn-success w-full">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                  </svg>
-                  Adicionar a Lista
-                </button>
-                <div className="grid grid-cols-2 gap-2">
-                  <button onClick={handleNovaLeitura} className="btn-secondary">
-                    Nova Leitura
-                  </button>
-                  <button onClick={handleDescartar} className="btn-danger">
-                    Descartar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Modal DataValidadeInput com backdrop corrigido */}
-        {modoValidadeManual && currentScan && (
-          <DataValidadeInput
-            ean={currentScan.ean}
-            onConfirm={handleValidadeConfirm}
-            onCancel={handleValidadeCancel}
-          />
-        )}
-
-        {/* Modal de cadastro de produto não identificado */}
-        {cadastroNaoIdentificado && (
-          <CadastroProdutoModal
-            initialEan={cadastroNaoIdentificado.ean}
-            initialDun={cadastroNaoIdentificado.dun}
-            produtosValidos={produtosValidos}
-            onClose={() => setCadastroNaoIdentificado(null)}
-            onSuccess={handleCadastroProdutoSuccess}
-          />
-        )}
 
         {/* Lista de produtos pendentes com coluna Conservação após Classe */}
         {itensRegistrados.length > 0 && (
@@ -531,6 +433,106 @@ function HomeContent() {
           </div>
         )}
       </main>
+
+      {/* Modal de confirmação com backdrop corrigido e conservação */}
+      {confirmacao && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
+          <div className="card-elevated max-w-md w-full p-6 animate-scale-in m-4">
+            <div className="flex items-start gap-4 mb-5">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-700 flex items-center justify-center flex-shrink-0 shadow-lg">
+                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Produto Detectado</h2>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Confirme os dados antes de adicionar</p>
+              </div>
+            </div>
+
+            <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
+              {confirmacao.dun && (
+                <div className="flex justify-between items-start gap-4 text-sm">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
+                  <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.dun}</span>
+                </div>
+              )}
+              <div className="flex justify-between items-start gap-4 text-sm">
+                <span className="font-medium text-slate-500 dark:text-slate-400">EAN</span>
+                <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.ean}</span>
+              </div>
+              <div className="flex justify-between items-center text-sm">
+                <span className="font-medium text-slate-500 dark:text-slate-400">Validade</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-100">{confirmacao.validade}</span>
+              </div>
+              <div className="border-t border-slate-200 dark:border-slate-700 pt-3 mt-3 space-y-2">
+                <div className="flex justify-between items-start gap-4 text-sm">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">Marca</span>
+                  <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.marcaDescr}</span>
+                </div>
+                <div className="flex justify-between items-start gap-4 text-sm">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">Produto</span>
+                  <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.produtoDescr}</span>
+                </div>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
+                  <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
+                </div>
+                {/* Conservação */}
+                {confirmacao.produto.produtoConservacao && (
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="font-medium text-slate-500 dark:text-slate-400">Conservação</span>
+                    <span className={`badge ${
+                      confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
+                        ? 'badge-primary' 
+                        : 'badge-warning'
+                    }`}>
+                      {confirmacao.produto.produtoConservacao}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <button onClick={handleAdicionarLista} className="btn-success w-full">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                </svg>
+                Adicionar a Lista
+              </button>
+              <div className="grid grid-cols-2 gap-2">
+                <button onClick={handleNovaLeitura} className="btn-secondary">
+                  Nova Leitura
+                </button>
+                <button onClick={handleDescartar} className="btn-danger">
+                  Descartar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal DataValidadeInput com backdrop corrigido */}
+      {modoValidadeManual && currentScan && (
+        <DataValidadeInput
+          ean={currentScan.ean}
+          onConfirm={handleValidadeConfirm}
+          onCancel={handleValidadeCancel}
+        />
+      )}
+
+      {/* Modal de cadastro de produto não identificado */}
+      {cadastroNaoIdentificado && (
+        <CadastroProdutoModal
+          initialEan={cadastroNaoIdentificado.ean}
+          initialDun={cadastroNaoIdentificado.dun}
+          produtosValidos={produtosValidos}
+          onClose={() => setCadastroNaoIdentificado(null)}
+          onSuccess={handleCadastroProdutoSuccess}
+        />
+      )}
 
       {/* Toast */}
       {toast && (
