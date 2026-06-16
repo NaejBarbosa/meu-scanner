@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Scanner from '../components/Scanner';
 import DataValidadeInput from '../components/DataValidadeInput';
 import CadastroProdutoModal from '../components/CadastroProdutoModal';
+import VagaSelector from '../components/VagaSelector';
 import { extrairDados } from '../lib/regex';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
 
@@ -30,6 +31,26 @@ interface ItemRegistrado {
 
 function HomeContent() {
   const { theme, toggleTheme } = useTheme();
+
+  // ===== SESSÃO: câmara e vaga =====
+  const [sessaoAtiva, setSessaoAtiva] = useState<{ camara: string; vaga: string } | null>(null);
+
+  const iniciarSessao = (camara: string, vaga: string) => {
+    setSessaoAtiva({ camara, vaga });
+  };
+
+  const redefinirSessao = () => {
+    setSessaoAtiva(null);
+    setItensRegistrados([]);
+    setScannedEans(new Set());
+    setConfirmacao(null);
+    setCurrentScan(null);
+    setPendingProduct(null);
+    setModoValidadeManual(false);
+    setCadastroNaoIdentificado(null);
+  };
+  // ==================================
+
   const [produtosValidos, setProdutosValidos] = useState<ProdutoValido[]>([]);
   const [scannedEans, setScannedEans] = useState<Set<string>>(new Set());
   const [currentScan, setCurrentScan] = useState<{ ean: string; dun: string; validade: string } | null>(null);
@@ -90,6 +111,11 @@ function HomeContent() {
       return;
     }
 
+    if (!sessaoAtiva) {
+      showToast('Sessão sem câmara/vaga definida. Redefina a sessão.', 'error');
+      return;
+    }
+
     setIsSubmitting(true);
     showToast(`Gravando ${itensRegistrados.length} produto(s)...`, 'info');
 
@@ -102,6 +128,8 @@ function HomeContent() {
         produtoEan: item.ean,
         produtoDescr: item.produtoDescr,
         produtoValidade: item.validade,
+        camara: sessaoAtiva.camara,
+        camaraVaga: sessaoAtiva.vaga,
       };
       try {
         const res = await fetch('/api/cadastrar', {
@@ -259,6 +287,12 @@ function HomeContent() {
   const handleNovaLeitura = () => setConfirmacao(null);
   const handleDescartar = () => setConfirmacao(null);
 
+  // ===== Tela de seleção de câmara/vaga =====
+  if (!sessaoAtiva) {
+    return <VagaSelector onConfirm={iniciarSessao} />;
+  }
+  // ============================================
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       {/* Header */}
@@ -275,9 +309,24 @@ function HomeContent() {
                 <h1 className="text-lg font-bold text-slate-900 dark:text-slate-100">
                   Controle de Recebimento
                 </h1>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Escaneamento de Código de Barras / QRCode / Data Matrix
-                </p>
+                {/* Badge câmara/vaga da sessão */}
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="inline-flex items-center gap-1 text-xs font-medium bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 px-2 py-0.5 rounded-full">
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {sessaoAtiva.camara} · {sessaoAtiva.vaga}
+                  </span>
+                  <button
+                    id="btn-redefinir-sessao"
+                    onClick={redefinirSessao}
+                    title="Redefinir câmara/vaga"
+                    className="text-xs text-slate-400 dark:text-slate-500 hover:text-danger-500 dark:hover:text-danger-400 transition-colors underline underline-offset-2"
+                  >
+                    redefinir
+                  </button>
+                </div>
               </div>
             </div>
             <button

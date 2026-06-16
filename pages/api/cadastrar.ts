@@ -35,6 +35,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     produtoEan,
     produtoDescr,
     produtoValidade,
+    camara,
+    camaraVaga,
   } = req.body;
 
   if (!produtoEan || !produtoValidade) {
@@ -46,8 +48,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const registroId = await getNextRegistroId(sheetId);
     const registroTimestamp = getSantaCatarinaTimestamp();
 
-    // Agora a planilha tem 8 colunas: A=ID, B=Timestamp, C=MarcaId, D=MarcaDesc, E=ProdutoClasse, F=ProdutoEan, G=ProdutoDesc, H=ProdutoValidade
-    await appendRow(sheetId, 'A:H', [
+    // Colunas: A=ID, B=Timestamp, C=MarcaId, D=MarcaDesc, E=ProdutoClasse, F=ProdutoEan, G=ProdutoDesc, H=ProdutoValidade, I=Camara, J=CamaraVaga
+    await appendRow(sheetId, 'A:J', [
       registroId,
       registroTimestamp,
       marcaId || '',
@@ -56,6 +58,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       produtoEan,
       produtoDescr || '',
       produtoValidade,
+      camara || '',
+      camaraVaga || '',
     ]);
 
     res.status(200).json({ success: true, registroId, registroTimestamp });
