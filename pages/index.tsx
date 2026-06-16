@@ -172,7 +172,9 @@ function HomeContent() {
       produtoEncontrado = baseProdutos.find((p) => p.produtoDun === dun);
       if (!produtoEncontrado) {
         showToast(`DUN ${dun} não identificado na base. Abrindo cadastro...`, 'info');
-        setCadastroNaoIdentificado({ ean: ean || '', dun, validadeTemp: validade || '' });
+        // Se o tipo for 'dun' (código de barras DUN puro), não pré-preenchemos o EAN para permitir escaneamento
+        const eanInicial = tipo === 'dun' ? '' : (ean || '');
+        setCadastroNaoIdentificado({ ean: eanInicial, dun, validadeTemp: validade || '' });
         return;
       }
       // ✅ Usa o EAN cadastrado na base, nunca o derivado do DUN
