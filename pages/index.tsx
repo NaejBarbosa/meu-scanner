@@ -150,12 +150,14 @@ function HomeContent() {
       }
     }
 
-    setIsSubmitting(false);
-
     if (sucesso) {
       showToast(`${itensRegistrados.length} produto(s) gravado(s) com sucesso!`, 'success');
-      redefinirSessao();
+      setTimeout(() => {
+        redefinirSessao();
+        setIsSubmitting(false);
+      }, 3000);
     } else {
+      setIsSubmitting(false);
       showToast('Erro ao gravar um ou mais produtos. Tente novamente.', 'error');
     }
   };
@@ -499,7 +501,8 @@ function HomeContent() {
                       <td className="px-4 py-3 text-right whitespace-nowrap">
                         <button
                           onClick={() => removerItemDaLista(item.id)}
-                          className="p-2 rounded-lg text-danger-600 dark:text-danger-400 hover:bg-danger-50 dark:hover:bg-danger-900/20"
+                          disabled={isSubmitting}
+                          className="p-2 rounded-lg text-danger-600 dark:text-danger-400 hover:bg-danger-50 dark:hover:bg-danger-900/20 disabled:opacity-40 disabled:cursor-not-allowed"
                           title="Remover item"
                         >
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -619,12 +622,12 @@ function HomeContent() {
       {/* Toast */}
       {toast && (
         <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center items-center px-4 pointer-events-none">
-          <div className={`pointer-events-auto flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-elevated border max-w-md w-full sm:w-auto animate-toast ${
+          <div className={`pointer-events-auto flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl border max-w-md w-full sm:w-auto animate-toast ${
             toast.type === 'success' 
-              ? 'bg-success-50 dark:bg-success-900/20 border-success-200 dark:border-success-800 text-success-700 dark:text-success-300' 
+              ? 'bg-white dark:bg-slate-900 border-success-300 dark:border-success-800 text-success-700 dark:text-success-400' 
               : toast.type === 'error' 
-              ? 'bg-danger-50 dark:bg-danger-900/20 border-danger-200 dark:border-danger-800 text-danger-700 dark:text-danger-300' 
-              : 'bg-primary-50 dark:bg-primary-900/20 border-primary-200 dark:border-primary-800 text-primary-700 dark:text-primary-300'
+              ? 'bg-white dark:bg-slate-900 border-danger-300 dark:border-danger-800 text-danger-700 dark:text-danger-400' 
+              : 'bg-white dark:bg-slate-900 border-primary-300 dark:border-primary-800 text-primary-700 dark:text-primary-400'
           }`}>
             {toast.type === 'success' && (
               <svg className="w-5 h-5 text-success-600 dark:text-success-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
