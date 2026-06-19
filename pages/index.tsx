@@ -622,7 +622,7 @@ function HomeContent() {
       {/* Toast */}
       {toast && (
         <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center items-center px-4 pointer-events-none">
-          <div className={`pointer-events-auto flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl border max-w-md w-full sm:w-auto animate-toast ${
+          <div className={`pointer-events-auto flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl border max-w-md w-full sm:w-auto animate-toast ${
             toast.type === 'success' 
               ? 'bg-white dark:bg-slate-900 border-success-300 dark:border-success-800 text-success-700 dark:text-success-400' 
               : toast.type === 'error' 
@@ -645,7 +645,7 @@ function HomeContent() {
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             )}
-            <span className="font-medium text-sm text-left break-words leading-tight">{toast.message}</span>
+            <span className="font-medium text-sm text-center break-words leading-tight">{toast.message}</span>
           </div>
         </div>
       )}
