@@ -329,7 +329,7 @@ function HomeContent() {
   // ============================================
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
       {/* Header */}
       <header className="sticky top-0 z-40 glass border-b border-slate-200/80 dark:border-slate-800/85">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -484,13 +484,13 @@ function HomeContent() {
                       <td className="px-4 py-3 text-sm text-slate-700 dark:text-slate-300 whitespace-nowrap">{item.marcaDescr}</td>
                       <td className="px-4 py-3 text-sm text-slate-700 dark:text-slate-300 whitespace-nowrap">{item.produtoDescr}</td>
                       <td className="px-4 py-3 text-sm whitespace-nowrap">
-                        <span className="badge badge-primary">{item.produtoClasse}</span>
+                        <span className="badge badge-classe">{item.produtoClasse}</span>
                       </td>
                       <td className="px-4 py-3 text-sm whitespace-nowrap">
                         <span className={`badge ${
                           item.produtoConservacao?.toLowerCase().includes('congelado')
-                            ? 'badge-primary'
-                            : 'badge-warning'
+                            ? 'badge-congelado'
+                            : 'badge-resfriado'
                         }`}>
                           {item.produtoConservacao || '—'}
                         </span>
@@ -521,56 +521,56 @@ function HomeContent() {
 
       {/* Modal de confirmação com backdrop corrigido e conservação */}
       {confirmacao && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/85 backdrop-blur-sm">
           <div className="card-elevated max-w-md w-full p-6 animate-scale-in m-4">
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0 text-slate-700 dark:text-slate-300 shadow-sm">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0 text-slate-700 dark:text-slate-300 shadow-sm border border-slate-200/50 dark:border-slate-700/50">
+                <svg className="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">Produto Detectado</h2>
+                <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Produto Detectado</h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Confirme as especificações do item</p>
               </div>
             </div>
 
-            <div className="bg-slate-50/20 dark:bg-slate-950/10 border border-slate-200/50 dark:border-slate-800/60 rounded-xl p-4 mb-5 space-y-3">
+            <div className="bg-slate-50/20 dark:bg-slate-900/40 border border-slate-200/50 dark:border-slate-800/60 rounded-xl p-4 mb-5 space-y-4">
               {confirmacao.dun && (
-                <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider">DUN</span>
-                  <span className="font-mono text-slate-850 dark:text-slate-200 text-right break-all text-xs font-semibold">{confirmacao.dun}</span>
+                <div className="flex justify-between items-start gap-4">
+                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-xs uppercase tracking-wider mt-1">DUN</span>
+                  <span className="font-mono text-slate-800 dark:text-slate-200 text-right break-all text-base font-bold">{confirmacao.dun}</span>
                 </div>
               )}
-              <div className="flex justify-between items-start gap-4 text-sm">
-                <span className="font-semibold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider">EAN</span>
-                <span className="font-mono text-slate-850 dark:text-slate-200 text-right break-all text-xs font-semibold">{confirmacao.ean}</span>
+              <div className="flex justify-between items-start gap-4">
+                <span className="font-semibold text-slate-400 dark:text-slate-500 text-xs uppercase tracking-wider mt-1">EAN</span>
+                <span className="font-mono text-slate-800 dark:text-slate-200 text-right break-all text-base font-bold">{confirmacao.ean}</span>
               </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="font-semibold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider">Validade</span>
-                <span className="font-bold text-slate-900 dark:text-slate-100">{confirmacao.validade}</span>
+              <div className="flex justify-between items-center">
+                <span className="font-semibold text-slate-400 dark:text-slate-500 text-xs uppercase tracking-wider">Validade</span>
+                <span className="font-bold text-slate-900 dark:text-slate-100 text-base">{confirmacao.validade}</span>
               </div>
-              <div className="border-t border-slate-150 dark:border-slate-805 pt-3 mt-3 space-y-2">
-                <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider">Marca</span>
-                  <span className="text-slate-800 dark:text-slate-200 text-right font-medium text-xs">{confirmacao.produto.marcaDescr}</span>
+              <div className="border-t border-slate-150 dark:border-slate-800/80 pt-4 mt-4 space-y-4">
+                <div className="flex justify-between items-start gap-4">
+                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-xs uppercase tracking-wider mt-0.5">Marca</span>
+                  <span className="text-slate-800 dark:text-slate-200 text-right font-bold text-base">{confirmacao.produto.marcaDescr}</span>
                 </div>
-                <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider">Produto</span>
-                  <span className="text-slate-800 dark:text-slate-200 text-right font-medium text-xs">{confirmacao.produto.produtoDescr}</span>
+                <div className="flex justify-between items-start gap-4">
+                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-xs uppercase tracking-wider mt-0.5">Produto</span>
+                  <span className="text-slate-800 dark:text-slate-200 text-right font-bold text-base leading-snug">{confirmacao.produto.produtoDescr}</span>
                 </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider">Classe</span>
-                  <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-slate-400 dark:text-slate-500 text-xs uppercase tracking-wider">Classe</span>
+                  <span className="badge badge-classe py-1 px-3 text-sm font-bold">{confirmacao.produto.produtoClasse}</span>
                 </div>
                 {/* Conservação */}
                 {confirmacao.produto.produtoConservacao && (
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="font-semibold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider">Conservação</span>
-                    <span className={`badge ${
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold text-slate-400 dark:text-slate-500 text-xs uppercase tracking-wider">Conservação</span>
+                    <span className={`badge py-1 px-3 text-sm font-bold ${
                       confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
-                        ? 'badge-primary' 
-                        : 'badge-warning'
+                        ? 'badge-congelado' 
+                        : 'badge-resfriado'
                     }`}>
                       {confirmacao.produto.produtoConservacao}
                     </span>

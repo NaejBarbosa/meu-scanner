@@ -17,17 +17,17 @@
   }
 
   .dark body {
-    @apply bg-slate-950 text-slate-100;
+    @apply bg-slate-900 text-slate-100;
   }
 }
 
 @layer components {
   .card {
-    @apply bg-white dark:bg-slate-900 rounded-xl border border-slate-200/60 dark:border-slate-800/80 shadow-[0_1px_2px_rgba(0,0,0,0.01),0_2px_8px_rgba(0,0,0,0.02)];
+    @apply bg-white dark:bg-slate-950 rounded-xl border border-slate-200/60 dark:border-slate-800/80 shadow-[0_1px_2px_rgba(0,0,0,0.01),0_2px_8px_rgba(0,0,0,0.02)];
   }
 
   .card-elevated {
-    @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/60 dark:border-slate-800/80 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.02),0_4px_12px_-2px_rgba(0,0,0,0.01)];
+    @apply bg-white dark:bg-slate-950 rounded-2xl border border-slate-200/60 dark:border-slate-800/80 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.02),0_4px_12px_-2px_rgba(0,0,0,0.01)];
   }
 
   .btn-primary {
@@ -55,19 +55,31 @@
   }
 
   .badge-primary {
-    @apply bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700;
+    @apply bg-blue-50/80 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 border-blue-100 dark:border-blue-900/30;
   }
 
   .badge-success {
-    @apply bg-emerald-50/50 dark:bg-emerald-950/10 text-emerald-700 dark:text-emerald-400 border-emerald-100/80 dark:border-emerald-900/30;
+    @apply bg-emerald-50/80 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-900/30;
   }
 
   .badge-warning {
-    @apply bg-amber-50/50 dark:bg-amber-950/10 text-amber-700 dark:text-amber-400 border-amber-100/80 dark:border-amber-900/30;
+    @apply bg-amber-50/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 border-amber-100/80 dark:border-amber-900/30;
   }
 
   .badge-danger {
-    @apply bg-rose-50/50 dark:bg-rose-950/10 text-rose-700 dark:text-rose-400 border-rose-100/80 dark:border-rose-900/30;
+    @apply bg-rose-50/80 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 border-rose-100/80 dark:border-rose-900/30;
+  }
+
+  .badge-congelado {
+    @apply bg-sky-50/80 dark:bg-sky-950/40 text-sky-700 dark:text-sky-400 border-sky-100 dark:border-sky-900/40;
+  }
+
+  .badge-resfriado {
+    @apply bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-100 dark:border-emerald-900/40;
+  }
+
+  .badge-classe {
+    @apply bg-purple-50/80 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400 border-purple-100 dark:border-purple-900/40;
   }
 }
 

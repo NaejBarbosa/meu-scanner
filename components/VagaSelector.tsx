@@ -66,9 +66,9 @@ export default function VagaSelector({ onConfirm }: VagaSelectorProps) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex items-center justify-center p-4">
       {/* Card principal */}
-      <div className="w-full max-w-lg animate-slideUp">        {/* Header do card */}
+      <div className="w-full max-w-lg animate-slideUp">
         <div className="card-elevated overflow-hidden">
           <div className="bg-slate-50/30 dark:bg-slate-900/20 p-6 border-b border-slate-150 dark:border-slate-800">
             <div className="flex items-center justify-between">
@@ -209,20 +209,20 @@ export default function VagaSelector({ onConfirm }: VagaSelectorProps) {
               {/* Vaga selecionada: badge de confirmação ou erro de vaga ocupada */}
               {vagaSelecionada && (
                 isOcupada ? (
-                  <div className="mt-3 flex items-start gap-2.5 bg-rose-50/50 dark:bg-rose-950/10 border border-rose-100/80 dark:border-rose-900/30 rounded-xl px-3 py-2.5 animate-scale-in">
-                    <svg className="w-4.5 h-4.5 text-rose-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="mt-3 w-full flex items-start gap-2.5 bg-rose-50/50 dark:bg-rose-950/20 border border-rose-150 dark:border-rose-900/40 rounded-xl px-3 py-2.5 animate-scale-in">
+                    <svg className="w-5 h-5 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
-                    <span className="text-xs font-medium text-rose-700 dark:text-rose-400 leading-normal">
+                    <span className="text-xs font-semibold text-rose-800 dark:text-rose-400 leading-normal flex-1">
                       Esta combinação de câmara e vaga já está sendo utilizada.
                     </span>
                   </div>
                 ) : (
-                  <div className="flex items-center gap-2.5 text-sm text-emerald-700 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/10 border border-emerald-100/80 dark:border-emerald-900/30 rounded-xl px-3 py-2.5">
+                  <div className="w-full flex items-center gap-2.5 text-sm text-emerald-800 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/50 dark:border-emerald-900/40 rounded-xl px-3 py-2.5">
                     <svg className="w-4 h-4 flex-shrink-0 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Vaga selecionada: <strong className="font-semibold">{vagaSelecionada}</strong></span>
+                    <span className="flex-1 text-xs font-semibold text-emerald-800 dark:text-emerald-400">Vaga selecionada: <strong className="font-bold">{vagaSelecionada}</strong></span>
                   </div>
                 )
               )}
