@@ -25,7 +25,9 @@ export default function Relatorio() {
   const [filtroVaga, setFiltroVaga] = useState('');
   const [filtroClasse, setFiltroClasse] = useState('');
   const [filtroVencimentoSmart, setFiltroVencimentoSmart] = useState('todos');
+  const [filtroVencimentoExato, setFiltroVencimentoExato] = useState('');
   const [filtroRecebimentoSmart, setFiltroRecebimentoSmart] = useState('todos');
+  const [filtroRecebimentoExato, setFiltroRecebimentoExato] = useState('');
 
   // Paginação
   const [pagina, setPagina] = useState(1);
@@ -262,6 +264,29 @@ export default function Relatorio() {
         }
       }
 
+      // 8) Filtro exato de Vencimento
+      if (filtroVencimentoExato) {
+        const parts = filtroVencimentoExato.split('-');
+        if (parts.length === 3) {
+          const dataBr = `${parts[2]}/${parts[1]}/${parts[0]}`;
+          if (reg.produtoValidade !== dataBr) return false;
+        } else {
+          return false;
+        }
+      }
+
+      // 9) Filtro exato de Recebimento
+      if (filtroRecebimentoExato) {
+        const parts = filtroRecebimentoExato.split('-');
+        if (parts.length === 3) {
+          const dataBr = `${parts[2]}/${parts[1]}/${parts[0]}`;
+          const dataRecebimentoBR = reg.timestamp.split(' ')[0].replace(',', '');
+          if (dataRecebimentoBR !== dataBr) return false;
+        } else {
+          return false;
+        }
+      }
+
       return true;
     });
   }, [
@@ -272,7 +297,9 @@ export default function Relatorio() {
     filtroVaga,
     filtroClasse,
     filtroVencimentoSmart,
+    filtroVencimentoExato,
     filtroRecebimentoSmart,
+    filtroRecebimentoExato,
     dateRanges,
   ]);
 
@@ -286,7 +313,9 @@ export default function Relatorio() {
     filtroVaga,
     filtroClasse,
     filtroVencimentoSmart,
+    filtroVencimentoExato,
     filtroRecebimentoSmart,
+    filtroRecebimentoExato,
   ]);
 
   // Paginação dos registros filtrados
@@ -303,7 +332,9 @@ export default function Relatorio() {
     setFiltroVaga('');
     setFiltroClasse('');
     setFiltroVencimentoSmart('todos');
+    setFiltroVencimentoExato('');
     setFiltroRecebimentoSmart('todos');
+    setFiltroRecebimentoExato('');
     setPagina(1);
   };
 
@@ -420,7 +451,7 @@ export default function Relatorio() {
             </svg>
             Filtros de Pesquisa
           </h3>
-          {(filtroBusca || filtroMarca || filtroCamara || filtroVaga || filtroClasse || filtroVencimentoSmart !== 'todos' || filtroRecebimentoSmart !== 'todos') && (
+          {(filtroBusca || filtroMarca || filtroCamara || filtroVaga || filtroClasse || filtroVencimentoSmart !== 'todos' || filtroVencimentoExato || filtroRecebimentoSmart !== 'todos' || filtroRecebimentoExato) && (
             <button
               onClick={limparFiltros}
               className="text-xs font-semibold text-danger-600 dark:text-danger-400 hover:underline flex items-center gap-1"
@@ -510,7 +541,10 @@ export default function Relatorio() {
             </label>
             <select
               value={filtroVencimentoSmart}
-              onChange={(e) => setFiltroVencimentoSmart(e.target.value)}
+              onChange={(e) => {
+                setFiltroVencimentoSmart(e.target.value);
+                if (e.target.value !== 'todos') setFiltroVencimentoExato('');
+              }}
               className="input-field py-2 text-sm font-medium text-slate-800 dark:text-slate-100 cursor-pointer"
             >
               <option value="todos">Qualquer validade</option>
@@ -521,21 +555,56 @@ export default function Relatorio() {
             </select>
           </div>
 
+          {/* Filtro de Vencimento Exato */}
+          <div className="space-y-1 col-span-1">
+            <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+              Vencimento Exato
+            </label>
+            <input
+              type="date"
+              value={filtroVencimentoExato}
+              onChange={(e) => {
+                setFiltroVencimentoExato(e.target.value);
+                if (e.target.value) setFiltroVencimentoSmart('todos');
+              }}
+              className="input-field py-2 text-sm cursor-pointer"
+            />
+          </div>
+
           {/* Filtro inteligente de Recebimento */}
-          <div className="space-y-1 col-span-1 sm:col-span-2 md:col-span-2">
+          <div className="space-y-1 col-span-1">
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
               Recebimento Inteligente
             </label>
             <select
               value={filtroRecebimentoSmart}
-              onChange={(e) => setFiltroRecebimentoSmart(e.target.value)}
+              onChange={(e) => {
+                setFiltroRecebimentoSmart(e.target.value);
+                if (e.target.value !== 'todos') setFiltroRecebimentoExato('');
+              }}
               className="input-field py-2 text-sm font-medium text-slate-800 dark:text-slate-100 cursor-pointer"
             >
-              <option value="todos">Qualquer data de recebimento</option>
+              <option value="todos">Qualquer recebimento</option>
               <option value="estaSemana">📥 Recebido nesta semana</option>
               <option value="anteriorSemana">📅 Recebido na semana anterior</option>
               <option value="esteMes">🗓️ Recebido este mês</option>
             </select>
+          </div>
+
+          {/* Filtro de Recebimento Exato */}
+          <div className="space-y-1 col-span-1">
+            <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+              Recebimento Exato
+            </label>
+            <input
+              type="date"
+              value={filtroRecebimentoExato}
+              onChange={(e) => {
+                setFiltroRecebimentoExato(e.target.value);
+                if (e.target.value) setFiltroRecebimentoSmart('todos');
+              }}
+              className="input-field py-2 text-sm cursor-pointer"
+            />
           </div>
         </div>
       </div>
