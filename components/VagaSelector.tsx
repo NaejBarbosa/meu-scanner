@@ -1,14 +1,37 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { CAMARAS, VAGAS } from '../lib/config';
+import { useTheme } from '../context/ThemeContext';
 
 interface VagaSelectorProps {
   onConfirm: (camara: string, vaga: string) => void;
 }
 
 export default function VagaSelector({ onConfirm }: VagaSelectorProps) {
+  const { theme, toggleTheme } = useTheme();
   const [camaraSelecionada, setCamaraSelecionada] = useState<string>('');
   const [vagaSelecionada, setVagaSelecionada] = useState<string>('');
   const [buscaVaga, setBuscaVaga] = useState<string>('');
+  const [vagasOcupadas, setVagasOcupadas] = useState<{ camara: string; vaga: string }[]>([]);
+
+  useEffect(() => {
+    fetch('/api/vagas-ocupadas')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setVagasOcupadas(data);
+        }
+      })
+      .catch((err) => console.error('Erro ao buscar vagas ocupadas:', err));
+  }, []);
+
+  const isOcupada = useMemo(() => {
+    if (!camaraSelecionada || !vagaSelecionada) return false;
+    return vagasOcupadas.some(
+      (v) =>
+        v.camara.toLowerCase() === camaraSelecionada.toLowerCase() &&
+        v.vaga.toLowerCase() === vagaSelecionada.toLowerCase()
+    );
+  }, [camaraSelecionada, vagaSelecionada, vagasOcupadas]);
 
   const vagasFiltradas = useMemo(() => {
     if (!buscaVaga.trim()) return VAGAS;
@@ -17,7 +40,7 @@ export default function VagaSelector({ onConfirm }: VagaSelectorProps) {
     );
   }, [buscaVaga]);
 
-  const podeConfirmar = camaraSelecionada !== '' && vagaSelecionada !== '';
+  const podeConfirmar = camaraSelecionada !== '' && vagaSelecionada !== '' && !isOcupada;
 
   const handleConfirmar = () => {
     if (!podeConfirmar) return;
@@ -50,19 +73,38 @@ export default function VagaSelector({ onConfirm }: VagaSelectorProps) {
         {/* Header do card */}
         <div className="card-elevated overflow-hidden">
           <div className="bg-gradient-to-br from-primary-600 to-primary-800 p-6 text-white">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold">Selecionar Destino</h1>
+                  <p className="text-primary-200 text-sm">Câmara e vaga para esta sessão</p>
+                </div>
               </div>
-              <div>
-                <h1 className="text-xl font-bold">Selecionar Destino</h1>
-                <p className="text-primary-200 text-sm">Câmara e vaga para esta sessão</p>
-              </div>
+
+              {/* Botão de Tema */}
+              <button
+                onClick={toggleTheme}
+                className="p-2.5 rounded-xl bg-white/10 dark:bg-white/5 text-white hover:bg-white/20 transition-colors"
+                aria-label="Alternar tema"
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
 
@@ -171,16 +213,27 @@ export default function VagaSelector({ onConfirm }: VagaSelectorProps) {
                 )}
               </div>
 
-              {/* Vaga selecionada: badge de confirmação */}
+              {/* Vaga selecionada: badge de confirmação ou erro de vaga ocupada */}
               {vagaSelecionada && (
-                <div className="flex items-center gap-2 text-sm text-success-700 dark:text-success-400 bg-success-50 dark:bg-success-900/20 rounded-lg px-3 py-2">
-                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd" />
-                  </svg>
-                  <span>Vaga selecionada: <strong>{vagaSelecionada}</strong></span>
-                </div>
+                isOcupada ? (
+                  <div className="mt-3 flex items-start gap-2 bg-danger-50 dark:bg-danger-900/20 border border-danger-200 dark:border-danger-800 rounded-lg px-3 py-2 animate-scale-in">
+                    <svg className="w-4 h-4 text-danger-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span className="text-xs font-medium text-danger-700 dark:text-danger-300">
+                      Esta combinação de câmara e vaga já está sendo utilizada.
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 text-sm text-success-700 dark:text-success-400 bg-success-50 dark:bg-success-900/20 rounded-lg px-3 py-2">
+                    <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd" />
+                    </svg>
+                    <span>Vaga selecionada: <strong>{vagaSelecionada}</strong></span>
+                  </div>
+                )
               )}
             </div>
 

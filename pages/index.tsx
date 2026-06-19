@@ -71,9 +71,16 @@ function HomeContent() {
   const recarregarBase = () => {
     setIsRefreshingBase(true);
     fetch('/api/validar')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error('Erro ao buscar banco_valida');
+        return res.json();
+      })
       .then((data) => {
-        setProdutosValidos(data);
+        if (Array.isArray(data)) {
+          setProdutosValidos(data);
+        } else {
+          console.error('Dados de validar inválidos (não é array):', data);
+        }
       })
       .catch((err) => console.error('Erro ao carregar base', err))
       .finally(() => setIsRefreshingBase(false));
@@ -147,8 +154,7 @@ function HomeContent() {
 
     if (sucesso) {
       showToast(`${itensRegistrados.length} produto(s) gravado(s) com sucesso!`, 'success');
-      setItensRegistrados([]);
-      setScannedEans(new Set());
+      redefinirSessao();
     } else {
       showToast('Erro ao gravar um ou mais produtos. Tente novamente.', 'error');
     }
@@ -181,6 +187,7 @@ function HomeContent() {
   };
 
   const processarLeituraComBase = (text: string, baseProdutos: ProdutoValido[]) => {
+    const safeBase = Array.isArray(baseProdutos) ? baseProdutos : [];
     const dados = extrairDados(text);
     if (!dados) {
       showToast('Formato inválido. Escaneie um Data Matrix, QRCode ou código de barras válido.', 'error');
@@ -193,7 +200,7 @@ function HomeContent() {
 
     // 1) Se temos DUN (do código), busca o produto pelo DUN
     if (dun) {
-      produtoEncontrado = baseProdutos.find((p) => p.produtoDun === dun);
+      produtoEncontrado = safeBase.find((p) => p.produtoDun === dun);
       if (!produtoEncontrado) {
         showToast(`DUN ${dun} não identificado na base. Abrindo cadastro...`, 'info');
         // Como o EAN não é auto-derivado, eanInicial será '' (vazio) para permitir escanear/digitar
@@ -206,7 +213,7 @@ function HomeContent() {
     }
     // 2) Senão, busca pelo EAN (caso o código seja só EAN)
     else if (ean) {
-      produtoEncontrado = baseProdutos.find((p) => p.produtoEan === ean);
+      produtoEncontrado = safeBase.find((p) => p.produtoEan === ean);
       if (!produtoEncontrado) {
         showToast(`EAN ${ean} não identificado na base. Abrindo cadastro...`, 'info');
         setCadastroNaoIdentificado({ ean, dun: dun || '', validadeTemp: validade || '' });
@@ -247,14 +254,18 @@ function HomeContent() {
       const res = await fetch('/api/validar');
       if (res.ok) {
         const data = await res.json();
-        setProdutosValidos(data);
-        processarLeituraComBase(text, data);
-      } else {
-        processarLeituraComBase(text, produtosValidos);
+        if (Array.isArray(data)) {
+          setProdutosValidos(data);
+          processarLeituraComBase(text, data);
+          return;
+        }
       }
+      const baseValida = Array.isArray(produtosValidos) ? produtosValidos : [];
+      processarLeituraComBase(text, baseValida);
     } catch (err) {
       console.error('Erro ao atualizar base no escaneamento:', err);
-      processarLeituraComBase(text, produtosValidos);
+      const baseValida = Array.isArray(produtosValidos) ? produtosValidos : [];
+      processarLeituraComBase(text, baseValida);
     }
   };
 
@@ -280,6 +291,28 @@ function HomeContent() {
   const handleAdicionarLista = () => {
     if (!confirmacao) return;
     const { ean, dun, validade, produto } = confirmacao;
+
+    // Validação de Compatibilidade de Conservação
+    if (sessaoAtiva) {
+      const camara = sessaoAtiva.camara.toLowerCase();
+      const conservacao = (produto.produtoConservacao || '').toLowerCase();
+
+      const isCamaraCongelado = camara.includes('congelado');
+      const isCamaraResfriado = camara.includes('resfriado');
+
+      const isProdCongelado = conservacao.includes('congelado');
+      const isProdResfriado = conservacao.includes('resfriado');
+
+      if (isCamaraCongelado && !isProdCongelado) {
+        showToast(`Produto com conservação "${produto.produtoConservacao || 'Não definida'}" é incompatível com a câmara "${sessaoAtiva.camara}".`, 'error');
+        return;
+      }
+      if (isCamaraResfriado && !isProdResfriado) {
+        showToast(`Produto com conservação "${produto.produtoConservacao || 'Não definida'}" é incompatível com a câmara "${sessaoAtiva.camara}".`, 'error');
+        return;
+      }
+    }
+
     adicionarItemNaLista(produto, ean, dun, validade);
     setConfirmacao(null);
   };
