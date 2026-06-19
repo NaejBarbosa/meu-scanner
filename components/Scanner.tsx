@@ -269,19 +269,19 @@ export default function Scanner({ onDetected }: ScannerProps) {
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
               <div className="relative">
                 <div
-                  className="border-4 border-success-500 rounded-2xl shadow-[0_0_0_9999px_rgba(0,0,0,0.7)]"
+                  className="border-4 border-white/80 rounded-2xl shadow-[0_0_0_9999px_rgba(0,0,0,0.75)]"
                   style={{ width: '60vw', maxWidth: '300px', height: '60vw', maxHeight: '300px' }}
                 />
-                <div className="absolute -top-1 -left-1 w-4 h-4 border-t-4 border-l-4 border-success-400 rounded-tl-lg" />
-                <div className="absolute -top-1 -right-1 w-4 h-4 border-t-4 border-r-4 border-success-400 rounded-tr-lg" />
-                <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-4 border-l-4 border-success-400 rounded-bl-lg" />
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-4 border-r-4 border-success-400 rounded-br-lg" />
+                <div className="absolute -top-1 -left-1 w-4 h-4 border-t-4 border-l-4 border-white rounded-tl-lg" />
+                <div className="absolute -top-1 -right-1 w-4 h-4 border-t-4 border-r-4 border-white rounded-tr-lg" />
+                <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-4 border-l-4 border-white rounded-bl-lg" />
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-4 border-r-4 border-white rounded-br-lg" />
               </div>
             </div>
           </div>
 
           <div className="flex gap-3 mt-6">
-            <button onClick={detectCentralRegion} disabled={processing} className="btn-success">
+            <button onClick={detectCentralRegion} disabled={processing} className="btn-success text-xs font-semibold uppercase tracking-wider py-2.5">
               {processing ? (
                 <>
                   <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -299,7 +299,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
                 </>
               )}
             </button>
-            <button onClick={fecharPreview} className="btn-danger">
+            <button onClick={fecharPreview} className="btn-danger text-xs font-semibold uppercase tracking-wider py-2.5">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -310,11 +310,11 @@ export default function Scanner({ onDetected }: ScannerProps) {
       )}
 
       {/* Container Principal do Scanner (Compacto na página) */}
-      <div className="relative w-full overflow-hidden bg-slate-50 dark:bg-slate-900/10 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-8 md:p-12 text-center">
+      <div className="relative w-full overflow-hidden bg-slate-50/20 dark:bg-slate-900/10 border border-dashed border-slate-200 dark:border-slate-800/80 rounded-2xl p-8 md:p-12 text-center">
         {/* Interface Inativa / Placeholder */}
         <div className={`flex flex-col items-center justify-center transition-opacity duration-300 ${!scanning ? 'opacity-100' : 'opacity-0 pointer-events-none absolute inset-0'}`}>
           {/* Ícone de câmera estilizado e minimalista */}
-          <div className="w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-950/20 flex items-center justify-center text-primary-500 mb-5 border border-primary-100 dark:border-primary-900/30 shadow-sm">
+          <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800/60 flex items-center justify-center text-slate-500 dark:text-slate-400 mb-5 border border-slate-200 dark:border-slate-700/50 shadow-sm">
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
