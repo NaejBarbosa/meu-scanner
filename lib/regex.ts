@@ -83,6 +83,42 @@ function extrairDadosDataMatrix(qrData: string) {
 }
 
 /**
+ * Extrai DUN e data de validade de uma string GS1 bruta (sem delimitadores)
+ */
+function extrairDadosGS1Bruto(qrData: string) {
+  const clean = qrData.replace(/\s/g, '');
+  const regex = /01(\d{14})17(\d{6})/;
+  const match = clean.match(regex);
+
+  if (!match || !match[1] || !match[2]) {
+    return null;
+  }
+
+  const dun14 = match[1];
+  const validadeStr = match[2]; // YYMMDD
+
+  const yy = parseInt(validadeStr.substring(0, 2), 10);
+  const mm = parseInt(validadeStr.substring(2, 4), 10);
+  const dd = parseInt(validadeStr.substring(4, 6), 10);
+
+  const ano = 2000 + yy;
+  const mes = mm;
+  const dia = dd;
+
+  if (!isValidDate(ano, mes, dia)) {
+    return null;
+  }
+
+  const validadeFormatada = `${dia.toString().padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${ano}`;
+
+  return {
+    dun: dun14,
+    ean: undefined,
+    validade: validadeFormatada,
+  };
+}
+
+/**
  * Extrai DUN, EAN e data de validade do texto bruto
  * @param text - string escaneada
  * @returns objeto com dun?, ean, validade?, tipo
@@ -96,6 +132,13 @@ export function extrairDados(text: string) {
   if (dmResult) {
     console.log('[extrairDados] Data Matrix detectado -> DUN:', dmResult.dun, 'EAN:', dmResult.ean, 'Validade:', dmResult.validade);
     return { ...dmResult, tipo: 'datamatrix' as const };
+  }
+
+  // 1.5. GS1 Bruto
+  const gs1BrutoResult = extrairDadosGS1Bruto(clean);
+  if (gs1BrutoResult) {
+    console.log('[extrairDados] GS1 Bruto detectado...');
+    return { ...gs1BrutoResult, tipo: 'datamatrix_gs1' as const };
   }
 
   // 2. QRCode com EAN + validade dd/mm/aaaa
