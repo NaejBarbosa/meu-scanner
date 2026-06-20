@@ -86,13 +86,31 @@ function extrairDadosDataMatrix(qrData: string) {
  * Extrai DUN e data de validade de uma string GS1 bruta (sem delimitadores)
  */
 function extrairDadosGS1Bruto(qrData: string) {
-  const clean = qrData.replace(/\s/g, '');
+  console.log('[GS1Bruto] Iniciando análise para:', JSON.stringify(qrData));
+  
+  // Remove espaços e quebras de linha
+  let clean = qrData.replace(/\s/g, '');
+  
+  // Remove caracteres de controle ASCII comuns como \x1d (Group Separator)
+  const controlCharsRegex = /[\x00-\x1F\x7F-\x9F]/g;
+  if (controlCharsRegex.test(clean)) {
+    console.log('[GS1Bruto] Caracteres de controle invisíveis detectados e removidos.');
+    clean = clean.replace(controlCharsRegex, '');
+  }
+  
+  console.log('[GS1Bruto] String limpa para busca:', JSON.stringify(clean));
+  
   const regex = /01(\d{14})17(\d{6})/;
   const match = clean.match(regex);
 
-  if (!match || !match[1] || !match[2]) {
+  if (!match) {
+    console.log('[GS1Bruto] Regex /01(\\d{14})17(\\d{6})/ não encontrou correspondência.');
     return null;
   }
+
+  console.log('[GS1Bruto] Regex match obtido:', match[0]);
+  console.log('[GS1Bruto] Grupo 1 (DUN/GTIN):', match[1]);
+  console.log('[GS1Bruto] Grupo 2 (Validade YYMMDD):', match[2]);
 
   const dun14 = match[1];
   const validadeStr = match[2]; // YYMMDD
@@ -105,11 +123,15 @@ function extrairDadosGS1Bruto(qrData: string) {
   const mes = mm;
   const dia = dd;
 
+  console.log(`[GS1Bruto] Componentes da data convertida -> Dia: ${dia}, Mês: ${mes}, Ano: ${ano}`);
+
   if (!isValidDate(ano, mes, dia)) {
+    console.log('[GS1Bruto] Data inválida detectada por isValidDate:', `${dia}/${mes}/${ano}`);
     return null;
   }
 
   const validadeFormatada = `${dia.toString().padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${ano}`;
+  console.log('[GS1Bruto] Sucesso! Dados extraídos:', { dun: dun14, ean: undefined, validade: validadeFormatada });
 
   return {
     dun: dun14,
@@ -135,9 +157,10 @@ export function extrairDados(text: string) {
   }
 
   // 1.5. GS1 Bruto
+  console.log('[extrairDados] Tentando extrair GS1 Bruto...');
   const gs1BrutoResult = extrairDadosGS1Bruto(clean);
   if (gs1BrutoResult) {
-    console.log('[extrairDados] GS1 Bruto detectado...');
+    console.log('[extrairDados] GS1 Bruto detectado:', gs1BrutoResult);
     return { ...gs1BrutoResult, tipo: 'datamatrix_gs1' as const };
   }
 
