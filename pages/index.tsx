@@ -5,6 +5,7 @@ import CadastroProdutoModal from '../components/CadastroProdutoModal';
 import VagaSelector from '../components/VagaSelector';
 import Relatorio from '../components/Relatorio';
 import MenuPrincipal from '../components/MenuPrincipal';
+import PesquisaProduto from '../components/PesquisaProduto';
 import { extrairDados } from '../lib/regex';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
 
@@ -33,7 +34,7 @@ interface ItemRegistrado {
 
 function HomeContent() {
   const { theme, toggleTheme } = useTheme();
-  const [activeTab, setActiveTab] = useState<'menu' | 'scan' | 'relatorio'>('menu');
+  const [activeTab, setActiveTab] = useState<'menu' | 'scan' | 'relatorio' | 'pesquisa'>('menu');
 
   // ===== SESSÃO: câmara e vaga =====
   const [sessaoAtiva, setSessaoAtiva] = useState<{ camara: string; vaga: string } | null>(null);
@@ -404,9 +405,12 @@ function HomeContent() {
           <MenuPrincipal
             onSelectScan={() => setActiveTab('scan')}
             onSelectRelatorio={() => setActiveTab('relatorio')}
+            onSelectPesquisa={() => setActiveTab('pesquisa')}
           />
         ) : activeTab === 'relatorio' ? (
           <Relatorio />
+        ) : activeTab === 'pesquisa' ? (
+          <PesquisaProduto produtosValidos={produtosValidos} />
         ) : !sessaoAtiva ? (
           <VagaSelector onConfirm={iniciarSessao} />
         ) : (
