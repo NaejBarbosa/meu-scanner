@@ -139,6 +139,24 @@ function HomeContent() {
       const isMatch = checkWatchlist(confirmacao.ean);
       if (isMatch) {
         triggerConfetti();
+        // Marca como localizado no localStorage do Radar
+        try {
+          const saved = localStorage.getItem('radar_watchlist');
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed)) {
+              const newList = parsed.map((item: any) => {
+                if (item.produtoEan === confirmacao.ean) {
+                  return { ...item, localizado: true };
+                }
+                return item;
+              });
+              localStorage.setItem('radar_watchlist', JSON.stringify(newList));
+            }
+          }
+        } catch (e) {
+          console.error('Erro ao marcar localizado no localStorage', e);
+        }
       }
     }
   }, [confirmacao]);

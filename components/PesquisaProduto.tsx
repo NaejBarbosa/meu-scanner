@@ -18,6 +18,10 @@ export interface ProdutoValido {
   produtoDescr: string;
 }
 
+export interface WatchlistItem extends ProdutoValido {
+  localizado?: boolean;
+}
+
 interface PesquisaProdutoProps {
   produtosValidos: ProdutoValido[];
 }
@@ -37,7 +41,7 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
   const [searchTerm, setSearchTerm] = useState('');
   
   // Estados para Watchlist (Radar)
-  const [watchlist, setWatchlist] = useState<ProdutoValido[]>([]);
+  const [watchlist, setWatchlist] = useState<WatchlistItem[]>([]);
   const [novoEanProcurado, setNovoEanProcurado] = useState('');
   const [showAddManual, setShowAddManual] = useState(false);
 
@@ -92,9 +96,19 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
     }
   }, [selectedProduct, isMatchCelebration]);
 
-  const saveWatchlist = (list: ProdutoValido[]) => {
+  const saveWatchlist = (list: WatchlistItem[]) => {
     setWatchlist(list);
     localStorage.setItem('radar_watchlist', JSON.stringify(list));
+  };
+
+  const toggleLocalizado = (ean: string) => {
+    const newList = watchlist.map((item) => {
+      if (item.produtoEan === ean) {
+        return { ...item, localizado: !item.localizado };
+      }
+      return item;
+    });
+    saveWatchlist(newList);
   };
 
   const showToast = (message: string, type: 'success' | 'error' | 'info') => {
@@ -140,7 +154,7 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
       newList.splice(index, 1);
       showToast('Produto removido do Radar', 'info');
     } else {
-      newList.push(product);
+      newList.push({ ...product, localizado: false });
       showToast('Produto adicionado ao Radar!', 'success');
     }
     saveWatchlist(newList);
@@ -166,7 +180,7 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
       return;
     }
 
-    const newList = [...watchlist, product];
+    const newList = [...watchlist, { ...product, localizado: false }];
     saveWatchlist(newList);
     setNovoEanProcurado('');
     setShowAddManual(false);
@@ -205,6 +219,14 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
 
     if (isMatch) {
       showToast('🎯 PRODUTO LOCALIZADO NO RADAR!', 'success');
+      // Marca como localizado e salva
+      const newList = watchlist.map((item) => {
+        if (item.produtoEan === foundProduct?.produtoEan) {
+          return { ...item, localizado: true };
+        }
+        return item;
+      });
+      saveWatchlist(newList);
     } else {
       showToast('Produto localizado na base!', 'success');
     }
@@ -311,8 +333,27 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
                   {watchlist.map((prod) => (
                     <div
                       key={prod.produtoEan}
-                      className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200/50 dark:border-slate-800 transition-all text-left"
+                      className={`flex items-center justify-between p-3 rounded-xl border transition-all text-left ${
+                        prod.localizado
+                          ? 'bg-slate-100/50 dark:bg-slate-900/20 border-slate-200/30 dark:border-slate-800/30 opacity-75'
+                          : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200/50 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900'
+                      }`}
                     >
+                      {/* Checkbox para toggle manual de localizado */}
+                      <button
+                        onClick={() => toggleLocalizado(prod.produtoEan)}
+                        className={`p-1.5 rounded-lg border transition-colors flex items-center justify-center flex-shrink-0 mr-2 ${
+                          prod.localizado
+                            ? 'bg-success-100 border-success-200 text-success-600 dark:bg-success-900/30 dark:border-success-800 dark:text-success-400 hover:bg-success-200'
+                            : 'bg-white border-slate-200 text-slate-300 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-500'
+                        }`}
+                        title={prod.localizado ? "Marcar como não localizado" : "Marcar como localizado"}
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </button>
+
                       <button
                         onClick={() => {
                           setIsWatchlistMatch(true);
@@ -322,16 +363,22 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
                         }}
                         className="flex-1 text-left min-w-0 pr-2 group"
                       >
-                        <p className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
+                        <p className={`text-xs font-bold transition-colors truncate ${
+                          prod.localizado
+                            ? 'line-through text-slate-400 dark:text-slate-500 font-normal'
+                            : 'text-slate-900 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400'
+                        }`}>
                           {prod.produtoDescr}
                         </p>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
+                        <p className={`text-[10px] truncate ${
+                          prod.localizado ? 'text-slate-400 dark:text-slate-600' : 'text-slate-500 dark:text-slate-400'
+                        }`}>
                           {prod.marcaDescr} · {prod.produtoEan}
                         </p>
                       </button>
                       <button
                         onClick={() => toggleWatchlist(prod)}
-                        className="p-1 rounded bg-slate-200/60 hover:bg-danger-100 dark:bg-slate-800 dark:hover:bg-danger-900/30 text-slate-500 hover:text-danger-600 dark:hover:text-danger-400 transition-colors flex items-center justify-center"
+                        className="p-1.5 rounded bg-slate-200/60 hover:bg-danger-100 dark:bg-slate-800/50 text-slate-500 hover:text-danger-600 dark:hover:text-danger-400 transition-colors flex items-center justify-center flex-shrink-0"
                         title="Remover do Radar"
                       >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
