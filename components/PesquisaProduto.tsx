@@ -435,7 +435,7 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[600px] overflow-y-auto pr-1 scrollbar-thin">
               {filteredProducts.map((prod) => (
                 <button
-                  key={prod.produtoEan}
+                  key={`${prod.produtoEan}-${prod.produtoDun || ''}-${prod.marcaId}-${prod.produtoDescr}`}
                   onClick={() => {
                     setIsWatchlistMatch(watchlist.some((w) => w.produtoEan === prod.produtoEan));
                     setIsMatchCelebration(false);

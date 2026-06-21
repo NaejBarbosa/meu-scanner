@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import confetti from 'canvas-confetti';
 import Scanner from '../components/Scanner';
 import DataValidadeInput from '../components/DataValidadeInput';
@@ -36,6 +37,11 @@ interface ItemRegistrado {
 function HomeContent() {
   const { theme, toggleTheme } = useTheme();
   const [activeTab, setActiveTab] = useState<'menu' | 'scan' | 'relatorio' | 'pesquisa'>('menu');
+  
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // ===== SESSÃO: câmara e vaga =====
   const [sessaoAtiva, setSessaoAtiva] = useState<{ camara: string; vaga: string } | null>(null);
@@ -67,6 +73,7 @@ function HomeContent() {
     validade: string;
     produto: ProdutoValido;
   } | null>(null);
+  const [isWatchlistMatch, setIsWatchlistMatch] = useState(false);
   const [itensRegistrados, setItensRegistrados] = useState<ItemRegistrado[]>([]);
   const [toast, setToast] = useState<{ message: string; type: 'info' | 'success' | 'error' } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -137,6 +144,7 @@ function HomeContent() {
   useEffect(() => {
     if (confirmacao) {
       const isMatch = checkPendingWatchlist(confirmacao.ean);
+      setIsWatchlistMatch(isMatch);
       if (isMatch) {
         triggerConfetti();
         // Marca como localizado no localStorage do Radar
@@ -158,6 +166,8 @@ function HomeContent() {
           console.error('Erro ao marcar localizado no localStorage', e);
         }
       }
+    } else {
+      setIsWatchlistMatch(false);
     }
   }, [confirmacao]);
 
@@ -618,128 +628,128 @@ function HomeContent() {
       </main>
 
       {/* Modal de confirmação com backdrop corrigido e conservação */}
-      {confirmacao && (() => {
-        const isWatchlistMatch = checkPendingWatchlist(confirmacao.ean);
-        return (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
-            <div className={`card-elevated max-w-md w-full p-6 animate-scale-in m-4 relative overflow-hidden ${
-              isWatchlistMatch
-                ? 'border-2 border-success-500 shadow-elevated bg-gradient-to-b from-success-50/10 to-transparent dark:from-success-950/10 ring-4 ring-success-500/20'
-                : ''
-            }`}>
-              {/* Decoração Especial de Radar Match */}
-              {isWatchlistMatch && (
-                <div className="absolute top-0 right-0 w-32 h-32 bg-success-500/10 rounded-bl-full pointer-events-none animate-pulse" />
-              )}
+      {mounted && confirmacao && createPortal(
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
+          <div className={`card-elevated max-w-md w-full p-6 animate-scale-in m-4 relative overflow-hidden ${
+            isWatchlistMatch
+              ? 'border-2 border-success-500 shadow-elevated bg-gradient-to-b from-success-50/10 to-transparent dark:from-success-950/10 ring-4 ring-success-500/20'
+              : ''
+          }`}>
+            {/* Decoração Especial de Radar Match */}
+            {isWatchlistMatch && (
+              <div className="absolute top-0 right-0 w-32 h-32 bg-success-500/10 rounded-bl-full pointer-events-none animate-pulse" />
+            )}
 
-              <div className="flex items-start gap-4 mb-5">
-                {isWatchlistMatch ? (
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-600 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce ring-4 ring-success-500/30">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a3 3 0 10-3 3h3zm0-3a1 1 0 100-2 1 1 0 000 2zm0 8a2 2 0 110-4 2 2 0 010 4z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 12a4 4 0 110-8 4 4 0 010 8z" />
-                    </svg>
-                  </div>
-                ) : (
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-700 flex items-center justify-center flex-shrink-0 shadow-lg">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                )}
-                <div className="flex-1 min-w-0">
-                  <h2 className={`text-lg font-extrabold ${isWatchlistMatch ? 'text-success-700 dark:text-success-400' : 'text-slate-900 dark:text-slate-100'}`}>
-                    {isWatchlistMatch ? '🎯 PRODUTO PROCURADO LOCALIZADO!' : 'Produto Detectado'}
-                  </h2>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-                    {isWatchlistMatch ? 'Este produto estava no seu radar.' : 'Confirme os dados antes de adicionar'}
-                  </p>
+            <div className="flex items-start gap-4 mb-5">
+              {isWatchlistMatch ? (
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-600 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce ring-4 ring-success-500/30">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a3 3 0 10-3 3h3zm0-3a1 1 0 100-2 1 1 0 000 2zm0 8a2 2 0 110-4 2 2 0 010 4z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 12a4 4 0 110-8 4 4 0 010 8z" />
+                  </svg>
                 </div>
+              ) : (
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-700 flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              )}
+              <div className="flex-1 min-w-0">
+                <h2 className={`text-lg font-extrabold ${isWatchlistMatch ? 'text-success-700 dark:text-success-400' : 'text-slate-900 dark:text-slate-100'}`}>
+                  {isWatchlistMatch ? '🎯 PRODUTO PROCURADO LOCALIZADO!' : 'Produto Detectado'}
+                </h2>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                  {isWatchlistMatch ? 'Este produto estava no seu radar.' : 'Confirme os dados antes de adicionar'}
+                </p>
               </div>
+            </div>
 
-              <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
-                {confirmacao.dun && (
-                  <div className="flex justify-between items-start gap-4 text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
-                    <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.dun}</span>
-                  </div>
-                )}
+            <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
+              {confirmacao.dun && (
                 <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">EAN</span>
-                  <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.ean}</span>
+                  <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
+                  <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.dun}</span>
+                </div>
+              )}
+              <div className="flex justify-between items-start gap-4 text-sm">
+                <span className="font-medium text-slate-500 dark:text-slate-400">EAN</span>
+                <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.ean}</span>
+              </div>
+              <div className="flex justify-between items-center text-sm">
+                <span className="font-medium text-slate-500 dark:text-slate-400">Validade</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-100">{confirmacao.validade}</span>
+              </div>
+              <div className="border-t border-slate-200 dark:border-slate-700 pt-3 mt-3 space-y-2">
+                <div className="flex justify-between items-start gap-4 text-sm">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">Marca</span>
+                  <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.marcaDescr}</span>
+                </div>
+                <div className="flex justify-between items-start gap-4 text-sm">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">Produto</span>
+                  <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.produtoDescr}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">Validade</span>
-                  <span className="font-semibold text-slate-900 dark:text-slate-100">{confirmacao.validade}</span>
+                  <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
+                  <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
                 </div>
-                <div className="border-t border-slate-200 dark:border-slate-700 pt-3 mt-3 space-y-2">
-                  <div className="flex justify-between items-start gap-4 text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">Marca</span>
-                    <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.marcaDescr}</span>
-                  </div>
-                  <div className="flex justify-between items-start gap-4 text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">Produto</span>
-                    <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.produtoDescr}</span>
-                  </div>
+                {/* Conservação */}
+                {confirmacao.produto.produtoConservacao && (
                   <div className="flex justify-between items-center text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
-                    <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
+                    <span className="font-medium text-slate-500 dark:text-slate-400">Conservação</span>
+                    <span className={`badge ${
+                      confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
+                        ? 'badge-primary' 
+                        : 'badge-warning'
+                    }`}>
+                      {confirmacao.produto.produtoConservacao}
+                    </span>
                   </div>
-                  {/* Conservação */}
-                  {confirmacao.produto.produtoConservacao && (
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="font-medium text-slate-500 dark:text-slate-400">Conservação</span>
-                      <span className={`badge ${
-                        confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
-                          ? 'badge-primary' 
-                          : 'badge-warning'
-                      }`}>
-                        {confirmacao.produto.produtoConservacao}
-                      </span>
-                    </div>
-                  )}
-                </div>
+                )}
               </div>
+            </div>
 
-              <div className="flex flex-col gap-2">
-                <button onClick={handleAdicionarLista} className="btn-success w-full">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                  </svg>
-                  Adicionar a Lista
+            <div className="flex flex-col gap-2">
+              <button onClick={handleAdicionarLista} className="btn-success w-full">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                </svg>
+                Adicionar a Lista
+              </button>
+              <div className="grid grid-cols-2 gap-2">
+                <button onClick={handleNovaLeitura} className="btn-secondary">
+                  Nova Leitura
                 </button>
-                <div className="grid grid-cols-2 gap-2">
-                  <button onClick={handleNovaLeitura} className="btn-secondary">
-                    Nova Leitura
-                  </button>
-                  <button onClick={handleDescartar} className="btn-danger">
-                    Descartar
-                  </button>
-                </div>
+                <button onClick={handleDescartar} className="btn-danger">
+                  Descartar
+                </button>
               </div>
             </div>
           </div>
-        );
-      })()}
+        </div>,
+        document.body
+      )}
 
       {/* Modal DataValidadeInput com backdrop corrigido */}
-      {modoValidadeManual && currentScan && (
+      {mounted && modoValidadeManual && currentScan && createPortal(
         <DataValidadeInput
           ean={currentScan.ean}
           onConfirm={handleValidadeConfirm}
           onCancel={handleValidadeCancel}
-        />
+        />,
+        document.body
       )}
 
       {/* Modal de cadastro de produto não identificado */}
-      {cadastroNaoIdentificado && (
+      {mounted && cadastroNaoIdentificado && createPortal(
         <CadastroProdutoModal
           initialEan={cadastroNaoIdentificado.ean}
           initialDun={cadastroNaoIdentificado.dun}
           produtosValidos={produtosValidos}
           onClose={() => setCadastroNaoIdentificado(null)}
           onSuccess={handleCadastroProdutoSuccess}
-        />
+        />,
+        document.body
       )}
 
       {/* Toast */}
