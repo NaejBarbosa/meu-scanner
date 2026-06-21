@@ -10,6 +10,7 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.15.11",
     "@zxing/library": "^0.20.0",
+    "canvas-confetti": "^1.9.4",
     "fuzzball": "^2.2.6",
     "googleapis": "^128.0.0",
     "next": "14.2.3",
@@ -19,6 +20,7 @@
     "react-zoom-pan-pinch": "^3.6.0"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.7",

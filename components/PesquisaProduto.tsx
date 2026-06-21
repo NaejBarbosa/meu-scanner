@@ -1,6 +1,7 @@
 // components/PesquisaProduto.tsx
 import { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
+import confetti from 'canvas-confetti';
 import { QRCodeSVG } from 'qrcode.react';
 import * as fuzzball from 'fuzzball';
 import Scanner from './Scanner';
@@ -58,6 +59,37 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
       }
     }
   }, []);
+
+  const triggerConfetti = () => {
+    confetti({
+      particleCount: 150,
+      spread: 80,
+      origin: { y: 0.6 },
+      zIndex: 9999,
+    });
+
+    const duration = 2 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+    const interval: any = setInterval(function() {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.3 + 0.1, y: Math.random() - 0.2 } });
+      confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.3 + 0.6, y: Math.random() - 0.2 } });
+    }, 200);
+  };
+
+  useEffect(() => {
+    if (selectedProduct && isWatchlistMatch) {
+      triggerConfetti();
+    }
+  }, [selectedProduct, isWatchlistMatch]);
 
   const saveWatchlist = (list: ProdutoValido[]) => {
     setWatchlist(list);
@@ -389,7 +421,7 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
           <div
             className={`card-elevated max-w-md w-full p-6 animate-scale-in relative overflow-hidden ${
               isWatchlistMatch
-                ? 'border-2 border-success-500 shadow-success-500/10'
+                ? 'border-2 border-success-500 shadow-elevated bg-gradient-to-b from-success-50/10 to-transparent dark:from-success-950/10 ring-4 ring-success-500/20'
                 : ''
             }`}
           >
@@ -401,7 +433,7 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
             {/* Cabeçalho do Modal */}
             <div className="flex items-start gap-4 mb-5">
               {isWatchlistMatch ? (
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-600 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-600 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce ring-4 ring-success-500/30">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a3 3 0 10-3 3h3zm0-3a1 1 0 100-2 1 1 0 000 2zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 12a4 4 0 110-8 4 4 0 010 8z" />
