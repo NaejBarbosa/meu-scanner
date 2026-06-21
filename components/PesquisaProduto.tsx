@@ -1,5 +1,6 @@
 // components/PesquisaProduto.tsx
 import { useState, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { QRCodeSVG } from 'qrcode.react';
 import * as fuzzball from 'fuzzball';
 import Scanner from './Scanner';
@@ -22,6 +23,11 @@ interface PesquisaProdutoProps {
 
 export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProps) {
   const { theme } = useTheme();
+  
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   // Abas internas: 'radar' (Scanner + Watchlist) ou 'pesquisa' (Fuzzy Search)
   const [innerTab, setInnerTab] = useState<'radar' | 'busca'>('radar');
@@ -378,7 +384,7 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
       )}
 
       {/* Modal de Detalhes do Produto */}
-      {selectedProduct && (
+      {mounted && selectedProduct && createPortal(
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm px-4">
           <div
             className={`card-elevated max-w-md w-full p-6 animate-scale-in relative overflow-hidden ${
@@ -534,7 +540,8 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Toast flutuante para feedback */}
