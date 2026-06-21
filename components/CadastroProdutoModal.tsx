@@ -294,9 +294,9 @@ export default function CadastroProdutoModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm overflow-y-auto p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm overflow-y-auto p-4">
       {activeScanField ? (
-        <div className="fixed inset-0 z-[60] bg-black flex flex-col justify-between">
+        <div className="fixed inset-0 z-[110] bg-black flex flex-col justify-between">
           <div className="bg-slate-900/80 backdrop-blur-md px-6 py-4 flex justify-between items-center z-10">
             <h3 className="text-white text-lg font-semibold flex items-center gap-2">
               <svg className="w-5 h-5 text-primary-500 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">

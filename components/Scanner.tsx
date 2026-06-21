@@ -241,7 +241,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
     <div className="relative">
       {/* Debug Message */}
       {debugMessage && (
-        <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center items-center px-4 pointer-events-none animate-slideUp">
+        <div className="fixed inset-x-0 bottom-6 z-[110] flex justify-center items-center px-4 pointer-events-none animate-slideUp">
           <div className="pointer-events-auto inline-flex items-center gap-3 px-6 py-3.5 bg-slate-900/95 dark:bg-slate-950 text-white rounded-2xl shadow-elevated backdrop-blur-sm text-sm font-medium whitespace-nowrap max-w-full">
             <svg className="w-5 h-5 flex-shrink-0 text-warning-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -253,7 +253,7 @@ export default function Scanner({ onDetected }: ScannerProps) {
 
       {/* Crop Modal */}
       {showCrop && imagePreviewUrl && (
-        <div className="fixed inset-0 bg-slate-900/95 dark:bg-slate-950/98 z-50 flex flex-col items-center justify-center p-4 animate-fade-in">
+        <div className="fixed inset-0 bg-slate-900/95 dark:bg-slate-950/98 z-[100] flex flex-col items-center justify-center p-4 animate-fade-in">
           <div className="max-w-lg w-full text-center mb-6">
             <h3 className="text-white text-xl font-semibold mb-2">Ajuste o Codigo</h3>
             <p className="text-slate-400 text-sm">Posicione o codigo Data Matrix dentro da area verde</p>

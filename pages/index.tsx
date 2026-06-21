@@ -552,7 +552,7 @@ function HomeContent() {
 
       {/* Modal de confirmação com backdrop corrigido e conservação */}
       {confirmacao && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
           <div className="card-elevated max-w-md w-full p-6 animate-scale-in m-4">
             <div className="flex items-start gap-4 mb-5">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-700 flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -652,7 +652,7 @@ function HomeContent() {
 
       {/* Toast */}
       {toast && (
-        <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center items-center px-4 pointer-events-none">
+        <div className="fixed inset-x-0 bottom-6 z-[110] flex justify-center items-center px-4 pointer-events-none">
           <div className={`pointer-events-auto flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl border max-w-md w-full sm:w-auto animate-toast ${
             toast.type === 'success' 
               ? 'bg-white dark:bg-slate-900 border-success-300 dark:border-success-800 text-success-700 dark:text-success-400' 
