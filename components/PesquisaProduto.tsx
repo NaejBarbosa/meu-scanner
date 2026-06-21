@@ -1,6 +1,7 @@
 // components/PesquisaProduto.tsx
 import { useState, useEffect, useMemo } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
+import * as fuzzball from 'fuzzball';
 import Scanner from './Scanner';
 import { extrairDados } from '../lib/regex';
 import { useTheme } from '../context/ThemeContext';
@@ -71,93 +72,25 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
   };
 
   const filteredProducts = useMemo(() => {
-    if (!searchTerm.trim()) return [];
+    if (!searchTerm.trim() || searchTerm.trim().length < 2) return [];
     
-    const terms = removeAccents(searchTerm).split(/\s+/).filter(Boolean);
-    if (terms.length === 0) return [];
+    const termNorm = removeAccents(searchTerm);
+    
+    // Monta a string de busca de forma análoga ao app.py (Marca + Descrição + Classe)
+    const textsNorm = produtosValidos.map((prod) => 
+      removeAccents(`${prod.marcaDescr} ${prod.produtoDescr} ${prod.produtoClasse}`)
+    );
 
-    // 1. Filtra os produtos que possuem TODOS os termos pesquisados (Fuzzy Check)
-    const matches = produtosValidos.filter((prod) => {
-      const matchText = removeAccents(`${prod.produtoDescr} ${prod.marcaDescr} ${prod.produtoEan} ${prod.produtoDun}`);
-      return terms.every((term) => matchText.includes(term));
+    // Executa a extração usando o token_set_ratio do fuzzball (idêntico ao rapidfuzz do Python)
+    // Usamos limite de 30 e cutoff de 40 de similaridade (r[1] >= 40)
+    const results = fuzzball.extract(termNorm, textsNorm, {
+      scorer: fuzzball.token_set_ratio,
+      limit: 30,
+      cutoff: 40
     });
 
-    // 2. Calcula a pontuação de relevância para ordenar os resultados
-    const scored = matches.map((prod) => {
-      const titleNorm = removeAccents(prod.produtoDescr || '');
-      const brandNorm = removeAccents(prod.marcaDescr || '');
-      const searchNorm = removeAccents(searchTerm);
-      const combinedNorm = `${brandNorm} ${titleNorm}`;
-
-      let score = 0;
-
-      // Correspondência exata da frase de busca inteira
-      if (titleNorm.includes(searchNorm)) {
-        score += 1000;
-      } else if (combinedNorm.includes(searchNorm)) {
-        score += 800;
-      }
-
-      // Nova regra: Primeira palavra do título coincide exatamente com o primeiro termo de busca
-      const firstWordOfTitle = titleNorm.split(/\s+/)[0] || '';
-      if (terms[0] && firstWordOfTitle === terms[0]) {
-        score += 500;
-      }
-
-      // Correspondência de termos individuais
-      terms.forEach((term, idx) => {
-        const isCommonWord = term.length <= 2;
-        
-        // Match de Marca
-        if (brandNorm === term) {
-          score += isCommonWord ? 50 : 300;
-        } else if (brandNorm.includes(term)) {
-          score += isCommonWord ? 20 : 100;
-        }
-
-        // Match de Descrição (posição)
-        const pos = titleNorm.indexOf(term);
-        if (pos === 0) {
-          score += isCommonWord ? 30 : 400; // Começa com a palavra chave (Aumentado para 400)
-        } else if (pos > 0) {
-          // Pontua melhor os matches que ocorrem mais próximos ao início da descrição
-          score += isCommonWord ? 10 : Math.max(0, 100 - Math.floor(pos / 2));
-        }
-
-        // Match exato de palavra inteira (Word Boundary - Aumentado para 300)
-        const wordRegex = new RegExp('\\b' + term + '\\b');
-        if (wordRegex.test(titleNorm)) {
-          score += isCommonWord ? 15 : 300;
-        }
-
-        // Par de termos consecutivos na busca que aparecem contíguos na descrição
-        if (idx < terms.length - 1) {
-          const nextTerm = terms[idx + 1];
-          const pair = `${term} ${nextTerm}`;
-          if (titleNorm.includes(pair)) {
-            score += 150;
-          }
-        }
-      });
-
-      // Heurística de Prioridade Comercial BRF (Sadia e Perdigão)
-      const isBRF = brandNorm.includes('sadia') || brandNorm.includes('perdigao') || 
-                    titleNorm.includes('sadia') || titleNorm.includes('perdigao');
-      if (isBRF) {
-        score += 150;
-      }
-
-      // Penalidade de comprimento do título (Length Penalty)
-      // Favorece produtos com títulos mais curtos e diretos quando ocorrem empates
-      score += Math.max(0, 100 - titleNorm.length);
-
-      return { prod, score };
-    });
-
-    // 3. Ordena de forma decrescente pelo score de relevância
-    scored.sort((a, b) => b.score - a.score);
-
-    return scored.map((item) => item.prod);
+    // Retorna os produtos correspondentes ordenados pelo índice retornado
+    return results.map((r) => produtosValidos[r[2]]);
   }, [searchTerm, produtosValidos]);
 
   // 2. Lógica para Adicionar Produto na Watchlist (Radar)
