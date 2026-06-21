@@ -210,14 +210,16 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
     }
 
     // Verifica se pertence à Lista de Procurados (Watchlist)
-    const isMatch = watchlist.some((p) => p.produtoEan === foundProduct?.produtoEan);
+    const watchlistEntry = watchlist.find((p) => p.produtoEan === foundProduct?.produtoEan);
+    const isMatch = !!watchlistEntry;
+    const isPendingMatch = watchlistEntry && !watchlistEntry.localizado;
     
     setIsWatchlistMatch(isMatch);
-    setIsMatchCelebration(isMatch);
+    setIsMatchCelebration(!!isPendingMatch);
     setSelectedProduct(foundProduct);
     setShowQRCode(false);
 
-    if (isMatch) {
+    if (isPendingMatch) {
       showToast('🎯 PRODUTO LOCALIZADO NO RADAR!', 'success');
       // Marca como localizado e salva
       const newList = watchlist.map((item) => {
@@ -227,6 +229,8 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
         return item;
       });
       saveWatchlist(newList);
+    } else if (isMatch) {
+      showToast('Produto localizado (já foi encontrado anteriormente no radar).', 'info');
     } else {
       showToast('Produto localizado na base!', 'success');
     }

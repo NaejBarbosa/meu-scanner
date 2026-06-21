@@ -6,7 +6,7 @@ import CadastroProdutoModal from '../components/CadastroProdutoModal';
 import VagaSelector from '../components/VagaSelector';
 import Relatorio from '../components/Relatorio';
 import MenuPrincipal from '../components/MenuPrincipal';
-import PesquisaProduto from '../components/PesquisaProduto';
+import PesquisaProduto, { WatchlistItem } from '../components/PesquisaProduto';
 import { extrairDados } from '../lib/regex';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
 
@@ -95,13 +95,13 @@ function HomeContent() {
     recarregarBase();
   }, []);
 
-  const checkWatchlist = (ean: string): boolean => {
+  const checkPendingWatchlist = (ean: string): boolean => {
     if (typeof window === 'undefined') return false;
     try {
       const saved = localStorage.getItem('radar_watchlist');
       if (saved) {
-        const parsed: ProdutoValido[] = JSON.parse(saved);
-        return parsed.some((p) => p.produtoEan === ean);
+        const parsed: WatchlistItem[] = JSON.parse(saved);
+        return parsed.some((p) => p.produtoEan === ean && !p.localizado);
       }
     } catch (e) {
       console.error(e);
@@ -136,7 +136,7 @@ function HomeContent() {
 
   useEffect(() => {
     if (confirmacao) {
-      const isMatch = checkWatchlist(confirmacao.ean);
+      const isMatch = checkPendingWatchlist(confirmacao.ean);
       if (isMatch) {
         triggerConfetti();
         // Marca como localizado no localStorage do Radar
@@ -619,7 +619,7 @@ function HomeContent() {
 
       {/* Modal de confirmação com backdrop corrigido e conservação */}
       {confirmacao && (() => {
-        const isWatchlistMatch = checkWatchlist(confirmacao.ean);
+        const isWatchlistMatch = checkPendingWatchlist(confirmacao.ean);
         return (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm">
             <div className={`card-elevated max-w-md w-full p-6 animate-scale-in m-4 relative overflow-hidden ${
