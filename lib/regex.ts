@@ -139,20 +139,21 @@ function extrairDadosGS1Bruto(qrData: string) {
   
   console.log('[GS1Bruto] String limpa para busca:', JSON.stringify(clean));
   
-  const regex = /01(\d{14}).*?17(\d{6})/;
+  const regex = /01(\d{14}).*?(17|15)(\d{6})/;
   const match = clean.match(regex);
 
   if (!match) {
-    console.log('[GS1Bruto] Regex /01(\\d{14})17(\\d{6})/ não encontrou correspondência.');
+    console.log('[GS1Bruto] Regex /01(\\d{14}).*?(17|15)(\\d{6})/ não encontrou correspondência.');
     return null;
   }
 
   console.log('[GS1Bruto] Regex match obtido:', match[0]);
   console.log('[GS1Bruto] Grupo 1 (DUN/GTIN):', match[1]);
-  console.log('[GS1Bruto] Grupo 2 (Validade YYMMDD):', match[2]);
+  console.log('[GS1Bruto] Grupo 2 (Identificador de Validade):', match[2]);
+  console.log('[GS1Bruto] Grupo 3 (Validade YYMMDD):', match[3]);
 
   const dun14 = match[1];
-  const validadeStr = match[2]; // YYMMDD
+  const validadeStr = match[3]; // YYMMDD
 
   const yy = parseInt(validadeStr.substring(0, 2), 10);
   const mm = parseInt(validadeStr.substring(2, 4), 10);
