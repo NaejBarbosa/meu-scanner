@@ -42,7 +42,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 1;Lar;Empanados;7896419730156;17896419730153;Congelado;Mini Hambúrguer Empanado de Frango
 1;Lar;Empanados;7896419725459;17896419725456;Congelado;Iscas Empanadas
 1;Lar;Empanados;7896419713852;17896419713859;Congelado;Steak Empanado
-1;Lar;Empanados;7896419713852;17896419723476;Congelado;Steak Empanado
 1;Lar;Empanados;7896419729143;17896419729140;Congelado;Hambúrguer Empanado de Frango
 1;Lar;Envelopados Congelados;7896419721475;17896419721472;Congelado;Asas Envelopadas • Congeladas
 1;Lar;Envelopados Congelados;7896419720799;17896419721168;Congelado;Coxinhas das Asas Envelopadas • Congeladas
@@ -122,10 +121,10 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Suínos;7891515521899;;Congelado;Ponta de Costela Suína Sadia Caixa 10kg
 3;BRF - Sadia;Suínos;7891515521882;;Congelado;Copa Lombo Suína Sadia Caixa 12kg
 3;BRF - Sadia;Suínos;7891515521875;;Congelado;Picanha Suína sem Osso Sadia Caixa 12kg
-3;BRF - Sadia;Suínos;7891515521868;;Congelado;Patinho Suíno sem Osso Sadia Caixa 12kg
-3;BRF - Sadia;Suínos;7891515521851;;Congelado;Miolo do Pernil Suíno Sadia Caixa 12Kg -Caixa c/1
+3;BRF - Sadia;Suínos;7891515521868;;Congelado;Patinho Suino Cong Iwp Pvar Sadia
+4;BRF - Perdigão;Suínos;7891515521851;;Congelado;Pernil Suino Cong Iwp Pvar Sadia
 3;BRF - Sadia;Suínos;7891515521844;;Congelado;Coxão Mole Suíno sem Osso Sadia Caixa 12Kg -Caixa c/1
-3;BRF - Sadia;Suínos;7891515521837;;Congelado;Alcatra Suína sem Osso Sadia Caixa 12kg
+3;BRF - Sadia;Suínos;7891515521837;;Congelado;Alcatra Suina Cong Iwp Pvar Sadia
 4;BRF - Perdigão;Suínos;7891515521110;;Congelado;Picanha Suína com Alho e Ervas Perdigão Na Brasa Caixa 10Kg
 4;BRF - Perdigão;Suínos;7891515521035;;Congelado;Panceta Suína c/ Toque de Limão Perdigão Na Brasa Caixa 12,8kg
 4;BRF - Perdigão;Suínos;7891515521028;;Congelado;Costela Suína com Barbecue Perdigão Na Brasa Caixa 9,9kg
@@ -153,12 +152,12 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Suínos;7891515502256;;Congelado;Pernil Semi Desossado In Natura Sadia 4 kg a 5 kg
 3;BRF - Sadia;Aves;7891515500023;;Congelado;Sobrecoxa de Frango Sadia Bio 1kg -Caixa c/12
 4;BRF - Perdigão;Aves;7891515498924;;Congelado;Sambiquira de Peru Perdigão 2kg -Caixa c/8
-4;BRF - Perdigão;Aves;7891515498139;;Congelado;Asa Inteira de Peru Perdigão Caixa 10kg -Caixa c/1
+4;BRF - Perdigão;Aves;7891515498139;;Congelado;Asa Int Peru Itf Cong Perd Pvar
 4;BRF - Perdigão;Aves;7891515495817;;Congelado;Asa Tulipa Frango Perdigão 1Kg -Caixa c/16
 4;BRF - Perdigão;Aves;7891515495404;;Congelado;Tulipa de Frango Perdigão Food Service Caixa 15Kg -Caixa c/1
 3;BRF - Sadia;Aves;7891515495435;;Congelado;Coxa de Frango Sadia Bio 1kg -Caixa c/12
 4;BRF - Perdigão;Aves;7891515495398;;Congelado;Asa de Frango Inteira Perdigão Food Service Caixa 15Kg -Caixa c/1
-3;BRF - Sadia;Suínos;7893000018778;;Congelado;Carré Suíno Sadia Caixa 20Kg -Caixa c/1
+3;BRF - Sadia;Suínos;7893000018778;;Congelado;Carré Suíno Congelado Sadia PVAR
 3;BRF - Sadia;Aves;7891515494810;;Congelado;Coxa com Sobrecoxa de Frango sem Osso Sadia 1kg -Caixa c/12
 4;BRF - Perdigão;Lanches;7891515492960;;Congelado;Pão De Queijo Lanche Perdigão 900G -Caixa c/10
 4;BRF - Perdigão;Lanches;7891515492946;;Congelado;Pão de Queijo Coquetel Congelado Perdigão 375g -Caixa c/20
@@ -172,7 +171,7 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Suínos;7893000522213;;Congelado;Salame Pepperoni Fatiado Sadia 1kg -Caixa c/2
 3;BRF - Sadia;Suínos;7893000528093;;Congelado;Lombo Temperado Sadia 1,1 kg a 1,5 kg
 3;BRF - Sadia;Suínos;7893000526044;;Resfriado;Bacon Defumado Manta Sadia Peso Variável de 3 até 4kg -Caixa c/4
-3;BRF - Sadia;Suínos;7893000516915;;Congelado;Costelinha Suína C/ Osso Sadia Peso Variável- Caixa c/10
+3;BRF - Sadia;Outros;7893000516915;;Congelado;Costelinha Suína CONG SD PVAR
 5;BRF - Qualy;Margarinas;7893000502888;;Resfriado;Margarina Qualy Light/Zero Lactose com Sal 500g -Caixa c/12
 3;BRF - Sadia;Aves;7893000532793;;Congelado;Sobrecoxa de Frango c/ Osso e Pele Sadia Food Service Caixa 15Kg -Caixa c/1
 5;BRF - Qualy;Margarinas;7893000394117;;Resfriado;Margarina Qualy Cremosa com Sal 250g -Caixa c/24
@@ -276,7 +275,7 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Outros;7891515435134;;Seco;Apresuntado Fatiado Perdigão 200g -Caixa c/20
 6;BRF - Deline;Margarinas;7893000980006;;Resfriado;Margarina Cremosa com Sal Deline Pote 500g -Caixa c/12
 6;BRF - Deline;Margarinas;7893000979932;;Resfriado;Margarina Cremosa com Sal Deline Pote 250g -Caixa c/24
-3;BRF - Sadia;Bovinos;7891515477547;;Congelado;Retalho de Costela Suíno Food Service Sadia Caixa 12Kg -Caixa c/1
+3;BRF - Sadia;Bovinos;7891515477547;;Congelado;Retalho Costela Suína Itf Cong Sd Pvar FS
 3;BRF - Sadia;Bovinos;7891515477530;;Congelado;Retalho de Costela Suíno Premium Food Service Sadia Caixa 12Kg -Caixa c/1
 4;BRF - Perdigão;Outros;7891515434311;;Resfriado;Mortadela Fatiada Defumada Perdigão Ouro 200g -Caixa c/20
 4;BRF - Perdigão;Suínos;7891515432072;;Congelado;Linguiça de Carne Suína Perdigão 900g -Caixa c/12
@@ -318,7 +317,7 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Suínos;7893000069381;;Resfriado;Linguiça Tipo Calabresa Defumada Sadia 5kg -Caixa c/4
 3;BRF - Sadia;Outros;7893000069367;;Resfriado;Linguiça Mista Defumada Fininha Sadia 2,5kg -Caixa c/8
 4;BRF - Perdigão;Aves;7891515975210;;Congelado;Coração de Peru Perdigão Caixa 15kg
-4;BRF - Perdigão;Aves;7891515975524;;Congelado;Pescoço de Peru sem Pele Perdigão Caixa 15kg
+4;BRF - Perdigão;Aves;7891515975524;;Congelado;Pescoco De Peru S/P Cong Perd Pvar
 4;BRF - Perdigão;Aves;7891515975517;;Congelado;Asa de Peru Perdigão Caixa 15kg
 4;BRF - Perdigão;Aves;7891515975500;;Congelado;Coxa de Peru Perdigão Caixa 15kg
 4;BRF - Perdigão;Aves;7891515472764;;Congelado;Coxa de Frango Assa Fácil Perdigão 1,2kg -Caixa c/6
@@ -372,7 +371,7 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 6;BRF - Deline;Margarinas;7893000079311;;Resfriado;Margarina Cremosa com Sal Deline Pote 1kg -Caixa c/6
 7;BRF - Claybom;Margarinas;7891515410315;;Resfriado;Margarina Cremosa com Sal Claybom Pote 1kg -Caixa c/6
 4;BRF - Perdigão;Suínos;7891515553210;;Seco;Pe Suino Salgado Pct Pd Pvar
-4;BRF - Perdigão;Outros;7891515553111;;Seco;Retalho Cost Sui Salg Pct 0,5 A 1Kg Pd
+4;BRF - Perdigão;Bovinos;7891515553111;;Resfriado;Costela Suína Retalho Salgada Perdigão Caixa 13kg
 3;BRF - Sadia;Outros;7891515637903;;Seco;Rtsv Retalho Cost Sui Salg Pd Cx Pvar
 3;BRF - Sadia;Outros;7893000528840;;Congelado;Sobrepaleta Cong Sui S/Osso Sd Pvar
 3;BRF - Sadia;Aves;7891515538736;;Congelado;Frango Int S/Miudos Temp Cong Pvar Sd
@@ -380,8 +379,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Bovinos;7891515631338;;Congelado;Costela Coz C/ Sache De Molho 1,2 A 1,5Kg Sadia
 3;BRF - Sadia;Bovinos;97899638371493;;Resfriado;Picanha Uruguaia Sadia Bassi
 3;BRF - Sadia;Aves;7891515631819;;Congelado;Peito de Peru Rechado Sadia
-4;BRF - Perdigão;Aves;7891515937904;;Congelado;Chester Azeite e Ervas 3,9 kg a 4,2 kg
-4;BRF - Perdigão;Aves;7891515937904;;Congelado;Chester Azeite e Ervas 3,6 kg a 3,9 kg
 4;BRF - Perdigão;Aves;7891515937904;;Congelado;Chester Azeite e Ervas 3 kg a 3,6 kg
 4;BRF - Perdigão;Outros;7891515631161;;Congelado;Feijoada Com Couve e Arroz PD Meu Menu 300g
 4;BRF - Perdigão;Aves;7891515630812;;Seco;Linguiça de Chester Na Brasa 600 g
@@ -392,9 +389,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Bovinos;7899638362269;;Congelado;Hamburguer Picanha Cart 360G Bassi Sadia
 3;BRF - Sadia;Lanches;7899638362245;;Congelado;Hamburguer Cart 360G Bassi Angus Sadia
 4;BRF - Perdigão;Outros;7891515629311;;Resfriado;Presunto Fat Vacuo Pt 350G Perd Cx 4,2Kg
-3;BRF - Sadia;Suínos;7893000018778;;Congelado;Carré Suíno Congelado Sadia PVAR
-4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Tradicional 3,9 kg a 4,2 kg
-4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Tradicional 3,6 kg a 3,9 kg
 4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Tradicional 3 kg a 3,6 kg
 3;BRF - Sadia;Bovinos;7891515628215;;Seco;Hambúrguer Bovino Sadia PT 113G
 3;BRF - Sadia;Aves;7891515627478;;Congelado;Empanado de Frango Sabor Cheddar Congelado PT 275G
@@ -416,7 +410,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Lanches;7893000069732;;Congelado;Pizza Marguerita Sadia Caixa 460g -Caixa c/12
 3;BRF - Sadia;Outros;7899638309042;;Resfriado;Cordeiro Paleta Mamão Hasta Importado Nirea - 1,8kg
 4;BRF - Perdigão;Suínos;7891515975562;;Congelado;Linguiça de Carne Suína Perdigão 5kg -Caixa c/4
-3;BRF - Sadia;Aves;7891515016715;;Resfriado;Peito Fgo Defumado Ouro Pd Resf Pc 2,6Kg
 3;BRF - Sadia;Suínos;7899638342889;;Resfriado;Pernil De Cordeiro Sem Osso Premium Nirea - 1,48kg
 3;BRF - Sadia;Bovinos;7899638345552;;Congelado;Picanha B Uruguaia Importado Tacuarembó
 3;BRF - Sadia;Lanches;7891515623531;;Seco;Pop Nuggets Tempura Pt 1,5Kg Sd
@@ -426,7 +419,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 7;BRF - Claybom;Margarinas;7891515622930;;Seco;Claybom Margarina C/Sal Balde 14Kg
 4;BRF - Perdigão;Aves;7891515971595;;Congelado;Filezinho Sassami de Frango Perdigão Food Service Caixa 12Kg -Caixa c/6
 4;BRF - Perdigão;Aves;7891515972059;;Congelado;Coração de Frango Perdigão Food Service Caixa 12kg
-4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Inteiro Perdigão Tradicional 18kg a 25,2 kg
 4;BRF - Perdigão;Aves;7891515963736;;Congelado;Chester Assa-Fácil Tradicional 3,2 kg a 3,8 kg
 4;BRF - Perdigão;Aves;7891515402167;;Congelado;Chester Inteiro Congelado Assa Fácil Cx - 16kg a 21kg
 3;BRF - Sadia;Outros;7891515622633;;Resfriado;Frio de Filé Mignon Cozido Fatiado Resfriado 180 g- CX C/ 16
@@ -443,7 +435,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Suínos;7893000124912;;Resfriado;Salame Italiano Sadia Caixa 6kg
 3;BRF - Sadia;Aves;7893000488793;;Congelado;Coxa e Sobrecoxa a Passarinho de Frango Sadia 1kg -Caixa c/8
 3;BRF - Sadia;Aves;7893000488953;;Congelado;Meio da Asa de Frango Sadia 1kg -Caixa c/8
-3;BRF - Sadia;Outros;7893000528840;;Congelado;Sobrepaleta Suína sem osso Sadia 15Kg -Caixa c/1
 3;BRF - Sadia;Suínos;7893000444232;;Resfriado;Linguiça Tipo Calabresa Defumada Sadia 2,5kg -Caixa c/6
 3;BRF - Sadia;Suínos;7893000124400;;Resfriado;Mini Salame Italiano Sadia Caixa 6kg
 3;BRF - Sadia;Aves;7893000029927;;Seco;Peru Tradicional Sadia 4 kg a 4,99 kg
@@ -611,9 +602,9 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Suínos;7891515559632;;Congelado;Lombo Suíno em Cubos Sadia 400g - Caixa c/12
 3;BRF - Sadia;Suínos;7891515558819;;Congelado;Copa Lombo Suíno em Cubos Sadia 400g - Caixa c/12
 3;BRF - Sadia;Suínos;7891515588243;;Congelado;Bisteca Suína Sadia 800g - Caixa c/10
-3;BRF - Sadia;Suínos;7891515558628;;Congelado;Lombo Suíno Fatiado Sadia 800g - Caixa c/10
+3;BRF - Sadia;Suínos;7891515558628;;Congelado;Lombo Suino Fatiado Sadia 800g -Caixa c/10
 3;BRF - Sadia;Suínos;7891515558611;;Seco;Copa Lombo Suíno Fatiado Sadia 800g - Caixa c/10
-3;BRF - Sadia;Outros;7891515558635;;Congelado;Filé Mignon Suíno Fatiado Sadia 800g - Caixa c/10
+3;BRF - Sadia;Suínos;7891515558635;;Congelado;File Mignon Suino Fatiado Sadia 800g -Caixa c/10
 3;BRF - Sadia;Outros;7891515587796;;Congelado;Camarão Vannamei 80/100pcs Sadia 400g -Caixa c/25
 3;BRF - Sadia;Outros;7891515587789;;Congelado;Camarão Vannamei 30/50 pcs Sadia 400g -Caixa c/25
 3;BRF - Sadia;Outros;7891515587772;;Congelado;Filé de Tilapia Sadia 400g -Caixa c/30
@@ -635,7 +626,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Outros;7891515576929;;Congelado;Torta de Abobrinha e Cream Cheese com Massa de Iogurte Sadia Veg&Tal 500g -Caixa c/6
 3;BRF - Sadia;Outros;7891515577513;;Seco;Lanche Vegetal sabor cheddar Sadia 145g -Caixa c/18
 5;BRF - Qualy;Margarinas;7891515520656;;Seco;Margarina Qualy Vita sem Sal 500g -Caixa c/12
-3;BRF - Sadia;Aves;7891515538736;;Congelado;Frango Inteiro S/Miudos Temp Cong Sadia
 3;BRF - Sadia;Aves;7891515575946;;Seco;Coxa C/Op Fgo Temp Bio As Fac Sd
 3;BRF - Sadia;Aves;7891515575922;;Seco;Sobrecoxa Frango Temperado Sadia Bio Assa Fácil 800g -Caixa c/8
 3;BRF - Sadia;Bovinos;7891515575915;;Seco;Kibe Bovino Sadia 0,9kg -Caixa c/4
@@ -660,10 +650,8 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 8;BRF - Becel;Margarinas;7891515555245;;Seco;Margarina Becel Original Com Sal 250g -Caixa c/24
 8;BRF - Becel;Margarinas;7891515555344;;Seco;Margarina Amanteigada C/ Sal Becel 500g -Caixa c/12
 8;BRF - Becel;Margarinas;7891515555252;;Seco;Margarina Ômega 6 Original s/ Sal Becel Pote 500g -Caixa c/12
-3;BRF - Sadia;Aves;7891515538736;;Congelado;Frango Inteiro Temperado s/ Miúdos Sadia Peso 1,85kg -Caixa c/7
 8;BRF - Becel;Margarinas;7891515555337;;Seco;Margarina Ômega 6 Original c/ Sal Becel 500g-Caixa c/12
 3;BRF - Sadia;Aves;7891515572518;;Congelado;Peito de Frango Empanadíssimo Temperado Sadia 400g -Caixa c/10
-3;BRF - Sadia;Suínos;7893000526044;;Resfriado;Bacon Defumado Manta Sadia Peso Variável de 3 até 4kg - Caixa c/4
 3;BRF - Sadia;Aves;7891515563516;;Congelado;Filé de Peito de Frango Sadia Bandeja 1kg (cortes menores) - Caixa c/12
 3;BRF - Sadia;Aves;7891515563509;;Congelado;Coxa de Frango c/ Osso Sadia Bandeja 1kg -Caixa c/12
 3;BRF - Sadia;Aves;7891515563240;;Congelado;Sobrecoxa de Frango c/ Osso e Pele Sadia Bandeja 1kg -Caixa c/12
@@ -671,9 +659,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Aves;7891515433703;;Resfriado;Peito Peru Defumado Fatiado Soltíssimo Sadia 200G -Caixa c/21
 5;BRF - Qualy;Margarinas;7891515561314;;Resfriado;Pão De Queijo Presunto Qualy 375G -Caixa c/20
 3;BRF - Sadia;Outros;7891515432652;;Resfriado;Presunto Cozido Fatiado Soltíssimo Sadia 200G -Caixa c/21
-3;BRF - Sadia;Suínos;7891515558635;;Congelado;File Mignon Suino Fatiado Sadia 800g -Caixa c/10
-3;BRF - Sadia;Suínos;7891515558628;;Congelado;Lombo Suino Fatiado Sadia 800g -Caixa c/10
-3;BRF - Sadia;Suínos;7891515558611;;Congelado;Sobrepaleta Suino Fatiado Sadia 800g -Caixa c/10
 5;BRF - Qualy;Margarinas;7891515557461;;Resfriado;Requeijao Qualy Light 200G -Caixa c/24
 5;BRF - Qualy;Margarinas;7891515557317;;Resfriado;Manteiga Qualy Pote Com Sal 200G -Caixa c/12
 5;BRF - Qualy;Margarinas;7891515557454;;Resfriado;Requeijao Qualy Tradicional 200G -Caixa c/24
@@ -698,8 +683,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Aves;7891515553869;;Congelado;Frango com Miúdos Sadia Orgânico Caixa 16kg
 3;BRF - Sadia;Aves;7891515554316;;Congelado;Hambúrguer de Frango Sadia 56g -Caixa c/36
 4;BRF - Perdigão;Suínos;7891515553227;;Resfriado;Rabo Suíno Salgado Perdigão Caixa 13kg
-4;BRF - Perdigão;Suínos;7891515553210;;Resfriado;Pé Suíno Salgado Perdigão Caixa 13kg
-4;BRF - Perdigão;Bovinos;7891515553111;;Resfriado;Costela Suína Retalho Salgada Perdigão Caixa 13kg
 4;BRF - Perdigão;Aves;7891515687113;;Resfriado;Frango Cozido Defumado Perdigão 1,1kg a 1,3kg
 3;BRF - Sadia;Outros;7891515551568;;Congelado;Mix de Vegetais Congelados Sadia Veg&Tal 1,05kg -Caixa c/10
 3;BRF - Sadia;Outros;7891515551551;;Congelado;Mix de Vegetais Congelados Sadia Veg&Tal 300g -Caixa c/12
@@ -733,10 +716,9 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Aves;7891515666217;;Congelado;Linguiça de Frango Perdigão Na Brasa 5kg -Caixa c/4
 4;BRF - Perdigão;Suínos;7891515662929;;Congelado;Linguiça de Pernil Suíno Perdigão Na Brasa 5kg -Caixa c/4
 4;BRF - Perdigão;Outros;7891515539177;;Resfriado;Mortadela Fatiada Perdigão Ouro com Ervas Finas 200g -Caixa c/20
-3;BRF - Sadia;Bovinos;7891515539122;;Congelado;Costela Suína em Tiras Sadia Caixa 10kg
+3;BRF - Sadia;Bovinos;7891515539122;;Congelado;Costela Tira Suína CONG IWP Sadia PVAR
 4;BRF - Perdigão;Aves;7891515538828;;Seco;Coxa e Sobrecoxa de Frango Desossada Sem Pele Perdigão 1Kg -Caixa c/16
 4;BRF - Perdigão;Outros;7891515539153;;Resfriado;Mortadela Fatiada Perdigão Ouro com Azeitona 200g -Caixa c/20
-3;BRF - Sadia;Aves;7891515538736;;Congelado;Frango Temperado Sadia Caixa 13Kg -Caixa c/5
 5;BRF - Qualy;Margarinas;7891515537531;;Resfriado;Margarina Qualy Cremosa com Sal 250g - Potes Colecionáveis -Caixa c/24
 3;BRF - Sadia;Bovinos;7893000134638;;Congelado;Almondega Bovina Sadia 500g -Caixa c/12
 3;BRF - Sadia;Outros;7893000122116;;Congelado;Kibe Sadia 500g -Caixa c/12
@@ -766,7 +748,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Aves;7891515614072;;Congelado;Filé de Peito de Frango sem Pele sem Osso Perdigão 1kg -Caixa c/12
 4;BRF - Perdigão;Aves;7891515614065;;Congelado;Filezinho Sassami de Frango Perdigão 1kg -Caixa c/12
 4;BRF - Perdigão;Aves;7891515851941;;Congelado;Peru Perdigão 4 kg a 4,99 kg
-4;BRF - Perdigão;Aves;7891515851941;;Congelado;Peru Perdigão 3 kg a 3,99 kg
 4;BRF - Perdigão;Aves;7891515989408;;Congelado;Hambúrguer de Carne de Frango e Bovina Perdigão 56g -Caixa c/36
 4;BRF - Perdigão;Aves;7891515989415;;Congelado;Hambúrguer de Frango Perdigão Caixa 2kg
 3;BRF - Sadia;Suínos;7891515531676;;Resfriado;Salame Pepperoni Fatiado Sadia 100g -Caixa c/30
@@ -784,7 +765,7 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Aves;7893000012547;;Congelado;Torta Caipira de Frango Sadia 500g -Caixa c/6
 4;BRF - Perdigão;Aves;7891515488901;;Congelado;Steak de Frango Empanado Perdigão 700g -Caixa c/4
 3;BRF - Sadia;Outros;7893000012578;;Congelado;Torta Palmito e Requeijão com Massa de Iogurte Sadia 500g -Caixa c/6
-3;BRF - Sadia;Aves;7893000012509;;Congelado;Torta Frango e Requeijão Sadia 500g -Caixa c/6
+3;BRF - Sadia;Aves;7893000012509;;Congelado;Torta De Frango Com Requeijao 500G
 3;BRF - Sadia;Aves;7891515443238;;Congelado;Frango Assado com Arroz e Batata Sadia 350g -Caixa c/6
 4;BRF - Perdigão;Outros;7891515442965;;Congelado;Feijoada Pronta Perdigão 0,8Kg -Caixa c/4
 3;BRF - Sadia;Aves;7891515443221;;Congelado;Frango à Parmegiana com Arroz e Batata Palha Sadia 350g -Caixa c/6
@@ -849,7 +830,7 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Suínos;7899638307215;;Congelado;Ovino Carre French Rack Importado Nirea - 1kg
 3;BRF - Sadia;Bovinos;7899638307192;;Congelado;Ovino Alcatra Completa Importado Nirea
 4;BRF - Perdigão;Outros;7899638367509;;Congelado;Rúmen Bucho Miúdos Perdigão Montana
-3;BRF - Sadia;Outros;7899638307208;;Congelado;Ovino Paleta Importado Nirea - 2kg
+3;BRF - Sadia;Outros;7899638307208;;Congelado;Filé de Tilápia Nova Pesca - 140g
 4;BRF - Perdigão;Outros;7899638367264;;Congelado;Carne Industrial Lombinho Do Diafragma Bloco Perdigão Montana
 3;BRF - Sadia;Outros;7899638307154;;Congelado;Ovino Paleta Hasta Importado Nirea - 2kg
 3;BRF - Sadia;Aves;7899638356367;;Congelado;Filé de Merluza Interfolhado Tradarsa - 210g
@@ -907,22 +888,13 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Bovinos;7899638366977;;Congelado;Aranha Da Alcatra Congelado Perdigão Montana - 1 a 1,2kg
 4;BRF - Perdigão;Aves;7899638366182;;Congelado;Filé Mignon Perdigão na Brasa
 4;BRF - Perdigão;Bovinos;7899638367325;;Congelado;Filé de Costela Perdigão Montana
-3;BRF - Sadia;Bovinos;7899638370219;;Congelado;Picanha Maturado Sadia Bassi Stars - 1,6kg
-3;BRF - Sadia;Bovinos;7899638370189;;Congelado;Maminha Da Alcatra Maturada Sadia Bassi Stars
 3;BRF - Sadia;Bovinos;7899638370219;;Congelado;Picanha Sadia Bassi Stars - 1,6kg
-3;BRF - Sadia;Bovinos;7899638370134;;Congelado;Costela Dianteiro Maturado Sadia Bassi Stars
-3;BRF - Sadia;Outros;7899638370165;;Congelado;Fralda Maturado Red Sadia Bassi Stars
-3;BRF - Sadia;Aves;7899638370202;;Congelado;Peito Maturado Sadia Bassi Stars
-3;BRF - Sadia;Outros;7899638370226;;Congelado;Raquete Maturado Red Sadia Bassi Stars - 1,2kg
 3;BRF - Sadia;Bovinos;7899638370134;;Congelado;Costela Dianteiro Sadia Bassi Stars
 3;BRF - Sadia;Outros;7899638370165;;Congelado;Fralda Red Sadia Bassi Stars
-3;BRF - Sadia;Outros;7899638370103;;Congelado;Contra - Filé Maturado Sadia Bassi Stars
 3;BRF - Sadia;Outros;7899638370226;;Congelado;Raquete Red Sadia Bassi Stars - 1,2kg
-3;BRF - Sadia;Bovinos;7899638370141;;Congelado;Filé de Costela Maturado Sadia Bassi Stars - 2,5kg
 4;BRF - Perdigão;Aves;7899638366922;;Congelado;Gordura Perdigão Na Brasa
 4;BRF - Perdigão;Aves;7899638369497;;Congelado;Alcatra Maturado Perdigão na Brasa - 4 a 6kg
 3;BRF - Sadia;Outros;7899638370097;;Congelado;Acém Short Rib Sadia Bassi Stars - 4 a 6,5kg
-3;BRF - Sadia;Outros;7899638370097;;Congelado;Acém Short Rib Maturado Sadia Bassi Stars - 4 a 6,5kg
 3;BRF - Sadia;Suínos;5602772155312;;Congelado;Lombo Bacalhau Desalgado Soguima - 400 a 500g
 3;BRF - Sadia;Outros;6956666601263;;Congelado;Kani Kama Seapro
 3;BRF - Sadia;Suínos;5602772155015;;Congelado;Lombo Bacalhau Desalgado Soguima - 500 a 700g
@@ -938,7 +910,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 3;BRF - Sadia;Outros;5602772409644;;Congelado;Posta De Bacalhau Dessalgado Soguima
 3;BRF - Sadia;Outros;7899638349031;;Congelado;Fralda Maturado Angus Tacuarembó
 3;BRF - Sadia;Bovinos;7899638365086;;Congelado;Filé De Costela Ancho Steak Sadia Bassi - 300 a 350g
-3;BRF - Sadia;Outros;7899638307208;;Congelado;Filé de Tilápia Nova Pesca - 140g
 3;BRF - Sadia;Outros;6956666601140;;Resfriado;Filé Polaca Alasca Sem Pele Seapro - 280 a 500g
 3;BRF - Sadia;Outros;7899638351836;;Congelado;Filé Mignon Wagyu Tacurembó - 2 a 2,5kg
 4;BRF - Perdigão;Outros;7899638373241;;Congelado;Lagarto Perdigão Montana
@@ -977,12 +948,8 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Bovinos;7899638367783;;Resfriado;Alcatra Com Maminha Resfriado Perdigão Montana
 4;BRF - Perdigão;Bovinos;7899638341608;;Resfriado;Recorte Alcatra Aranha Perdigão Montana
 4;BRF - Perdigão;Aves;7891515610715;;Seco;Peito Jerked Beef Dianteiro Perdigão Montana
-4;BRF - Perdigão;Outros;7899638369015;;Seco;Jerked Beef Traseiro Perdigão Montana - 400g
-4;BRF - Perdigão;Outros;7899638369022;;Seco;Jerked Beef Ponta De Agulha Perdigão Montana - 400g
-4;BRF - Perdigão;Outros;7891515610715;;Seco;Jerked Beef Ponta De Agulha Perdigão Montana - 30kg
-4;BRF - Perdigão;Outros;7891515610715;;Seco;Jerked Beef Ponta De Agulha Perdigão Montana
-4;BRF - Perdigão;Outros;7899638369008;;Seco;Jerked Beef Dianteiro Perdigão Montana - 400g
 4;BRF - Perdigão;Outros;7899638369022;;Seco;Jerked Beef Dianteiro Perdigão Montana
+4;BRF - Perdigão;Outros;7899638369008;;Seco;Jerked Beef Dianteiro Perdigão Montana - 400g
 4;BRF - Perdigão;Bovinos;7899638367240;;Congelado;Acém Pescoço E Costela Do Dianteiro Congelado Perdigão Montana
 3;BRF - Sadia;Bovinos;7899638365055;;Congelado;Acém Denver Steak Sadia Bassi
 3;BRF - Sadia;Bovinos;7899638365048;;Congelado;Acém Cowboy Steak Sadia Bassi
@@ -996,11 +963,9 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Outros;7891515606428;;Congelado;Penne ao Molho Sugo e Manjericão Congelado Perdigão Meu Menu Pacote 300g - Caixa c/ 12
 4;BRF - Perdigão;Outros;7891515644512;;Congelado;Meu Menu | Caixa Mista 3 Sabores
 4;BRF - Perdigão;Outros;7891515644208;;Seco;Meu Menu Marmita | Caixa Mista 2 Sabores
-3;BRF - Sadia;Outros;5602772409644;;Seco;Posta De Bacalhau Dessalgado Cg 600G Soguima
 3;BRF - Sadia;Aves;7899638366670;;Resfriado;Lagarto Rf Vc Mi Montana Steakhouse Na Brasa
 4;BRF - Perdigão;Outros;7891515640514;;Congelado;Kibe Cg Pct 500G Montana Perdigao
 4;BRF - Perdigão;Aves;7891515641559;;Congelado;Almondega De Carne E De Frango Cg Pct 500G Montana Perdigao
-3;BRF - Sadia;Suínos;5602772055698;;Seco;Lombo De Bacalhau Dessalgado Cg Soguima
 3;BRF - Sadia;Bovinos;7891515614546;;Congelado;Cupim Coz C/ Sache Molho Cg 1,3 Sadia
 4;BRF - Perdigão;Aves;7891515923938;;Congelado;Sassami de Frango Temperado Food Service Perdigão 3Kg -Caixa c/4
 4;BRF - Perdigão;Outros;7891515640910;;Congelado;Nhoque ao Molho Branco SD Hot Bowls Pote 300g
@@ -1055,7 +1020,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 7;BRF - Claybom;Margarinas;7891515901066;;Resfriado;Margarina Cremosa com Sal Claybom Pote 250g -Caixa c/24
 7;BRF - Claybom;Margarinas;7891515901059;;Resfriado;Margarina Cremosa com Sal Claybom Pote 500g -Caixa c/12
 6;BRF - Deline;Margarinas;7891515618872;;Seco;Margarina Deline Sabores Pote 250G
-4;BRF - Perdigão;Suínos;7891515767600;;Resfriado;Bacon Defumado Manta Perdigão 14kg -Caixa c/4
 4;BRF - Perdigão;Suínos;7891515767600;;Resfriado;Bacon Defumado Manta Perdigão
 4;BRF - Perdigão;Suínos;7891515621773;;Seco;Bacon Meia Manta Perdigão
 3;BRF - Sadia;Lanches;7891515608569;;Congelado;Hambúrguer Vegetal Abóbora & Grão-de-Bico Sadia Veg&Tal 113g - Caixa c/36
@@ -1069,31 +1033,24 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Bovinos;7891515021368;;Resfriado;Costela Suína Retalho Salgada Perdigão 13kg -Caixa c/1
 4;BRF - Perdigão;Aves;7891515013240;;Congelado;Frango Inteiro com Carcaça Perdigão Caixa 13Kg
 3;BRF - Sadia;Suínos;7891515617080;;Seco;Linguica Calabresa Reta FS Pt 2,5Kg Sd
-4;BRF - Perdigão;Suínos;7891515767600;;Resfriado;Bacon Defumado Manta Perdigão 13kg -Caixa c/4
 8;BRF - Becel;Outros;8719200225305;;Seco;Manteiga Vegetal c/ Sal Zero Lactose Becel 227g - Caixa c/ 24
 3;BRF - Sadia;Outros;7891515618322;;Congelado;Emp Nacho Frg Coz Cong 275G Sd
 3;BRF - Sadia;Outros;7891515611125;;Resfriado;Frio De File Mignon Coz. Sd Cx 6,58Kg
 4;BRF - Perdigão;Bovinos;7891515359096;;Congelado;Costela Sui Cong Perd Pvar
 4;BRF - Perdigão;Aves;7891515645311;;Congelado;Linguiça de Carne Suína para Churrasco Perdigão na Brasa 700g
 4;BRF - Perdigão;Aves;7891515023614;;Congelado;Costela Sui Cong Nabrasa Pd Pvar
-4;BRF - Perdigão;Aves;7891515498139;;Congelado;Asa Int Peru Itf Cong Perd Pvar
 4;BRF - Perdigão;Aves;7891515591762;;Congelado;Picanha Bovina Congelada s/ Osso Maturada Perdigão Na Brasa - Peso variável
 4;BRF - Perdigão;Aves;7891515591731;;Congelado;Contrafilé Bovino Congelado s/ Osso Maturado Perdigão Na Brasa - Caixa com peso variável
-4;BRF - Perdigão;Aves;7891515975210;;Congelado;Coração de Peru Congelado Perdigão C/1
-4;BRF - Perdigão;Aves;7891515975524;;Congelado;Pescoco De Peru S/P Cong Perd Pvar
 3;BRF - Sadia;Bovinos;7891515641016;;Congelado;Ponta Costela Sui Cong Iwp Sd Pvar
-3;BRF - Sadia;Bovinos;7891515539122;;Congelado;Costela Tira Suína CONG IWP Sadia PVAR
 4;BRF - Perdigão;Aves;7891515022587;;Congelado;Salsicha de Frango Perdigão Caixa 20kg
 4;BRF - Perdigão;Outros;7891515945206;;Resfriado;Salsicha Hot-Dog Perdigão 2,8kg -Caixa c/4
 4;BRF - Perdigão;Aves;7891515194864;;Congelado;Moela de Frango Perdigão 1kg -Caixa c/16
-4;BRF - Perdigão;Bovinos;7891515359096;;Congelado;Costela Suína Perdigão Caixa 10Kg -Caixa c/7
 4;BRF - Perdigão;Outros;7891515921446;;Congelado;Linguiça Mista Frescal Perdigão 5kg -Caixa c/4
 4;BRF - Perdigão;Suínos;7891515907839;;Congelado;Linguiça Toscana Perdigão Na Brasa 5kg -Caixa c/4
 4;BRF - Perdigão;Suínos;7891515220501;;Congelado;Tender Suíno Perdigão 1 kg
 4;BRF - Perdigão;Aves;7891515853808;;Congelado;Sambiquira de Frango Perdigão 1kg -Caixa c/16
 4;BRF - Perdigão;Suínos;7891515983000;;Resfriado;Rabo Suíno Salgado Perdigão 13kg
 4;BRF - Perdigão;Aves;7891515977412;;Congelado;Coração de Frango Perdigão 1kg -Caixa c/16
-4;BRF - Perdigão;Aves;7891515023614;;Congelado;Costela Suína Perdigão Na Brasa Caixa 10kg
 4;BRF - Perdigão;Aves;7891515969509;;Congelado;Coxinha da Asa de Frango Perdigão 1kg -Caixa c/16
 3;BRF - Sadia;Bovinos;7891515620950;;Congelado;Strogonoff De Carne Bovina 500G Sd Cong
 3;BRF - Sadia;Outros;7899638357685;;Seco;Kibe Vegetal Plantplus Foods Bandeja 250g 5 Unidades - Caixa c/12
@@ -1114,15 +1071,12 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Outros;7891515646431;;Congelado;Cheeseburguer com Ketchup Picles C/18 - Perdigão Montana Pacote
 8;BRF - Becel;Margarinas;7891515644482;;Seco;Margarina com Sal Zero Lactose Becel Toque Gourmet Pote 500g
 8;BRF - Becel;Margarinas;7891515644499;;Seco;Margarina com Sal Zero Lactose Becel Toque Gourmet Pote 250g
-3;BRF - Sadia;Outros;7891515477530;;Congelado;Retalho Cost Sui Premium Cong Sd Pvar FS
-3;BRF - Sadia;Outros;7893000516915;;Congelado;Costelinha Suína CONG SD PVAR
 4;BRF - Perdigão;Outros;7891515645410;;Seco;Cesta Felicidade Perdigão C/ 2 Kits
 4;BRF - Perdigão;Outros;7891515645274;;Seco;Cesta Otimismo Perdigão C/ 2 Kits
 4;BRF - Perdigão;Outros;7891515645281;;Seco;Cesta Sonhos Perdigão C/ 2 Kits
 3;BRF - Sadia;Outros;7891515645427;;Seco;Cesta Sucesso Sadia C/ 2 Kits
 3;BRF - Sadia;Aves;7891515645298;;Seco;Cesta Vitória Sadia C/ 2 Kits
 3;BRF - Sadia;Suínos;7891515645304;;Seco;Cesta Alegria Sadia C/ 2 Kits
-3;BRF - Sadia;Bovinos;7891515477547;;Congelado;Retalho Costela Suína Itf Cong Sd Pvar FS
 4;BRF - Perdigão;Aves;7891515644819;;Congelado;Linguiça Tipo Cuiabana Perdigão Na Brasa C/16
 3;BRF - Sadia;Aves;7891515644895;;Congelado;Linguiça de Frango Sadia 700g
 3;BRF - Sadia;Suínos;7891515644925;;Congelado;Copa Lombo Cong Iwp Pvar Sadia
@@ -1130,17 +1084,10 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 4;BRF - Perdigão;Suínos;7891515644437;;Seco;Linguiça Toscana Perdigão na Brasa 700g
 4;BRF - Perdigão;Suínos;7891515644451;;Seco;Linguiça Toscana Apimentada Perdigão na Brasa 700g
 3;BRF - Sadia;Outros;7891515644369;;Congelado;Hot Bowls | Nhoque Bolonhesa & Molho Branco Caixa Mista
-3;BRF - Sadia;Outros;7891515550790;;Seco;Torta Tender com Cream Cheese e Alho Poró Sadia 500 g
-4;BRF - Perdigão;Suínos;7891515592165;;Seco;Torta Chester com Calabresa e Molho Sabor Cheddar 500 g
-4;BRF - Perdigão;Suínos;7891515521851;;Congelado;Pernil Suino Cong Iwp Pvar Sadia
-3;BRF - Sadia;Suínos;7891515521868;;Congelado;Patinho Suino Cong Iwp Pvar Sadia
-3;BRF - Sadia;Aves;7893000012509;;Congelado;Torta De Frango Com Requeijao 500G
-3;BRF - Sadia;Suínos;7891515521837;;Congelado;Alcatra Suina Cong Iwp Pvar Sadia
 3;BRF - Sadia;Outros;7891515550790;;Congelado;Torta Tender C/ Cream Cheese 500G
+4;BRF - Perdigão;Suínos;7891515592165;;Seco;Torta Chester com Calabresa e Molho Sabor Cheddar 500 g
 3;BRF - Sadia;Aves;7891515610746;;Congelado;Ave Inteira Temperada Congelada Kidelli 3,6kg a 4,2 kg
-3;BRF - Sadia;Aves;7891515610746;;Congelado;Ave Inteira Temperada Congelada Kidelli 2,7 kg a 3,6 kg
 3;BRF - Sadia;Bovinos;7891515610012;;Congelado;Costela Suína Temperada com Molho BBQ 1,3 kg a 1,5 kg
-4;BRF - Perdigão;Suínos;7891515592165;;Congelado;Torta Chester com Calabresa e Molho Sabor Cheddar Perdigão 500g -Caixa c/6
 4;BRF - Perdigão;Aves;7891515592332;;Congelado;Peito Chester com Molho de Laranja 1,2 kg a 1,9 kg
 8;BRF - Becel;Margarinas;7891515644130;;Seco;Margarina com Sal Zero Lactose Becel Toque Gourmet Pote 1kg
 4;BRF - Perdigão;Suínos;7891515604820;;Congelado;Bacon em Cubos Perdigão 1kg - Caixa c/6
@@ -1413,7 +1360,7 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 10;Friboi - Do Chef;Outros;0789956720857;;Congelado;Couve-Flor Pacote (2Kg) - Do Chef
 10;Friboi - Do Chef;Outros;0789956720859;;Congelado;Ervilha Pacote (2Kg) - Do Chef
 2;Friboi;Bovinos;0789854202986;;Resfriado;Jerked Beef Traseiro (500G) - Friboi
-2;Friboi;Bovinos;0789956720559;;Resfriado;Jerked Beef Ponta De Agulha (30Kg) - Friboi
+2;Friboi;Bovinos;0789956720559;;Resfriado;Jerked Beef Retalho (30Kg) - Friboi
 2;Friboi;Bovinos;0789854202991;;Resfriado;Jerked Beef Ponta De Agulha (5Kg) - Friboi
 2;Friboi;Bovinos;0789854202993;;Resfriado;Jerked Beef Traseiro (5Kg) - Friboi
 2;Friboi;Bovinos;0789956720558;;Temperatura Ambiente;Jerked Beef Peito 2 Pelos (30Kg) - Friboi
@@ -1476,7 +1423,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 2;Friboi;Bovinos;0789956722794;;Congelado;Rabo - Friboi
 11;Friboi - Maturatta;Bovinos;0789956722881;;Resfriado;Ponta De Peito - Maturatta
 13;Friboi - Black;Bovinos;0789956722975;;Congelado;Contra Filé Com Capa E Aba - Black Friboi
-2;Friboi;Bovinos;0789956720559;;Resfriado;Jerked Beef Retalho (30Kg) - Friboi
 2;Friboi;Bovinos;0789956723015;;Congelado;Coxão Duro (Bifes 50 A 60G) IQF - Friboi
 2;Friboi;Bovinos;0789956723016;;Congelado;Coxão Duro (Bifes 70 A 80G) IQF - Friboi
 2;Friboi;Bovinos;0789956723017;;Congelado;Coxão Duro IQF (Bife 90 A 100G) - Friboi
@@ -1611,8 +1557,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 12;Friboi - 1953;Bovinos;0789956726571;;Resfriado;Costela Do Dianteiro - 1953
 2;Friboi;Bovinos;0789956726927;;Congelado;Fraldinha Cozida Desfiada (2Kg) - Friboi
 11;Friboi - Maturatta;Bovinos;0789956726947;;Congelado;T-Bone Bovino - Maturatta
-10;Friboi - Do Chef;Outros;0789956724968;;Congelado;FILÉ DE MERLUZA (60 A 200g) SEM PELE (800G) - DO CHEF
-10;Friboi - Do Chef;Aves;0789956724997;;Congelado;Filé De Merluza (60 A 200G) Sem Pele Interfolhado - Do Chef
 10;Friboi - Do Chef;Aves;0789956724996;;Congelado;Filé De Merluzão Sem Pele Interfolhado - Do Chef
 12;Friboi - 1953;Bovinos;0789490423131;;Congelado;Hambúrguer Gourmet Cartucho (200G) - 1953
 12;Friboi - 1953;Bovinos;0789956727054;;Resfriado;Lagarto Red - 1953
@@ -1655,7 +1599,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 10;Friboi - Do Chef;Suínos;0789461114734;;Congelado;Porchetta Suína Inteiro - Do Chef
 10;Friboi - Do Chef;Suínos;0789461114733;;Congelado;Belly Ribs Com Pele - Do Chef
 10;Friboi - Do Chef;Bovinos;0789956729086;;Resfriado;Capa De Filé - Do Chef
-10;Friboi - Do Chef;Outros;0789956723259;;Congelado;Batata Tradicional 9Mm Pacote (2Kg) - Do Chef
 2;Friboi;Bovinos;0789956729118;;Resfriado;Capa De Filé Fracionada - Friboi
 2;Friboi;Bovinos;0789956724893;;Congelado;Alcatra Em Bife IQF 12Mm Pacote (800G) - Friboi
 12;Friboi - 1953;Bovinos;0789956724885;;Congelado;Hambúrguer Gourmet Granel (200G) - 1953
@@ -1816,11 +1759,9 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 10;Friboi - Do Chef;Pescados;0789603124978;;Congelado;Filé De Panga Premium Interfolhado (5Kg) - Do Chef
 10;Friboi - Do Chef;Aves;0789603124882;;Temperatura Ambiente;Frango Salgado Cozido Desfiado Pacote (2,5Kg) - Do Chef
 2;Friboi;Bovinos;0789603124927;;Resfriado;Lombo - Friboi
-11;Friboi - Maturatta;Bovinos;0789603122384;;Congelado;Linguiça Bovina (300G) - Maturatta
 12;Friboi - 1953;Bovinos;0789603125166;;Congelado;Coração Da Paleta (Cubos) 2Kg - 1953
 10;Friboi - Do Chef;Bovinos;0789603125252;;Congelado;Coxão Mole (Cubos) 2Kg - Do Chef
 12;Friboi - 1953;Bovinos;0789603125278;;Congelado;Costela Do Traseiro (Rib Short) Com Osso - 1953
-10;Friboi - Do Chef;Aves;0789956724968;;Congelado;FILÉ DE MERLUZA (60 A 200g) SEM PELE PACOTE (800G) - DO CHEF
 10;Friboi - Do Chef;Pescados;0789603125594;;Congelado;Filé De Tilápia Sem Pele Pacote (500G) - Do Chef
 10;Friboi - Do Chef;Aves;0789603125597;;Congelado;Filé De Tilápia Sem Pele Pacote (800G) - Do Chef
 10;Friboi - Do Chef;Aves;0789603125598;;Congelado;Filé De Tilápia Granel (10Kg) - Do Chef
@@ -1829,8 +1770,6 @@ marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;
 10;Friboi - Do Chef;Bovinos;0789897057416;;Congelado;Costela Suína Grill Porcionada - Do Chef
 10;Friboi - Do Chef;Bovinos;0789897057414;;Congelado;Panceta Piano (Barriga Com Costela) Sem Osso - Do Chef
 10;Friboi - Do Chef;Aves;0789897057415;;Congelado;Filé Mignon Suíno - Do Chef
-10;Friboi - Do Chef;Aves;0789956724972;;Congelado;Filé De Tilápia Sem Pele Pacote 500G (Planalto) - Do Chef
-10;Friboi - Do Chef;Aves;0789956724973;;Congelado;Filé De Tilápia Sem Pele Pacote (800G) - Planalto
 12;Friboi - 1953;Bovinos;0789603126048;;Congelado;Entranha (Grossa) - 1953
 12;Friboi - 1953;Bovinos;0789603126049;;Congelado;Ponta De Agulha (Bananinha) - 1953
 12;Friboi - 1953;Bovinos;0789603126436;;Resfriado;Filé De Costela (Pedaços) - 1953
