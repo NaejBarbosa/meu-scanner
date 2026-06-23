@@ -133,7 +133,7 @@ def main():
             # Prefere descr_fiscal pois ela contém o peso dos produtos da Lar, ao contrário do title
             raw_descr = descr_fiscal if descr_fiscal else title
             descr_limpa = clean_text(raw_descr)
-            # Remove " (pesar)" ou "(pesar)"
+            # Remove " (pesar)" ou "(pesar)" temporariamente
             descr_limpa = re.sub(r'\s*\(\s*pesar\s*\)', '', descr_limpa, flags=re.IGNORECASE)
             # Remove pontos de partição e informações de conservação redundantes
             descr_limpa = re.sub(r'•\s*(congelado|congelada|resfriado|resfriada)', '', descr_limpa, flags=re.IGNORECASE)
@@ -141,6 +141,12 @@ def main():
             descr_limpa = " ".join(descr_limpa.split()).strip(" -•")
             
             descr_fmt = format_title(descr_limpa)
+            
+            # REGRA: Tudo da Lar que não tem peso na descrição, coloca (Pesar)
+            tem_peso = re.search(r'\d+([,.]\d+)?\s*(g|kg)\b', descr_fmt.lower())
+            if not tem_peso:
+                descr_fmt = f"{descr_fmt} (pesar)"
+                
             classe_fmt = format_title(clean_text(classe))
             conservacao_fmt = format_title(clean_text(conservacao))
             
