@@ -7,6 +7,7 @@ import * as fuzzball from 'fuzzball';
 import Scanner from './Scanner';
 import { extrairDados } from '../lib/regex';
 import { useTheme } from '../context/ThemeContext';
+import CadastroProdutoModal from './CadastroProdutoModal';
 
 export interface ProdutoValido {
   marcaId: string;
@@ -24,15 +25,42 @@ export interface WatchlistItem extends ProdutoValido {
 
 interface PesquisaProdutoProps {
   produtosValidos: ProdutoValido[];
+  onProdutoCadastrado?: (novoProduto: ProdutoValido) => void;
 }
 
-export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProps) {
+export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }: PesquisaProdutoProps) {
   const { theme } = useTheme();
   
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const [cadastroNaoIdentificado, setCadastroNaoIdentificado] = useState<{
+    ean: string;
+    dun: string;
+    adicionarWatchlist?: boolean;
+  } | null>(null);
+
+  const handleCadastroProdutoSuccess = (novoProduto: ProdutoValido) => {
+    if (onProdutoCadastrado) {
+      onProdutoCadastrado(novoProduto);
+    }
+    if (cadastroNaoIdentificado?.adicionarWatchlist) {
+      const newList = [...watchlist, { ...novoProduto, localizado: false }];
+      saveWatchlist(newList);
+      setNovoEanProcurado('');
+      setShowAddManual(false);
+      showToast('Produto cadastrado e adicionado ao Radar!', 'success');
+    } else {
+      showToast('Produto cadastrado com sucesso!', 'success');
+      setIsWatchlistMatch(watchlist.some((w) => w.produtoEan === novoProduto.produtoEan));
+      setIsMatchCelebration(false);
+      setSelectedProduct(novoProduto);
+      setShowQRCode(false);
+    }
+    setCadastroNaoIdentificado(null);
+  };
   
   // Abas internas: 'radar' (Scanner + Watchlist) ou 'pesquisa' (Fuzzy Search)
   const [innerTab, setInnerTab] = useState<'radar' | 'busca'>('radar');
@@ -147,7 +175,11 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
           setShowQRCode(false);
           showToast('Produto identificado via código!', 'success');
         } else {
-          showToast(`Código ${dun || ean} não identificado no cadastro.`, 'error');
+          showToast(`Código ${dun || ean} não identificado no cadastro. Abrindo cadastro...`, 'info');
+          setCadastroNaoIdentificado({
+            ean: ean || '',
+            dun: dun || ''
+          });
         }
       }
     }
@@ -257,7 +289,12 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
     );
 
     if (!product) {
-      showToast('Código de barras (EAN/DUN) não encontrado na base de produtos.', 'error');
+      showToast('Código não cadastrado na base de produtos. Abrindo cadastro...', 'info');
+      setCadastroNaoIdentificado({
+        ean: eanProcurado || (text.length !== 14 ? text : ''),
+        dun: dunProcurado || (text.length === 14 ? text : ''),
+        adicionarWatchlist: true
+      });
       return;
     }
 
@@ -291,7 +328,11 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
     }
 
     if (!foundProduct) {
-      showToast(`Código ${dun || ean} não identificado no cadastro.`, 'error');
+      showToast(`Código ${dun || ean} não identificado no cadastro. Abrindo cadastro...`, 'info');
+      setCadastroNaoIdentificado({
+        ean: ean || '',
+        dun: dun || ''
+      });
       return;
     }
 
@@ -740,6 +781,18 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
             </div>
           </div>
         </div>,
+        document.body
+      )}
+
+      {/* Modal de cadastro de produto não identificado */}
+      {mounted && cadastroNaoIdentificado && createPortal(
+        <CadastroProdutoModal
+          initialEan={cadastroNaoIdentificado.ean}
+          initialDun={cadastroNaoIdentificado.dun}
+          produtosValidos={produtosValidos}
+          onClose={() => setCadastroNaoIdentificado(null)}
+          onSuccess={handleCadastroProdutoSuccess}
+        />,
         document.body
       )}
 

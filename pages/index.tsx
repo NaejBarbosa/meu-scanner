@@ -487,7 +487,10 @@ function HomeContent() {
         ) : activeTab === 'relatorio' ? (
           <Relatorio />
         ) : activeTab === 'pesquisa' ? (
-          <PesquisaProduto produtosValidos={produtosValidos} />
+          <PesquisaProduto 
+            produtosValidos={produtosValidos} 
+            onProdutoCadastrado={handleCadastroProdutoSuccess}
+          />
         ) : !sessaoAtiva ? (
           <VagaSelector onConfirm={iniciarSessao} />
         ) : (
