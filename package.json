@@ -13,6 +13,7 @@
     "canvas-confetti": "^1.9.4",
     "fuzzball": "^2.2.6",
     "googleapis": "^128.0.0",
+    "lucide-react": "^1.21.0",
     "next": "14.2.3",
     "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
