@@ -1,0 +1,1926 @@
+marca-id;marca-descr;produto-classe;produto-ean;produto-dun;produto-conservacao;produto-descr
+1;Lar;Batatas;7896419730729;17896419730726;Congelado;Batata Palito Airfryer
+1;Lar;Pescados;7896419731917;17896419731914;Congelado;Filé de Tilápia
+1;Lar;Pescados;7896419731801;17896419731808;Congelado;Filé de Tilápia
+1;Lar;Pescados;7896419731900;17896419731907;Congelado;Filé de Tilápia
+1;Lar;Quentes;7896419720270;17896419720277;Congelado;Anéis de Cebola
+1;Lar;Quentes;7896419720287;17896419720284;Congelado;Anéis de Cebola
+1;Lar;Batatas;7896419730705;17896419730702;Congelado;Batata Palito
+1;Lar;Batatas;7896419730347;17896419730344;Congelado;Batata Palito
+1;Lar;Quentes;7896419724384;17896419724381;Congelado;Polenta Palito
+1;Lar;Quentes;7896419712770;17896419712777;Congelado;Polenta Palito
+1;Lar;Bandejas Congeladas;7896419728887;17896419728884;Congelado;Coração Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419727286;17896419727283;Congelado;Coração Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419728900;17896419728907;Congelado;Coxas e Sobrecoxas • Bandeja Congelada 1kg
+1;Lar;Bandejas Congeladas;7896419728894;17896419728891;Congelado;Coxinhas das Asas Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419727309;17896419727306;Congelado;Coxinhas das Asas Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419728870;17896419728877;Congelado;Filé de Peito Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419727316;17896419727313;Congelado;Filé de Peito Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419728917;17896419728914;Congelado;Filezinho Sassami Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419727323;17896419727320;Congelado;Filezinho Sassami Bandeja • Congelada
+1;Lar;Bandejas Congeladas;7896419727279;17896419727276;Congelado;Moela Bandeja • Congelada
+1;Lar;Bandejas Resfriadas;7896419728078;17896419728075;Resfriado;Coração Bandeja • Resfriado
+1;Lar;Bandejas Resfriadas;7896419728047;17896419728044;Resfriado;Coxinhas das Asas Bandeja • Resfriada
+1;Lar;Bandejas Resfriadas;7896419728023;17896419728020;Resfriado;Filé de Peito Bandeja • Resfriado
+1;Lar;Bandejas Resfriadas;7896419728085;17896419728082;Resfriado;Filezinho Sassami Bandeja • Resfriada
+1;Lar;Bandejas Resfriadas;7896419727996;17896419727993;Resfriado;Meio das Asas Bandeja • Resfriada
+1;Lar;Bandejas Resfriadas;7896419728030;17896419728037;Resfriado;Moela Bandeja • Resfriada
+1;Lar;Bandejas Resfriadas;7896419728009;17896419728006;Resfriado;Sobrecoxas Bandeja • Resfriada
+1;Lar;Cozidos;7896419731177;17896419731174;Congelado;Frango Desfiado
+1;Lar;Cozidos;7896419728757;27896419728751;Congelado;Meio Peito Cozido em Cubos Linha Minuto 300g
+1;Lar;Cozidos;7896419728740;27896419728744;Congelado;Meio Peito Cozido em Tiras Linha Minuto 300g
+1;Lar;Cozidos;7896419728849;17896419728846;Congelado;Coxinha da Asa Assado Linha Minuto 300g
+1;Lar;Cozidos;7896419728818;17896419728815;Congelado;Meio da asa assada Linha Minuto 300g
+1;Lar;Cozidos;7896419728825;17896419728822;Congelado;Filezinho Sassami Assado Linha Minuto 300g
+1;Lar;Empanados;7896419714071;17896419714078;Congelado;Empanitos Empanado
+1;Lar;Empanados;7896419725336;17896419725333;Congelado;Empanitos Empanado
+1;Lar;Empanados;7896419725480;17896419725487;Congelado;Filé à milanesa
+1;Lar;Empanados;7896419717560;17896419717567;Congelado;Filé de Coxas e Sobrecoxas Empanadas
+1;Lar;Empanados;7896419725329;17896419725326;Congelado;Filé de Coxas e Sobrecoxas Empanadas
+1;Lar;Empanados;7896419715566;17896419715563;Congelado;Filezinho Sassami Empanado
+1;Lar;Empanados;7896419716129;17896419716126;Congelado;Filezinho Sassami Empanado
+1;Lar;Empanados;7896419730156;17896419730153;Congelado;Mini Hambúrguer Empanado de Frango
+1;Lar;Empanados;7896419725459;17896419725456;Congelado;Iscas Empanadas
+1;Lar;Empanados;7896419713852;17896419713859;Congelado;Steak Empanado
+1;Lar;Empanados;7896419713852;17896419723476;Congelado;Steak Empanado
+1;Lar;Empanados;7896419729143;17896419729140;Congelado;Hambúrguer Empanado de Frango
+1;Lar;Envelopados Congelados;7896419721475;17896419721472;Congelado;Asas Envelopadas • Congeladas
+1;Lar;Envelopados Congelados;7896419720799;17896419721168;Congelado;Coxinhas das Asas Envelopadas • Congeladas
+1;Lar;Envelopados Congelados;7896419719977;17896419721175;Congelado;Coxas e Sobrecoxas Envelopadas • Congeladas
+1;Lar;Envelopados Congelados;7896419721536;17896419721533;Congelado;Filé de Coxas Sobrecoxas Envelopadas • Congeladas
+1;Lar;Envelopados Congelados;7896419720386;17896419721182;Congelado;Filé de Peito Envelopado • Congelado
+1;Lar;Envelopados Congelados;7896419720447;17896419721205;Congelado;Filezinho Sassami Envelopado • Congelado
+1;Lar;Envelopados Congelados;7896419720393;17896419720390;Congelado;Peito com Osso Envelopado • Congelado
+1;Lar;Envelopados Congelados;7896419720997;17896419721212;Congelado;Sambiquira Envelopada • Congelada
+1;Lar;Envelopados Congelados;7896419720676;17896419721267;Congelado;Sobrecoxas Envelopadas • Congeladas
+1;Lar;Envelopados Resfriados;7896419720959;17896419720956;Resfriado;Coxas e Sobrecoxas Envelopadas • Resfriadas
+1;Lar;Envelopados Resfriados;7896419723424;17896419723421;Resfriado;Sobrecoxas Envelopadas • Resfriadas
+1;Lar;Envelopados Resfriados;7896419723400;17896419723407;Resfriado;Coxas e Sobrecoxas sem Osso Envelopadas Resfriadas
+1;Lar;Envelopados Resfriados;7896419720973;17896419720970;Resfriado;Coxinhas das Asas Envelopadas • Resfriadas
+1;Lar;Envelopados Resfriados;7896419720966;17896419720963;Resfriado;Filé de Peito Envelopado • Resfriado
+1;Lar;Envelopados Resfriados;7896419720980;17896419720987;Resfriado;Peito com Osso Envelopado • Resfriado
+1;Lar;IQF;7896419714224;17896419714221;Congelado;Coxas IQF
+1;Lar;IQF;7896419727811;17896419727825;Congelado;Coxas IQF 700g
+1;Lar;IQF;7896419713784;17896419713781;Congelado;Coxinhas das Asas IQF
+1;Lar;IQF;7896419727774;17896419727771;Congelado;Coxinhas das Asas IQF 700g
+1;Lar;IQF;7896419716273;17896419716270;Congelado;Filé de Coxas e Sobrecoxas sem Osso com Pele IQF
+1;Lar;IQF;7896419727859;17896419727856;Congelado;Filé de Coxas e Sobrecoxas sem Osso com Pele IQF
+1;Lar;IQF;7896419727835;17896419727832;Congelado;Frango a Passarinho IQF
+1;Lar;IQF;7896419701637;17896419701634;Congelado;Frango a Passarinho IQF
+1;Lar;IQF;7896419716280;17896419716287;Congelado;Filé de Peito IQF
+1;Lar;IQF;7896419727804;17896419727801;Congelado;Filé de Peito IQF 700g
+1;Lar;IQF;7896419714231;17896419714238;Congelado;Filezinho Sassami IQF
+1;Lar;IQF;7896419727798;17896419727795;Congelado;Filezinho Sassami IQF 700g
+1;Lar;IQF;7896419715047;17896419715044;Congelado;Sobrecoxas IQF
+1;Lar;IQF;7896419727828;17896419727825;Congelado;Sobrecoxas IQF 700g
+1;Lar;IQF;7896419715092;17896419715099;Congelado;Meio das Asas IQF
+1;Lar;Linguiças;7896419728863;17896419728860;Congelado;Filé de Peito Moído
+1;Lar;Linguiças;7896419722656;17896419722653;Congelado;Linguiça de Frango Fininha Congelada
+1;Lar;Linguiças;7896419728108;17896419728105;Congelado;Linguiça de Frango Fininha Congelada
+1;Lar;Linguiças;7896419728092;17896419728099;Resfriado;Linguiça de Frango Fininha Resfriada 700g
+1;Lar;Linguiças;7896419722274;17896419722271;Congelado;Linguiça de Frango Grossa Congelada
+1;Lar;Linguiças;7896419722663;17896419722660;Congelado;Linguiça de Frango Grossa Congelada
+1;Lar;Linguiças;7896419727439;17896419727436;Congelado;Linguiça de Frango Petisco Congelada
+1;Lar;Miúdos;7896419729211;17896419729218;Congelado;Fígado
+1;Lar;Vegetais;7896419724612;17896419724619;Congelado;Brócolis Congelado
+1;Lar;Vegetais;7896419724582;17896419724589;Congelado;Ervilhas Congeladas
+1;Lar;Vegetais;7896419724599;17896419724596;Congelado;Ervilhas Congeladas
+1;Lar;Vegetais;7896419724537;17896419724534;Congelado;Mix de Vegetais Congelado
+1;Lar;Vegetais;7896419724483;17896419724480;Congelado;Seleta de Legumes Congeladas
+1;Lar;Vegetais;7896419724490;17896419724497;Congelado;Seleta de Legumes Congeladas
+1;Lar;Empanados;7896419714064;17896419714061;Congelado;Tirinhas Empanadas
+1;Lar;Cozidos;7896419731160;7896419731167;Congelado;Frango Desfiado
+1;Lar;IQF Temperados;7896419730194;17896419730191;Congelado;Coxinha da Asa Temperadas IQF
+1;Lar;IQF Temperados;7896419730774;17896419730771;Congelado;Filé de Coxas e Sobrecoxas Temperada IQF
+1;Lar;IQF Temperados;7896419730200;17896419730207;Congelado;Frango a Passarinho Temperado IQF
+1;Lar;Linguiças;7896419728115;17896419728112;Congelado;Linguiça de Frango Grossa Congelada
+1;Lar;Miúdos;7896419729198;178964195729195;Congelado;Coração
+1;Lar;Miúdos;7896419729204;17896419729201;Congelado;Moela
+1;Lar;Temperados;7896419730224;17896419730221;Congelado;Frango Inteiro Temperado Congelado
+1;Lar;Vegetais;7896419720010;17896419720017;Congelado;Brócolis Congelado
+1;Lar;Vegetais;7896419720003;17896419720000;Congelado;Couve-Flor Congelado
+1;Lar;Temperados;7896419730842;17896419720146;Congelado;Ave Natalina Temperada Recheada Congelada
+1;Lar;Empanados;7896419725343;17896419725340;Congelado;Tirinhas Empanadas
+1;Lar;Envelopados Congelados;7896419721116;17896419721113;Congelado;Coxas e Sobrecoxas com Porção Dorsal Envelopadas • Congeladas
+1;Lar;Envelopados Congelados;7896419723233;17896419723230;Congelado;Coxas e Sobrecoxas sem osso sem pele Envelopadas • Congeladas
+1;Lar;IQF Temperados;7896419730187;17896419730184;Congelado;Meio da Asas Temperadas IQF
+1;Lar;IQF Temperados;7896419730767;17896419730764;Congelado;Sobrecoxa Temperada IQF
+1;Lar;IQF Temperados;7896419730217;17896419730214;Congelado;Filezinho Sassami Temperado IQF
+1;Lar;Temperados;7896419729181;17896419729188;Congelado;Coração Temperado
+1;Lar;Temperados;7896419728955;17896419728952;Congelado;Coxinhas das Asas Temperadas
+1;Lar;Temperados;7896419728948;17896419728945;Congelado;Meio das Asas Temperadas
+1;Lar;Temperados;7896419728931;17896419728938;Congelado;Frango a Passarinho Temperado
+3;BRF - Sadia;Aves;7891515527617;;Congelado;Hambúrguer de Frango Empanado Sadia 900g -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515526511;;Resfriado;Embutido de Pernil Cozido Perdigão Food Service 3,4Kg -Caixa c/2
+3;BRF - Sadia;Suínos;7891515525729;;Resfriado;Linguiça Paio Defumada Sadia 370g -Caixa c/24
+3;BRF - Sadia;Suínos;7891515524630;;Resfriado;Linguiça Tipo Portuguesa Defumada Sadia 400g -Caixa c/18
+3;BRF - Sadia;Aves;7891515522384;;Congelado;Peito de Frango Cozido em Tiras Sadia na Receita 400g -Caixa c/12
+3;BRF - Sadia;Aves;7891515522377;;Congelado;Peito de Frango Cozido em Cubos Sadia na Receita 400g -Caixa c/12
+3;BRF - Sadia;Aves;7891515522339;;Congelado;Filezinho Sassami Cozido Sadia Na Receita 2kg -Caixa c/5
+3;BRF - Sadia;Aves;7891515521400;;Congelado;Peito de Frango em Tiras s/ Pele e Osso Sadia na Receita 400g -Caixa c/12
+3;BRF - Sadia;Aves;7891515521394;;Congelado;Peito de Frango em Cubos s/ Pele e Osso Sadia na Receita 400g -Caixa c/12
+3;BRF - Sadia;Suínos;7891515521899;;Congelado;Ponta de Costela Suína Sadia Caixa 10kg
+3;BRF - Sadia;Suínos;7891515521882;;Congelado;Copa Lombo Suína Sadia Caixa 12kg
+3;BRF - Sadia;Suínos;7891515521875;;Congelado;Picanha Suína sem Osso Sadia Caixa 12kg
+3;BRF - Sadia;Suínos;7891515521868;;Congelado;Patinho Suíno sem Osso Sadia Caixa 12kg
+3;BRF - Sadia;Suínos;7891515521851;;Congelado;Miolo do Pernil Suíno Sadia Caixa 12Kg -Caixa c/1
+3;BRF - Sadia;Suínos;7891515521844;;Congelado;Coxão Mole Suíno sem Osso Sadia Caixa 12Kg -Caixa c/1
+3;BRF - Sadia;Suínos;7891515521837;;Congelado;Alcatra Suína sem Osso Sadia Caixa 12kg
+4;BRF - Perdigão;Suínos;7891515521110;;Congelado;Picanha Suína com Alho e Ervas Perdigão Na Brasa Caixa 10Kg
+4;BRF - Perdigão;Suínos;7891515521035;;Congelado;Panceta Suína c/ Toque de Limão Perdigão Na Brasa Caixa 12,8kg
+4;BRF - Perdigão;Suínos;7891515521028;;Congelado;Costela Suína com Barbecue Perdigão Na Brasa Caixa 9,9kg
+3;BRF - Sadia;Suínos;7891515518424;;Resfriado;Linguiça Tipo Calabresa Defumada Sadia 1kg -Caixa c/18
+4;BRF - Perdigão;Suínos;7891515518516;;Resfriado;Linguiça Tipo Calabresa Defumada Perdigão 1kg -Caixa c/18
+4;BRF - Perdigão;Aves;7891515517786;;Congelado;Tirinhas de Frango Empanadas Perdigão 1kg -Caixa c/3
+4;BRF - Perdigão;Aves;7891515517779;;Congelado;Tirinhas de Frango Empanadas Perdigão 300g -Caixa c/15
+4;BRF - Perdigão;Suínos;7891515496234;;Congelado;Lasanha Frango com Bacon Perdigão 600g -Caixa c/6
+3;BRF - Sadia;Aves;7891515515324;;Congelado;Filezinho Sassami de Frango Sadia Bio 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515515317;;Congelado;Coxinha da Asa de Frango Drumette Sadia Bio 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515515348;;Congelado;Filé de Peito de Frango sem Pele sem Osso Sadia Bio 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515515331;;Congelado;Meio da Asa de Frango Sadia Bio 1kg -Caixa c/12
+3;BRF - Sadia;Suínos;7891515513719;;Congelado;Lombo Suíno In Natura Sadia 0,8 kg a 1,5 kg
+4;BRF - Perdigão;Aves;7891515513320;;Resfriado;Peito Peru Defumado Resfriado Perdigão 2,6kg Caixa 5,2kg
+4;BRF - Perdigão;Aves;7891515513146;;Congelado;Filé de Peito de Frango s/ Pele s/ Osso Perdigão 2kg -Caixa c/6
+4;BRF - Perdigão;Aves;7891515513139;;Congelado;Filé de Peito de Frango s/ Pele s/ Osso Perdigão 1kg -Caixa c/16
+4;BRF - Perdigão;Aves;7891515404062;;Resfriado;Presunto de Peru Perdigão 3,45kg -Caixa c/2
+4;BRF - Perdigão;Suínos;7891515511234;;Resfriado;Linguiça Tipo Calabresa Reta Defumada Perdigão 2,5kg -Caixa c/3
+4;BRF - Perdigão;Outros;7891515510343;;Resfriado;Salsicha Hot-Dog sem Corante Perdigão 500g -Caixa c/12
+4;BRF - Perdigão;Lanches;7891515936310;;Congelado;Fetuccini Com Molho Bolonhesa Congelado Perdigão 350g -Caixa c/12
+3;BRF - Sadia;Outros;7893000027701;;Congelado;Hot Pocket Sadia X-Burguer 145g -Caixa c/18
+4;BRF - Perdigão;Aves;7891515544584;;Congelado;Coxa Sobrecoxa de Frango s/ Osso e c/ Pele Perdigão Caixa 15Kg
+3;BRF - Sadia;Suínos;7893000024014;;Congelado;Linguiça Toscana Sadia 5kg -Caixa c/3
+3;BRF - Sadia;Suínos;7893000023994;;Congelado;Linguiça de Carne Suína Sadia 5kg -Caixa c/3
+3;BRF - Sadia;Suínos;7891515502256;;Congelado;Pernil Semi Desossado In Natura Sadia 4 kg a 5 kg
+3;BRF - Sadia;Aves;7891515500023;;Congelado;Sobrecoxa de Frango Sadia Bio 1kg -Caixa c/12
+4;BRF - Perdigão;Aves;7891515498924;;Congelado;Sambiquira de Peru Perdigão 2kg -Caixa c/8
+4;BRF - Perdigão;Aves;7891515498139;;Congelado;Asa Inteira de Peru Perdigão Caixa 10kg -Caixa c/1
+4;BRF - Perdigão;Aves;7891515495817;;Congelado;Asa Tulipa Frango Perdigão 1Kg -Caixa c/16
+4;BRF - Perdigão;Aves;7891515495404;;Congelado;Tulipa de Frango Perdigão Food Service Caixa 15Kg -Caixa c/1
+3;BRF - Sadia;Aves;7891515495435;;Congelado;Coxa de Frango Sadia Bio 1kg -Caixa c/12
+4;BRF - Perdigão;Aves;7891515495398;;Congelado;Asa de Frango Inteira Perdigão Food Service Caixa 15Kg -Caixa c/1
+3;BRF - Sadia;Suínos;7893000018778;;Congelado;Carré Suíno Sadia Caixa 20Kg -Caixa c/1
+3;BRF - Sadia;Aves;7891515494810;;Congelado;Coxa com Sobrecoxa de Frango sem Osso Sadia 1kg -Caixa c/12
+4;BRF - Perdigão;Lanches;7891515492960;;Congelado;Pão De Queijo Lanche Perdigão 900G -Caixa c/10
+4;BRF - Perdigão;Lanches;7891515492946;;Congelado;Pão de Queijo Coquetel Congelado Perdigão 375g -Caixa c/20
+4;BRF - Perdigão;Lanches;7891515492939;;Congelado;Pão de Queijo Tradicional Congelado Perdigão 375g -Caixa c/20
+3;BRF - Sadia;Aves;7891515493042;;Congelado;Linguiça de Frango Sadia 800g -Caixa c/12
+4;BRF - Perdigão;Suínos;7891515491314;;Resfriado;Bacon Cubos Food Service Perdigão Caixa 4Kg
+4;BRF - Perdigão;Aves;7891515503659;;Congelado;Filezinho Sassami de Frango Perdigão 1kg -Caixa c/16
+3;BRF - Sadia;Suínos;7893000097926;;Resfriado;EMBUTIDO DE PERNIL COZ S/ CAPA GORDURA Sadia Food Service 3,5Kg -Caixa c/2
+3;BRF - Sadia;Bovinos;7893000517059;;Congelado;Costela Suína Sadia Caixa 10 Kg -Caixa c/1
+3;BRF - Sadia;Outros;7893000444904;;Resfriado;Apresuntado Sadia 3,5kg -Caixa c/2
+3;BRF - Sadia;Suínos;7893000522213;;Congelado;Salame Pepperoni Fatiado Sadia 1kg -Caixa c/2
+3;BRF - Sadia;Suínos;7893000528093;;Congelado;Lombo Temperado Sadia 1,1 kg a 1,5 kg
+3;BRF - Sadia;Suínos;7893000526044;;Resfriado;Bacon Defumado Manta Sadia Peso Variável de 3 até 4kg -Caixa c/4
+3;BRF - Sadia;Suínos;7893000516915;;Congelado;Costelinha Suína C/ Osso Sadia Peso Variável- Caixa c/10
+5;BRF - Qualy;Margarinas;7893000502888;;Resfriado;Margarina Qualy Light/Zero Lactose com Sal 500g -Caixa c/12
+3;BRF - Sadia;Aves;7893000532793;;Congelado;Sobrecoxa de Frango c/ Osso e Pele Sadia Food Service Caixa 15Kg -Caixa c/1
+5;BRF - Qualy;Margarinas;7893000394117;;Resfriado;Margarina Qualy Cremosa com Sal 250g -Caixa c/24
+5;BRF - Qualy;Margarinas;7893000383005;;Resfriado;Margarina Qualy Cremosa sem Sal 500g -Caixa c/12
+3;BRF - Sadia;Suínos;7893000289758;;Resfriado;Salame Hamburguês Fatiado Sadia Caixa 3Kg
+3;BRF - Sadia;Suínos;7893000290259;;Resfriado;Salame Italiano Fatiado Sadia 100g -Caixa c/30
+3;BRF - Sadia;Aves;7893000024007;;Congelado;Linguiça de Frango Sadia 5kg -Caixa c/3
+3;BRF - Sadia;Suínos;7893000018761;;Congelado;Bisteca Suína Sadia 10kg -Caixa c/1
+6;BRF - Deline;Margarinas;7893000012356;;Resfriado;Margarina Cremosa c/ Sal 60% de Lipídios Deline Balde 15kg
+3;BRF - Sadia;Aves;7893000437104;;Congelado;Moela de Frango Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7893000488878;;Congelado;Coxinha da Asa de Frango Sadia 1kg -Caixa c/8
+5;BRF - Qualy;Margarinas;7893000382961;;Resfriado;Margarina Qualy Cremosa sem Sal 250g -Caixa c/24
+3;BRF - Sadia;Aves;7893000488526;;Congelado;Frango à Passarinho Sadia 1kg -Caixa c/8
+5;BRF - Qualy;Margarinas;7893000394209;;Resfriado;Margarina Qualy Cremosa com Sal 500g -Caixa c/12
+3;BRF - Sadia;Suínos;7893000556706;;Resfriado;Copa Inteira Sadia Speciale Caixa 4,7kg
+3;BRF - Sadia;Aves;7893000030183;;Congelado;Peru Tradicional Sadia 5 kg a 5,99 kg
+3;BRF - Sadia;Suínos;7893000290174;;Resfriado;Copa Fatiado Sadia Speciale 100g -Caixa c/30
+3;BRF - Sadia;Outros;7893000779501;;Congelado;Torta Mousse de Chocolate com Raspas Miss Daisy Caixa 470g -Caixa c/6
+3;BRF - Sadia;Aves;7893000719279;;Resfriado;Salsicha de Frango Sadia 500g -Caixa c/12
+3;BRF - Sadia;Aves;7893000696204;;Resfriado;Peito de Peru Defumado Sadia 2,6kg -Caixa c/2
+3;BRF - Sadia;Suínos;7893000133075;;Resfriado;Linguiça Calabresa Defumada Guanabara Sadia 500g -Caixa c/10
+3;BRF - Sadia;Outros;7893000106420;;Resfriado;Salsicha Hot-Dog Sadia 3kg -Caixa c/2
+3;BRF - Sadia;Aves;7893000027718;;Congelado;Hot Pocket Sadia X-Frango 145g -Caixa c/18
+3;BRF - Sadia;Outros;7893000094741;;Resfriado;Presunto Parma Sadia Speciale Caixa 7kg peça inteira -Caixa c/1
+3;BRF - Sadia;Lanches;7893000632233;;Congelado;Pizza 4 Queijos Sadia 460g -Caixa c/12
+3;BRF - Sadia;Lanches;7893000631939;;Congelado;Pizza Mussarela Sadia 440g -Caixa c/12
+3;BRF - Sadia;Outros;7893000969032;;Congelado;Torta Holandesa Miss Daisy 470g -Caixa c/6
+3;BRF - Sadia;Suínos;7893000973817;;Resfriado;Linguiça Tipo Calabresa Reta Defumada Sadia 2,5Kg -Caixa c/3
+3;BRF - Sadia;Suínos;7893000001121;;Seco;Tender Suíno Desossado Sadia 1,2 kg
+3;BRF - Sadia;Suínos;7893000650138;;Resfriado;Linguiça Tipo Calabresa Defumada Sadia 500g -Caixa c/10
+3;BRF - Sadia;Suínos;7893000973909;;Resfriado;Linguiça Tipo Calabresa c/ Especiarias Sadia 2,5Kg -Caixa c/7,5
+3;BRF - Sadia;Aves;7893000518025;;Congelado;Frango Inteiro Com miudos Sadia Caixa 18kg
+3;BRF - Sadia;Aves;7893000482401;;Congelado;Filé de Peito de Frango Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Suínos;7893000521322;;Resfriado;Bacon Fatiado Sadia Na Receita 750g -Caixa c/6
+3;BRF - Sadia;Aves;7893000863125;;Congelado;Filezinho Sassami de Frango Sadia 1kg -Caixa c/12
+4;BRF - Perdigão;Suínos;7891515490430;;Congelado;Lasanha Calabresa Perdigão 600g -Caixa c/6
+4;BRF - Perdigão;Suínos;7891515490218;;Resfriado;Salame Defumado Fatiado Perdigão 100g -Caixa c/30
+4;BRF - Perdigão;Outros;7891515489335;;Congelado;Mini Chicken Tradicional Perdigão 3kg - Caixa com 2
+3;BRF - Sadia;Suínos;7891515489106;;Congelado;Lombo Suíno Temperado Sadia Assa Fácil 750g
+4;BRF - Perdigão;Outros;7891515489328;;Congelado;Mini Chicken Queijo Perdigão 3kg - Caixa com 2
+3;BRF - Sadia;Suínos;7891515489069;;Congelado;Pernil Suíno Temperado Sadia Assa Fácil Caixa 6kg
+3;BRF - Sadia;Aves;7891515488550;;Congelado;Coxa com Sobrecoxa de Frango sem Osso Sadia Bio 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515488536;;Congelado;Filé de Peito de Frango Sadia Bio 1kg -Caixa c/12
+3;BRF - Sadia;Suínos;7891515489090;;Congelado;Picanha Suína Temperada Sadia Assa Fácil Caixa 6kg
+4;BRF - Perdigão;Aves;7891515496241;;Congelado;Lasanha Bolonhesa Perdigão Tamanho Família - 1kg -Caixa c/4
+4;BRF - Perdigão;Aves;7891515486372;;Congelado;Coxinha da Asa de Frango Temperada Perdigão Na Brasa 800g -Caixa c/9
+4;BRF - Perdigão;Aves;7891515486389;;Congelado;Sobrecoxa de Frango Temperada Perdigão Na Brasa 800g -Caixa c/9
+4;BRF - Perdigão;Aves;7891515486945;;Congelado;Coxa com Sobrecoxa de Frango sem Osso Perdigão 2kg -Caixa c/6
+4;BRF - Perdigão;Aves;7891515487416;;Congelado;Coração de Frango Temperado Molho Shoyu Perdigão Na Brasa 800g -Caixa c/9
+3;BRF - Sadia;Lanches;7891515486846;;Congelado;Nuggets Tradicional Sadia Nuggets Embalagem Econômica 700g -Caixa c/6
+3;BRF - Sadia;Aves;7891515486594;;Congelado;Coxa de Frango Temperada Sadia 1kg -Caixa c/8
+9;BRF - Sofiteli;Margarinas;7893000012387;;Resfriado;Margarina com Sal 75% de Lidípio Sofiteli Balde 15kg -Caixa c/1
+3;BRF - Sadia;Aves;7891515486587;;Congelado;Sobrecoxa de Frango Temperada Sadia 1kg -Caixa c/8
+3;BRF - Sadia;Aves;7891515486747;;Congelado;Filé de Peito de Frango Temperado sem Pele sem OssoSadia 1kg -Caixa c/8
+4;BRF - Perdigão;Aves;7891515487171;;Congelado;Peito de Frango Sem Pele Perdigão Caixa 15Kg -Caixa c/1
+4;BRF - Perdigão;Suínos;7891515485146;;Congelado;Linguiça Toscana com Pimenta-Biquinho Perdigão Na Brasa 600g -Caixa c/12
+4;BRF - Perdigão;Suínos;7891515485139;;Congelado;Linguiça Toscana com Queijo Coalho Perdigão Na Brasa 600g -Caixa c/12
+4;BRF - Perdigão;Suínos;7891515485122;;Congelado;Linguiça de Frango com Bacon Perdigão Na Brasa 600g -Caixa c/12
+4;BRF - Perdigão;Suínos;7891515485115;;Congelado;Linguiça Toscana com Alho e Ervas Perdigão Na Brasa 600g -Caixa c/12
+3;BRF - Sadia;Aves;7893000073142;;Congelado;Lasanha Bolonhesa Sadia Embalagem Econômica - 1kg -Caixa c/4
+3;BRF - Sadia;Aves;7893000073166;;Congelado;Lasanha Quatro Queijos Sadia Embalagem Econômica - 1kg -Caixa c/4
+4;BRF - Perdigão;Outros;7891515484040;;Resfriado;Presunto Cozido Fatiado Perdigão 200g -Caixa c/20
+3;BRF - Sadia;Aves;7893000674073;;Congelado;Lasanha Quatro Queijos Sadia 350g -Caixa c/12
+4;BRF - Perdigão;Aves;7891515443528;;Congelado;Frango à Parmegiana Perdigão 0,8Kg -Caixa c/4
+3;BRF - Sadia;Aves;7893000674233;;Congelado;Lasanha Bolonhesa Sadia 350g -Caixa c/12
+3;BRF - Sadia;Outros;7893000902633;;Congelado;Yakissoba Sadia 600g -Caixa c/6
+3;BRF - Sadia;Aves;7893000069374;;Congelado;Strogonoff Frango Sadia 500g -Caixa c/6
+3;BRF - Sadia;Aves;7893000492394;;Congelado;Frango à Parmegiana Sadia 500g -Caixa c/6
+3;BRF - Sadia;Aves;7891515475642;;Congelado;Lasanha Frango Sadia 600g -Caixa c/6
+3;BRF - Sadia;Aves;7891515475697;;Congelado;Lasanha Presunto e Queijo ao Sugo Sadia 600g -Caixa c/6
+3;BRF - Sadia;Aves;7891515476212;;Congelado;Lasanha Peito de Peru Sadia 600g -Caixa c/6
+3;BRF - Sadia;Aves;7893000005976;;Congelado;Sobrecoxa de Frango Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Suínos;7891515476229;;Congelado;Lasanha Calabresa Sadia 600g -Caixa c/6
+3;BRF - Sadia;Aves;7891515475703;;Congelado;Lasanha Bolonhesa Sadia 600g -Caixa c/6
+3;BRF - Sadia;Aves;7893000005969;;Congelado;Coxa de Frango Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7893000005945;;Congelado;Filé de Peito de Frango sem Pele sem Osso Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Outros;7893000004832;;Resfriado;Mortadela Defumada Sadia 5,1Kg -Caixa c/2
+3;BRF - Sadia;Lanches;7893000949355;;Congelado;Nuggets Tradicional Sadia 300g -Caixa c/16
+3;BRF - Sadia;Lanches;7893000949270;;Congelado;Nuggets Crocante Sadia 300g -Caixa c/16
+4;BRF - Perdigão;Outros;7891515485535;;Congelado;Mini Chicken de Queijo Perdigão 275g -Caixa c/15
+4;BRF - Perdigão;Outros;7891515485528;;Congelado;Mini Chicken Tradicional Perdigão 275g -Caixa c/15
+3;BRF - Sadia;Lanches;7893000949430;;Congelado;Nuggets com Queijo Sadia 300g -Caixa c/16
+3;BRF - Sadia;Aves;7891515482015;;Congelado;Medalhão De Peru Sem Osso e Pele Food Service Sadia 2Kg -Caixa c/4
+3;BRF - Sadia;Aves;7891515475680;;Congelado;Lasanha Quatro Queijos Sadia 600g -Caixa c/6
+4;BRF - Perdigão;Aves;7891515496357;;Congelado;Lasanha Bolonhesa Perdigão 600g -Caixa c/6
+3;BRF - Sadia;Suínos;7899638313070;;Resfriado;Pernil Cordeiro Mamão Nirea
+3;BRF - Sadia;Outros;7899638309059;;Resfriado;Cordeiro Paleta Mamão Importado Nirea
+3;BRF - Sadia;Suínos;7893000002104;;Seco;Pernil Desossado Temperado Sadia 2,4 kg a 3,6 kg
+3;BRF - Sadia;Outros;7893000084605;;Resfriado;Banha Sadia 1kg -Caixa c/18
+3;BRF - Sadia;Suínos;7891515479558;;Resfriado;Snack Salamitos Sabor Pepperoni Sadia 36g -Caixa c/50
+3;BRF - Sadia;Suínos;7891515479541;;Resfriado;Snack Salamitos Sabor Limão Sadia 36g -Caixa c/50
+4;BRF - Perdigão;Aves;7891515016715;;Resfriado;Peito de Frango Defumado Perdigão 2,6Kg -Caixa c/2
+4;BRF - Perdigão;Outros;7891515437411;;Resfriado;Ingredientes para Feijoada Perdigão 880g -Caixa c/15
+3;BRF - Sadia;Suínos;7891515437015;;Resfriado;Snack Salamitos Tradicional Sadia 36g -Caixa c/50
+3;BRF - Sadia;Suínos;7893000091641;;Resfriado;Bacon Defumado Fatiado Sadia Na Receita 250g -Caixa c/20
+3;BRF - Sadia;Suínos;7891515560492;;Congelado;Costela Suina Temperada Sadia Assa Fácil Sadia Caixa 9,9kg
+4;BRF - Perdigão;Aves;7891515478254;;Congelado;Coxa e Sobrecoxa de Frango Iscas c/ pele s/ osso Perdigão 2kg -Caixa c/6
+3;BRF - Sadia;Outros;7891515431587;;Resfriado;Mortadela Defumada Fatiado Soltíssimo Sadia 200G -Caixa c/21
+5;BRF - Qualy;Margarinas;7891515560782;;Seco;Pão De Queijo Amanteigado Lanche Qualy 900G -Caixa c/10
+5;BRF - Qualy;Margarinas;7891515560775;;Seco;Pão De Queijo Amanteigado Qualy 375G -Caixa c/20
+4;BRF - Perdigão;Outros;7891515435134;;Seco;Apresuntado Fatiado Perdigão 200g -Caixa c/20
+6;BRF - Deline;Margarinas;7893000980006;;Resfriado;Margarina Cremosa com Sal Deline Pote 500g -Caixa c/12
+6;BRF - Deline;Margarinas;7893000979932;;Resfriado;Margarina Cremosa com Sal Deline Pote 250g -Caixa c/24
+3;BRF - Sadia;Bovinos;7891515477547;;Congelado;Retalho de Costela Suíno Food Service Sadia Caixa 12Kg -Caixa c/1
+3;BRF - Sadia;Bovinos;7891515477530;;Congelado;Retalho de Costela Suíno Premium Food Service Sadia Caixa 12Kg -Caixa c/1
+4;BRF - Perdigão;Outros;7891515434311;;Resfriado;Mortadela Fatiada Defumada Perdigão Ouro 200g -Caixa c/20
+4;BRF - Perdigão;Suínos;7891515432072;;Congelado;Linguiça de Carne Suína Perdigão 900g -Caixa c/12
+3;BRF - Sadia;Aves;7893000973305;;Resfriado;Peito de Peru Defumado Sadia Food Service 2,6Kg -Caixa c/2
+3;BRF - Sadia;Suínos;7893000950870;;Resfriado;Linguiça Tipo Calabresa Defumada Fatiada Sadia 1,5Kg -Caixa c/2
+3;BRF - Sadia;Aves;7893000946842;;Congelado;Peru Tradicional Sadia 8 kg a 9,99 kg
+6;BRF - Deline;Margarinas;7891515430412;;Resfriado;Margarina Cremosa com Sal 60% de Lipídios Deline Balde 3kg -Caixa c/6
+4;BRF - Perdigão;Aves;7891515429454;;Congelado;Sobrecoxa de Frango Perdigão 800g -Caixa c/10
+4;BRF - Perdigão;Aves;7891515430122;;Congelado;Filezinho Sassami de Frango Perdigão 800g -Caixa c/10
+4;BRF - Perdigão;Aves;7891515430115;;Congelado;Filé de Peito de Frango sem Pele sem Osso Perdigão 800g -Caixa c/10
+4;BRF - Perdigão;Aves;7891515430139;;Congelado;Coxinha da Asa de Frango Perdigão 800g -Caixa c/10
+3;BRF - Sadia;Aves;7893000939394;;Congelado;Peru Tradicional Sadia 12 kg a 16 kg
+3;BRF - Sadia;Aves;7893000939202;;Congelado;Peru Tradicional Sadia 10 kg a 12 kg
+3;BRF - Sadia;Aves;7893000939806;;Congelado;Peru Tradicional Sadia 6 kg a 7,99 kg
+3;BRF - Sadia;Aves;7893000913912;;Congelado;Nuggets de Frango Food Service Sadia 1,5kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515391034;;Resfriado;Linguiça Tipo Calabresa Defumada Perdigão 2,5kg -Caixa c/4
+4;BRF - Perdigão;Outros;7891515423315;;Resfriado;Salsicha Hot-Dog sem Corante Perdigão Caixa 11,2kg
+3;BRF - Sadia;Aves;7893000090903;;Congelado;Filé de Peito de FrangoTemperado Sadia Frango Fácil 700g -Caixa c/8
+3;BRF - Sadia;Aves;7893000072732;;Congelado;Supreme Sadia 2,7 kg a 5 kg
+3;BRF - Sadia;Aves;7893000090620;;Congelado;Peru Assa Fácil Congelado Temperado Sadia Caixa 12kg
+4;BRF - Perdigão;Suínos;7891515939403;;Congelado;Bacon Defumado Fatiado Perdigão Food Service 2,5Kg -Caixa c/6
+3;BRF - Sadia;Aves;7893000090064;;Congelado;Coxa com Sobrecoxa de Frango sem Osso Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7893000090026;;Congelado;Meio da Asa de Frango Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7893000061361;;Congelado;Peru Manteiga e Ervas Sadia 4 kg a 5 kg
+3;BRF - Sadia;Aves;7893000061354;;Congelado;Peru Manteiga e Ervas Sadia 3 kg a 3,95 kg
+3;BRF - Sadia;Aves;7893000090019;;Congelado;Coxinha da Asa de Frango Sadia Bandeja 1kg -Caixa c/12
+3;BRF - Sadia;Outros;7893000094826;;Resfriado;Presunto Parma Sadia Speciale 2.2kg (1/4 peça) -Caixa c/1
+3;BRF - Sadia;Suínos;7893000043220;;Congelado;Hot Pocket Sadia X-Bacon 145g -Caixa c/18
+3;BRF - Sadia;Bovinos;7893000043213;;Congelado;Hot Pocket Sadia X-Picanha Congelado 145g -Caixa c/18
+3;BRF - Sadia;Suínos;7893000040144;;Congelado;Linguiça Toscana Sadia 950g -Caixa c/12
+4;BRF - Perdigão;Outros;7891515340278;;Resfriado;Linguiça Mista Defumada Fininha Perdigão 2,5kg -Caixa c/6
+3;BRF - Sadia;Aves;7891515474737;;Congelado;Steak de Frango Empanado Sadia 100g -Caixa c/45
+3;BRF - Sadia;Aves;7893000089549;;Resfriado;Linguiça de Frango Defumada Sadia 480g -Caixa c/20
+3;BRF - Sadia;Outros;7893000779259;;Congelado;Torta Mousse de Limão 470g -Caixa c/6
+3;BRF - Sadia;Outros;7893000779419;;Congelado;Torta Mousse de Chocolate com Vanila 470g -Caixa c/6
+4;BRF - Perdigão;Aves;7891515474133;;Congelado;Steak de Frango com Presunto de Peru e Queijo Perdigão 100g -Caixa c/30
+5;BRF - Qualy;Margarinas;7893000084360;;Resfriado;Margarina Qualy Aéra com Sal 500g -Caixa c/9
+3;BRF - Sadia;Aves;7893000696631;;Resfriado;Salsicha de Peru Sadia 500g -Caixa c/12
+3;BRF - Sadia;Suínos;7893000069381;;Resfriado;Linguiça Tipo Calabresa Defumada Sadia 5kg -Caixa c/4
+3;BRF - Sadia;Outros;7893000069367;;Resfriado;Linguiça Mista Defumada Fininha Sadia 2,5kg -Caixa c/8
+4;BRF - Perdigão;Aves;7891515975210;;Congelado;Coração de Peru Perdigão Caixa 15kg
+4;BRF - Perdigão;Aves;7891515975524;;Congelado;Pescoço de Peru sem Pele Perdigão Caixa 15kg
+4;BRF - Perdigão;Aves;7891515975517;;Congelado;Asa de Peru Perdigão Caixa 15kg
+4;BRF - Perdigão;Aves;7891515975500;;Congelado;Coxa de Peru Perdigão Caixa 15kg
+4;BRF - Perdigão;Aves;7891515472764;;Congelado;Coxa de Frango Assa Fácil Perdigão 1,2kg -Caixa c/6
+4;BRF - Perdigão;Aves;7891515472771;;Congelado;Sobrecoxa de Frango com osso Assa Fácil Perdigão 1,2kg -Caixa c/6
+4;BRF - Perdigão;Aves;7891515472757;;Congelado;Coxinha da Asa de Frango Assa Fácil Perdigão 1kg -Caixa c/6
+4;BRF - Perdigão;Aves;7891515474126;;Congelado;Steak de Frango Empanado Perdigão 100g -Caixa c/45
+3;BRF - Sadia;Aves;7893000643789;;Resfriado;Presunto de Peru Sadia 3,5kg -Caixa c/2
+3;BRF - Sadia;Suínos;7893000697010;;Congelado;Pernil Congelado Sadia 4,5 kg a 7,1 kg
+4;BRF - Perdigão;Suínos;7891515471590;;Resfriado;Salame Perdigão Ouro Caixa 5kg
+4;BRF - Perdigão;Suínos;7891515471583;;Resfriado;Salame Defumado Perdigão Ouro Caixa 3kg
+3;BRF - Sadia;Aves;7893000672109;;Congelado;Pizza Frango com Requeijão e Mussarela Sadia 460g -Caixa c/12
+3;BRF - Sadia;Suínos;7893000671997;;Congelado;Pizza Lombo com Requeijão e Mussarela Sadia 460g -Caixa c/12
+3;BRF - Sadia;Aves;7891515444013;;Resfriado;Peito de Frango Cozido Sadia 3kg -Caixa c/2
+3;BRF - Sadia;Aves;7893000639836;;Congelado;Lasanha Bolonhesa Sadia 1,6kg - Embalagem Econômica -Caixa c/3
+3;BRF - Sadia;Outros;7893000290099;;Resfriado;Presunto Parma Fatiado Sadia Speciale 100g -Caixa c/30
+3;BRF - Sadia;Suínos;7893000632073;;Congelado;Pizza Calabresa Sadia 460g -Caixa c/12
+5;BRF - Qualy;Margarinas;7893000514973;;Resfriado;Margarina Qualy Light/Zero Lactose com Sal 250g -Caixa c/24
+3;BRF - Sadia;Suínos;7893000401501;;Resfriado;Bacon Defumado Pedaço Sadia Caixa 3kg
+4;BRF - Perdigão;Outros;7891515974534;;Resfriado;Mortadela Perdigão Mista 3,5kg -Caixa c/4
+4;BRF - Perdigão;Aves;7891515974541;;Resfriado;Mortadela Perdigão de Frango 3,5kg -Caixa c/4
+4;BRF - Perdigão;Outros;7891515408312;;Resfriado;Mortadela Perdigão Mista 1kg -Caixa c/6
+4;BRF - Perdigão;Outros;7891515428617;;Resfriado;Mortadela Perdigão Mista sem Cubos de Gordura 400g -Caixa c/15
+4;BRF - Perdigão;Outros;7891515356736;;Resfriado;Mortadela Defumada Perdigão Ouro 4kg -Caixa c/2
+4;BRF - Perdigão;Aves;7891515429966;;Resfriado;Mortadela Perdigão de Frango 400g -Caixa c/15
+3;BRF - Sadia;Outros;7893000017832;;Resfriado;Mortadela Sadia Mista 3,5kg -Caixa c/4
+4;BRF - Perdigão;Outros;7891515679118;;Resfriado;Mortadela Tradicional Perdigão 5,2kg -Caixa c/2
+3;BRF - Sadia;Outros;7891515431938;;Resfriado;Mortadela Sadia Mista 400g -Caixa c/15
+3;BRF - Sadia;Aves;7891515432089;;Resfriado;Mortadela Sadia de Frango 400g -Caixa c/15
+4;BRF - Perdigão;Outros;7891515430153;;Resfriado;Mortadela Perdigão Mista 400g -Caixa c/15
+3;BRF - Sadia;Aves;7893000937185;;Resfriado;Mortadela Sadia de Frango 3,5kg -Caixa c/4
+3;BRF - Sadia;Outros;7893000340107;;Resfriado;Mortadela Sadia Mista 1kg -Caixa c/6
+3;BRF - Sadia;Aves;7893000621893;;Congelado;Frango sem Miúdos Sadia Caixa 8Kg -Caixa c/10
+3;BRF - Sadia;Aves;7893000438859;;Congelado;Peito de Peru Desossado Sadia 1 kg
+4;BRF - Perdigão;Outros;7891515220983;;Congelado;Salsicha Congelada Hot-Dog Perdigão 5kg -Caixa c/4
+4;BRF - Perdigão;Outros;7891515220358;;Resfriado;Presunto Cozido Perdigão 3,4kg -Caixa c/2
+4;BRF - Perdigão;Suínos;7891515432317;;Resfriado;Linguiça Tipo Calabresa Defumada Perdigão 4,5kg -Caixa c/4
+3;BRF - Sadia;Outros;7893000520356;;Resfriado;Salaminho Sadia 280g Caixa 5kg
+4;BRF - Perdigão;Outros;7891515220648;;Resfriado;Apresuntado Perdigão 3,5kg -Caixa c/2
+4;BRF - Perdigão;Suínos;7891515726904;;Resfriado;Bacon Defumado Pedaço Perdigão Peso Variável de 150g a 300g -Caixa c/19
+5;BRF - Qualy;Margarinas;7893000081628;;Resfriado;Margarina Qualy Aéra com sal 250g -Caixa c/24
+3;BRF - Sadia;Suínos;7893000123861;;Resfriado;Salame Hamburguês Sadia Caixa 5,1 a 5,4kg
+3;BRF - Sadia;Aves;7893000081598;;Congelado;Sobrecoxa de Frango Temperada Sadia Frango Fácil 800g -Caixa c/8
+3;BRF - Sadia;Aves;7893000081581;;Congelado;Coxa de Frango Temperada Frango Fácil Sadia 800g -Caixa c/8
+3;BRF - Sadia;Aves;7893000081147;;Congelado;Frango Temperado sem Miúdos Frango Fácil Sadia Caixa 9kg
+3;BRF - Sadia;Outros;7893000094239;;Congelado;Tender Suíno Semi Desossado Sadia 2,8 kg a 3,4 kg
+3;BRF - Sadia;Aves;7893000025653;;Resfriado;Patê de Peito de Peru Defumado Sadia 100g -Caixa c/25
+3;BRF - Sadia;Outros;7893000004757;;Resfriado;Patê de Presunto Sadia 100g -Caixa c/25
+3;BRF - Sadia;Aves;7893000696129;;Resfriado;Blanquet de Peru Sadia Caixa 1,7Kg -Caixa c/4
+4;BRF - Perdigão;Aves;7891515194680;;Congelado;Coxinha da Asa de Frango Perdigão Caixa 15Kg -Caixa c/1
+5;BRF - Qualy;Margarinas;7893000079298;;Resfriado;Margarina Qualy Cremosa com Sal 1kg - Embalagem Econômica -Caixa c/6
+6;BRF - Deline;Margarinas;7893000079311;;Resfriado;Margarina Cremosa com Sal Deline Pote 1kg -Caixa c/6
+7;BRF - Claybom;Margarinas;7891515410315;;Resfriado;Margarina Cremosa com Sal Claybom Pote 1kg -Caixa c/6
+4;BRF - Perdigão;Suínos;7891515553210;;Seco;PE SUINO SALGADO PCT PD PVAR
+4;BRF - Perdigão;Outros;7891515553111;;Seco;RETALHO COST SUI SALG PCT 0,5 A 1KG PD
+3;BRF - Sadia;Outros;7891515637903;;Seco;RTSV RETALHO COST SUI SALG PD CX PVAR
+3;BRF - Sadia;Outros;7893000528840;;Congelado;SOBREPALETA CONG SUI S/OSSO SD PVAR
+3;BRF - Sadia;Aves;7891515538736;;Congelado;FRANGO INT S/MIUDOS TEMP CONG PVAR SD
+3;BRF - Sadia;Aves;7891515634186;;Congelado;HAMBURGUER CX 540G MONTANA STEAKHOUSE NA BRASA
+3;BRF - Sadia;Bovinos;7891515631338;;Congelado;COSTELA COZ C/ SACHE DE MOLHO 1,2 A 1,5KG SADIA
+3;BRF - Sadia;Bovinos;97899638371493;;Resfriado;Picanha Uruguaia Sadia Bassi
+3;BRF - Sadia;Aves;7891515631819;;Congelado;Peito de Peru Rechado Sadia
+4;BRF - Perdigão;Aves;7891515937904;;Congelado;Chester Azeite e Ervas 3,9 kg a 4,2 kg
+4;BRF - Perdigão;Aves;7891515937904;;Congelado;Chester Azeite e Ervas 3,6 kg a 3,9 kg
+4;BRF - Perdigão;Aves;7891515937904;;Congelado;Chester Azeite e Ervas 3 kg a 3,6 kg
+4;BRF - Perdigão;Outros;7891515631161;;Congelado;Feijoada Com Couve e Arroz PD Meu Menu 300g
+4;BRF - Perdigão;Aves;7891515630812;;Seco;Linguiça de Chester Na Brasa 600 g
+3;BRF - Sadia;Outros;7891515630614;;Seco;Hot Pocket Caixa Mista C/ 3 Sabores
+3;BRF - Sadia;Aves;7891515630317;;Congelado;Filézinho de Frango Empanado Sadia
+4;BRF - Perdigão;Aves;7891515629793;;Congelado;Peito de Chester Desfiado Sabor Defumado 400 g
+3;BRF - Sadia;Bovinos;7899638362252;;Seco;Hambúrguer Bovino Costela Bassi CART 360G
+3;BRF - Sadia;Bovinos;7899638362269;;Congelado;HAMBURGUER PICANHA CART 360G BASSI SADIA
+3;BRF - Sadia;Lanches;7899638362245;;Congelado;HAMBURGUER CART 360G BASSI ANGUS SADIA
+4;BRF - Perdigão;Outros;7891515629311;;Resfriado;PRESUNTO FAT VACUO PT 350G PERD CX 4,2KG
+3;BRF - Sadia;Suínos;7893000018778;;Congelado;Carré Suíno Congelado Sadia PVAR
+4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Tradicional 3,9 kg a 4,2 kg
+4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Tradicional 3,6 kg a 3,9 kg
+4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Tradicional 3 kg a 3,6 kg
+3;BRF - Sadia;Bovinos;7891515628215;;Seco;Hambúrguer Bovino Sadia PT 113G
+3;BRF - Sadia;Aves;7891515627478;;Congelado;Empanado de Frango Sabor Cheddar Congelado PT 275G
+4;BRF - Perdigão;Aves;7891515627201;;Seco;Hambúrguer Bovino Costela Na Brasa Perdigão
+4;BRF - Perdigão;Aves;7891515627416;;Seco;Hambúrguer Bovino Picanha Na Brasa Perdigão
+3;BRF - Sadia;Suínos;7891515626839;;Congelado;BISTECA SUINA CONG IWP SADIA
+3;BRF - Sadia;Suínos;7891515626822;;Congelado;Bisteca Suína ITF CONG Sadia
+4;BRF - Perdigão;Suínos;7891515626525;;Congelado;Pernil Desossado Temperado Perdigão 2,5 kg a 2,8 kg
+4;BRF - Perdigão;Suínos;7891515626716;;Congelado;Lombo Temperado Perdigão 1 kg a 1,4 kg
+4;BRF - Perdigão;Outros;7891515625931;;Resfriado;Salsicha Defumada RESF PT 500g PD
+3;BRF - Sadia;Outros;7891515625153;;Congelado;TORTA MOUSSE DE MARACUJA 470G CX C/6
+4;BRF - Perdigão;Suínos;7891515625559;;Congelado;Lombo ao Molho Oriental com Arroz e Cenoura PD Meu Menu Pacote 300g
+4;BRF - Perdigão;Aves;7891515625542;;Congelado;Strogonoff de Frango com Arroz Branco PD Meu Menu 300g
+4;BRF - Perdigão;Aves;7891515625535;;Congelado;Frango Cremoso com Arroz e Brócolis Perdigão Meu Menu Pacote 300g
+7;BRF - Claybom;Margarinas;7891515979355;;Resfriado;Margarina Cremosa sem Sal Claybom Pote 500g -Caixa c/12
+3;BRF - Sadia;Lanches;7893000070882;;Congelado;Pizza Pronta Sadia 460g Caixa Mista com 3 Sabores -Caixa c/12
+3;BRF - Sadia;Outros;7893000290921;;Resfriado;Salsicha Tradicional 16 Unidades Sadia 500g -Caixa c/10
+3;BRF - Sadia;Outros;7893000135529;;Resfriado;Salsicha Hot-Dog Sadia 500g -Caixa c/12
+3;BRF - Sadia;Lanches;7893000069732;;Congelado;Pizza Marguerita Sadia Caixa 460g -Caixa c/12
+3;BRF - Sadia;Outros;7899638309042;;Resfriado;Cordeiro Paleta Mamão Hasta Importado Nirea - 1,8kg
+4;BRF - Perdigão;Suínos;7891515975562;;Congelado;Linguiça de Carne Suína Perdigão 5kg -Caixa c/4
+3;BRF - Sadia;Aves;7891515016715;;Resfriado;PEITO FGO DEFUMADO OURO PD RESF PC 2,6KG
+3;BRF - Sadia;Suínos;7899638342889;;Resfriado;Pernil De Cordeiro Sem Osso Premium Nirea - 1,48kg
+3;BRF - Sadia;Bovinos;7899638345552;;Congelado;Picanha B Uruguaia Importado Tacuarembó
+3;BRF - Sadia;Lanches;7891515623531;;Seco;POP NUGGETS TEMPURA PT 1,5KG SD
+3;BRF - Sadia;Lanches;7891515623524;;Seco;POP NUGGETS TEMPURA PT 275G SD
+3;BRF - Sadia;Suínos;7891515623128;;Seco;BACON 1/4 MANTA SADIA
+4;BRF - Perdigão;Aves;7899638334341;;Congelado;Rabo Miúdos Perdigão na Brasa - 0,8 a 1,1kg
+7;BRF - Claybom;Margarinas;7891515622930;;Seco;CLAYBOM MARGARINA C/SAL BALDE 14KG
+4;BRF - Perdigão;Aves;7891515971595;;Congelado;Filezinho Sassami de Frango Perdigão Food Service Caixa 12Kg -Caixa c/6
+4;BRF - Perdigão;Aves;7891515972059;;Congelado;Coração de Frango Perdigão Food Service Caixa 12kg
+4;BRF - Perdigão;Aves;7891515195274;;Congelado;Chester Inteiro Perdigão Tradicional 18kg a 25,2 kg
+4;BRF - Perdigão;Aves;7891515963736;;Congelado;Chester Assa-Fácil Tradicional 3,2 kg a 3,8 kg
+4;BRF - Perdigão;Aves;7891515402167;;Congelado;Chester Inteiro Congelado Assa Fácil Cx - 16kg a 21kg
+3;BRF - Sadia;Outros;7891515622633;;Resfriado;Frio de Filé Mignon Cozido Fatiado Resfriado 180 g- CX C/ 16
+4;BRF - Perdigão;Aves;7891515938048;;Congelado;Chester Desossado Tradicional 2,3 kg a 2,8 kg
+3;BRF - Sadia;Aves;7893000621206;;Congelado;Galeto Sadia Caixa 12kg
+3;BRF - Sadia;Outros;7893000446366;;Resfriado;Presunto Cozido sem Capa de Gordura Sadia 3,4kg -Caixa c/2
+3;BRF - Sadia;Outros;7893000445987;;Congelado;Filé Mignon Suíno sem Osso Sadia 1Kg -Caixa c/10
+3;BRF - Sadia;Aves;7893000437029;;Congelado;Coração de Frango Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7893000516083;;Congelado;Filezinho Sassami de Frango Sadia 1kg -Caixa c/8
+3;BRF - Sadia;Outros;7891515622800;;Congelado;EMP NACHO FRG COZ CONG 700G
+3;BRF - Sadia;Aves;7893000436725;;Congelado;Sobrecoxa de Frango Sadia 1kg Bandeja - Caixa c/12
+3;BRF - Sadia;Aves;7893000436800;;Congelado;Coxa de Frango Sadia 1kg Bandeja -Caixa c/12
+3;BRF - Sadia;Aves;7893000436992;;Congelado;Asa de Frango Sadia 1kg -Caixa c/12
+3;BRF - Sadia;Suínos;7893000124912;;Resfriado;Salame Italiano Sadia Caixa 6kg
+3;BRF - Sadia;Aves;7893000488793;;Congelado;Coxa e Sobrecoxa a Passarinho de Frango Sadia 1kg -Caixa c/8
+3;BRF - Sadia;Aves;7893000488953;;Congelado;Meio da Asa de Frango Sadia 1kg -Caixa c/8
+3;BRF - Sadia;Outros;7893000528840;;Congelado;Sobrepaleta Suína sem osso Sadia 15Kg -Caixa c/1
+3;BRF - Sadia;Suínos;7893000444232;;Resfriado;Linguiça Tipo Calabresa Defumada Sadia 2,5kg -Caixa c/6
+3;BRF - Sadia;Suínos;7893000124400;;Resfriado;Mini Salame Italiano Sadia Caixa 6kg
+3;BRF - Sadia;Aves;7893000029927;;Seco;Peru Tradicional Sadia 4 kg a 4,99 kg
+4;BRF - Perdigão;Suínos;7891515621162;;Seco;BACON INTEIRO PERDIGAO
+3;BRF - Sadia;Aves;7893000621466;;Congelado;Frango Inteiro sem Miúdos Sadia Caixa 12Kg -Caixa c/10
+3;BRF - Sadia;Aves;7893000003071;;Congelado;Coxas e Sobrecoxas de Frango com osso e pele Sadia Caixa 15Kg -Caixa c/1
+4;BRF - Perdigão;Suínos;7891515521127;;Congelado;Copa Lombo Suína com Chimichurri Perdigão Na Brasa Caixa 12,8kg
+3;BRF - Sadia;Aves;7893000488601;;Congelado;Frango a Passarinho Temperado Sadia 1kg -Caixa c/8
+3;BRF - Sadia;Aves;7893000029767;;Congelado;Peru Tradicional Sadia 3 kg a 3,99kg
+3;BRF - Sadia;Aves;7891515439118;;Congelado;Iscas de Frango Empanadas Sadia 300g -Caixa c/16
+3;BRF - Sadia;Aves;7891515662660;;Seco;HAMB SUI LINGUICA PD NA BRASA PCTE 150G
+4;BRF - Perdigão;Outros;7891515661120;;Seco;HDF HAMB FGO/BOV DEF PD MONT PT 112G
+3;BRF - Sadia;Bovinos;7899638368667;;Congelado;Filé de Costela Bife Ancho Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638369053;;Congelado;Filé de Costela Bife Ancho Congelado Sadia Bassi
+4;BRF - Perdigão;Bovinos;7899638367035;;Congelado;Contra - Filé Perdigão Montana - 1 a 2kg
+4;BRF - Perdigão;Aves;7899638366588;;Resfriado;Costela Do Traseiro Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366281;;Congelado;Costela Do Traseiro Meia Janela Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638365741;;Resfriado;Contra - Filé Bife De Chorizo Sadia Bassi Angus
+4;BRF - Perdigão;Aves;7899638366564;;Resfriado;Costela Do Traseiro Janela Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366328;;Resfriado;Contra - Filé Red Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367073;;Congelado;Costela Do Traseiro Janela Perdigão Montana - 5 a 8kg
+4;BRF - Perdigão;Suínos;7899638366953;;Congelado;Bisteca Perdigão Montana - Bifes 150 a 170g
+3;BRF - Sadia;Bovinos;7899638366045;;Congelado;Costela Do Traseiro Janela Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365536;;Congelado;Costela Do Dianteiro Maturada Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367592;;Resfriado;Contra - Filé Resfriado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366557;;Resfriado;Costela Do Traseiro Assado De Tiras Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366168;;Congelado;Contra - Filé Bife De Chorizo Congelado Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366267;;Congelado;Costela Do Traseiro Janela Perdigão na Brasa - 6 a 9,5kg
+4;BRF - Perdigão;Bovinos;7899638367561;;Resfriado;Contra - Filé Triângulo Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366526;;Resfriado;Contra - Filé Perdigão na Brasa - 4,1kg
+4;BRF - Perdigão;Aves;7899638366533;;Resfriado;Contra - Filé Com Gordura Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367042;;Congelado;Contra - Filé Congelado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366335;;Resfriado;Contra - Filé Sem Cordão Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366229;;Congelado;Contra - Filé Congelado Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638364942;;Congelado;Costela Do Dianteiro Assado De Tiras Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638364898;;Resfriado;Filé de Costela Bife Ancho Resfriado Sadia Bassi - 0,8 a 1,4kg
+3;BRF - Sadia;Bovinos;7899638365598;;Congelado;Filé de Costela Maturado Sadia Bassi Angus - 0,9 a 1,5kg
+3;BRF - Sadia;Bovinos;7899638366021;;Congelado;Costela Do Dianteiro Assado De Tiras Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365970;;Congelado;Filé de Costela Congelado Sadia Bassi Angus - 0,9 a 1,5kg
+3;BRF - Sadia;Bovinos;7899638365574;;Congelado;Contra - Filé Bife De Chorizo Maturado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365925;;Congelado;Contra - Filé Bife De Chorizo Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367103;;Congelado;Costela Do Traseiro Tiras Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367585;;Resfriado;Contra - Filé Ao Meio Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366175;;Congelado;Filé de Costela Entrecôte Congelado Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366359;;Resfriado;Filé de Costela Entrecôte Resfriado Perdigão na Brasa - 1 a 1,4kg
+4;BRF - Perdigão;Aves;7899638366649;;Resfriado;Filé de Costela Perdigão na Brasa - 1,8 a 2,5kg
+4;BRF - Perdigão;Aves;7899638366311;;Resfriado;Contra - Filé Bife De Chorizo Resfriado Perdigão na Brasa - 1 a 1,6kg
+4;BRF - Perdigão;Aves;7899638366274;;Congelado;Costela Do Traseiro Janelinha Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367578;;Resfriado;Contra - Filé Perdigão Montana - 1 a 1,3kg
+3;BRF - Sadia;Bovinos;7899638352352;;Resfriado;Filé de Costela Wagyu Tacuarembó
+3;BRF - Sadia;Bovinos;7899638345750;;Congelado;Picanha Angus L Tacuarembó
+3;BRF - Sadia;Bovinos;7899638355087;;Congelado;Picanha Uruguaia Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638355070;;Congelado;Picanha Uruguaia Sadia Bassi - 1,8kg
+3;BRF - Sadia;Bovinos;7899638345569;;Congelado;Picanha Pesada Tacuarembó - 1,6kg
+3;BRF - Sadia;Bovinos;7899638342230;;Resfriado;Picanha Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638301817;;Resfriado;Picanha B Tacuarembó
+3;BRF - Sadia;Bovinos;7899638304467;;Resfriado;Picanha Pesada Tacuarembó
+3;BRF - Sadia;Bovinos;7899638304542;;Resfriado;Picanha Leve Tacuarembó
+3;BRF - Sadia;Bovinos;7899638365734;;Resfriado;Raquete Resfriado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365093;;Congelado;Raquete Flat Iron Steak Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638365567;;Congelado;Raquete Maturada Sadia Bassi Angus
+4;BRF - Perdigão;Aves;7899638366731;;Resfriado;Picanha Steak Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638365826;;Resfriado;Picanha Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367226;;Congelado;Picanha Iscas Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638328647;;Resfriado;Picanha Resfriado Palatare
+3;BRF - Sadia;Bovinos;7899638328661;;Resfriado;Picanha Bifes Palatare
+3;BRF - Sadia;Bovinos;7899638328654;;Congelado;Picanha Congelado Palatare
+3;BRF - Sadia;Bovinos;7899638365017;;Congelado;Picanha Congelado Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638364935;;Resfriado;Picanha Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638366144;;Congelado;Raquete Congelado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365888;;Congelado;Picanha Congelado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365642;;Congelado;Picanha Maturada Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365673;;Resfriado;Picanha Resfriado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365871;;Congelado;Picanha Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365635;;Congelado;Picanha Maturada Sadia Bassi Angus - 0,9 a 1,4kg
+3;BRF - Sadia;Bovinos;7899638365666;;Resfriado;Picanha Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367233;;Congelado;Picanha Congelado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367769;;Resfriado;Picanha Resfriado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366151;;Congelado;Picanha Maturada Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366212;;Congelado;Picanha Congelado Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366748;;Resfriado;Raquete Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366458;;Resfriado;Picanha Resfriado Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638370486;;Resfriado;Picanha Uruguaia Perdigão na Brasa - 1,4kg
+3;BRF - Sadia;Bovinos;7899638349307;;Congelado;Patinho Wagyu Importado Tacuarembó - 6kg
+3;BRF - Sadia;Aves;7899638356701;;Congelado;Peito Com Gordura Importado Wagyu Tacuarembó - 4,8kg
+3;BRF - Sadia;Aves;7899638365031;;Congelado;Peito Brisket Sadia Bassi
+3;BRF - Sadia;Aves;7899638365550;;Congelado;Peito Brisket Maturado Sadia Bassi Angus
+3;BRF - Sadia;Aves;7899638365727;;Resfriado;Peito Brisket Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638366120;;Congelado;Patinho Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365796;;Resfriado;Filé de Costela Resfriado Sadia Bassi Angus - 0,9 a 1,5kg
+4;BRF - Perdigão;Aves;7899638366441;;Resfriado;Peixinho Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366434;;Resfriado;Peito Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366724;;Resfriado;Peito Com Gordura Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638365710;;Resfriado;Fralda Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365659;;Resfriado;Filé de Costela Sadia Bassi Angus - 2,5kg
+4;BRF - Perdigão;Bovinos;7899638367172;;Congelado;Lagarto Congelado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366410;;Resfriado;Músculo Duro Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366687;;Resfriado;Lagarto Com Gordura Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638365864;;Congelado;Fralda Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367707;;Resfriado;Músculo Duro E Músculo Mole Resfriado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367677;;Resfriado;Lagarto Resfriado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367646;;Resfriado;Filé de Costela Bife Ancho Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367196;;Congelado;Músculo Do Dianteiro Congelado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366700;;Resfriado;Patinho Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366427;;Resfriado;Músculo Mole Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638365628;;Congelado;Fralda Maturada Sadia Bassi Angus - 500g
+4;BRF - Perdigão;Aves;7899638368223;;Resfriado;Peito Resfriado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367738;;Resfriado;Patinho Resfriado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367691;;Resfriado;Músculo Do Dianteiro Resfriado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638367394;;Congelado;Peito Congelado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367219;;Congelado;Patinho Congelado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367202;;Congelado;Músculo Duro E Músculo Mole Congelado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366694;;Resfriado;Músculo Duro E Músculo Mole Perdigão na Brasa
+3;BRF - Sadia;Aves;7899638364904;;Resfriado;Fralda Red Sadia Bassi - 0,7 a 1,2kg
+3;BRF - Sadia;Aves;7899638364911;;Resfriado;Fralda Sadia Bassi
+3;BRF - Sadia;Aves;7899638364980;;Congelado;Fralda Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638366007;;Congelado;Peixinho Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365819;;Resfriado;Peixinho Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638366113;;Congelado;Patinho Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365543;;Congelado;Fralda Maturada Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638366090;;Congelado;Lagarto Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638366083;;Congelado;Fralda Sadia Bassi Angus - 1,1kg
+4;BRF - Perdigão;Bovinos;7899638367721;;Resfriado;Patinho Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367660;;Resfriado;Lagarto Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367165;;Congelado;Fralda Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367653;;Resfriado;Fralda Perdigão Montana - 0,6 a 1,6kg
+4;BRF - Perdigão;Aves;7899638366717;;Resfriado;Patinho Com Gordura Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366489;;Resfriado;Fralda Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366199;;Congelado;Fralda Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366397;;Resfriado;Fralda Com Gordura Perdigão na Brasa - 0,7 a 1,5kg
+3;BRF - Sadia;Aves;7899638349130;;Resfriado;Maminha Wagyu Importado Tacuarembó
+3;BRF - Sadia;Bovinos;7899638349284;;Congelado;Coração Da Paleta Wagyu Importado Tacuarembó - 3,3kg
+3;BRF - Sadia;Bovinos;7899638349291;;Congelado;Coxão Mole Wagyu Importado Tacuarembó - 6kg
+4;BRF - Perdigão;Bovinos;7899638367882;;Congelado;Costela Do Traseiro Tiras Iwp Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638349123;;Congelado;Coração Da Alcatra Wagyu Importado Tacuarembó
+3;BRF - Sadia;Bovinos;7899638341004;;Congelado;Coxão Duro Wagyu Importado Tacuarembó - 5,5kg
+3;BRF - Sadia;Bovinos;7899638365772;;Resfriado;Coração Da Paleta Resfriado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365789;;Resfriado;Coração Da Paleta Sadia Bassi Angus
+4;BRF - Perdigão;Aves;7899638366908;;Congelado;Filé de Costela Bife Perdigão na Brasa - 150 a 160g
+4;BRF - Perdigão;Aves;7899638366571;;Resfriado;Costela Do Traseiro Minga Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638365840;;Congelado;Filé de Costela Sem Aba Sadia Bassi Angus - 2,5kg
+3;BRF - Sadia;Bovinos;7899638365697;;Resfriado;Coxão Duro Resfriado Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367080;;Congelado;Costela Do Traseiro Minga Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366595;;Resfriado;Coxão Duro Perdigão na Brasa - 2,5 a 3kg
+3;BRF - Sadia;Bovinos;7899638366052;;Congelado;Costela Do Traseiro Minga Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367134;;Congelado;Cupim Perdigão Montana - 1 a 3kg
+3;BRF - Sadia;Bovinos;7899638365833;;Congelado;Filé de Costela Com Aba Sadia Bassi Angus - 2,5kg
+3;BRF - Sadia;Bovinos;7899638347075;;Congelado;Cupim B Congelado Palatare - 0,7 a 3kg
+4;BRF - Perdigão;Bovinos;7899638367813;;Resfriado;Coxão Duro Resfriado Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638366069;;Congelado;Coxão Duro Congelado Sadia Bassi Angus
+4;BRF - Perdigão;Aves;7899638366298;;Congelado;Costela Do Traseiro Minga Perdigão na Brasa - 6,5 a 9,5kg
+3;BRF - Sadia;Bovinos;7899638338042;;Resfriado;Cupim B Resfriado Palatare
+4;BRF - Perdigão;Bovinos;7899638367110;;Congelado;Coxão Duro Congelado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366304;;Congelado;Costela Do Traseiro Minga Sem Osso Perdigão na Brasa - 2 a 4kg
+4;BRF - Perdigão;Bovinos;7899638367141;;Congelado;Cupim Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366250;;Congelado;Cupim Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638340076;;Resfriado;Costela Do Dianteiro Assado De Tiras Uruguaia Wagyu Tacuarembó
+4;BRF - Perdigão;Bovinos;7899638367806;;Resfriado;Coxão Duro Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367097;;Congelado;Costela Do Traseiro Minga Perdigão Montana - 5,5 a 8,5kg
+4;BRF - Perdigão;Aves;7899638366632;;Resfriado;Cupim Resfriado Perdigão na Brasa - 0,8 a 2kg
+4;BRF - Perdigão;Aves;7899638366243;;Congelado;Cupim Perdigão na Brasa - 2 a 4,5kg
+4;BRF - Perdigão;Aves;7899638366236;;Congelado;Cupim Congelado Perdigão na Brasa - 0,8 a 2kg
+4;BRF - Perdigão;Aves;7899638366601;;Resfriado;Coxão Duro Com Gordura Perdigão na Brasa
+3;BRF - Sadia;Outros;7891515559625;;Congelado;Filé Mignon Suíno em Tiras Sadia 400g - Caixa c/12
+3;BRF - Sadia;Suínos;7891515559632;;Congelado;Lombo Suíno em Cubos Sadia 400g - Caixa c/12
+3;BRF - Sadia;Suínos;7891515558819;;Congelado;Copa Lombo Suíno em Cubos Sadia 400g - Caixa c/12
+3;BRF - Sadia;Suínos;7891515588243;;Congelado;Bisteca Suína Sadia 800g - Caixa c/10
+3;BRF - Sadia;Suínos;7891515558628;;Congelado;Lombo Suíno Fatiado Sadia 800g - Caixa c/10
+3;BRF - Sadia;Suínos;7891515558611;;Seco;Copa Lombo Suíno Fatiado Sadia 800g - Caixa c/10
+3;BRF - Sadia;Outros;7891515558635;;Congelado;Filé Mignon Suíno Fatiado Sadia 800g - Caixa c/10
+3;BRF - Sadia;Outros;7891515587796;;Congelado;Camarão Vannamei 80/100pcs Sadia 400g -Caixa c/25
+3;BRF - Sadia;Outros;7891515587789;;Congelado;Camarão Vannamei 30/50 pcs Sadia 400g -Caixa c/25
+3;BRF - Sadia;Outros;7891515587772;;Congelado;Filé de Tilapia Sadia 400g -Caixa c/30
+3;BRF - Sadia;Outros;7891515587765;;Congelado;Filé de Pescadinha Sadia 400g -Caixa c/25
+4;BRF - Perdigão;Suínos;7891515586430;;Congelado;Copa Lombo Suína Congelada Temperada Chimichurri Perdigão Na Brasa - Caixa c/ 16
+4;BRF - Perdigão;Suínos;7891515586416;;Congelado;Panceta Suína Congelada Temperada Toque de Limão Perdigão Na Brasa - Caixa c/ 16
+5;BRF - Qualy;Margarinas;7891515586348;;Seco;Margarina 100% Vegetal Qualy 250g -Caixa c/24
+4;BRF - Perdigão;Suínos;7891515585761;;Congelado;Linguiça Toscana Fininha Chimichurri Perdigão Na Brasa 400g -Caixa c/20
+4;BRF - Perdigão;Suínos;7891515585747;;Congelado;Linguiça Toscana Fininha Perdigão na Brasa 400g -Caixa c/20
+4;BRF - Perdigão;Suínos;7891515585778;;Congelado;Linguiça Calabresa Fininha Apimentada Perdigão Na Brasa 400g -Caixa c/20
+4;BRF - Perdigão;Aves;7891515585716;;Congelado;Arroz de Forno c/ Frango e Creme de Milho 600g -Caixa c/6
+3;BRF - Sadia;Aves;7891515585617;;Congelado;MEIO DA ASA FGO 31G/UP CONG IQF 6KG SD
+4;BRF - Perdigão;Suínos;7891515585419;;Congelado;Polenta com Ragu de Calabresa Nosso Menu Perdigão 600g -Caixa c/6
+4;BRF - Perdigão;Aves;7891515580674;;Congelado;Hamburguer Bovino de Costela Na Brasa Perdigão 300g -Caixa c/12
+4;BRF - Perdigão;Aves;7891515580667;;Congelado;Hamburguer bovino de Picanha Na Brasa Perdigão 300g -Caixa c/12
+3;BRF - Sadia;Bovinos;7891515581336;;Congelado;Almondega Bovina ao Sugo Congelada Sadia 500g -Caixa c/6
+3;BRF - Sadia;Lanches;7891515580827;;Congelado;Veg Nuggets Sadia Veg&Tal 275g -Caixa c/15
+3;BRF - Sadia;Suínos;7891515577742;;Congelado;Torta de Carne Suína com Barbecue Sadia 500g -Caixa c/6
+3;BRF - Sadia;Outros;7891515576929;;Congelado;Torta de Abobrinha e Cream Cheese com Massa de Iogurte Sadia Veg&Tal 500g -Caixa c/6
+3;BRF - Sadia;Outros;7891515577513;;Seco;Lanche Vegetal sabor cheddar Sadia 145g -Caixa c/18
+5;BRF - Qualy;Margarinas;7891515520656;;Seco;Margarina Qualy Vita sem Sal 500g -Caixa c/12
+3;BRF - Sadia;Aves;7891515538736;;Congelado;FRANGO INTEIRO S/MIUDOS TEMP CONG SADIA
+3;BRF - Sadia;Aves;7891515575946;;Seco;COXA C/OP FGO TEMP BIO AS FAC SD
+3;BRF - Sadia;Aves;7891515575922;;Seco;Sobrecoxa Frango Temperado Sadia Bio Assa Fácil 800g -Caixa c/8
+3;BRF - Sadia;Bovinos;7891515575915;;Seco;Kibe Bovino Sadia 0,9kg -Caixa c/4
+3;BRF - Sadia;Aves;7891515575724;;Congelado;Filé de Peito de Chester para Churrasco Caixa 10,2 kg
+4;BRF - Perdigão;Aves;7891515575717;;Congelado;Coxa e Sobrecoxa Chester Na Brasa 1,5 kg a 2,0 kg
+3;BRF - Sadia;Bovinos;7891515575533;;Seco;Almondega Bovina Sadia 0,9kg -Caixa c/4
+5;BRF - Qualy;Margarinas;7891515520632;;Seco;Margarina Qualy Vita com Sal 500g -Caixa c/12
+4;BRF - Perdigão;Aves;7891515742089;;Resfriado;Salsicha de Frango Perdigão 500g -Caixa c/12
+4;BRF - Perdigão;Outros;7891515742065;;Resfriado;Salsicha Viena Perdigão 500g -Caixa c/12
+4;BRF - Perdigão;Outros;7891515742034;;Resfriado;Salsicha Hot-Dog Perdigão 500g -Caixa c/12
+5;BRF - Qualy;Margarinas;7891515520625;;Seco;Margarina Qualy Vita com Sal 250g -Caixa c/24
+3;BRF - Sadia;Aves;7891515574857;;Congelado;Peito de Frango Empanado Empanadíssimo Sadia 400g -Caixa c/10
+7;BRF - Claybom;Margarinas;7891515574840;;Seco;Margarina Sabor Manteiga Resfriada Claybom 1Kg
+3;BRF - Sadia;Aves;7891515574383;;Congelado;Filé de Peito de Frango em Bifes Sadia 1Kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515574550;;Congelado;Filé de Peito de Frango em Bifes Sadia 800g -Caixa c/12
+8;BRF - Becel;Margarinas;7891515562236;;Seco;Margarina com Fitoesteróis Pro Activ Becel 250g - Caixa c/12
+8;BRF - Becel;Margarinas;7891515555269;;Seco;Margarina Becel Original Sem Sal 250G -Caixa c/24
+3;BRF - Sadia;Outros;7891515574697;;Congelado;Paleta Suína sem Osso Sadia 18kg -Caixa c/1
+3;BRF - Sadia;Suínos;7891515574680;;Congelado;Pernil Suíno sem Osso Sadia 18kg -Caixa c/1
+3;BRF - Sadia;Outros;7891515574703;;Congelado;Filé Mignon Suíno Sadia 18kg -Caixa c/11
+8;BRF - Becel;Margarinas;7891515555351;;Seco;Margarina Becel Amanteigada Com Sal 250g -Caixa c/24
+8;BRF - Becel;Margarinas;7891515555245;;Seco;Margarina Becel Original Com Sal 250g -Caixa c/24
+8;BRF - Becel;Margarinas;7891515555344;;Seco;Margarina Amanteigada C/ Sal Becel 500g -Caixa c/12
+8;BRF - Becel;Margarinas;7891515555252;;Seco;Margarina Ômega 6 Original s/ Sal Becel Pote 500g -Caixa c/12
+3;BRF - Sadia;Aves;7891515538736;;Congelado;Frango Inteiro Temperado s/ Miúdos Sadia Peso 1,85kg -Caixa c/7
+8;BRF - Becel;Margarinas;7891515555337;;Seco;Margarina Ômega 6 Original c/ Sal Becel 500g-Caixa c/12
+3;BRF - Sadia;Aves;7891515572518;;Congelado;Peito de Frango Empanadíssimo Temperado Sadia 400g -Caixa c/10
+3;BRF - Sadia;Suínos;7893000526044;;Resfriado;Bacon Defumado Manta Sadia Peso Variável de 3 até 4kg - Caixa c/4
+3;BRF - Sadia;Aves;7891515563516;;Congelado;Filé de Peito de Frango Sadia Bandeja 1kg (cortes menores) - Caixa c/12
+3;BRF - Sadia;Aves;7891515563509;;Congelado;Coxa de Frango c/ Osso Sadia Bandeja 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515563240;;Congelado;Sobrecoxa de Frango c/ Osso e Pele Sadia Bandeja 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515562854;;Congelado;Coxinhas da Asa Empanada Apimentada Sadia 400G -Caixa c/14
+3;BRF - Sadia;Aves;7891515433703;;Resfriado;Peito Peru Defumado Fatiado Soltíssimo Sadia 200G -Caixa c/21
+5;BRF - Qualy;Margarinas;7891515561314;;Resfriado;Pão De Queijo Presunto Qualy 375G -Caixa c/20
+3;BRF - Sadia;Outros;7891515432652;;Resfriado;Presunto Cozido Fatiado Soltíssimo Sadia 200G -Caixa c/21
+3;BRF - Sadia;Suínos;7891515558635;;Congelado;File Mignon Suino Fatiado Sadia 800g -Caixa c/10
+3;BRF - Sadia;Suínos;7891515558628;;Congelado;Lombo Suino Fatiado Sadia 800g -Caixa c/10
+3;BRF - Sadia;Suínos;7891515558611;;Congelado;Sobrepaleta Suino Fatiado Sadia 800g -Caixa c/10
+5;BRF - Qualy;Margarinas;7891515557461;;Resfriado;Requeijao Qualy Light 200G -Caixa c/24
+5;BRF - Qualy;Margarinas;7891515557317;;Resfriado;Manteiga Qualy Pote Com Sal 200G -Caixa c/12
+5;BRF - Qualy;Margarinas;7891515557454;;Resfriado;Requeijao Qualy Tradicional 200G -Caixa c/24
+5;BRF - Qualy;Margarinas;7891515557447;;Resfriado;Manteiga Qualy Tablete Sem Sal 200G -Caixa c/30
+5;BRF - Qualy;Margarinas;7891515557430;;Resfriado;Manteiga Qualy Tablete Com Sal 200G -Caixa c/30
+5;BRF - Qualy;Margarinas;7891515557423;;Resfriado;Manteiga Qualy Pote Com Sal 500G -Caixa c/6
+3;BRF - Sadia;Outros;7891515556334;;Congelado;Hot Pocket Sadia X-Burguer Maionese Grill 145g -Caixa c/18
+3;BRF - Sadia;Outros;7891515556327;;Congelado;Hot Pocket Sadia X-Cheddar Cremoso 145g -Caixa c/18
+3;BRF - Sadia;Outros;7891515556341;;Congelado;Hot Pocket Sadia X-Burguer Barbecue 145g -Caixa c/18
+3;BRF - Sadia;Outros;7891515556914;;Resfriado;Banha Sadia 500g -Caixa c/18
+4;BRF - Perdigão;Aves;7891515555511;;Congelado;Filé Mignon Suíno c/ Laranja, Limão, Mel Perdigão Na Brasa Caixa 12kg
+3;BRF - Sadia;Aves;7891515554910;;Congelado;Supreme Fácil Sadia 2,7 kg a 3,7 kg
+3;BRF - Sadia;Aves;7891515554224;;Congelado;Hambúrguer de Carne de Frango e Bovina Sadia 56g -Caixa c/36
+3;BRF - Sadia;Aves;7891515554323;;Congelado;Filezinho Peito Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515554361;;Congelado;Meio da Asa de Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515554354;;Congelado;Coxinha da Asa de Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515554347;;Congelado;Sobrecoxa de Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515554330;;Congelado;Coxa de Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515554385;;Congelado;Fígado de Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515554378;;Congelado;Coração de Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515553876;;Congelado;Filé de Peito de Frango Sadia Orgânico 600g -Caixa c/16
+3;BRF - Sadia;Aves;7891515553869;;Congelado;Frango com Miúdos Sadia Orgânico Caixa 16kg
+3;BRF - Sadia;Aves;7891515554316;;Congelado;Hambúrguer de Frango Sadia 56g -Caixa c/36
+4;BRF - Perdigão;Suínos;7891515553227;;Resfriado;Rabo Suíno Salgado Perdigão Caixa 13kg
+4;BRF - Perdigão;Suínos;7891515553210;;Resfriado;Pé Suíno Salgado Perdigão Caixa 13kg
+4;BRF - Perdigão;Bovinos;7891515553111;;Resfriado;Costela Suína Retalho Salgada Perdigão Caixa 13kg
+4;BRF - Perdigão;Aves;7891515687113;;Resfriado;Frango Cozido Defumado Perdigão 1,1kg a 1,3kg
+3;BRF - Sadia;Outros;7891515551568;;Congelado;Mix de Vegetais Congelados Sadia Veg&Tal 1,05kg -Caixa c/10
+3;BRF - Sadia;Outros;7891515551551;;Congelado;Mix de Vegetais Congelados Sadia Veg&Tal 300g -Caixa c/12
+3;BRF - Sadia;Outros;7891515551377;;Congelado;Couve-Flor Congelada Sadia Veg&Tal 300g -Caixa c/12
+3;BRF - Sadia;Outros;7891515551360;;Congelado;Couve-Flor Congelada Sadia Veg&Tal 1kg -Caixa c/10
+3;BRF - Sadia;Outros;7891515551353;;Congelado;Ervilha Congelado Sadia Veg&Tal 1Kg -Caixa c/10
+3;BRF - Sadia;Outros;7891515551346;;Congelado;Ervilha Congelada Sadia Veg&Tal 300g -Caixa c/20
+3;BRF - Sadia;Suínos;7891515550905;;Congelado;T-Bone Suíno Food Service Sadia Speciale 2Kg -Caixa c/3
+3;BRF - Sadia;Suínos;7891515550899;;Congelado;Prime Rib Suíno Food Service Sadia Speciale 1,6Kg -Caixa c/3
+3;BRF - Sadia;Outros;7891515551230;;Congelado;Brócolis Congelado Sadia Veg&Tal 1kg -Caixa c/10
+3;BRF - Sadia;Outros;7891515551223;;Congelado;Brócolis Congelado Sadia Veg&Tal 300g -Caixa c/12
+3;BRF - Sadia;Suínos;7893000516830;;Congelado;Lombo Suíno Sem Osso Congelado Sadia Food Service 10Kg
+9;BRF - Sofiteli;Margarinas;7891515550097;;Resfriado;Margarina com Sal 75% de Lidípio Sofiteli Balde 3kg- Caixa com 6
+3;BRF - Sadia;Suínos;7891515549527;;Resfriado;Snack Salamitos Sweet Chilli Sadia 36g -Caixa c/50
+7;BRF - Claybom;Margarinas;7891515548889;;Resfriado;Margarina Sabor Manteiga com Sal Claybom Pote 500g -Caixa c/12
+7;BRF - Claybom;Margarinas;7891515548872;;Resfriado;Margarina Sabor Manteiga com Sal Claybom Pote 250g -Caixa c/24
+3;BRF - Sadia;Outros;7891515547554;;Congelado;Batata Pré-Frita Palito Tradicional Congelada Sadia 2kg -Caixa c/5
+3;BRF - Sadia;Aves;7891515547974;;Congelado;Peito de Frango Cozido Desfiado Sadia Na Receita 400g -Caixa c/12
+3;BRF - Sadia;Outros;7891515547240;;Congelado;Batata Pré-Frita Canoa Congelada Sadia 1,05kg -Caixa c/10
+3;BRF - Sadia;Outros;7891515547226;;Congelado;Batata Pré-Frita Rústica Congelada Sadia 1,05kg -Caixa c/10
+4;BRF - Perdigão;Suínos;7891515546847;;Resfriado;Bacon Defumado Fatiado Perdigão 250g -Caixa c/15
+3;BRF - Sadia;Aves;7891515546212;;Congelado;Coxinha da Asa Empanada Sadia 700g -Caixa c/8
+3;BRF - Sadia;Outros;7891515546519;;Congelado;Batata Pré-Frita Palito Congelada Sadia 400g -Caixa c/25
+3;BRF - Sadia;Outros;7891515546335;;Congelado;Batata Pré-Frita Palito Congelada Sadia 1,05kg -Caixa c/10
+3;BRF - Sadia;Aves;7891515545543;;Congelado;Empanado de Frango em Iscas Sadia Food Service 1kg -Caixa c/3
+4;BRF - Perdigão;Suínos;7891515545536;;Congelado;Linguiça de Pernil Suíno Perdigão 700g -Caixa c/18
+3;BRF - Sadia;Outros;7891515545420;;Congelado;Torta Espinafre e Ricota c/ Massa Iogurte Sadia Veg&Tal 500g -Caixa c/6
+3;BRF - Sadia;Outros;7891515545413;;Congelado;Torta Brócolis e Requeijão c/ Massa Iogurte Sadia Veg&Tal 500g -Caixa c/6
+4;BRF - Perdigão;Outros;7891515544041;;Congelado;Mini Chicken Tradicional Perdigão 1kg -Caixa c/8
+4;BRF - Perdigão;Suínos;7891515544126;;Congelado;Linguiça de Pernil Suíno Perdigão 5kg -Caixa c/4
+4;BRF - Perdigão;Aves;7891515666217;;Congelado;Linguiça de Frango Perdigão Na Brasa 5kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515662929;;Congelado;Linguiça de Pernil Suíno Perdigão Na Brasa 5kg -Caixa c/4
+4;BRF - Perdigão;Outros;7891515539177;;Resfriado;Mortadela Fatiada Perdigão Ouro com Ervas Finas 200g -Caixa c/20
+3;BRF - Sadia;Bovinos;7891515539122;;Congelado;Costela Suína em Tiras Sadia Caixa 10kg
+4;BRF - Perdigão;Aves;7891515538828;;Seco;Coxa e Sobrecoxa de Frango Desossada Sem Pele Perdigão 1Kg -Caixa c/16
+4;BRF - Perdigão;Outros;7891515539153;;Resfriado;Mortadela Fatiada Perdigão Ouro com Azeitona 200g -Caixa c/20
+3;BRF - Sadia;Aves;7891515538736;;Congelado;Frango Temperado Sadia Caixa 13Kg -Caixa c/5
+5;BRF - Qualy;Margarinas;7891515537531;;Resfriado;Margarina Qualy Cremosa com Sal 250g - Potes Colecionáveis -Caixa c/24
+3;BRF - Sadia;Bovinos;7893000134638;;Congelado;Almondega Bovina Sadia 500g -Caixa c/12
+3;BRF - Sadia;Outros;7893000122116;;Congelado;Kibe Sadia 500g -Caixa c/12
+3;BRF - Sadia;Aves;7893000486744;;Congelado;Hamburguer De Frango Sadia 56 G -Caixa c/12
+4;BRF - Perdigão;Aves;7891515323677;;Congelado;Hamburguer Frango Perdigão 672g -Caixa c/12
+4;BRF - Perdigão;Aves;7891515883034;;Congelado;Hamburguer Frango/Bovino Defumado Perdigão 672G -Caixa c/12
+4;BRF - Perdigão;Aves;7891515879716;;Congelado;Hamburguer de Frango/Bovino Suave Pacote 90G Caixa 3,24Kg
+4;BRF - Perdigão;Aves;7891515323691;;Congelado;Hamburguer de carne Bovina e Aves Perdigão 672g -Caixa c/12
+3;BRF - Sadia;Bovinos;7893000525238;;Congelado;Hamburger Bovino Sadia 90g -Caixa c/60
+3;BRF - Sadia;Bovinos;7893000387096;;Congelado;Hamburger Bovino Sadia - 12 Un. 672g -Caixa c/12
+3;BRF - Sadia;Aves;7893000486317;;Congelado;Hambúrguer de Carne de Frango e Bovina Churrasco Sadia Churras Burger 672g
+4;BRF - Perdigão;Aves;7891515536015;;Congelado;Fusilli com Tiras de Frango Perdigão Meu Menu 600g -Caixa c/6
+4;BRF - Perdigão;Outros;7891515535209;;Congelado;Penne com Mini Almôndegas Perdigão Meu Menu 600g -Caixa c/6
+3;BRF - Sadia;Aves;7891515535568;;Congelado;Coxinha da Asa Empanada Sadia 2kg -Caixa c/3
+3;BRF - Sadia;Suínos;7891515534714;;Resfriado;Salame Italiano Fatiado c/ Borda Pimenta Sadia Speciale 100g -Caixa c/40
+3;BRF - Sadia;Aves;7891515534110;;Congelado;Coxinha da Asa Empanada Sadia 400g -Caixa c/14
+4;BRF - Perdigão;Suínos;7891515533014;;Congelado;Pizza Calabresa Moída Perdigão 460g
+4;BRF - Perdigão;Lanches;7891515532925;;Congelado;Pizza Napolitana Perdigão 460g
+4;BRF - Perdigão;Lanches;7891515532918;;Congelado;Pizza Brasileira Perdigão 460g
+4;BRF - Perdigão;Suínos;7891515631024;;Resfriado;Linguiça Calabresa Enroladinha Perdigão 500g -Caixa c/12
+3;BRF - Sadia;Aves;7891515532628;;Congelado;Hambúrguer de Frango Empanado Caixa Sadia 360g -Caixa c/15
+3;BRF - Sadia;Aves;7891515532352;;Congelado;Frango sem Miúdos Sadia 1,4kg -Caixa c/10
+3;BRF - Sadia;Aves;7891515532345;;Congelado;Frango sem Miúdos Sadia 1,3Kg -Caixa c/10
+3;BRF - Sadia;Aves;7891515532338;;Congelado;Frango sem Miúdos Sadia 1,1Kg -Caixa c/10
+3;BRF - Sadia;Aves;7891515532321;;Congelado;Frango sem Miúdos Sadia Caixa Caixa 10kg
+3;BRF - Sadia;Aves;7891515532314;;Congelado;Frango sem Miúdos Sadia 950g -Caixa c/10
+4;BRF - Perdigão;Aves;7891515614072;;Congelado;Filé de Peito de Frango sem Pele sem Osso Perdigão 1kg -Caixa c/12
+4;BRF - Perdigão;Aves;7891515614065;;Congelado;Filezinho Sassami de Frango Perdigão 1kg -Caixa c/12
+4;BRF - Perdigão;Aves;7891515851941;;Congelado;Peru Perdigão 4 kg a 4,99 kg
+4;BRF - Perdigão;Aves;7891515851941;;Congelado;Peru Perdigão 3 kg a 3,99 kg
+4;BRF - Perdigão;Aves;7891515989408;;Congelado;Hambúrguer de Carne de Frango e Bovina Perdigão 56g -Caixa c/36
+4;BRF - Perdigão;Aves;7891515989415;;Congelado;Hambúrguer de Frango Perdigão Caixa 2kg
+3;BRF - Sadia;Suínos;7891515531676;;Resfriado;Salame Pepperoni Fatiado Sadia 100g -Caixa c/30
+4;BRF - Perdigão;Aves;7891515531331;;Congelado;Fígado de Frango Perdigão 1kg -Caixa c/16
+3;BRF - Sadia;Aves;7891515531164;;Congelado;Filezinho Sassami de Frango Temperado Sadia Marinados 1kg -Caixa c/12
+3;BRF - Sadia;Aves;7891515531157;;Congelado;Filé de Peito de Frango Sadia Marinado 1kg -Caixa c/12
+4;BRF - Perdigão;Outros;7891515528836;;Resfriado;Mortadela Tradicional Perdigão 4,8kg -Caixa c/2
+4;BRF - Perdigão;Outros;7891515518417;;Resfriado;Linguiça Mista Defumada Fininha Perdigão 1kg -Caixa c/13
+3;BRF - Sadia;Suínos;7891515516314;;Congelado;Bisteca Suína Sadia Caixa 10kg
+4;BRF - Perdigão;Outros;7891515936334;;Congelado;Penne Ao Sugo E Manjericao Congelado Perdigão 350g -Caixa c/12
+4;BRF - Perdigão;Lanches;7891515936341;;Congelado;Fetuccini Com Molho Branco Congelado Perdigão 350g -Caixa c/12
+4;BRF - Perdigão;Outros;7891515936327;;Congelado;Penne Com Molho Parisiense Congelado Perdigão 350g -Caixa c/12
+4;BRF - Perdigão;Lanches;7891515493417;;Congelado;Pão de Queijo Coquetel Food Service Perdigão Tá na Mão! 900g -Caixa c/10
+3;BRF - Sadia;Aves;7891515492229;;Congelado;Strogonoff Frango com Arroz e Batata Sadia 350g -Caixa c/6
+3;BRF - Sadia;Aves;7893000012547;;Congelado;Torta Caipira de Frango Sadia 500g -Caixa c/6
+4;BRF - Perdigão;Aves;7891515488901;;Congelado;Steak de Frango Empanado Perdigão 700g -Caixa c/4
+3;BRF - Sadia;Outros;7893000012578;;Congelado;Torta Palmito e Requeijão com Massa de Iogurte Sadia 500g -Caixa c/6
+3;BRF - Sadia;Aves;7893000012509;;Congelado;Torta Frango e Requeijão Sadia 500g -Caixa c/6
+3;BRF - Sadia;Aves;7891515443238;;Congelado;Frango Assado com Arroz e Batata Sadia 350g -Caixa c/6
+4;BRF - Perdigão;Outros;7891515442965;;Congelado;Feijoada Pronta Perdigão 0,8Kg -Caixa c/4
+3;BRF - Sadia;Aves;7891515443221;;Congelado;Frango à Parmegiana com Arroz e Batata Palha Sadia 350g -Caixa c/6
+3;BRF - Sadia;Aves;7893000052895;;Congelado;Escondidinho de Frango Sadia 600g -Caixa c/6
+3;BRF - Sadia;Outros;7893000052888;;Congelado;Escondidinho de Carne Moída Sadia 600g -Caixa c/6
+3;BRF - Sadia;Outros;7893000069350;;Resfriado;Linguiça Mista Defumada Fininha Sadia 240g -Caixa c/21
+3;BRF - Sadia;Bovinos;7899638341189;;Resfriado;OVINO ALCATRA COMPLETA CG NIREA
+3;BRF - Sadia;Suínos;7899638342957;;Resfriado;BIFE ANGOSTO DE CORDEIRO (LOMBO) S/O CG NIREA
+5;BRF - Qualy;Margarinas;7891515662165;;Seco;MARGARINA QUALY FACIL REFOGA C/SAL 500G
+5;BRF - Qualy;Margarinas;7891515662141;;Seco;MARGARINA QUALY FACIL TRAD C/SAL 500G
+4;BRF - Perdigão;Outros;7899638369015;;Seco;Jerked Beef Traseiro Perdigão Montana - 5kg
+3;BRF - Sadia;Bovinos;7899638352406;;Congelado;Contra - Filé Wagyu Tacuarembó
+3;BRF - Sadia;Bovinos;7899638354677;;Seco;Coração Alcatra Steak Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638352291;;Congelado;Contra - Filé Steak Sadia Bassi - Bife 200 a 250g
+3;BRF - Sadia;Bovinos;7899638352307;;Congelado;Contra - Filé Tira Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638351966;;Congelado;Contra - Filé Chorizo Sem Cordão Sem Aba Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638365079;;Congelado;Coração Da Alcatra Steak Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638365758;;Resfriado;Contra - Filé Sadia Bassi Angus - 4,1kg
+4;BRF - Perdigão;Aves;7899638366625;;Resfriado;Coxão Mole Com Gordura Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638366076;;Congelado;Coxão Mole Congelado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365581;;Congelado;Contra - Filé Maturado Sadia Bassi Angus - 4,1kg
+4;BRF - Perdigão;Aves;7899638366779;;Congelado;Contra - Filé Bife Perdigão na Brasa - 80 a 100g
+3;BRF - Sadia;Bovinos;7899638365703;;Resfriado;Coxão Mole Resfriado Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367639;;Resfriado;Coxão Mole Resfriado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366861;;Congelado;Contra - Filé Iscas Perdigão na Brasa - 1,4 a 1,6kg
+4;BRF - Perdigão;Aves;7899638366878;;Congelado;Coração Da Alcatra Iscas Perdigão na Brasa - 1,3 a 1,4kg
+4;BRF - Perdigão;Bovinos;7899638367752;;Resfriado;Pera Do Coxão Mole Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367608;;Resfriado;Capa Do Coxão Mole Resfriado Perdigão Montana - 2,2kg
+4;BRF - Perdigão;Bovinos;7899638367127;;Congelado;Coxão Mole Congelado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367004;;Congelado;Capa Do Coxão Mole Congelado Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638364874;;Resfriado;Contra - Filé Bife De Chorizo Resfriado Sadia Bassi - 0,8 a 1,4kg
+4;BRF - Perdigão;Bovinos;7899638367622;;Resfriado;Coxão Mole Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366618;;Resfriado;Coxão Mole Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638364973;;Congelado;Contra - Filé Bife De Chorizo Congelado Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638340083;;Congelado;Acém Short Ribs Wagyu Uruguaia Tacuarembó - 9,4kg
+4;BRF - Perdigão;Aves;7899638366786;;Resfriado;Acém E Pescoço Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366496;;Resfriado;Acém Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367547;;Resfriado;Bananinha Do Contra - Filé Resfriado Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638364966;;Congelado;Acém Short Rib Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638365901;;Congelado;Acém Short Rib Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365529;;Congelado;Acém Short Rib Maturado Sadia Bassi Angus - 4 a 6,5kg
+4;BRF - Perdigão;Bovinos;7899638366984;;Congelado;Bananinha Do Contra - Filé Congelado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367523;;Resfriado;Acém Perdigão Montana
+3;BRF - Sadia;Outros;7899638349147;;Congelado;Fraldao Wagyu Importado Tacuarembó
+4;BRF - Perdigão;Outros;7899638367370;;Congelado;Paleta Congelado Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638370189;;Congelado;Maminha Da Alcatra Sadia Bassi Stars
+3;BRF - Sadia;Outros;7899638370158;;Congelado;Fralda Sadia Bassi Stars - 1,4kg
+3;BRF - Sadia;Aves;7899638370202;;Congelado;Peito Sadia Bassi Stars
+3;BRF - Sadia;Outros;7899638370103;;Congelado;Contra - Filé Sadia Bassi Stars
+3;BRF - Sadia;Bovinos;7899638370141;;Congelado;Filé Costela Sadia Bassi Stars - 2,5kg
+3;BRF - Sadia;Outros;7899638344630;;Congelado;Recorte Traseiro Palatare - 140 a 260g
+4;BRF - Perdigão;Outros;7899638367257;;Congelado;Bife Do Vazio Perdigão Montana
+3;BRF - Sadia;Outros;5602772403024;;Congelado;Bolinhos Com Bacalhau Soguima - 360g
+3;BRF - Sadia;Bovinos;7899638349598;;Congelado;Picanha B Importado Nirea
+3;BRF - Sadia;Bovinos;7899638341103;;Congelado;Picanha Importado P La Morocha
+3;BRF - Sadia;Bovinos;7899638344883;;Congelado;Picanha Importado Super San Jacinto - 1 a 1,8kg
+3;BRF - Sadia;Bovinos;7899638345576;;Congelado;Picanha Uruguaia Importada L Tacuarembó
+3;BRF - Sadia;Outros;3270120014295;;Congelado;Filé Merluza Interfolhado Importado Taturiello
+3;BRF - Sadia;Outros;7899638319836;;Congelado;Cordeiro Capão Espinazo Doble Importado Nirea
+3;BRF - Sadia;Suínos;7899638307178;;Congelado;Ovino Carre French Rack Short Importado Nirea
+3;BRF - Sadia;Suínos;7899638307185;;Congelado;Ovino Carre French Rack Hasta Importado Nirea - 1kg
+3;BRF - Sadia;Suínos;7899638307215;;Congelado;Ovino Carre French Rack Importado Nirea - 1kg
+3;BRF - Sadia;Bovinos;7899638307192;;Congelado;Ovino Alcatra Completa Importado Nirea
+4;BRF - Perdigão;Outros;7899638367509;;Congelado;Rúmen Bucho Miúdos Perdigão Montana
+3;BRF - Sadia;Outros;7899638307208;;Congelado;Ovino Paleta Importado Nirea - 2kg
+4;BRF - Perdigão;Outros;7899638367264;;Congelado;Carne Industrial Lombinho Do Diafragma Bloco Perdigão Montana
+3;BRF - Sadia;Outros;7899638307154;;Congelado;Ovino Paleta Hasta Importado Nirea - 2kg
+3;BRF - Sadia;Aves;7899638356367;;Congelado;Filé de Merluza Interfolhado Tradarsa - 210g
+4;BRF - Perdigão;Outros;7899638367387;;Congelado;Paleta Congelado Perdigão Montana
+4;BRF - Perdigão;Outros;7899638367431;;Congelado;Coração Miúdos Perdigão Montana
+4;BRF - Perdigão;Outros;7899638367271;;Congelado;Carne Industrial Diafragma Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638365000;;Congelado;Maminha Da Alcatra Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638349314;;Resfriado;Picanha Wagyu Importado Tacuarembó - 2,4kg
+3;BRF - Sadia;Bovinos;7899638322768;;Congelado;Picanha B Importado Quickfood
+3;BRF - Sadia;Bovinos;7899638345767;;Congelado;Picanha Angus P Importado Tacuarembó - 1,8kg
+3;BRF - Sadia;Bovinos;7899638322751;;Congelado;Picanha Importado Quickfood
+3;BRF - Sadia;Outros;7899638371087;;Congelado;Bife Do Vazio Wagyu Importado Tacuarembó
+3;BRF - Sadia;Outros;7899638349277;;Congelado;Raquete Wagyu Importado Tacuarembó
+3;BRF - Sadia;Bovinos;7899638365451;;Congelado;Costela Do Dianteiro Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638366038;;Congelado;Costela Dianteiro Sadia Bassi Angus
+3;BRF - Sadia;Suínos;7899638371179;;Congelado;Pernil Cordeiro Nirea
+3;BRF - Sadia;Bovinos;7899638348416;;Congelado;Cordeiro Costela Importado Nirea
+3;BRF - Sadia;Suínos;7899638371698;;Congelado;Ovino Pernil Importado Majada
+3;BRF - Sadia;Aves;7899638355285;;Seco;Filé de Merluza Hg Marisco - 210g
+3;BRF - Sadia;Bovinos;7899638365611;;Congelado;Filé de Costela Maturado Sadia Bassi Angus - 2,5kg
+4;BRF - Perdigão;Outros;7899638367479;;Congelado;Fígado Miúdos Perdigão Montana
+4;BRF - Perdigão;Outros;7899638368209;;Resfriado;Paleta Resfriado Perdigão Montana
+4;BRF - Perdigão;Outros;7899638367455;;Congelado;Rabo Miúdos Perdigão Montana
+4;BRF - Perdigão;Outros;7899638367998;;Resfriado;Bife Do Vazio Perdigão Montana - 7 a 8kg
+4;BRF - Perdigão;Outros;7899638368049;;Resfriado;Bife Do Vazio Red Perdigão Montana
+3;BRF - Sadia;Outros;5602772413634;;Congelado;Polvo Eviscerado Tenderizado Soguima
+3;BRF - Sadia;Outros;5602772413658;;Congelado;Polvo Eviscerado Tenderizado Soguima
+4;BRF - Perdigão;Bovinos;7899638346931;;Congelado;Recorte Alcatra Aranha Perdigão Montana
+4;BRF - Perdigão;Outros;7899638366946;;Congelado;Rabo Miúdos Perdigão Montana
+3;BRF - Sadia;Outros;7899638366106;;Congelado;Ossobuco Sadia Bassi Angus
+4;BRF - Perdigão;Outros;7899638367158;;Congelado;Filé Mignon Cabeça E Rabo Perdigão Montana
+3;BRF - Sadia;Outros;7899638365857;;Congelado;Filé Mignon Sadia Bassi Angus
+4;BRF - Perdigão;Bovinos;7899638367189;;Congelado;Maminha Da Alcatra Perdigão Montana
+4;BRF - Perdigão;Outros;7899638367066;;Congelado;Cordão Do Filé Mignon Congelado Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638365949;;Congelado;Coração Da Alcatra Sem Rolha Sadia Bassi Angus
+3;BRF - Sadia;Outros;7899638365918;;Congelado;Capa De Filé Sadia Bassi Angus
+4;BRF - Perdigão;Outros;7899638366991;;Congelado;Capa De Filé Congelado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367059;;Congelado;Coração Da Alcatra Congelado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638366960;;Congelado;Alcatra Com Maminha Congelado Perdigão Montana
+3;BRF - Sadia;Aves;7899638366823;;Congelado;Alcatra Steakhouse Na Brasa
+4;BRF - Perdigão;Aves;7899638366915;;Congelado;Fraldão Congelado Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638364928;;Resfriado;Maminha Da Alcatra Sadia Bassi
+3;BRF - Sadia;Suínos;7899638364997;;Congelado;Lombo Prime Rib Sadia Bassi
+3;BRF - Sadia;Outros;7899638365024;;Congelado;Tibone Sadia Bassi
+3;BRF - Sadia;Outros;7899638364959;;Congelado;Ossobuco Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638364881;;Resfriado;Coração Da Alcatra Bombom Sadia Bassi
+3;BRF - Sadia;Outros;7899638366014;;Congelado;Tibone Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365604;;Congelado;Maminha Da Alcatra Maturada Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365994;;Congelado;Maminha Da Alcatra Sadia Bassi Angus
+3;BRF - Sadia;Suínos;7899638365987;;Congelado;Lombo Prime Rib Sadia Bassi Angus
+3;BRF - Sadia;Outros;7899638365963;;Congelado;Coração Da Paleta Congelado Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365932;;Congelado;Coração Da Alcatra Com Rolha Sadia Bassi Angus
+3;BRF - Sadia;Outros;7899638365956;;Congelado;Coração Da Paleta Com Gordura Sadia Bassi Angus
+4;BRF - Perdigão;Aves;7899638366205;;Congelado;Maminha Da Alcatra Congelado Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638366977;;Congelado;Aranha Da Alcatra Congelado Perdigão Montana - 1 a 1,2kg
+4;BRF - Perdigão;Aves;7899638366182;;Congelado;Filé Mignon Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367325;;Congelado;Filé de Costela Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638370219;;Congelado;Picanha Maturado Sadia Bassi Stars - 1,6kg
+3;BRF - Sadia;Bovinos;7899638370189;;Congelado;Maminha Da Alcatra Maturada Sadia Bassi Stars
+3;BRF - Sadia;Bovinos;7899638370219;;Congelado;Picanha Sadia Bassi Stars - 1,6kg
+3;BRF - Sadia;Bovinos;7899638370134;;Congelado;Costela Dianteiro Maturado Sadia Bassi Stars
+3;BRF - Sadia;Outros;7899638370165;;Congelado;Fralda Maturado Red Sadia Bassi Stars
+3;BRF - Sadia;Aves;7899638370202;;Congelado;Peito Maturado Sadia Bassi Stars
+3;BRF - Sadia;Outros;7899638370226;;Congelado;Raquete Maturado Red Sadia Bassi Stars - 1,2kg
+3;BRF - Sadia;Bovinos;7899638370134;;Congelado;Costela Dianteiro Sadia Bassi Stars
+3;BRF - Sadia;Outros;7899638370165;;Congelado;Fralda Red Sadia Bassi Stars
+3;BRF - Sadia;Outros;7899638370103;;Congelado;Contra - Filé Maturado Sadia Bassi Stars
+3;BRF - Sadia;Outros;7899638370226;;Congelado;Raquete Red Sadia Bassi Stars - 1,2kg
+3;BRF - Sadia;Bovinos;7899638370141;;Congelado;Filé de Costela Maturado Sadia Bassi Stars - 2,5kg
+4;BRF - Perdigão;Aves;7899638366922;;Congelado;Gordura Perdigão Na Brasa
+4;BRF - Perdigão;Aves;7899638369497;;Congelado;Alcatra Maturado Perdigão na Brasa - 4 a 6kg
+3;BRF - Sadia;Outros;7899638370097;;Congelado;Acém Short Rib Sadia Bassi Stars - 4 a 6,5kg
+3;BRF - Sadia;Outros;7899638370097;;Congelado;Acém Short Rib Maturado Sadia Bassi Stars - 4 a 6,5kg
+3;BRF - Sadia;Suínos;5602772155312;;Congelado;Lombo Bacalhau Desalgado Soguima - 400 a 500g
+3;BRF - Sadia;Outros;6956666601263;;Congelado;Kani Kama Seapro
+3;BRF - Sadia;Suínos;5602772155015;;Congelado;Lombo Bacalhau Desalgado Soguima - 500 a 700g
+3;BRF - Sadia;Outros;5602772304901;;Congelado;Risoles De Bacalhau Reymar - 360g
+3;BRF - Sadia;Outros;5601809014592;;Congelado;Posta Bacalhau Dessalgado Maralto
+3;BRF - Sadia;Suínos;5601809008508;;Congelado;Bacalhau Lombo Dessalgado Soguima
+3;BRF - Sadia;Bovinos;7899638343862;;Congelado;Carne Compactado Hamburguer Picanha Sadia Bassi - 198 a 202g
+3;BRF - Sadia;Bovinos;7899638343879;;Congelado;Carne Compactado Hamburguer Costela Sadia Bassi - 198 a 202g
+3;BRF - Sadia;Lanches;7899638343923;;Congelado;Carne Compactado Hamburguer Sadia Bassi Angus - 198 a 202g
+4;BRF - Perdigão;Aves;7899638343817;;Congelado;Hamburguer Perdigão na Brasa - 540g
+4;BRF - Perdigão;Outros;7899638328333;;Congelado;Bananinha Recorte Do Contra - Filé Perdigão Montana
+3;BRF - Sadia;Suínos;5602772055698;;Congelado;Lombo De Bacalhau Dessalgado Soguima
+3;BRF - Sadia;Outros;5602772409644;;Congelado;Posta De Bacalhau Dessalgado Soguima
+3;BRF - Sadia;Outros;7899638349031;;Congelado;Fralda Maturado Angus Tacuarembó
+3;BRF - Sadia;Bovinos;7899638365086;;Congelado;Filé De Costela Ancho Steak Sadia Bassi - 300 a 350g
+3;BRF - Sadia;Outros;7899638307208;;Congelado;Filé de Tilápia Nova Pesca - 140g
+3;BRF - Sadia;Outros;6956666601140;;Resfriado;Filé Polaca Alasca Sem Pele Seapro - 280 a 500g
+3;BRF - Sadia;Outros;7899638351836;;Congelado;Filé Mignon Wagyu Tacurembó - 2 a 2,5kg
+4;BRF - Perdigão;Outros;7899638373241;;Congelado;Lagarto Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638371346;;Congelado;Picanha Argentina Maturado Sadia Bassi Stars - 1,4kg
+3;BRF - Sadia;Suínos;7899638374903;;Congelado;Cordeiro Carre Rack Nirea - 2,8 a 6,2kg
+3;BRF - Sadia;Suínos;7899638349208;;Congelado;Cordeiro Carre French Rack Nirea
+3;BRF - Sadia;Bovinos;7899638371353;;Congelado;Picanha Pesada Argentina Maturado Bassi - 1,4kg
+3;BRF - Sadia;Bovinos;7899638371377;;Congelado;Picanha Leve Argentina Maturado Bassi - 1,4kg
+4;BRF - Perdigão;Outros;7899638373708;;Congelado;Contra - Filé Perdigão Montana
+4;BRF - Perdigão;Aves;7899638367745;;Resfriado;Peito Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638368858;;Resfriado;Coração Da Alcatra Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367776;;Resfriado;Rolha Da Alcatra Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366519;;Resfriado;Capa De Filé Com Gordura Perdigão na Brasa
+3;BRF - Sadia;Bovinos;7899638365802;;Resfriado;Maminha Da Alcatra Sadia Bassi Angus
+3;BRF - Sadia;Bovinos;7899638365765;;Resfriado;Coração Da Alcatra Sadia Bassi Angus
+4;BRF - Perdigão;Aves;7899638366809;;Resfriado;Fraldão Resfriado Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366380;;Resfriado;Coração Da Paleta Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366366;;Resfriado;Capa De Filé Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367615;;Resfriado;Coração Da Alcatra Resfriado Perdigão Montana
+4;BRF - Perdigão;Outros;7899638367790;;Resfriado;Cordão Do Filé Mignon Resfriado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366656;;Resfriado;Filé Mignon Resfriado Perdigão na Brasa
+4;BRF - Perdigão;Outros;7899638367554;;Resfriado;Capa De Filé Resfriado Perdigão Montana - 2,4kg
+4;BRF - Perdigão;Aves;7899638366816;;Resfriado;Paleta Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366540;;Resfriado;Coração Da Paleta Com Gordura Perdigão na Brasa
+3;BRF - Sadia;Outros;7899638364867;;Resfriado;Filé Mignon Red Sadia Bassi
+4;BRF - Perdigão;Outros;7899638367714;;Resfriado;Paleta Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367684;;Resfriado;Maminha Da Alcatra Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366403;;Resfriado;Maminha Da Alcatra Resfriado Perdigão na Brasa - 1,7kg
+4;BRF - Perdigão;Aves;7899638366663;;Resfriado;Filé Mignon Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366472;;Resfriado;Filé Mignon Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366465;;Resfriado;Coração Da Alcatra Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366373;;Resfriado;Coração Da Alcatra Baby Beef Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367530;;Resfriado;Aranha Da Alcatra Resfriado Perdigão Montana
+4;BRF - Perdigão;Aves;7899638366793;;Resfriado;Alcatra Perdigão na Brasa
+4;BRF - Perdigão;Aves;7899638366502;;Resfriado;Alcatra Com Maminha Perdigão na Brasa
+4;BRF - Perdigão;Bovinos;7899638367783;;Resfriado;Alcatra Com Maminha Resfriado Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638341608;;Resfriado;Recorte Alcatra Aranha Perdigão Montana
+4;BRF - Perdigão;Aves;7891515610715;;Seco;Peito Jerked Beef Dianteiro Perdigão Montana
+4;BRF - Perdigão;Outros;7899638369015;;Seco;Jerked Beef Traseiro Perdigão Montana - 400g
+4;BRF - Perdigão;Outros;7899638369022;;Seco;Jerked Beef Ponta De Agulha Perdigão Montana - 400g
+4;BRF - Perdigão;Outros;7891515610715;;Seco;Jerked Beef Ponta De Agulha Perdigão Montana - 30kg
+4;BRF - Perdigão;Outros;7891515610715;;Seco;Jerked Beef Ponta De Agulha Perdigão Montana
+4;BRF - Perdigão;Outros;7899638369008;;Seco;Jerked Beef Dianteiro Perdigão Montana - 400g
+4;BRF - Perdigão;Outros;7899638369022;;Seco;Jerked Beef Dianteiro Perdigão Montana
+4;BRF - Perdigão;Bovinos;7899638367240;;Congelado;Acém Pescoço E Costela Do Dianteiro Congelado Perdigão Montana
+3;BRF - Sadia;Bovinos;7899638365055;;Congelado;Acém Denver Steak Sadia Bassi
+3;BRF - Sadia;Bovinos;7899638365048;;Congelado;Acém Cowboy Steak Sadia Bassi
+3;BRF - Sadia;Aves;7891515661618;;Seco;TULIPA FGO TEMPERADA NA BRASA 800GR
+3;BRF - Sadia;Aves;7891515656263;;Congelado;ASA 2JTA TULIPA FGO CONG NABRASA
+4;BRF - Perdigão;Bovinos;7899638368025;;Resfriado;Acém Pescoço E Costela Do Dianteiro Resfriado Perdigão Montana
+4;BRF - Perdigão;Outros;7891515660451;;Congelado;ARROZ BROC CARNE BOV PURE CONG 300G PD
+4;BRF - Perdigão;Aves;7891515660529;;Congelado;ARROZ LEGUMES FRANGO MILHO CONG 300G PD
+3;BRF - Sadia;Outros;7891515644659;;Seco;EMP FGO RECH PRES PER QJO IWP 110G SD
+4;BRF - Perdigão;Aves;7891515549398;;Congelado;Coxa com Sobrecoxa de Frango sem Osso Perdigão Na Brasa 800g -Caixa c/9
+4;BRF - Perdigão;Outros;7891515606428;;Congelado;Penne ao Molho Sugo e Manjericão Congelado Perdigão Meu Menu Pacote 300g - Caixa c/ 12
+4;BRF - Perdigão;Outros;7891515644512;;Congelado;Meu Menu | Caixa Mista 3 Sabores
+4;BRF - Perdigão;Outros;7891515644208;;Seco;Meu Menu Marmita | Caixa Mista 2 Sabores
+3;BRF - Sadia;Outros;5602772409644;;Seco;POSTA DE BACALHAU DESSALGADO CG 600G SOGUIMA
+3;BRF - Sadia;Aves;7899638366670;;Resfriado;LAGARTO RF VC MI MONTANA STEAKHOUSE NA BRASA
+4;BRF - Perdigão;Outros;7891515640514;;Congelado;KIBE CG PCT 500G MONTANA PERDIGAO
+4;BRF - Perdigão;Aves;7891515641559;;Congelado;ALMONDEGA DE CARNE E DE FRANGO CG PCT 500G MONTANA PERDIGAO
+3;BRF - Sadia;Suínos;5602772055698;;Seco;LOMBO DE BACALHAU DESSALGADO CG SOGUIMA
+3;BRF - Sadia;Bovinos;7891515614546;;Congelado;CUPIM COZ C/ SACHE MOLHO CG 1,3 SADIA
+4;BRF - Perdigão;Aves;7891515923938;;Congelado;Sassami de Frango Temperado Food Service Perdigão 3Kg -Caixa c/4
+4;BRF - Perdigão;Outros;7891515640910;;Congelado;Nhoque ao Molho Branco SD Hot Bowls Pote 300g
+4;BRF - Perdigão;Outros;7891515639433;;Congelado;Feijoada Congelada PD Meu Menu 300g
+3;BRF - Sadia;Outros;7891515640811;;Congelado;NHOQUE COM MOLHO BOLONHESA CONG 300G SD
+3;BRF - Sadia;Outros;7891515606831;;Seco;Linguiça Mista Cozida e Defumada Fininha Sadia 215g - Caixa c/ 21
+4;BRF - Perdigão;Outros;7891515606824;;Seco;Linguiça Mista Cozida e Defumada Fininha Perdigão 215g - Caixa c/ 21
+4;BRF - Perdigão;Aves;7891515606435;;Congelado;Fettuccine ao Molho Branco com Queijo Parmesão Ralado, Peito de Peru Defumado e Brócolis Congelado Perdigão 300g - Caixa c/ 12
+4;BRF - Perdigão;Lanches;7891515605803;;Congelado;Fettuccine ao Molho Bolonhesa com Queijo Parmesão Ralado Congelado Perdigão 300g - Caixa c/ 12
+3;BRF - Sadia;Bovinos;7899638354387;;Congelado;HAMBURGUER A BASE VEGETAL SABOR COSTELA
+3;BRF - Sadia;Outros;7891515601737;;Congelado;Hot Bowls Macarrão Mini Almôndegas Sadia 300g- Caixa c/9
+3;BRF - Sadia;Outros;7893000422186;;Resfriado;Presunto Royale Cozido Sadia Speciale - Caixa c/1
+3;BRF - Sadia;Suínos;7891515600624;;Congelado;Hot Bowls Macarrão Carbonara Sadia 300g - Caixa c/9
+3;BRF - Sadia;Suínos;7891515600617;;Congelado;Hot Bowls Macarrão com Brócolis e Bacon Sadia 300g - Caixa c/9
+3;BRF - Sadia;Outros;7891515598266;;Resfriado;Presunto Fatiado Sadia 180g - Caixa c/16
+3;BRF - Sadia;Outros;7891515598259;;Seco;Mortadela Fatiada Sadia 180g - Caixa c/16
+3;BRF - Sadia;Suínos;7891515594312;;Congelado;Linguiça Suína Sadia Congelada 700G Sadia
+3;BRF - Sadia;Suínos;7891515594411;;Congelado;Linguiça Toscana Sadia 700g - Caixa c/ 18
+3;BRF - Sadia;Outros;7891515591939;;Congelado;Queijo Mussarela Fatiado Sadia Soltíssimo 150g - Caixa c/28
+9;BRF - Sofiteli;Margarinas;7891515593865;;Seco;Margarina com Sal Uso Profissional Sofiteli Food Service Balde 15kg - Caixa c/1
+3;BRF - Sadia;Outros;7891515592097;;Congelado;Queijo Mussarela Fatiado Sadia Soltíssimo 300g - Caixa c/16
+3;BRF - Sadia;Outros;7891515592080;;Congelado;Queijo Prato Fatiado Soltíssimo 150g - Caixa c/28
+3;BRF - Sadia;Outros;7891515592073;;Congelado;Queijo Prato Fatiado Soltíssimo 300g - Caixa c/16
+4;BRF - Perdigão;Suínos;7891515008307;;Congelado;Linguiça Toscana Perdigão Na Brasa 1kg -Caixa c/12
+4;BRF - Perdigão;Aves;7891515221652;;Resfriado;Lanche de Ave Perdigão 3,75kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515919313;;Congelado;Linguiça Toscana Apimentada Perdigão Na Brasa 1kg -Caixa c/12
+4;BRF - Perdigão;Suínos;7891515014520;;Congelado;Linguiça de Pernil Suíno Perdigão Na Brasa 1kg -Caixa c/12
+4;BRF - Perdigão;Aves;7891515908720;;Congelado;Linguiça de Frango Perdigão Na Brasa 1kg -Caixa c/12
+4;BRF - Perdigão;Suínos;7891515929787;;Resfriado;Linguiça Paio Defumada Perdigão 2,5kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515929770;;Resfriado;Linguiça Tipo Portuguesa Defumada Perdigão 2,5kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515892401;;Resfriado;Linguiça Paio Defumada Perdigão 370g -Caixa c/24
+4;BRF - Perdigão;Outros;7891515880507;;Resfriado;Linguiça Mista Defumada Fininha Perdigão 240g -Caixa c/21
+4;BRF - Perdigão;Suínos;7891515977528;;Resfriado;Linguiça Tipo Portuguesa Defumada Perdigão 400g -Caixa c/18
+4;BRF - Perdigão;Suínos;7891515977511;;Resfriado;Linguiça Tipo Calabresa Defumada Perdigão 400g -Caixa c/10
+4;BRF - Perdigão;Suínos;7891515621063;;Seco;PIZZA DE FRANGO COM BACON PERDIGAO 460G
+4;BRF - Perdigão;Outros;7891515791179;;Congelado;Big Chicken com Queijo Perdigão 1kg -Caixa c/3
+4;BRF - Perdigão;Outros;7891515786298;;Congelado;Big Chicken Tradicional Perdigão 1kg -Caixa c/3
+4;BRF - Perdigão;Outros;7891515775636;;Resfriado;Mortadela Fatiada Tradicional Perdigão 200g -Caixa c/21
+3;BRF - Sadia;Suínos;7891515620899;;Congelado;MAC'N CHEESE CARNE SUINA BARBECUE CONG SD
+3;BRF - Sadia;Suínos;7891515620981;;Seco;LING. CALABRESA SADIA 400G CX 4,8KG
+3;BRF - Sadia;Bovinos;7899638354394;;Congelado;HAMBURGUER A BASE VEGETAL SABOR PICANHA
+3;BRF - Sadia;Outros;7899638357692;;Seco;Almôndega à Base de Vegetal Plantplus Foods Bandeja 250g 10 Unidades - Caixa c/12
+3;BRF - Sadia;Suínos;7899638357708;;Congelado;Linguiça Toscana à Base de Vegetal Toscana Plantplus Foods Caixa 250g 3 Unidades - Caixa c/12
+3;BRF - Sadia;Lanches;7899638357678;;Congelado;HAMBURGUER A BASE VEGETAL PLANT PLUS
+3;BRF - Sadia;Outros;7891515608767;;Congelado;Couve-Flor Wings Sadia Veg&Tal 275g - Caixa c/ 20
+3;BRF - Sadia;Outros;7891515606329;;Congelado;Mac'n Cheese Cheddar Sadia Hot Bowls 300g - Caixa c/ 9
+3;BRF - Sadia;Suínos;7891515606312;;Congelado;Mac'n Cheese Cheddar & Bacon Sadia Hot Bowls 300g - Caixa c/ 9
+3;BRF - Sadia;Suínos;7891515605704;;Congelado;Mac'n Cheese Cheddar & Calabresa Sadia Hot Bowls 300g - Caixa c/ 9
+8;BRF - Becel;Margarinas;7891515605513;;Seco;Margarina Ômega 6 Original c/ Sal Embalagem Econômica Becel 1kg- Caixa c/6
+4;BRF - Perdigão;Suínos;7891515593513;;Congelado;Linguiça Suína Perdigão Na Brasa 2kg - Caixa c/8
+3;BRF - Sadia;Outros;7891515593452;;Congelado;Salsicha Hot Dog Sadia 3kg - Caixa c/12
+7;BRF - Claybom;Margarinas;7891515901066;;Resfriado;Margarina Cremosa com Sal Claybom Pote 250g -Caixa c/24
+7;BRF - Claybom;Margarinas;7891515901059;;Resfriado;Margarina Cremosa com Sal Claybom Pote 500g -Caixa c/12
+6;BRF - Deline;Margarinas;7891515618872;;Seco;MARGARINA DELINE SABORES POTE 250G
+4;BRF - Perdigão;Suínos;7891515767600;;Resfriado;Bacon Defumado Manta Perdigão 14kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515767600;;Resfriado;Bacon Defumado Manta Perdigão
+4;BRF - Perdigão;Suínos;7891515621773;;Seco;Bacon Meia Manta Perdigão
+3;BRF - Sadia;Lanches;7891515608569;;Congelado;Hambúrguer Vegetal Abóbora & Grão-de-Bico Sadia Veg&Tal 113g - Caixa c/36
+3;BRF - Sadia;Lanches;7891515608552;;Congelado;Hambúrguer Vegetal Brócolis & Espinafre Sadia Veg&Tal 113g - Caixa c/ 36
+3;BRF - Sadia;Outros;7891515609290;;Congelado;Seleta de Legumes Congelada Sadia Veg&Tal 300g - Caixa c/20
+3;BRF - Sadia;Outros;7891515609283;;Congelado;Mandioca Congelada Sadia Veg&Tal 900g - Caixa c/ 12
+4;BRF - Perdigão;Suínos;7891515605643;;Resfriado;Bacon em cubos Perdigão 400g
+3;BRF - Sadia;Lanches;7891515606114;;Congelado;Nuggets de Legumes Sadia Veg&Tal 275g - Caixa c/ 15
+4;BRF - Perdigão;Bovinos;7891515982157;;Resfriado;Costela Suína Salgada Perdigão Caixa 13kg
+4;BRF - Perdigão;Suínos;7891515021382;;Resfriado;Pé Suíno Salgado Perdigão 13kg -Caixa c/1
+4;BRF - Perdigão;Bovinos;7891515021368;;Resfriado;Costela Suína Retalho Salgada Perdigão 13kg -Caixa c/1
+4;BRF - Perdigão;Aves;7891515013240;;Congelado;Frango Inteiro com Carcaça Perdigão Caixa 13Kg
+3;BRF - Sadia;Suínos;7891515617080;;Seco;LINGUICA CALABRESA RETA FS PT 2,5KG SD
+4;BRF - Perdigão;Suínos;7891515767600;;Resfriado;Bacon Defumado Manta Perdigão 13kg -Caixa c/4
+8;BRF - Becel;Outros;8719200225305;;Seco;Manteiga Vegetal c/ Sal Zero Lactose Becel 227g - Caixa c/ 24
+3;BRF - Sadia;Outros;7891515618322;;Congelado;EMP NACHO FRG COZ CONG 275G SD
+3;BRF - Sadia;Outros;7891515611125;;Resfriado;FRIO DE FILE MIGNON COZ. SD CX 6,58KG
+4;BRF - Perdigão;Bovinos;7891515359096;;Congelado;COSTELA SUI CONG PERD PVAR
+4;BRF - Perdigão;Aves;7891515645311;;Congelado;Linguiça de Carne Suína para Churrasco Perdigão na Brasa 700g
+4;BRF - Perdigão;Aves;7891515023614;;Congelado;COSTELA SUI CONG NABRASA PD PVAR
+4;BRF - Perdigão;Aves;7891515498139;;Congelado;ASA INT PERU ITF CONG PERD PVAR
+4;BRF - Perdigão;Aves;7891515591762;;Congelado;Picanha Bovina Congelada s/ Osso Maturada Perdigão Na Brasa - Peso variável
+4;BRF - Perdigão;Aves;7891515591731;;Congelado;Contrafilé Bovino Congelado s/ Osso Maturado Perdigão Na Brasa - Caixa com peso variável
+4;BRF - Perdigão;Aves;7891515975210;;Congelado;Coração de Peru Congelado Perdigão C/1
+4;BRF - Perdigão;Aves;7891515975524;;Congelado;PESCOCO DE PERU S/P CONG PERD PVAR
+3;BRF - Sadia;Bovinos;7891515641016;;Congelado;PONTA COSTELA SUI CONG IWP SD PVAR
+3;BRF - Sadia;Bovinos;7891515539122;;Congelado;Costela Tira Suína CONG IWP Sadia PVAR
+4;BRF - Perdigão;Aves;7891515022587;;Congelado;Salsicha de Frango Perdigão Caixa 20kg
+4;BRF - Perdigão;Outros;7891515945206;;Resfriado;Salsicha Hot-Dog Perdigão 2,8kg -Caixa c/4
+4;BRF - Perdigão;Aves;7891515194864;;Congelado;Moela de Frango Perdigão 1kg -Caixa c/16
+4;BRF - Perdigão;Bovinos;7891515359096;;Congelado;Costela Suína Perdigão Caixa 10Kg -Caixa c/7
+4;BRF - Perdigão;Outros;7891515921446;;Congelado;Linguiça Mista Frescal Perdigão 5kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515907839;;Congelado;Linguiça Toscana Perdigão Na Brasa 5kg -Caixa c/4
+4;BRF - Perdigão;Suínos;7891515220501;;Congelado;Tender Suíno Perdigão 1 kg
+4;BRF - Perdigão;Aves;7891515853808;;Congelado;Sambiquira de Frango Perdigão 1kg -Caixa c/16
+4;BRF - Perdigão;Suínos;7891515983000;;Resfriado;Rabo Suíno Salgado Perdigão 13kg
+4;BRF - Perdigão;Aves;7891515977412;;Congelado;Coração de Frango Perdigão 1kg -Caixa c/16
+4;BRF - Perdigão;Aves;7891515023614;;Congelado;Costela Suína Perdigão Na Brasa Caixa 10kg
+4;BRF - Perdigão;Aves;7891515969509;;Congelado;Coxinha da Asa de Frango Perdigão 1kg -Caixa c/16
+3;BRF - Sadia;Bovinos;7891515620950;;Congelado;STROGONOFF DE CARNE BOVINA 500G SD CONG
+3;BRF - Sadia;Outros;7899638357685;;Seco;Kibe Vegetal Plantplus Foods Bandeja 250g 5 Unidades - Caixa c/12
+4;BRF - Perdigão;Suínos;7891515610944;;Congelado;PERNIL RECH C/CALABRESA CONG SADIA
+4;BRF - Perdigão;Aves;7891515644826;;Congelado;Mini Lasanha Bolonhesa C/12
+3;BRF - Sadia;Aves;7891515648824;;Congelado;Caixa Mista Mini Lasanha 350g Sadia C/ 12
+4;BRF - Perdigão;Aves;7891515650414;;Congelado;Empanado de Chester
+3;BRF - Sadia;Outros;7891515652210;;Seco;Torta Mousse Com Panettone Chocolate
+3;BRF - Sadia;Aves;7891515650926;;Seco;Meio da Asa e Coxinha Chester Na Brasa
+3;BRF - Sadia;Aves;7891515651596;;Congelado;Chester Recheado Farofa Congelado
+4;BRF - Perdigão;Outros;7891515594206;;Congelado;Linguiça Mista Congelada C/18
+4;BRF - Perdigão;Suínos;7891515648022;;Congelado;Linguiça Calabresa Pigmentada Perdigão Na Brasa C/16
+4;BRF - Perdigão;Suínos;7891515647360;;Congelado;Empadão de Calabresa Congelada com Cream Cheese C/6 - Perdigão
+4;BRF - Perdigão;Suínos;7891515647353;;Congelado;Empadão Congelado Frango Com Bacon e Requeijão C/6 - Perdigão
+3;BRF - Sadia;Outros;7891515647063;;Seco;Batata Palito POP Pré Frita Sadia 400g C/25
+3;BRF - Sadia;Outros;7891515646578;;Resfriado;Salsicha Sadia Pop Dog C/21
+4;BRF - Perdigão;Outros;7891515646448;;Congelado;CHURRASBURGUER MAIONESE GRILL C/18 - Perdigão Montana
+4;BRF - Perdigão;Outros;7891515646431;;Congelado;Cheeseburguer com Ketchup Picles C/18 - Perdigão Montana Pacote
+8;BRF - Becel;Margarinas;7891515644482;;Seco;Margarina com Sal Zero Lactose Becel Toque Gourmet Pote 500g
+8;BRF - Becel;Margarinas;7891515644499;;Seco;Margarina com Sal Zero Lactose Becel Toque Gourmet Pote 250g
+3;BRF - Sadia;Outros;7891515477530;;Congelado;RETALHO COST SUI PREMIUM CONG SD PVAR FS
+3;BRF - Sadia;Outros;7893000516915;;Congelado;Costelinha Suína CONG SD PVAR
+4;BRF - Perdigão;Outros;7891515645410;;Seco;Cesta Felicidade Perdigão C/ 2 Kits
+4;BRF - Perdigão;Outros;7891515645274;;Seco;Cesta Otimismo Perdigão C/ 2 Kits
+4;BRF - Perdigão;Outros;7891515645281;;Seco;Cesta Sonhos Perdigão C/ 2 Kits
+3;BRF - Sadia;Outros;7891515645427;;Seco;Cesta Sucesso Sadia C/ 2 Kits
+3;BRF - Sadia;Aves;7891515645298;;Seco;Cesta Vitória Sadia C/ 2 Kits
+3;BRF - Sadia;Suínos;7891515645304;;Seco;Cesta Alegria Sadia C/ 2 Kits
+3;BRF - Sadia;Bovinos;7891515477547;;Congelado;RETALHO COSTELA SUÍNA ITF CONG SD PVAR FS
+4;BRF - Perdigão;Aves;7891515644819;;Congelado;Linguiça Tipo Cuiabana Perdigão Na Brasa C/16
+3;BRF - Sadia;Aves;7891515644895;;Congelado;Linguiça de Frango Sadia 700g
+3;BRF - Sadia;Suínos;7891515644925;;Congelado;COPA LOMBO CONG IWP PVAR SADIA
+4;BRF - Perdigão;Suínos;7891515644468;;Congelado;Linguiça de Pernil Perdigão na Brasa 700g
+4;BRF - Perdigão;Suínos;7891515644437;;Seco;Linguiça Toscana Perdigão na Brasa 700g
+4;BRF - Perdigão;Suínos;7891515644451;;Seco;Linguiça Toscana Apimentada Perdigão na Brasa 700g
+3;BRF - Sadia;Outros;7891515644369;;Congelado;Hot Bowls | Nhoque Bolonhesa & Molho Branco Caixa Mista
+3;BRF - Sadia;Outros;7891515550790;;Seco;Torta Tender com Cream Cheese e Alho Poró Sadia 500 g
+4;BRF - Perdigão;Suínos;7891515592165;;Seco;Torta Chester com Calabresa e Molho Sabor Cheddar 500 g
+4;BRF - Perdigão;Suínos;7891515521851;;Congelado;PERNIL SUINO CONG IWP PVAR SADIA
+3;BRF - Sadia;Suínos;7891515521868;;Congelado;PATINHO SUINO CONG IWP PVAR SADIA
+3;BRF - Sadia;Aves;7893000012509;;Congelado;TORTA DE FRANGO COM REQUEIJAO 500G
+3;BRF - Sadia;Suínos;7891515521837;;Congelado;ALCATRA SUINA CONG IWP PVAR SADIA
+3;BRF - Sadia;Outros;7891515550790;;Congelado;Torta Tender C/ Cream Cheese 500G
+3;BRF - Sadia;Aves;7891515610746;;Congelado;Ave Inteira Temperada Congelada Kidelli 3,6kg a 4,2 kg
+3;BRF - Sadia;Aves;7891515610746;;Congelado;Ave Inteira Temperada Congelada Kidelli 2,7 kg a 3,6 kg
+3;BRF - Sadia;Bovinos;7891515610012;;Congelado;Costela Suína Temperada com Molho BBQ 1,3 kg a 1,5 kg
+4;BRF - Perdigão;Suínos;7891515592165;;Congelado;Torta Chester com Calabresa e Molho Sabor Cheddar Perdigão 500g -Caixa c/6
+4;BRF - Perdigão;Aves;7891515592332;;Congelado;Peito Chester com Molho de Laranja 1,2 kg a 1,9 kg
+8;BRF - Becel;Margarinas;7891515644130;;Seco;Margarina com Sal Zero Lactose Becel Toque Gourmet Pote 1kg
+4;BRF - Perdigão;Suínos;7891515604820;;Congelado;Bacon em Cubos Perdigão 1kg - Caixa c/6
+3;BRF - Sadia;Aves;7891515602444;;Congelado;Peito a Passarinho Congelado Sadia Aperitivo 1kg - Caixa c/ 12
+4;BRF - Perdigão;Outros;7891515605773;;Congelado;Penne ao Molho Parisiense Congelado Perdigão 300g - Caixa c/ 12
+3;BRF - Sadia;Suínos;7891515606121;;Resfriado;BACON EM CUBOS SADIA
+3;BRF - Sadia;Aves;7891515592929;;Congelado;Picanha Suína Na Brasa Peso Variável - Caixa c/10
+3;BRF - Sadia;Aves;7891515592912;;Congelado;Pancetta Suína em Tiras s/ osso e c/ pele Na Brasa - Caixa c/10
+3;BRF - Sadia;Aves;7891515592820;;Congelado;Coração Frango Na Brasa 500g - Caixa c/20
+4;BRF - Perdigão;Suínos;7891515591922;;Congelado;Hamburguer Suíno Congelado Perdigão 56g - Caixa c/36
+4;BRF - Perdigão;Aves;7891515591748;;Congelado;Fraldinha Bovina Congelada s/ Osso Perdigão Na Brasa - Peso variável
+3;BRF - Sadia;Aves;7891515591137;;Seco;KIT SUCESSO (AVE) SD C/ 2 KITS
+2;Friboi - Friboi;Bovinos;0789830229831;;Resfriado;ALCATRA COM MAMINHA FRACIONADA (3 PARTES) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789830228327;;Resfriado;ALCATRA COMPLETA (ACIMA DE 6,8KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789830228329;;Resfriado;PICANHA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789830228330;;Resfriado;MAMINHA DA ALCATRA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789830228332;;Resfriado;FRALDA (ACIMA DE 1,5KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789830228333;;Resfriado;CUPIM (2 A 3,5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789830229087;;Congelado;CUPIM B - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228321;;Congelado;CUPIM B FATIADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228325;;Congelado;MÚSCULO MOLE E DURO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229091;;Congelado;LÍNGUA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229092;;Congelado;CORAÇÃO BOVINO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229093;;Congelado;RABO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229094;;Congelado;RIM - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229095;;Congelado;RÚMEN FATIADO (BUCHO) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229899;;Resfriado;CONTRA FILÉ FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229096;;Congelado;BAÇO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229956;;Congelado;CAPA DE FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229957;;Congelado;CAPA DO COXÃO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228151;;Congelado;COXÃO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228350;;Congelado;ACÉM FRACIONADO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789830228359;;Resfriado;ALCATRA COMPLETA (5,5 A 6,8KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789830228399;;Congelado;RABO - 1953
+2;Friboi - Friboi;Bovinos;0789830229119;;Congelado;FÍGADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228443;;Congelado;COSTELA DO TRASEIRO TIRAS COM OSSO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789830228444;;Congelado;CUPIM A (2 A 3,5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789830228445;;Congelado;MÚSCULO DO DIANTEIRO - FRIBOI
+12;Friboi - 1953;Bovinos;0789830228448;;Resfriado;FRALDA (ACIMA DE 1,3KG) - 1953
+10;Friboi - Do Chef;Bovinos;0789830228458;;Congelado;PICANHA (BABY) - DO CHEF
+12;Friboi - 1953;Bovinos;0789830228462;;Resfriado;CAPA DE FILÉ - 1953
+10;Friboi - Do Chef;Bovinos;0789830228513;;Congelado;CONTRA FILÉ (ACIMA DE 4,5KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789830228526;;Resfriado;PATINHO - 1953
+12;Friboi - 1953;Bovinos;0789830228527;;Resfriado;LAGARTO - 1953
+12;Friboi - 1953;Bovinos;0789830228529;;Resfriado;FILÉ MIGNON (4 A 5 LIBRAS) SEM TRANÇA - 1953
+2;Friboi - Friboi;Bovinos;0789830228531;;Congelado;COXÃO MOLE SEM CAPA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228534;;Congelado;PÊRA DO COXAO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229124;;Congelado;BIFE DO VAZIO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229125;;Congelado;PULMÃO BOVINO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228781;;Congelado;MOCOTÓ - FRIBOI
+13;Friboi - Black;Bovinos;0789830228868;;Congelado;FILÉ MIGNON (2 A 3 LIBRAS) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228875;;Congelado;LAGARTO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228639;;Congelado;FILÉ MIGNON SEM TRANÇA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228640;;Congelado;FILÉ MIGNON (CABEÇA) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229002;;Resfriado;PEITO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228708;;Congelado;CORDÃO DO FILÉ MIGNON - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789830228054;;Congelado;PICANHA - MATURATTA
+2;Friboi - Friboi;Bovinos;0789830229021;;Resfriado;ALCATRA - FRIBOI
+12;Friboi - 1953;Bovinos;0789830228030;;Congelado;CONTRA FILÉ (4,5 A 5,5KG) - 1953
+2;Friboi - Friboi;Bovinos;0789830229159;;Resfriado;CORDÃO DO FILÉ MIGNON - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229163;;Congelado;RÚMEN BRANQUEADO (BUCHO) SEM RETÍCULO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229166;;Congelado;PICANHA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229023;;Resfriado;COXÃO DURO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229169;;Resfriado;CAPA DE FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229024;;Resfriado;PATINHO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229172;;Congelado;CORAÇÃO DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229173;;Resfriado;ALCATRA COM MAMINHA FRACIONADA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229174;;Resfriado;CORAÇÃO DA ALCATRA FRACIONADO - FRIBOI
+12;Friboi - 1953;Bovinos;0789956725097;;Congelado;CAPA DE FILÉ - 1953
+2;Friboi - Friboi;Bovinos;0789830229183;;Resfriado;ROLHA DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229184;;Resfriado;COXÃO MOLE - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789830229187;;Resfriado;FRALDA - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789830229188;;Resfriado;MAMINHA DA ALCATRA - MATURATTA
+2;Friboi - Friboi;Bovinos;0789830229003;;Resfriado;PALETA SEM MÚSCULO (PÁ) - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789830229189;;Resfriado;PICANHA - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789830229190;;Resfriado;CORAÇÃO DA ALCATRA - MATURATTA
+2;Friboi - Friboi;Bovinos;0789854202633;;Congelado;MÚSCULO MOLE E DURO FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228112;;Resfriado;ALCATRA - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789830229787;;Resfriado;FILÉ MIGNON - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789830229191;;Resfriado;CUPIM A - MATURATTA
+2;Friboi - Friboi;Bovinos;0789830229030;;Resfriado;CONTRA FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228036;;Congelado;CONTRA FILÉ FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228957;;Congelado;COXÃO DURO FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229196;;Resfriado;BIFE DO VAZIO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789830229331;;Resfriado;PICANHA (BABY) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789830229031;;Resfriado;CORAÇÃO DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228248;;Congelado;PATINHO FRACIONADO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789846610616;;Resfriado;CORAÇÃO DA ALCATRA SEM ROLHA - DO CHEF
+13;Friboi - Black;Bovinos;0789846610640;;Congelado;CONTRA FILÉ (ACIMA DE 5,5KG) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789846610734;;Congelado;PICANHA (ABAIXO DE 1,35KG) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789846610799;;Resfriado;CONTRA FILÉ FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789846610800;;Resfriado;LAGARTO FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789846610801;;Resfriado;PATINHO FRACIONADO - FRIBOI
+13;Friboi - Black;Bovinos;0789846610842;;Congelado;FRALDA RED - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789846610956;;Resfriado;PONTA DE AGULHA (ROJÃO) SEM OSSO CORTADA - 1953
+2;Friboi - Friboi;Bovinos;0789893673448;;Resfriado;MÚSCULO DO DIANTEIRO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789893673479;;Resfriado;FILÉ DE COSTELA EM PEDAÇOS - FRIBOI
+2;Friboi - Friboi;Bovinos;0789893762609;;Resfriado;CUPIM A (1 A 2KG) - FRIBOI
+10;Friboi - Do Chef;Pescados;0789956724972;;Congelado;FILÉ DE TILÁPIA SEM PELE PACOTE (500G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789850331013;;Congelado;CARNE MOÍDA (PATINHO) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789850331043;;Congelado;CONTRA FILÉ SEM PONTA FRACIONADO PARTIDO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331147;;Resfriado;CONTRA FILÉ SEM PONTA FRACIONADO PARTIDO - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789850331186;;Congelado;CONTRA FILÉ CORTADO - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789850331187;;Congelado;CORAÇÃO DA ALCATRA - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789850331188;;Congelado;CUPIM A - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789850331189;;Congelado;FILÉ DE COSTELA - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789850331190;;Congelado;FILÉ MIGNON - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789850331191;;Congelado;FRALDA - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789850331195;;Congelado;MAMINHA DA ALCATRA - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789850331196;;Congelado;PICANHA - MATURATTA
+2;Friboi - Friboi;Bovinos;0789850331296;;Congelado;COXÃO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331331;;Congelado;PALETA SEM MÚSCULO (PÁ) - FRIBOI
+13;Friboi - Black;Bovinos;0789854202511;;Congelado;FILÉ DE COSTELA (2,5 A 3,5KG) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789850331344;;Congelado;CORAÇÃO DA ALCATRA SEM ROLHA E COM GORDURA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789850331442;;Congelado;CONTRA FILÉ (4,5 A 5,5KG) COM CORDÃO E COM ABA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789850331504;;Congelado;CORAÇÃO DA ALCATRA SEM ROLHA E SEM GORDURA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789850331519;;Congelado;PICANHA - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331527;;Congelado;FRALDA - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789850331573;;Congelado;FILÉ MIGNON CUBOS (0,900 A 1Kg) GRAMATURADO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789850331625;;Congelado;COXÃO DURO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331626;;Congelado;PATINHO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331627;;Congelado;FILÉ MIGNON - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331628;;Congelado;CORAÇÃO DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331629;;Congelado;LAGARTO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331630;;Congelado;MAMINHA DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331631;;Congelado;FRALDA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331632;;Congelado;COXÃO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331633;;Congelado;PICANHA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331634;;Congelado;MÚSCULO MOLE E DURO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331635;;Congelado;CAPA DE FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331636;;Congelado;CONTRA FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331644;;Congelado;ALCATRA COM MAMINHA - FRIBOI
+13;Friboi - Black;Bovinos;0789435100262;;Congelado;LAGARTO SEM GORDURA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435101613;;Congelado;MAMINHA DA ALCATRA - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789435115818;;Resfriado;CORAÇÃO DA ALCATRA SEM ROLHA E COM GORDURA - 1953
+10;Friboi - Do Chef;Bovinos;0789435118751;;Congelado;LOMBO BOVINO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789435120014;;Congelado;RÚMEN BRANQUEADO - FRIBOI
+12;Friboi - 1953;Bovinos;0789435141302;;Resfriado;FILÉ MIGNON PORCIONADO - 1953
+10;Friboi - Do Chef;Bovinos;0789435147327;;Congelado;FRALDA RED - DO CHEF
+12;Friboi - 1953;Bovinos;0789435160827;;Congelado;CORAÇÃO DA ALCATRA (SEM ROLHA E COM GORDURA) - 1953
+13;Friboi - Black;Bovinos;0789435165845;;Congelado;ACÉM (CHUCK EYE ROLL) PORCIONADO - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789435101338;;Congelado;FILÉ DE COSTELA (TOMAHAWK) EM PEDAÇOS (0,5 a 2,5KG)- 1953
+12;Friboi - 1953;Bovinos;0789435101484;;Resfriado;CORAÇÃO DA PALETA - 1953
+12;Friboi - 1953;Bovinos;0789435101948;;Congelado;FILÉ DE COSTELA (BIFE ANCHO 2,5 A 3,5KG) - 1953
+12;Friboi - 1953;Bovinos;0789435102010;;Congelado;COXÃO DURO - 1953
+12;Friboi - 1953;Bovinos;0789435102013;;Congelado;PATINHO - 1953
+12;Friboi - 1953;Bovinos;0789435102175;;Congelado;FILÉ DE COSTELA (BIFE ANCHO ACIMA DE 3,5KG) - 1953
+2;Friboi - Friboi;Bovinos;0789435103236;;Resfriado;CORAÇÃO DA ALCATRA - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789435104064;;Congelado;FILÉ DE COSTELA (2 A 4KG) COM ABA - DO CHEF
+2;Friboi - Friboi;Bovinos;0789435104075;;Congelado;CONTRA FILÉ SEM FILÉ MIGNON COM OSSO - FRIBOI
+13;Friboi - Black;Bovinos;0789435104347;;Congelado;FILÉ DE COSTELA COM OSSO (TOMAHAWK INTEIRO ) - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789435105083;;Resfriado;MÚSCULO MOLE E DURO - 1953
+12;Friboi - 1953;Bovinos;0789435105098;;Resfriado;FRALDA RED - 1953
+10;Friboi - Do Chef;Bovinos;0789435105464;;Resfriado;FILÉ DE COSTELA (2 A 4KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789435105776;;Congelado;CUPIM A FATIADO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789435105881;;Resfriado;COSTELA DO TRASEIRO (JANELÃO) COM OSSO - FRIBOI
+12;Friboi - 1953;Bovinos;0789435107560;;Congelado;LAGARTO - 1953
+2;Friboi - Friboi;Bovinos;0789435107716;;Resfriado;MÚSCULO (MOLE E DURO) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789435107864;;Congelado;ALCATRA COMPLETA (ACIMA DE 6,8KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789435107888;;Congelado;MAMINHA DA ALCATRA - DO CHEF
+13;Friboi - Black;Bovinos;0789435108107;;Congelado;CORAÇÃO DA PALETA - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789435108239;;Resfriado;ACÉM (COSTELINHA PARCIAL) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789435108986;;Congelado;DIAFRAGMA - FRIBOI
+13;Friboi - Black;Bovinos;0789435109239;;Congelado;PEIXINHO - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789435109379;;Congelado;PALETA COM MÚSCULO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789435109417;;Resfriado;PEITO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789435109562;;Congelado;PEITO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789435102215;;Congelado;CORAÇÃO DA ALCATRA SEM ROLHA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789435109593;;Congelado;ALCATRA COMPLETA (5,5 A 6,8KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789435109685;;Congelado;CORAÇÃO DA ALCATRA RED - 1953
+2;Friboi - Friboi;Bovinos;0789435109705;;Resfriado;PEIXINHO BOVINO - FRIBOI
+12;Friboi - 1953;Bovinos;0789435109954;;Resfriado;COXÃO DURO - 1953
+2;Friboi - Friboi;Bovinos;0789435110244;;Congelado;PALETA SEM MÚSCULO (PÁ) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789435110579;;Resfriado;PEITO (PEDAÇOS) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789435183899;;Congelado;COSTELA DO DIANTEIRO (0,8 A 1,2KG) (CUBOS) - FRIBOI
+12;Friboi - 1953;Bovinos;0789435189582;;Congelado;COSTELA DO TRASEIRO (QUADRADA) - 1953
+12;Friboi - 1953;Bovinos;0789435189586;;Congelado;COSTELA DO TRASEIRO (3 RIPAS) COM OSSO - 1953
+13;Friboi - Black;Bovinos;0789435192353;;Resfriado;FILÉ DE COSTELA (BIFE ANCHO) DIVIDIDO - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789435100114;;Resfriado;FRALDA PORCIONADA - 1953
+10;Friboi - Do Chef;Bovinos;0789435104456;;Resfriado;CUPIM A (FATIADO) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789850331738;;Congelado;LOMBINHO DO DIAFRAGMA - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789850331903;;Congelado;PONTA DE AGULHA SEM OSSO - DO CHEF
+12;Friboi - 1953;Bovinos;0789956725104;;Congelado;PEITO (BRISKET) EM PEDAÇOS - 1953
+12;Friboi - 1953;Bovinos;0789435110605;;Congelado;LOMBO BOVINO - 1953
+10;Friboi - Do Chef;Bovinos;0789435110396;;Congelado;FRALDA (ACIMA DE 1,5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789435179028;;Congelado;ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789850331997;;Congelado;CONTRA FILÉ CONG IQF (BIFE 80 A 100G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789435111411;;Resfriado;FILÉ DE COSTELA (BIFE ANCHO ACIMA DE 3,5KG) - 1953
+10;Friboi - Do Chef;Bovinos;0789435111536;;Congelado;PICANHA - DO CHEF
+11;Friboi - Maturatta;Bovinos;0789435111454;;Congelado;PONTA DE PEITO (BRISKET) - MATURATTA
+12;Friboi - 1953;Bovinos;0789435111702;;Congelado;FILÉ MIGNON (CABEÇA E CAUDA) - 1953
+2;Friboi - Friboi;Bovinos;0789851575352;;Resfriado;MÚSCULO MOLE E DURO FRACIONADO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789851575531;;Congelado;CUPIM A (3,5 A 5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789435112095;;Congelado;ACÉM COMPLETO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789851575616;;Congelado;BIFE DO VAZIO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789435106180;;Resfriado;FILÉ MIGNON (CENTRO) - DO CHEF
+12;Friboi - 1953;Bovinos;0789435106192;;Resfriado;CONTRA FILÉ (4,5 A 5,5KG) - 1953
+2;Friboi - Friboi;Bovinos;0789851575653;;Resfriado;FILÉ MIGNON SEM TRANÇA - FRIBOI
+13;Friboi - Black;Bovinos;0789435112099;;Resfriado;RAQUETE (SHOULDER) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112102;;Resfriado;FRALDA RED - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112103;;Resfriado;PICANHA (ABAIXO DE 1,35KG) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112105;;Resfriado;MAMINHA DA ALCATRA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112386;;Resfriado;ACÉM (PORCIONADO) - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789435112388;;Resfriado;PEITO (BRISKET) EM PEDAÇOS - 1953
+12;Friboi - 1953;Bovinos;0789851575812;;Resfriado;LOMBO - 1953
+13;Friboi - Black;Bovinos;0789435112110;;Congelado;CORAÇÃO DA ALCATRA (BABY BEEF) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112151;;Congelado;CORAÇÃO DA ALCATRA (BOMBOM) SEM GORDURA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112131;;Resfriado;CORAÇÃO DA ALCATRA (BOMBOM) SEM GORDURA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112144;;Resfriado;FILÉ MIGNON (3 A 4 LIBRAS) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112140;;Congelado;FILÉ DE COSTELA (BIFE ANCHO) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229032;;Resfriado;FILÉ DE COSTELA (1 A 2KG) - FRIBOI
+13;Friboi - Black;Bovinos;0789851575680;;Congelado;ACÉM COM OSSO (SHORT RIB) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202644;;Congelado;COSTELA DO DIANTEIRO - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789851575672;;Congelado;FILÉ MIGNON (3 A 4 LIBRAS) SEM TRANÇA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789956721235;;Resfriado;FILÉ MIGNON (4 A 5 LIBRAS) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789851575756;;Congelado;FILÉ DE COSTELA COM OSSO (PRIME RIB) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789435112143;;Congelado;T-BONE BOVINO - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789956723428;;Congelado;OSSOS PATELA - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789851575966;;Congelado;CARNE MOÍDA TUBETE (1KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789435112561;;Resfriado;COXÃO MOLE - 1953
+13;Friboi - Black;Bovinos;0789435112636;;Congelado;TIMO BOVINO (SANGRIA E CORAÇAO) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789435112659;;Congelado;DIAFRAGMA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202000;;Congelado;PATINHO IQF (BIFE 100 A 120G) - FRIBOI
+2;Friboi - Friboi;Aves;0789629533520;;Congelado;TIRINHAS EMPANADA DE FRANGO PACOTE (1KG) - C.VALE
+2;Friboi - Friboi;Bovinos;0789801733514;;Congelado;PICANHA SUÍNA - FRIELLA
+10;Friboi - Do Chef;Bovinos;0789854202265;;Resfriado;FILÉ MIGNON (ACIMA DE 5 LIBRAS) SEM TRANÇA - DO CHEF
+2;Friboi - Friboi;Bovinos;0789854202270;;Resfriado;LAGARTO - FRIBOI
+13;Friboi - Black;Bovinos;0789854202271;;Resfriado;LAGARTO (RED) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228732;;Congelado;CORAÇÃO DA ALCATRA FRACIONADO - FRIBOI
+10;Friboi - Do Chef;Outros;0789854202653;;Congelado;MANDIOCA PALITO PACOTE (2KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789854202654;;Congelado;MANDIOCA EM PEDAÇOS PACOTE (2KG) - DO CHEF
+10;Friboi - Do Chef;Pescados;0789956724992;;Congelado;FILÉ DE POLACA DO ALASCA IQF - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789854202438;;Resfriado;FILÉ MIGNON (CABEÇA E CAUDA) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789854202443;;Congelado;MOCOTÓ (SERRADO) - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789843086160;;Resfriado;FILÉ DE COSTELA (BIFE ANCHO) - MATURATTA
+13;Friboi - Black;Bovinos;0789854202570;;Congelado;OSSOBUCO (3CM) PORCIONADO - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202578;;Congelado;COSTELA DO DIANTEIRO (ASSADO EM TIRAS) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202579;;Congelado;CONTRA FILÉ DIVIDIDO COM CAPA E ABA - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202673;;Resfriado;FRALDA RED - FRIBOI
+13;Friboi - Black;Bovinos;0789854202698;;Resfriado;CONTRA FILÉ DIVIDIDO COM CAPA E ABA - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789956723051;;Congelado;LOMBO BOVINO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603125067;;Resfriado;BANANINHA DO CONTRA FILÉ - FRIBOI
+13;Friboi - Black;Bovinos;0789854202798;;Congelado;RAQUETE (SHOULDER) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202799;;Congelado;PEITO (BRISKET) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202838;;Congelado;PICANHA FATIADA - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202842;;Congelado;ACÉM EM CUBOS PACOTE IQF - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202844;;Congelado;ACÉM EM ISCAS PACOTE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202843;;Congelado;PALETA EM CUBOS IQF 30MM - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202846;;Congelado;PALETA COM MÚSCULO IQF ISCAS - FRIBOI
+13;Friboi - Black;Bovinos;0789854202847;;Resfriado;CONTRA FILÉ COM CAPA E ABA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202856;;Congelado;COXÃO MOLE - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202858;;Congelado;PATINHO - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789854202857;;Congelado;COXÃO DURO - BLACK FRIBOI
+10;Friboi - Do Chef;Pescados;0789956724986;;Congelado;FILÉ DE TILÁPIA SEM PELE (5KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956720073;;Congelado;POLENTA PALITO (2KG) PACOTE - DO CHEF
+10;Friboi - Do Chef;Outros;0789956720076;;Congelado;POLENTA EM PEDAÇOS PACOTE (2KG) - DO CHEF
+13;Friboi - Black;Bovinos;0789956720346;;Congelado;ACÉM COM OSSO (SHORT RIB - STEAK) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789830228546;;Congelado;PICANHA - FRIBOI
+2;Friboi - Friboi;Aves;0789731853540;;Resfriado;QUEIJO MUSSARELA (4KG) - DAVACA
+2;Friboi - Friboi;Aves;0789731851915;;Resfriado;QUEIJO PRATO (2,5KG) - DAVACA
+2;Friboi - Friboi;Bovinos;0789854202989;;Resfriado;JERKED BEEF TRASEIRO (1KG) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956720665;;Congelado;CARNE MOÍDA TUBETE (1KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956720696;;Congelado;LOMBINHO DO DIAFRAGMA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720700;;Congelado;PATINHO IQF (BIFE 60A 80G) - FRIBOI
+13;Friboi - Black;Bovinos;0789956720703;;Congelado;BANANINHA DO CONTRA FILÉ - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720707;;Congelado;PATINHO IQF (BIFE 80 A 100G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720710;;Congelado;COXÃO MOLE IQF (BIFE 100 A 120G) - FRIBOI
+10;Friboi - Do Chef;Pescados;0789956724997;;Congelado;FILÉ DE MERLUZA SEM PELE INTERFOLHADO (60 A 200G) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956720856;;Congelado;BRÓCOLIS PACOTE (2KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956720857;;Congelado;COUVE-FLOR PACOTE (2KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956720859;;Congelado;ERVILHA PACOTE (2KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789854202986;;Resfriado;JERKED BEEF TRASEIRO (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720559;;Resfriado;JERKED BEEF PONTA DE AGULHA (30KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202991;;Resfriado;JERKED BEEF PONTA DE AGULHA (5KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202993;;Resfriado;JERKED BEEF TRASEIRO (5KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720558;;Temperatura Ambiente;JERKED BEEF PEITO 2 PELOS (30KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603120507;;Temperatura Ambiente;JERKED BEEF DIANTEIRO (30KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603125104;;Resfriado;JERKED BEEF TRASEIRO (30KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202992;;Resfriado;JERKED BEEF DIANTEIRO (5KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603120508;;Resfriado;JERKED BEEF BOVINO PALETA (30KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229033;;Resfriado;LAGARTO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721294;;Congelado;CARNE MOÍDA (PATINHO) IQF - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721398;;Congelado;CONTRA FILÉ IQF (BIFE 60 A 80G) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956721362;;Congelado;CARNE MOÍDA IQF (2KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956720953;;Congelado;CARNE MOÍDA TUBETE (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603120509;;Temperatura Ambiente;JERKED BEEF COXÃO DURO (30KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202985;;Resfriado;JERKED BEEF DIANTEIRO (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202988;;Resfriado;JERKED BEEF DIANTEIRO (1KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202990;;Resfriado;JERKED BEEF PONTA DE AGULHA (1KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202987;;Resfriado;JERKED BEEF PONTA DE AGULHA (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603120510;;Resfriado;JERKED BEEF CUPIM (30KG) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956721549;;Congelado;COSTELA DO TRASEIRO (JANELA) COM OSSO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956721550;;Congelado;COSTELA DO TRASEIRO (JANELÃO) COM OSSO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956721552;;Congelado;COSTELA DO TRASEIRO (TIRA MASTER) COM OSSO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956721554;;Congelado;COSTELA DO TRASEIRO TIRAS COM OSSO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721555;;Congelado;COSTELA DO TRASEIRO (MINGA) COM OSSO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721556;;Congelado;COSTELA DO TRASEIRO (JANELÃO) COM OSSO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956721562;;Congelado;COSTELA DO TRASEIRO (QUADRADA) COM OSSO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956721564;;Congelado;COSTELA DO TRASEIRO (MINGA) COM OSSO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956721717;;Resfriado;PEITO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956722087;;Congelado;COSTELA DIANTEIRO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956722119;;Congelado;MÚSCULO IQF EM CUBOS 30MM - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722122;;Congelado;COSTELA DO TRASEIRO (MINGA SEM OSSO) - FRIBOI
+13;Friboi - Black;Bovinos;0789956722127;;Resfriado;CORAÇÃO DA ALCATRA (BABY BEEF) COM GORDURA DIVIDIDO - BLACK FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956722136;;Resfriado;CONTRA FILÉ (3,5 A 4,5KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956722137;;Congelado;CONTRA FILÉ (3,5 A 4,5KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956722140;;Resfriado;ALCATRA (4,5 A 5,5KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956722141;;Congelado;ALCATRA (4,5 A 5,5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956722185;;Congelado;FÍGADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722225;;Congelado;CORAÇÃO DA ALCATRA (BIFE 90 A 100G) IQF - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722247;;Congelado;RABO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722248;;Congelado;RÚMEN BRANQUEADO (BUCHO) SEM RETÍCULO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722249;;Congelado;LÍNGUA - FRIBOI
+13;Friboi - Black;Bovinos;0789956722358;;Congelado;COXÃO MOLE (SEM CAPA) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722387;;Congelado;CUPIM B (0,5 A 4KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722388;;Resfriado;CUPIM B (0,5 A 4KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722390;;Congelado;CUPIM A (1,5 A 4KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722391;;Resfriado;CUPIM B FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722392;;Congelado;CUPIM B FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722393;;Resfriado;CUPIM A (BOLINHA) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722394;;Congelado;CUPIM A (BOLINHA) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722437;;Congelado;COSTELA DO TRASEIRO PORCIONADA (MINGA) - FRIBOI
+13;Friboi - Black;Bovinos;0789956722528;;Congelado;BOCHECHA - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121731;;Resfriado;JERKED BEEF COXÃO DURO (5KG) - FRIBOI
+10;Friboi - Do Chef;Pescados;0789956724971;;Congelado;FILÉ DE TILÁPIA SEM PELE PACOTE (800G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956722663;;Congelado;FILÉ MIGNON (3 A 4 LIBRAS) SEM TRANÇA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956722664;;Congelado;FILÉ MIGNON (4 A 5 LIBRAS) SEM TRANÇA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956722665;;Congelado;FILÉ MIGNON (ACIMA DE 5 LIBRAS) SEM TRANÇA - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956722668;;Congelado;COXÃO MOLE FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722788;;Congelado;FÍGADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722790;;Congelado;RÚMEN BRANQUEADO (BUCHO) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722793;;Congelado;CORAÇÃO BOVINO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956722794;;Congelado;RABO - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789956722881;;Resfriado;PONTA DE PEITO - MATURATTA
+13;Friboi - Black;Bovinos;0789956722975;;Congelado;CONTRA FILÉ COM CAPA E ABA - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720559;;Resfriado;JERKED BEEF RETALHO (30KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956723015;;Congelado;COXÃO DURO (BIFES 50 A 60G) IQF - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956723016;;Congelado;COXÃO DURO (BIFES 70 A 80G) IQF - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956723017;;Congelado;COXÃO DURO IQF (BIFE 90 A 100G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956723018;;Congelado;COXÃO DURO BIFES IQF (110 A 120G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956723044;;Congelado;COXÃO DURO IQF ( BIFE 100 A 120G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202632;;Congelado;LAGARTO FRACIONADO - FRIBOI
+13;Friboi - Black;Bovinos;0789956723047;;Congelado;CORAÇÃO DA PALETA COM GORDURA - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789956723048;;Congelado;CAPA DE FILÉ - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721923;;Congelado;JERKED BEEF COXÃO DURO (500G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789956723258;;Congelado;MATAMBRE - 1953
+10;Friboi - Do Chef;Outros;0789956723259;;Congelado;BATATA PALITO 9MM PACOTE (2KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956723286;;Congelado;BATATA PALITO 9MM PACOTE (400G) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956723431;;Congelado;SELETA DE LEGUMES PACOTE (2KG) - DO CHEF
+13;Friboi - Black;Bovinos;0789956723444;;Congelado;T-BONE PORCIONADO - BLACK FRIBOI
+10;Friboi - Do Chef;Outros;0789956723453;;Congelado;MANDIOCA SUPREME PACOTE (1,1KG) - DO CHEF
+13;Friboi - Black;Bovinos;0789956724031;;Congelado;FILÉ DE COSTELA (MASTER BEEF) COM OSSO - BLACK FRIBOI
+10;Friboi - Do Chef;Pescados;0789956724967;;Congelado;FILÉ DE POLACA DO ALASCA PACOTE (800G) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956721810;;Resfriado;JERKED BEEF PONTA DE AGULHA (400G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789956724434;;Resfriado;CONTRA FILÉ EM PEDAÇOS - 1953
+12;Friboi - 1953;Bovinos;0789956724435;;Resfriado;FILÉ DE COSTELA (BIFE ANCHO) EM PEDAÇOS - 1953
+12;Friboi - 1953;Bovinos;0789956724436;;Resfriado;CORAÇÃO DA ALCATRA (BOMBOM) - 1953
+12;Friboi - 1953;Bovinos;0789956724437;;Resfriado;CORAÇÃO DA ALCATRA (BABY BEEF) - 1953
+12;Friboi - 1953;Bovinos;0789956724438;;Resfriado;RAQUETE (SHOULDER)- 1953
+12;Friboi - 1953;Bovinos;0789956724439;;Resfriado;MAMINHA DA ALCATRA - 1953
+12;Friboi - 1953;Bovinos;0789956724440;;Resfriado;PICANHA - 1953
+12;Friboi - 1953;Bovinos;0789956724441;;Resfriado;FILÉ MIGNON - 1953
+12;Friboi - 1953;Bovinos;0789956724442;;Resfriado;FRALDA - 1953
+12;Friboi - 1953;Bovinos;0789956724443;;Resfriado;PICANHA FATIADA - 1953
+12;Friboi - 1953;Bovinos;0789956724444;;Resfriado;ACÉM (CHUCK EYE ROLL) PORCIONADO - 1953
+12;Friboi - 1953;Bovinos;0789956724445;;Congelado;COSTELA DO DIANTEIRO - 1953
+12;Friboi - 1953;Bovinos;0789956724446;;Resfriado;CORAÇÃO DA PALETA RED - 1953
+12;Friboi - 1953;Bovinos;0789956724447;;Resfriado;BIFE DO VAZIO RED - 1953
+10;Friboi - Do Chef;Outros;0789956729865;;Congelado;CARRÉ OVINO CURTO - DO CHEF
+10;Friboi - Do Chef;Outros;0789956729869;;Congelado;CARRÉ OVINO FRANCÊS (16 A 18) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956729867;;Congelado;CARRÉ OVINO FRANCÊS (12 A 14) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956729868;;Congelado;CARRÉ OVINO FRANCÊS (14 A 16) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956729872;;Congelado;CARRÉ OVINO T-BONE (SELA) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956729873;;Congelado;COSTELA OVINA COM OSSO - DO CHEF
+10;Friboi - Do Chef;Suínos;0789956729876;;Congelado;PERNIL OVINO COM OSSO (1,3 A 1,8KG) - DO CHEF
+10;Friboi - Do Chef;Suínos;0789956729877;;Congelado;PERNIL OVINO COM OSSO (1,8 A 2,3KG) - DO CHEF
+10;Friboi - Do Chef;Suínos;0789956729878;;Congelado;PERNIL OVINO COM OSSO (ACIMA DE 2,3KG) - DO CHEF
+10;Friboi - Do Chef;Suínos;0789956729882;;Congelado;PERNIL OVINO STINCO COM OSSO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956729874;;Congelado;PALETA OVINA (ABAIXO DE 1,8KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956729875;;Congelado;PALETA OVINA (ACIMA DE 1,8KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789956725033;;Congelado;ACÉM (CHUCK EYE ROLL) PORCIONADO - 1953
+12;Friboi - 1953;Bovinos;0789956725034;;Congelado;BIFE DO VAZIO RED - 1953
+12;Friboi - 1953;Bovinos;0789956725035;;Congelado;CONTRA FILÉ EM PEDAÇOS - 1953
+12;Friboi - 1953;Bovinos;0789956725036;;Congelado;CORAÇÃO DA ALCATRA (BOMBOM) - 1953
+12;Friboi - 1953;Bovinos;0789956725037;;Congelado;CORAÇÃO DA ALCATRA (BABY BEEF) - 1953
+12;Friboi - 1953;Bovinos;0789956725038;;Congelado;FILÉ DE COSTELA (BIFE ANCHO) EM PEDAÇOS - 1953
+12;Friboi - 1953;Bovinos;0789956725039;;Congelado;FILÉ MIGNON - 1953
+12;Friboi - 1953;Bovinos;0789956725040;;Congelado;FRALDA - 1953
+12;Friboi - 1953;Bovinos;0789956725041;;Congelado;MAMINHA DA ALCATRA - 1953
+12;Friboi - 1953;Bovinos;0789956725042;;Congelado;RAQUETE (SHOULDER) - 1953
+12;Friboi - 1953;Bovinos;0789956725043;;Congelado;CORAÇÃO DA PALETA RED PORCIONADO - 1953
+12;Friboi - 1953;Bovinos;0789956725044;;Congelado;PICANHA FATIADA - 1953
+12;Friboi - 1953;Bovinos;0789956725045;;Congelado;PICANHA - 1953
+2;Friboi - Friboi;Bovinos;0789956724529;;Congelado;FÍGADO PEDACO (900G A 1,800KG) - FRIBOI
+12;Friboi - 1953;Bovinos;0789956725121;;Congelado;COSTELA DO TRASEIRO (MINGA) PORCIONADA - 1953
+12;Friboi - 1953;Bovinos;0789956725122;;Congelado;COSTELA DO TRASEIRO (MINGA) ACIMA DE 6KG - 1953
+12;Friboi - 1953;Bovinos;0789956725123;;Congelado;COSTELA DO TRASEIRO (MINGA) 4 A 6KG - 1953
+10;Friboi - Do Chef;Aves;0789956725998;;Congelado;FILÉ DE POLACA DO ALASCA PACOTE (500G) - DO CHEF
+10;Friboi - Do Chef;Pescados;0789956724968;;Congelado;FILÉ DE MERLUZA SEM PELE DE 60 A 200G PACOTE (800G) - DO CHEF
+12;Friboi - 1953;Bovinos;0789956725169;;Congelado;PEITO (BRISKET) - 1953
+10;Friboi - Do Chef;Outros;0789956729866;;Congelado;CARRÉ OVINO FRANCÊS (10 A 12) - DO CHEF
+12;Friboi - 1953;Bovinos;0789956725170;;Resfriado;PEIXINHO - 1953
+12;Friboi - 1953;Bovinos;0789956725171;;Congelado;PEIXINHO - 1953
+12;Friboi - 1953;Bovinos;0789956725318;;Resfriado;PEITO - 1953
+12;Friboi - 1953;Bovinos;0789956725224;;Congelado;FILÉ DE COSTELA (ACIMA DE 2KG) - 1953
+12;Friboi - 1953;Bovinos;0789956725225;;Congelado;CONTRA FILÉ (3,5 A 4,5KG) - 1953
+12;Friboi - 1953;Bovinos;0789956725235;;Congelado;FRALDA RED - 1953
+12;Friboi - 1953;Bovinos;0789956725241;;Resfriado;CONTRA FILÉ (3,5 A 4,5KG) - 1953
+12;Friboi - 1953;Bovinos;0789956725243;;Resfriado;CORAÇÃO DA ALCATRA RED - 1953
+12;Friboi - 1953;Bovinos;0789956725244;;Congelado;FILÉ DE COSTELA (PRIME RIB) - 1953
+12;Friboi - 1953;Bovinos;0789956725245;;Congelado;LOMBO BOVINO - 1953
+12;Friboi - 1953;Bovinos;0789956725246;;Congelado;T-BONE BOVINO - 1953
+12;Friboi - 1953;Bovinos;0789956725247;;Congelado;ACÉM COM OSSO (SHORT RIB) ACIMA DE 2KG - 1953
+12;Friboi - 1953;Bovinos;0789956725248;;Congelado;CONTRA FILÉ - 1953
+12;Friboi - 1953;Bovinos;0789956725249;;Congelado;FILÉ DE COSTELA (BIFE ANCHO ABAIXO DE 2,5KG) - 1953
+12;Friboi - 1953;Bovinos;0789956725250;;Resfriado;FILÉ DE COSTELA (BIFE ANCHO ABAIXO DE 2,5KG) - 1953
+10;Friboi - Do Chef;Outros;0789956725310;;Congelado;BRÓCOLIS PACOTE (2KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956725311;;Congelado;COUVE-FLOR PACOTE (2KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789956725315;;Congelado;SELETA DE VEGETAIS PACOTE (2KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789603121048;;Congelado;CARRÉ OVINO CURTO (5 COSTELAS) - 1953
+12;Friboi - 1953;Outros;0789603121049;;Congelado;CARRÉ OVINO FRANCÊS (18 A 20) 510 A 567G - 1953
+12;Friboi - 1953;Bovinos;0789603121051;;Congelado;CARRÉ OVINO CURTO (4 COSTELAS) - 1953
+12;Friboi - 1953;Outros;0789603121059;;Congelado;CARRÉ OVINO FRANCÊS (16 A 18) 454 A 510G - 1953
+12;Friboi - 1953;Outros;0789603121060;;Congelado;CARRÉ OVINO FRANCÊS (ACIMA DE 624G) - 1953
+12;Friboi - 1953;Bovinos;0789603121062;;Congelado;PALETA OVINA (1,4 A 1,6KG) - 1953
+12;Friboi - 1953;Outros;0789603121063;;Congelado;CARRÉ OVINO FRANCÊS (20 A 22) 567 A 624G - 1953
+12;Friboi - 1953;Outros;0789603121064;;Congelado;CARRÉ OVINO T-BONE - 1953
+12;Friboi - 1953;Bovinos;0789603121069;;Congelado;ALCATRA (PICANHA) OVINA ABAIXO DE 320G - 1953
+12;Friboi - 1953;Bovinos;0789603121072;;Congelado;PALETA OVINA (1,2 A 1,35KG) - 1953
+12;Friboi - 1953;Bovinos;0789603121073;;Congelado;PALETA OVINA (1,35 A 1,5KG) - 1953
+12;Friboi - 1953;Bovinos;0789956725347;;Congelado;T-BONE PORCIONADO - 1953
+12;Friboi - 1953;Bovinos;0789956725349;;Congelado;FILÉ DE COSTELA (PRIME RIB) COM OSSO (0,5 a 1,05KG) - 1953
+12;Friboi - 1953;Bovinos;0789603121075;;Congelado;ALCATRA (PICANHA) OVINA ACIMA DE 320G - 1953
+12;Friboi - 1953;Bovinos;0789956725443;;Resfriado;BANANINHA DO CONTRA FILÉ - 1953
+12;Friboi - 1953;Bovinos;0789956725546;;Congelado;BANANINHA DO CONTRA FILÉ - 1953
+12;Friboi - 1953;Bovinos;0789956725569;;Congelado;OSSOBUCO 3CM PORCIONADO - 1953
+12;Friboi - 1953;Bovinos;0789956725572;;Congelado;COSTELA DO DIANTEIRO (ASSADO DE TIRAS) - 1953
+12;Friboi - 1953;Bovinos;0789956725573;;Congelado;COSTELA DO TRASEIRO (JANELA) 4,5 A 5,5KG - 1953
+2;Friboi - Friboi;Bovinos;0789603121723;;Resfriado;JERKED BEEF COXÃO DURO (5KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956724892;;Congelado;ACÉM EM CUBOS IQF 30MM PACOTE (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956724890;;Congelado;COXÃO MOLE IQF (ISCAS 50X15X12MM) 500G - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956724891;;Congelado;CARNE MOÍDA 6MM IQF (500G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789956725826;;Congelado;DIAFRAGMA - 1953
+10;Friboi - Do Chef;Bovinos;0789956729883;;Congelado;ALCATRA (PICANHA) OVINA ABAIXO DE 450G - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956725850;;Congelado;COSTELA DO TRASEIRO (TIRA CURTA) COM OSSO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956724889;;Congelado;FÍGADO IQF (ISCAS 50X15X12MM) 500G - FRIBOI
+12;Friboi - 1953;Bovinos;0789956725956;;Congelado;GORDURA BOVINA - 1953
+12;Friboi - 1953;Bovinos;0789956725974;;Congelado;LOMBINHO DO DIAFRAGMA VERMELHO - 1953
+12;Friboi - 1953;Bovinos;0789956725975;;Resfriado;CORAÇÃO DA PALETA COM GORDURA - 1953
+12;Friboi - 1953;Bovinos;0789956725977;;Congelado;CORAÇÃO DA PALETA COM GORDURA - 1953
+12;Friboi - 1953;Bovinos;0789956725978;;Congelado;OSSOBUCO - 1953
+12;Friboi - 1953;Bovinos;0789956725982;;Resfriado;MIOLO (CHUCK EYE ROLL) DE ACÉM - 1953
+12;Friboi - 1953;Bovinos;0789956726236;;Congelado;FILÉ DE COSTELA (TOMAHAWK) COM OSSO - 1953
+12;Friboi - 1953;Bovinos;0789830228880;;Congelado;COSTELA DO TRASEIRO (JANELA) 5 A 6,5KG - 1953
+12;Friboi - 1953;Bovinos;0789956726251;;Resfriado;RECORTE DE PALETA (FILÉZINHO) - 1953
+2;Friboi - Friboi;Bovinos;0789956721811;;Resfriado;JERKED BEEF DIANTEIRO (400G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121732;;Resfriado;JERKED BEEF TRASEIRO (5KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721812;;Resfriado;JERKED BEEF TRASEIRO (400G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229034;;Resfriado;MAMINHA DA ALCATRA - FRIBOI
+10;Friboi - Do Chef;Aves;0789956723989;;Congelado;BATATA EXTRA CROCANTE DELIVERY 9MM PACOTE - DO CHEF
+11;Friboi - Maturatta;Bovinos;0789956726462;;Congelado;ACÉM COM OSSO (SHORT RIB) PORCIONADO - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789956726463;;Congelado;FILÉ DE COSTELA (PRIME RIB) COM OSSO - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789956726464;;Congelado;COSTELA DO DIANTEIRO COM OSSO (ASSADO DE TIRAS) - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789956726465;;Congelado;CONTRA FILÉ (CHULETA) COM OSSO - MATURATTA
+12;Friboi - 1953;Bovinos;0789956726469;;Resfriado;PEITO (BRISKET) - 1953
+12;Friboi - 1953;Bovinos;0789956726500;;Congelado;TIMO BOVINO (SANGRIA E CORAÇÃO) - 1953
+11;Friboi - Maturatta;Bovinos;0789956726505;;Congelado;PICANHA - MATURATTA
+12;Friboi - 1953;Bovinos;0789956726571;;Resfriado;COSTELA DO DIANTEIRO - 1953
+2;Friboi - Friboi;Bovinos;0789956726927;;Congelado;FRALDINHA COZIDA DESFIADA (2KG) - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789956726947;;Congelado;T-BONE BOVINO - MATURATTA
+10;Friboi - Do Chef;Outros;0789956724968;;Congelado;FILÉ DE MERLUZA (60 A 200g) SEM PELE (800G) - DO CHEF
+10;Friboi - Do Chef;Aves;0789956724997;;Congelado;FILÉ DE MERLUZA (60 A 200G) SEM PELE INTERFOLHADO - DO CHEF
+10;Friboi - Do Chef;Aves;0789956724996;;Congelado;FILÉ DE MERLUZÃO SEM PELE INTERFOLHADO - DO CHEF
+12;Friboi - 1953;Bovinos;0789490423131;;Congelado;HAMBÚRGUER GOURMET CARTUCHO (200G) - 1953
+12;Friboi - 1953;Bovinos;0789956727054;;Resfriado;LAGARTO RED - 1953
+10;Friboi - Do Chef;Pescados;0789956724973;;Congelado;FILÉ DE TILÁPIA SEM PELE PACOTE (800G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789461114839;;Congelado;BELLY RIBS SUÍNO (BARRIGA COM COSTELA E PELE) - DO CHEF
+12;Friboi - 1953;Bovinos;0789956727136;;Congelado;PEITO (BRISKET) - 1953
+10;Friboi - Do Chef;Suínos;0789461114857;;Congelado;PRIME RIB SUÍNO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789461114854;;Congelado;BARRIGA COM COSTELA SUÍNA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789461114856;;Congelado;PANCETA SUÍNA PIANO COM COSTELA E SEM OSSO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789461114853;;Congelado;COSTELA SUÍNA GRILL PORCIONADA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789461114862;;Congelado;PICANHA SUÍNA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727240;;Resfriado;PEITO (BRISKET) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727241;;Resfriado;CAPA DE FILÉ - DO CHEF
+2;Friboi - Friboi;Bovinos;0789854202291;;Congelado;HAMBÚRGUER BOVINO GRANEL (90G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202292;;Congelado;HAMBÚRGUER BOVINO GRANEL (120G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202297;;Congelado;HAMBÚRGUER BOVINO CARTUCHO (56G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202290;;Congelado;HAMBÚRGUER BOVINO GRANEL (56G) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956727425;;Resfriado;FRALDA (RED) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727521;;Resfriado;COXÃO DURO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727522;;Resfriado;COXÃO MOLE - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727523;;Resfriado;PALETA SEM MÚSCULO (PÁ) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727524;;Resfriado;ACÉM COM PESCOÇO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727525;;Resfriado;PATINHO - DO CHEF
+10;Friboi - Do Chef;Suínos;0789461114940;;Congelado;FILÉ MIGNON SUÍNO - DO CHEF
+10;Friboi - Do Chef;Suínos;0789461114858;;Congelado;LOMBO SUÍNO - DO CHEF
+12;Friboi - 1953;Bovinos;0789956727660;;Congelado;DIAFRAGMA - 1953
+2;Friboi - Friboi;Bovinos;0789956727662;;Temperatura Ambiente;JERKED BEEF BOVINO PEITO (5KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956727679;;Congelado;ACÉM E PESCOÇO COM OSSO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956727680;;Congelado;PALETA E MÚSCULO COM OSSO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956727681;;Congelado;PEITO E COSTELA DO DIANTEIRO COM OSSO - FRIBOI
+10;Friboi - Do Chef;Suínos;0789461114876;;Congelado;BIFE ANCHO SUÍNO - DO CHEF
+10;Friboi - Do Chef;Suínos;0789461114861;;Congelado;PRIME RIB SUÍNO PORCIONADO - DO CHEF
+10;Friboi - Do Chef;Aves;0789461114860;;Congelado;T-BONE SUÍNO PORCIONADO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956727705;;Congelado;CAPA DE FILÉ - DO CHEF
+10;Friboi - Do Chef;Suínos;0789461114850;;Congelado;PORCHETTA SUÍNA (0,9 A 1,2KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956724862;;Congelado;ESPETINHO TEMPERADO BOVINO (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956724863;;Congelado;ESPETINHO TEMPERADO BOVINO COM BACON (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956724861;;Congelado;ESPETINHO TEMPERADO BOVINO KAFTA (500G) - FRIBOI
+10;Friboi - Do Chef;Suínos;0789461114735;;Congelado;BRISKET SUÍNO (PEITO) - DO CHEF
+10;Friboi - Do Chef;Suínos;0789461114734;;Congelado;PORCHETTA SUÍNA INTEIRO - DO CHEF
+10;Friboi - Do Chef;Suínos;0789461114733;;Congelado;BELLY RIBS COM PELE - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956729086;;Resfriado;CAPA DE FILÉ - DO CHEF
+10;Friboi - Do Chef;Outros;0789956723259;;Congelado;BATATA TRADICIONAL 9MM PACOTE (2KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956729118;;Resfriado;CAPA DE FILÉ FRACIONADA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956724893;;Congelado;ALCATRA EM BIFE IQF 12MM PACOTE (800G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789956724885;;Congelado;HAMBÚRGUER GOURMET GRANEL (200G) - 1953
+2;Friboi - Friboi;Bovinos;0789956729234;;Resfriado;PICANHA (MEDALHÕES) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956729235;;Congelado;PICANHA (MEDALHÕES) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721855;;Congelado;HAMBÚRGUER SABOR PICANHA GRANEL (120G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789956729339;;Congelado;FRALDA (ACIMA DE 1,5KG) - 1953
+10;Friboi - Do Chef;Bovinos;0789461148981;;Congelado;COSTELA SUÍNA ESPECIAL - DO CHEF
+2;Friboi - Friboi;Bovinos;0789956721805;;Congelado;KIBE GRANEL PACOTE (1KG) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720904;;Congelado;KIBE CARTUCHO PACOTE CARTUCHO (500G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789956729660;;Resfriado;PICANHA (MEDALHÕES) - 1953
+2;Friboi - Friboi;Bovinos;0789956729712;;Resfriado;CARNE DE SOL (COXÃO MOLE) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720906;;Congelado;ALMÔNDEGA (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721856;;Congelado;ALMÔNDEGA PACOTE (1KG) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789956729992;;Resfriado;CONTRA FILÉ PEDAÇOS - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789956729995;;Resfriado;LAGARTO RED - DO CHEF
+10;Friboi - Do Chef;Pescados;0789956724991;;Congelado;BACALHAU DESSALGADO DESFIADO (6KG) - DO CHEF
+10;Friboi - Do Chef;Pescados;0789956724965;;Congelado;BACALHAU DESSALGADO DESFIADO (500G) - DO CHEF
+10;Friboi - Do Chef;Suínos;0789956724963;;Congelado;LOMBO DE BACALHAU DESSALGADO (6KG) - DO CHEF
+10;Friboi - Do Chef;Suínos;0789956725463;;Congelado;LOMBO DE BACALHAU DESSALGADO (800G) - DO CHEF
+10;Friboi - Do Chef;Pescados;0789956725464;;Congelado;BACALHAU EM POSTA DESSALGADO (800G) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603121097;;Congelado;PALETA (CUBOS) IQF MARINADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121098;;Congelado;PALETA (TIRAS) IQF MARINADO - FRIBOI
+12;Friboi - 1953;Bovinos;0789603121093;;Resfriado;LOMBO BOVINO - 1953
+2;Friboi - Friboi;Bovinos;0789603121279;;Congelado;HAMBÚRGUER 100% CARNE (180G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121280;;Congelado;HAMBÚRGUER 100% CARNE (150G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121281;;Congelado;HAMBÚRGUER 100% CARNE (120G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121282;;Congelado;HAMBÚRGUER 100% CARNE (56G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121283;;Congelado;HAMBÚRGUER 100% CARNE (90G) - FRIBOI
+10;Friboi - Do Chef;Outros;0789603121290;;Congelado;COUVE-FLOR PACOTE (300G)- DO CHEF
+10;Friboi - Do Chef;Outros;0789603121291;;Congelado;COUVE-FLOR PACOTE (1,05KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789603121294;;Congelado;HAMBÚRGUER GOURMET GRANEL (150G) - 1953
+10;Friboi - Do Chef;Outros;0789603120145;;Congelado;BRÓCOLIS PACOTE (300G) - DO CHEF
+10;Friboi - Do Chef;Outros;0789603120146;;Congelado;BRÓCOLIS PACOTE (1,05KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789603121410;;Congelado;DIAFRAGMA (ENTRANA) - 1953
+12;Friboi - 1953;Outros;0789603121451;;Congelado;CARRÉ OVINO T-BONE PORCIONADO (600G) - 1953
+11;Friboi - Maturatta;Bovinos;0789603120142;;Congelado;HAMBÚRGUER DE FRALDINHA (180G) - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789603120140;;Congelado;HAMBÚRGUER DE PICANHA (180G) - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789603120139;;Congelado;HAMBÚRGUER DE COSTELA (180G) - MATURATTA
+10;Friboi - Do Chef;Outros;0789603121459;;Congelado;BATATA PALITO 9MM PACOTE (1,05KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603121461;;Resfriado;FRALDA PORCIONADA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603121462;;Congelado;ALCATRA (ACIMA DE 6,8KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603121468;;Resfriado;FILÉ MIGNON (ACIMA DE 3 LIBRAS) SEM TRANÇA - DO CHEF
+10;Friboi - Do Chef;Outros;0789603120148;;Congelado;ERVILHA PACOTE (300G) - DO CHEF
+10;Friboi - Do Chef;Outros;0789603120149;;Congelado;ERVILHA PACOTE (1,05KG) - DO CHEF
+13;Friboi - Black;Bovinos;0789603121559;;Congelado;DIAFRAGMA (ENTRANA) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229035;;Resfriado;FRALDA (1,1 A 2,2KG) - FRIBOI
+12;Friboi - 1953;Outros;0789603121427;;Congelado;STINCO (370 A 440G) - 1953
+2;Friboi - Friboi;Bovinos;0789603121610;;Congelado;COPA LOMBO SUÍNO IQF BIFE 90 A 100G (2KG) - FRIBOI
+12;Friboi - 1953;Bovinos;0789603121624;;Resfriado;CORAÇÃO DA ALCATRA PARTIDO (BABY BEEF) - 1953
+2;Friboi - Friboi;Bovinos;0789956720941;;Congelado;BEEF BURGUER COM QUEIJO (120G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956720942;;Congelado;BEEF BURGUER SABOR CHURRASCO (120G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956721913;;Congelado;BEEF BURGUER COM BACON (120G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202298;;Congelado;HAMBÚRGUER DE AVES E BOVINOS CARTUCHO (56G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789854202293;;Congelado;HAMBÚRGUER DE AVES E BOVINOS GRANEL (56G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121626;;Congelado;HAMBÚRGUER SABOR PICANHA GRANEL (56G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603120356;;Congelado;KIBE GRANEL PACOTE (500G) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121629;;Congelado;ALMÔNDEGA PACOTE (500G) - FRIBOI
+13;Friboi - Black;Bovinos;0789603121670;;Congelado;ACÉM (DENVER STEAK) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789603121673;;Congelado;ACÉM (COWBOY STEAK) - BLACK FRIBOI
+13;Friboi - Black;Bovinos;0789603121676;;Congelado;FRALDA INSIDE SKIRT - BLACK FRIBOI
+11;Friboi - Maturatta;Bovinos;0789603121677;;Congelado;COSTELA DO TRASEIRO (JANELINHA) COM OSSO - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789603121680;;Congelado;COSTELA DO TRASEIRO (RIPA) COM OSSO - MATURATTA
+13;Friboi - Black;Bovinos;0789603121715;;Congelado;COSTELA DO DIANTEIRO (BOTTOM RIBS) - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789603121790;;Resfriado;BIFE DO VAZIO RED - 1953
+10;Friboi - Do Chef;Bovinos;0789603121801;;Resfriado;PICANHA (BABY) - DO CHEF
+12;Friboi - 1953;Bovinos;0789603121839;;Congelado;ACÉM COM OSSO (SHORT RIB) 400 A 500G - 1953
+12;Friboi - 1953;Bovinos;0789603121842;;Congelado;CORAÇÃO DA ALCATRA (BABY BEEF 200 A 225G) - 1953
+12;Friboi - 1953;Bovinos;0789603121843;;Congelado;CORAÇÃO DA ALCATRA (BABY BEEF 325G) - 1953
+12;Friboi - 1953;Bovinos;0789603121845;;Congelado;CORAÇÃO DA ALCATRA (BOMBOM 210 A 240G) - 1953
+12;Friboi - 1953;Bovinos;0789603121849;;Congelado;T-BONE BOVINO (550G) - 1953
+12;Friboi - 1953;Bovinos;0789603121853;;Congelado;CONTRA FILÉ (CHORIZO STEAK 240 A 260G) - 1953
+12;Friboi - 1953;Bovinos;0789603121854;;Congelado;CONTRA FILÉ (CHORIZO STEAK 280 A 320G) - 1953
+12;Friboi - 1953;Bovinos;0789603121856;;Congelado;CONTRA FILÉ (CHORIZO STEAK 375G) - 1953
+12;Friboi - 1953;Bovinos;0789603121859;;Congelado;COXÃO DURO (BIFE 100 A 140G) - 1953
+12;Friboi - 1953;Bovinos;0789603121861;;Congelado;FILÉ DE COSTELA (325G) - 1953
+12;Friboi - 1953;Bovinos;0789603121863;;Congelado;FILÉ DE COSTELA (260 A 300G) - 1953
+12;Friboi - 1953;Bovinos;0789603121875;;Congelado;FILÉ MIGNON (MEDALHÃO) 160 A 200G - 1953
+12;Friboi - 1953;Bovinos;0789603121876;;Congelado;FILÉ MIGNON TIRAS (450 A 550G) - 1953
+12;Friboi - 1953;Bovinos;0789603121880;;Congelado;CORAÇÃO DA PALETA (BIFE 170 A 210G) - 1953
+12;Friboi - 1953;Bovinos;0789603121881;;Congelado;FLAT IRON - 1953
+12;Friboi - 1953;Bovinos;0789603121882;;Congelado;PALETA (BIFE 120 G A 140G) - 1953
+12;Friboi - 1953;Bovinos;0789603121890;;Congelado;FILÉ DE COSTELA (200 A 240G) - 1953
+12;Friboi - 1953;Bovinos;0789603121892;;Congelado;CONTRA FILÉ (CHORIZO STEAK 100 A 150G) - 1953
+2;Friboi - Friboi;Bovinos;0789603121895;;Congelado;CONTRA FILÉ (BIFE 1,5CM) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121921;;Congelado;GORDURA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603121922;;Congelado;RECORTE BOVINO - FRIBOI
+13;Friboi - Black;Bovinos;0789603121924;;Congelado;FILÉ DE COSTELA (TOMAHAWK) COM OSSO (0,9 A 1,150KG)- BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789603121925;;Congelado;FILÉ DE COSTELA (TOMAHAWK) COM OSSO (0,900 A 1,150KG) - 1953
+13;Friboi - Black;Bovinos;0789603121926;;Congelado;T-BONE (PORTER HOUSE) 0,901 A 1,150KG - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789603121928;;Congelado;T-BONE (PORTER HOUSE) 901G A 1,150KG - 1953
+2;Friboi - Friboi;Bovinos;0789603121939;;Congelado;COPA LOMBO SUÍNO IQF (BIFE 70 A 80G) - FRIBOI
+12;Friboi - 1953;Bovinos;0789603121948;;Congelado;ACÉM (BIFE 110 A 130G) GRAMATURADO - 1953
+12;Friboi - 1953;Bovinos;0789603121951;;Congelado;DIANTEIRO E TRASEIRO (ISCAS 450 A 550G) - 1953
+10;Friboi - Do Chef;Bovinos;0789603122017;;Congelado;HAMBÚRGUER BOVINO GRANEL (120G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603122029;;Congelado;HAMBÚRGUER BOVINO GRANEL (150G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603122033;;Congelado;HAMBÚRGUER BOVINO GRANEL (180G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603122081;;Congelado;HAMBÚRGUER BOVINO GRANEL (200G) - Do Chef
+10;Friboi - Do Chef;Bovinos;0789603122038;;Congelado;HAMBÚRGUER BOVINO SMASH GRANEL (50G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603122079;;Congelado;HAMBÚRGUER BOVINO SMASH GRANEL (80G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603122040;;Congelado;CONTRA FILÉ (CHORIZO STEAK 180 A 220G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603122041;;Congelado;CONTRA FILÉ (CHORIZO STEAK 340 A 380G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603122080;;Congelado;HAMBÚRGUER (100G) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603122147;;Congelado;MAMINHA DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603122155;;Congelado;CONTRA FILÉ (BIFE 90 A 100G) IQF - FRIBOI
+12;Friboi - 1953;Bovinos;0789603122233;;Congelado;CONTRA FILÉ (CHORIZO STEAK 170 A 200G) - 1953
+10;Friboi - Do Chef;Suínos;0789461114732;;Congelado;MATAMBRITO SUÍNO - DO CHEF
+12;Friboi - 1953;Bovinos;0789603122260;;Congelado;CORAÇÃO DA ALCATRA (BOMBOM 170 A 200G) - 1953
+11;Friboi - Maturatta;Bovinos;0789603122384;;Congelado;LINGUIÇA DE COSTELA BOVINA (300G) - MATURATTA
+12;Friboi - 1953;Bovinos;0789603122314;;Congelado;FILÉ DE COSTELA - 1953
+12;Friboi - 1953;Bovinos;0789603122514;;Congelado;CONTRA FILÉ (CHORIZO) ESPESSURA 1,5 A 2,5 CM - 1953
+10;Friboi - Do Chef;Bovinos;0789603122326;;Congelado;CONTRA FILÉ (CHORIZO STEAK 140 A 179G) - DO CHEF
+12;Friboi - 1953;Bovinos;0789603122349;;Congelado;COSTELA DO DIANTEIRO (250 A 300G) - 1953
+12;Friboi - 1953;Bovinos;0789603122353;;Congelado;FLAT IRON (280 A 400G) - 1953
+12;Friboi - 1953;Bovinos;0789603122434;;Congelado;MÚSCULO DO DIANTEIRO - 1953
+12;Friboi - 1953;Bovinos;0789603122435;;Congelado;CORAÇÃO BOVINO - 1953
+13;Friboi - Black;Bovinos;0789603122436;;Congelado;CORAÇÃO BOVINO - BLACK FRIBOI
+12;Friboi - 1953;Bovinos;0789603122446;;Congelado;COSTELA DO DIANTEIRO (ASSADO DE TIRAS) - 1953
+2;Friboi - Friboi;Bovinos;0789603122465;;Resfriado;ALCATRA COM MAMINHA - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789603122488;;Congelado;CONTRA FILÉ EM BIFE GRAMATURADO (0,645 a 1KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603122503;;Congelado;COXÃO DURO - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789603120162;;Congelado;ESPETINHO DE KAFTA (900G) - DO CHEF
+10;Friboi - Do Chef;Aves;0789603120160;;Congelado;ESPETINHO DE CORAÇÃO (900G) - DO CHEF
+10;Friboi - Do Chef;Aves;0789603120161;;Congelado;ESPETINHO COXA E SOBRECOXA DE FRANGO (900G) - DO CHEF
+13;Friboi - Black;Bovinos;0789603122529;;Congelado;PESCOÇO BOVINO - BLACK FRIBOI
+10;Friboi - Do Chef;Bovinos;0789603120166;;Congelado;ESPETINHO DE CARNE BOVINA COM BACON (900G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603120165;;Congelado;ESPETINHO DE CARNE BOVINA (900G) - DO CHEF
+13;Friboi - Black;Bovinos;0789603122537;;Congelado;LAGARTO - BLACK FRIBOI
+10;Friboi - Do Chef;Bovinos;0789603122542;;Congelado;COSTELA DO DIANTEIRO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603122584;;Congelado;PATINHO IQF (BIFE 90 A 100G) MARINADO - FRIBOI
+12;Friboi - 1953;Bovinos;0789603122717;;Congelado;ACÉM (DENVER STEAK) - 1953
+12;Friboi - 1953;Bovinos;0789603122718;;Congelado;ACÉM (COWBOY STEAK) - 1953
+11;Friboi - Maturatta;Bovinos;0789603122776;;Congelado;FILÉ DE COSTELA - MATURATTA
+10;Friboi - Do Chef;Bovinos;0789603122782;;Resfriado;LOMBO BOVINO - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603122806;;Congelado;HAMBÚRGUER (90G) GRANEL - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789603122843;;Congelado;COSTELA DO TRASEIRO (JANELINHA) COM OSSO - MATURATTA
+11;Friboi - Maturatta;Bovinos;0789603122997;;Congelado;PICANHA EM PEDAÇOS GRAMATURADO (0,5 a 1KG)- MATURATTA
+2;Friboi - Friboi;Bovinos;0789603122998;;Congelado;PICANHA EM PEDAÇOS GRAMATURADO (0,5 a 1KG) - FRIBOI
+10;Friboi - Do Chef;Outros;0789603124024;;Congelado;SELETA DE VEGETAIS (300G) - DO CHEF
+10;Friboi - Do Chef;Outros;0789603124025;;Congelado;SELETA DE VEGETAIS (1,05KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603124026;;Congelado;CARNE MOÍDA TERMOFORMADO (0,9 A 1KG) - DO CHEF
+10;Friboi - Do Chef;Outros;0789603124029;;Congelado;BATATA PALITO 7MM PACOTE (2KG) - DO CHEF
+11;Friboi - Maturatta;Bovinos;0789603124079;;Congelado;CONTRA FILÉ ( SEM TRIÂNGULO) - MATURATTA
+10;Friboi - Do Chef;Bovinos;0789603124170;;Congelado;FILÉ MIGNON (MEDALHÃO) 90 A 110G - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603124185;;Temperatura Ambiente;JERKED BEEF PONTA DE AGULHA (5KG) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789603124317;;Congelado;ACÉM E PESCOÇO (COM OSSO) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603124318;;Congelado;PALETA E MÚSCULO (COM OSSO) - DO CHEF
+11;Friboi - Maturatta;Bovinos;0789603124346;;Congelado;FILÉ DE COSTELA (STEAK DE ANCHO) TERMOFORMADO - MATURATTA
+10;Friboi - Do Chef;Bovinos;0789603124354;;Congelado;CONTRA FILÉ (BIFE 1CM) GRAMATURADO (0,645 a 1KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603124516;;Congelado;MÚSCULO MOLE - DO CHEF
+11;Friboi - Maturatta;Bovinos;0789603124596;;Congelado;PÃO DE ALHO BOLINHA TRADICIONAL (150G) - MATURATTA
+10;Friboi - Do Chef;Bovinos;0789603124663;;Congelado;GORDURA - DO CHEF
+2;Friboi - Friboi;Bovinos;0789830228141;;Congelado;LOMBINHO DO DIAFRAGMA - FRIBOI
+10;Friboi - Do Chef;Suínos;0789461114731;;Congelado;PANCETA FATIADA SUÍNA - DO CHEF
+10;Friboi - Do Chef;Aves;0789603124858;;Congelado;FILÉ DE PANGA COM VENTRECHA SEM PELE PACOTE (800G) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603124868;;Resfriado;CORAÇÃO DA ALCATRA (RED) - DO CHEF
+10;Friboi - Do Chef;Pescados;0789603124977;;Congelado;FILÉ DE PANGA PREMIUM IQF (10KG) - DO CHEF
+10;Friboi - Do Chef;Pescados;0789603124978;;Congelado;FILÉ DE PANGA PREMIUM INTERFOLHADO (5KG) - DO CHEF
+10;Friboi - Do Chef;Aves;0789603124882;;Temperatura Ambiente;FRANGO SALGADO COZIDO DESFIADO PACOTE (2,5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603124927;;Resfriado;LOMBO - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789603122384;;Congelado;LINGUIÇA BOVINA (300G) - MATURATTA
+12;Friboi - 1953;Bovinos;0789603125166;;Congelado;CORAÇÃO DA PALETA (CUBOS) 2KG - 1953
+10;Friboi - Do Chef;Bovinos;0789603125252;;Congelado;COXÃO MOLE (CUBOS) 2KG - DO CHEF
+12;Friboi - 1953;Bovinos;0789603125278;;Congelado;COSTELA DO TRASEIRO (RIB SHORT) COM OSSO - 1953
+10;Friboi - Do Chef;Aves;0789956724968;;Congelado;FILÉ DE MERLUZA (60 A 200g) SEM PELE PACOTE (800G) - DO CHEF
+10;Friboi - Do Chef;Pescados;0789603125594;;Congelado;FILÉ DE TILÁPIA SEM PELE PACOTE (500G) - DO CHEF
+10;Friboi - Do Chef;Aves;0789603125597;;Congelado;FILÉ DE TILÁPIA SEM PELE PACOTE (800G) - DO CHEF
+10;Friboi - Do Chef;Aves;0789603125598;;Congelado;FILÉ DE TILÁPIA GRANEL (10KG) - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789897057417;;Congelado;COSTELA SUÍNA - DO CHEF
+10;Friboi - Do Chef;Suínos;0789897057413;;Congelado;BIFE ANCHO SUÍNO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789897057416;;Congelado;COSTELA SUÍNA GRILL PORCIONADA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789897057414;;Congelado;PANCETA PIANO (BARRIGA COM COSTELA) SEM OSSO - DO CHEF
+10;Friboi - Do Chef;Aves;0789897057415;;Congelado;FILÉ MIGNON SUÍNO - DO CHEF
+10;Friboi - Do Chef;Aves;0789956724972;;Congelado;FILÉ DE TILÁPIA SEM PELE PACOTE 500G (PLANALTO) - DO CHEF
+10;Friboi - Do Chef;Aves;0789956724973;;Congelado;FILÉ DE TILÁPIA SEM PELE PACOTE (800G) - PLANALTO
+12;Friboi - 1953;Bovinos;0789603126048;;Congelado;ENTRANHA (GROSSA) - 1953
+12;Friboi - 1953;Bovinos;0789603126049;;Congelado;PONTA DE AGULHA (BANANINHA) - 1953
+12;Friboi - 1953;Bovinos;0789603126436;;Resfriado;FILÉ DE COSTELA (PEDAÇOS) - 1953
+12;Friboi - 1953;Bovinos;0789603126438;;Resfriado;PICANHA - 1953
+12;Friboi - 1953;Bovinos;0789603126440;;Resfriado;CONTRA FILÉ (PEDAÇOS) - 1953
+12;Friboi - 1953;Bovinos;0789603126444;;Resfriado;FILÉ MIGNON - 1953
+12;Friboi - 1953;Bovinos;0789603126445;;Resfriado;FRALDA (RED) - 1953
+10;Friboi - Do Chef;Bovinos;0789603126461;;Congelado;OSSOBUCO - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789603126476;;Congelado;FILÉ MIGNON (CABEÇA E CAUDA)- DO CHEF
+2;Friboi - Friboi;Bovinos;0789830229036;;Resfriado;COXÃO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229700;;Congelado;CUPIM B - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229785;;Congelado;LOMBO BOVINO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229212;;Resfriado;PALETA COM MÚSCULO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229213;;Resfriado;ACÉM COMPLETO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229037;;Resfriado;PICANHA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229221;;Resfriado;ARANHA DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229222;;Resfriado;CAPA DO COXÃO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229039;;Resfriado;MÚSCULO MOLE E DURO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229234;;Congelado;FILÉ DE COSTELA - FRIBOI
+12;Friboi - 1953;Bovinos;0789603125076;;Congelado;CONTRA FILÉ (ACIMA DE 5,5KG) - 1953
+10;Friboi - Do Chef;Bovinos;0789956729696;;Resfriado;CORAÇÃO DA ALCATRA - DO CHEF
+2;Friboi - Friboi;Bovinos;0789603125346;;Congelado;PICANHA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229243;;Resfriado;FRALDA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229252;;Resfriado;BANANINHA DO CONTRA FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603120427;;Congelado;BIFE DO VAZIO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789843086110;;Resfriado;ACÉM COMPLETO FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789843086109;;Resfriado;PALETA SEM MÚSCULO FRACIONADA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789843086108;;Resfriado;PEITO FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789843086107;;Resfriado;COXÃO DURO FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789843086106;;Resfriado;COXÃO MOLE FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229256;;Congelado;CONTRA FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229257;;Congelado;ACÉM COMPLETO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229923;;Congelado;CAPA DE FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789603125183;;Congelado;ARANHA DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956729948;;Congelado;LAGARTO - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789843086161;;Resfriado;FILÉ DE COSTELA - MATURATTA
+2;Friboi - Friboi;Bovinos;0789830229266;;Congelado;FILÉ MIGNON SEM TRANÇA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229270;;Congelado;COXÃO DURO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229271;;Congelado;ALCATRA COM MAMINHA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229273;;Congelado;PATINHO - FRIBOI
+12;Friboi - 1953;Bovinos;0789843086203;;Resfriado;CONTRA FILÉ (ACIMA DE 5,5KG) - 1953
+2;Friboi - Friboi;Bovinos;0789830229049;;Congelado;COXÃO DURO - FRIBOI
+12;Friboi - 1953;Bovinos;0789843086231;;Congelado;FÍGADO - 1953
+2;Friboi - Friboi;Bovinos;0789603125105;;Congelado;PEITO FRACIONADO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229052;;Resfriado;ALCATRA COM MAMINHA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229053;;Resfriado;COXÃO DURO RED - FRIBOI
+12;Friboi - 1953;Bovinos;0789603125476;;Congelado;FRALDA RED - 1953
+10;Friboi - Do Chef;Bovinos;0789603125474;;Congelado;CUPIM A (1,5 A 3,5KG) - DO CHEF
+12;Friboi - 1953;Bovinos;0789830229299;;Resfriado;FILÉ DE COSTELA (BIFE ANCHO 2,5 A 3,5KG) - 1953
+2;Friboi - Friboi;Bovinos;0789830228226;;Resfriado;MÚSCULO DO DIANTEIRO FRACIONADO - FRIBOI
+13;Friboi - Black;Bovinos;0789843086654;;Congelado;PEITO (BRISKET) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229059;;Congelado;MÚSCULO MOLE E DURO - FRIBOI
+12;Friboi - 1953;Bovinos;0789830229320;;Congelado;ACÉM COM OSSO (SHORT RIB - STEAK) - 1953
+2;Friboi - Friboi;Bovinos;0789830229060;;Congelado;PATINHO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229061;;Congelado;PALETA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789760670012;;Congelado;SOBRECOXA DE FRANGO PACOTE - FLAMBOIÃ
+2;Friboi - Friboi;Bovinos;0789830229063;;Congelado;CUPIM A (1,5 A 5KG) - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789843086915;;Congelado;CONTRA FILÉ (SEM FILÉ MIGNON) COM OSSO - DO CHEF
+13;Friboi - Black;Bovinos;0789843086917;;Congelado;BIFE DO VAZIO - BLACK FRIBOI
+10;Friboi - Do Chef;Bovinos;0789843086928;;Resfriado;FILÉ MIGNON (3 A 4 LIBRAS) SEM TRANÇA - DO CHEF
+10;Friboi - Do Chef;Bovinos;0789843086929;;Resfriado;FILÉ MIGNON (4 A 5 LIBRAS) SEM TRANÇA - DO CHEF
+12;Friboi - 1953;Bovinos;0789843086984;;Congelado;COSTELA DO TRASEIRO (ASSADO DE TIRAS) - 1953
+10;Friboi - Do Chef;Bovinos;0789846610001;;Resfriado;CORAÇÃO DA ALCATRA SEM ROLHA E SEM GORDURA - DO CHEF
+2;Friboi - Friboi;Bovinos;0789846610011;;Congelado;PATINHO IQF (CUBOS 25MM) - FRIBOI
+2;Friboi - Friboi;Bovinos;0789846610003;;Congelado;DIAFRAGMA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229067;;Congelado;COXÃO MOLE - FRIBOI
+2;Friboi - Friboi;Bovinos;0789846610069;;Congelado;PALETA COM MÚSCULO FRACIONADA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229068;;Congelado;FILÉ MIGNON - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229386;;Congelado;OSSOBUCO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229069;;Congelado;CONTRA FILÉ - FRIBOI
+12;Friboi - 1953;Bovinos;0789846610128;;Congelado;COXÃO MOLE - 1953
+12;Friboi - 1953;Bovinos;0789846610152;;Congelado;COSTELA DO TRASEIRO (JANELÃO) ACIMA DE 6,5KG - 1953
+10;Friboi - Do Chef;Bovinos;0789846610197;;Resfriado;FILÉ DE COSTELA COM ABA (2 A 5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789846610198;;Congelado;BANANINHA DO CONTRA FILÉ - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229071;;Congelado;ALCATRA COM MAMINHA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229072;;Congelado;ALCATRA - FRIBOI
+12;Friboi - 1953;Bovinos;0789846610259;;Congelado;CONTRA FILÉ EM PEDAÇOS - 1953
+2;Friboi - Friboi;Bovinos;0789830229418;;Congelado;MAMINHA DA ALCATRA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229380;;Congelado;LAGARTO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229074;;Congelado;MAMINHA DA ALCATRA - FRIBOI
+11;Friboi - Maturatta;Bovinos;0789846610327;;Resfriado;CONTRA FILÉ (CORTADO) - MATURATTA
+2;Friboi - Friboi;Bovinos;0789830229075;;Congelado;CAPA DE FILÉ - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789846610339;;Resfriado;CONTRA FILÉ (ACIMA DE 4,5KG) - DO CHEF
+2;Friboi - Friboi;Bovinos;0789830229076;;Congelado;ACÉM COMPLETO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789956729250;;Resfriado;LAGARTO (VERMELHO) - FRIBOI
+13;Friboi - Black;Bovinos;0789846610373;;Congelado;FILÉ DE COSTELA (DIVIDIDO) - BLACK FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229077;;Congelado;PEITO - FRIBOI
+2;Friboi - Friboi;Bovinos;0789830229078;;Congelado;FRALDA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789846610435;;Resfriado;CONTRA FILÉ SEM PONTA - FRIBOI
+2;Friboi - Friboi;Bovinos;0789846610464;;Resfriado;CUPIM B - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789846610497;;Resfriado;COXÃO MOLE SEM CAPA E SEM PERA - DO CHEF
+2;Friboi - Friboi;Bovinos;0789830229866;;Congelado;ROLHA DE ALCATRA - FRIBOI
+10;Friboi - Do Chef;Bovinos;0789830229813;;Resfriado;CONTRA FILÉ PARTIDO (ACIMA DE 4,5KG) - DO CHEF
