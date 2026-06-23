@@ -1,5 +1,6 @@
 // components/CadastroProdutoModal.tsx
 import { useState, useEffect, useMemo, useRef } from 'react';
+import * as fuzzball from 'fuzzball';
 import Scanner from './Scanner';
 import { extrairDados } from '../lib/regex';
 
@@ -142,6 +143,91 @@ export default function CadastroProdutoModal({
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
+  // Estados para Vinculação de DUN
+  const [vincularDun, setVincularDun] = useState(!!initialDun);
+  const [produtoSelecionado, setProdutoSelecionado] = useState<ProdutoValido | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const searchResultsRef = useRef<HTMLDivElement>(null);
+
+  // Efeito de debounce para a busca avançada
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 180);
+    return () => clearTimeout(handler);
+  }, [searchTerm]);
+
+  // Reseta rolagem da busca avançada
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (searchResultsRef.current) {
+        searchResultsRef.current.scrollTop = 0;
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [debouncedSearchTerm]);
+
+  // Função auxiliar para normalizar string
+  const removeAccents = (text: string): string => {
+    return text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  };
+
+  // Produtos elegíveis: cadastrados que não possuem DUN
+  const produtosElegiveis = useMemo(() => {
+    return produtosValidos.filter(p => !p.produtoDun);
+  }, [produtosValidos]);
+
+  // Lógica de busca fuzzy usando fuzzball
+  const filteredProducts = useMemo(() => {
+    const cleanTerm = debouncedSearchTerm.trim();
+    if (!cleanTerm || cleanTerm.length < 2) return [];
+
+    const termNorm = removeAccents(cleanTerm);
+    const textsNorm = produtosElegiveis.map((prod) => 
+      removeAccents(`${prod?.marcaDescr || ''} ${prod?.produtoDescr || ''} ${prod?.produtoClasse || ''}`)
+    );
+
+    const results = fuzzball.extract(termNorm, textsNorm, {
+      scorer: fuzzball.token_set_ratio,
+      limit: 30,
+      cutoff: 40
+    });
+
+    return results
+      .map((r) => produtosElegiveis[r[2]])
+      .filter((prod): prod is ProdutoValido => !!(prod && prod.produtoEan && prod.produtoDescr));
+  }, [debouncedSearchTerm, produtosElegiveis]);
+
+  const handleSelecionarProduto = (prod: ProdutoValido | null) => {
+    setProdutoSelecionado(prod);
+    if (prod) {
+      setEanInput(prod.produtoEan);
+      setMarcaId(prod.marcaId);
+      setMarcaDescr(prod.marcaDescr);
+      setProdutoClasse(prod.produtoClasse);
+      setProdutoConservacao(prod.produtoConservacao);
+      setProdutoDescr(prod.produtoDescr);
+    } else {
+      setEanInput(initialEan);
+      setMarcaId('');
+      setMarcaDescr('');
+      setProdutoClasse('');
+      setProdutoConservacao('');
+      setProdutoDescr('');
+    }
+    setErrorMsg(null);
+  };
+
+  const handleToggleVincular = (active: boolean) => {
+    setVincularDun(active);
+    handleSelecionarProduto(null);
+    setSearchTerm('');
+  };
+
   // Carrega marcas cadastras do Google Sheets
   useEffect(() => {
     fetch('/api/marcas')
@@ -219,9 +305,20 @@ export default function CadastroProdutoModal({
     setErrorMsg(null);
 
     // Validações básicas
-    if (!eanInput.trim() || !dunInput.trim() || !marcaId || !produtoClasse || !produtoConservacao || !produtoDescr.trim()) {
-      setErrorMsg('Todos os campos são de preenchimento obrigatório.');
-      return;
+    if (vincularDun) {
+      if (!produtoSelecionado) {
+        setErrorMsg('Você precisa selecionar um produto elegível para realizar a vinculação.');
+        return;
+      }
+      if (!dunInput.trim()) {
+        setErrorMsg('O código DUN é obrigatório para a vinculação.');
+        return;
+      }
+    } else {
+      if (!eanInput.trim() || !dunInput.trim() || !marcaId || !produtoClasse || !produtoConservacao || !produtoDescr.trim()) {
+        setErrorMsg('Todos os campos são de preenchimento obrigatório.');
+        return;
+      }
     }
 
     // Validação de formato numérico
@@ -244,11 +341,13 @@ export default function CadastroProdutoModal({
       return;
     }
 
-    // Verifica se já existem no banco
-    const eanExiste = produtosValidos.some(p => p.produtoEan === eanInput && p.produtoEan !== initialEan);
-    if (eanExiste) {
-      setErrorMsg(`O EAN ${eanInput} já está cadastrado na base.`);
-      return;
+    // Verifica se já existem no banco (apenas valida EAN se não for vinculação)
+    if (!vincularDun) {
+      const eanExiste = produtosValidos.some(p => p.produtoEan === eanInput && p.produtoEan !== initialEan);
+      if (eanExiste) {
+        setErrorMsg(`O EAN ${eanInput} já está cadastrado na base.`);
+        return;
+      }
     }
     const dunExiste = produtosValidos.some(p => p.produtoDun === dunInput && p.produtoDun !== initialDun);
     if (dunExiste) {
@@ -271,7 +370,10 @@ export default function CadastroProdutoModal({
       const res = await fetch('/api/cadastrar-produto', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(novoProduto),
+        body: JSON.stringify({
+          ...novoProduto,
+          vincular: vincularDun,
+        }),
       });
 
       if (!res.ok) {
@@ -354,11 +456,11 @@ export default function CadastroProdutoModal({
                     type="text"
                     value={eanInput}
                     onChange={(e) => setEanInput(e.target.value.replace(/\D/g, ''))}
-                    disabled={isEanFixed}
+                    disabled={isEanFixed || vincularDun}
                     placeholder="Ex: 7891234567890"
                     className="flex-1 px-4 py-2.5 bg-slate-50 dark:bg-slate-800 disabled:bg-slate-100 dark:disabled:bg-slate-800/60 disabled:text-slate-500 border-2 border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:border-primary-500 transition-all text-sm text-slate-900 dark:text-slate-100"
                   />
-                  {!isEanFixed && (
+                  {!isEanFixed && !vincularDun && (
                     <button
                       type="button"
                       onClick={() => setActiveScanField('ean')}
@@ -403,52 +505,194 @@ export default function CadastroProdutoModal({
               </div>
             </div>
 
-            {/* MARCA */}
-            <SearchableSelect
-              label="Marca"
-              placeholder="Pesquisar ou selecionar marca..."
-              options={marcaOptions}
-              value={marcaId}
-              required={true}
-              onChange={(val, lbl) => {
-                setMarcaId(val);
-                setMarcaDescr(lbl);
-              }}
-            />
+            {/* Opção de Deslizar para Vincular DUN ao EAN elegível */}
+            {!!dunInput && (
+              <div className="flex items-center justify-between p-3.5 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-700/80 transition-all duration-300">
+                <div className="flex flex-col pr-3">
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wide">
+                    Vincular DUN a EAN Cadastrado
+                  </span>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
+                    Associar este código DUN a um produto da base que não possui DUN
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleToggleVincular(!vincularDun)}
+                  className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                    vincularDun ? 'bg-primary-600' : 'bg-slate-300 dark:bg-slate-600'
+                  }`}
+                >
+                  <span
+                    className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                      vincularDun ? 'translate-x-5' : 'translate-x-0'
+                    }`}
+                  />
+                </button>
+              </div>
+            )}
 
-            {/* CLASSE */}
-            <SearchableSelect
-              label="Classe"
-              placeholder="Pesquisar ou selecionar classe..."
-              options={classeOptions}
-              value={produtoClasse}
-              required={true}
-              onChange={(val) => setProdutoClasse(val)}
-            />
+            {/* Campo de Consulta / Pesquisa Avançada */}
+            {vincularDun && !produtoSelecionado && (
+              <div className="space-y-3 animate-fadeIn">
+                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1">
+                  Pesquisa Avançada do Produto <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Busque por marca, descrição ou classe (mínimo 2 letras)..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full px-4 py-2.5 pl-10 bg-slate-50 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:border-primary-500 transition-all text-sm text-slate-900 dark:text-slate-100"
+                  />
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                    <svg className="w-4 h-4 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                </div>
 
-            {/* CONSERVAÇÃO */}
-            <SearchableSelect
-              label="Conservação"
-              placeholder="Pesquisar ou selecionar conservação..."
-              options={conservacaoOptions}
-              value={produtoConservacao}
-              required={true}
-              onChange={(val) => setProdutoConservacao(val)}
-            />
+                {searchTerm.trim().length >= 2 && (
+                  <div ref={searchResultsRef} className="max-h-48 overflow-y-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg divide-y divide-slate-100 dark:divide-slate-800 animate-slideDown">
+                    {filteredProducts.length > 0 ? (
+                      filteredProducts.map((prod) => (
+                        <button
+                          key={`${prod.produtoEan}-${prod.marcaId}-${prod.produtoDescr}`}
+                          type="button"
+                          onClick={() => handleSelecionarProduto(prod)}
+                          className="w-full px-4 py-2.5 text-left text-xs hover:bg-primary-50 dark:hover:bg-primary-900/30 text-slate-700 dark:text-slate-300 transition-colors flex justify-between items-center"
+                        >
+                          <div className="flex-1 min-w-0 pr-3">
+                            <p className="font-bold text-slate-900 dark:text-slate-100 truncate">{prod.produtoDescr}</p>
+                            <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate">{prod.marcaDescr} · EAN: {prod.produtoEan}</p>
+                          </div>
+                          <span className="badge badge-success text-[9px] flex-shrink-0">{prod.produtoClasse}</span>
+                        </button>
+                      ))
+                    ) : (
+                      <p className="px-4 py-2.5 text-xs text-slate-400 dark:text-slate-500">Nenhum produto sem DUN encontrado.</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
 
-            {/* DESCRIÇÃO PRODUTO */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1.5">
-                Descrição do Produto <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                value={produtoDescr}
-                onChange={(e) => setProdutoDescr(e.target.value)}
-                placeholder="Ex: SUCO DE UVA INTEGRAL 1L"
-                rows={3}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:border-primary-500 transition-all text-sm text-slate-900 dark:text-slate-100"
-              />
-            </div>
+            {/* Produto Selecionado para Vinculação */}
+            {vincularDun && produtoSelecionado && (
+              <div className="p-3.5 bg-primary-50 dark:bg-primary-950/20 border border-primary-200 dark:border-primary-800 rounded-xl flex items-center justify-between animate-fadeIn">
+                <div className="min-w-0 flex-1 pr-3">
+                  <span className="text-[10px] uppercase font-bold text-primary-600 dark:text-primary-400">Produto Elegível Selecionado</span>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate mt-0.5">{produtoSelecionado.produtoDescr}</h4>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{produtoSelecionado.marcaDescr} · EAN: {produtoSelecionado.produtoEan}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleSelecionarProduto(null)}
+                  className="px-2.5 py-1.5 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  Alterar
+                </button>
+              </div>
+            )}
+
+            {/* Campos adicionais (visíveis se for cadastro manual OU se produto estiver selecionado no vinculo) */}
+            {(!vincularDun || (vincularDun && !!produtoSelecionado)) && (
+              <div className="space-y-4 animate-fadeIn">
+                {/* MARCA */}
+                {vincularDun ? (
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1.5">
+                      Marca
+                    </label>
+                    <input
+                      type="text"
+                      value={marcaDescr}
+                      disabled={true}
+                      className="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-800/60 disabled:text-slate-500 border-2 border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-900 dark:text-slate-100"
+                    />
+                  </div>
+                ) : (
+                  <SearchableSelect
+                    label="Marca"
+                    placeholder="Pesquisar ou selecionar marca..."
+                    options={marcaOptions}
+                    value={marcaId}
+                    required={true}
+                    onChange={(val, lbl) => {
+                      setMarcaId(val);
+                      setMarcaDescr(lbl);
+                    }}
+                  />
+                )}
+
+                {/* CLASSE */}
+                {vincularDun ? (
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1.5">
+                      Classe
+                    </label>
+                    <input
+                      type="text"
+                      value={produtoClasse}
+                      disabled={true}
+                      className="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-800/60 disabled:text-slate-500 border-2 border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-900 dark:text-slate-100"
+                    />
+                  </div>
+                ) : (
+                  <SearchableSelect
+                    label="Classe"
+                    placeholder="Pesquisar ou selecionar classe..."
+                    options={classeOptions}
+                    value={produtoClasse}
+                    required={true}
+                    onChange={(val) => setProdutoClasse(val)}
+                  />
+                )}
+
+                {/* CONSERVAÇÃO */}
+                {vincularDun ? (
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1.5">
+                      Conservação
+                    </label>
+                    <input
+                      type="text"
+                      value={produtoConservacao}
+                      disabled={true}
+                      className="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-800/60 disabled:text-slate-500 border-2 border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-900 dark:text-slate-100"
+                    />
+                  </div>
+                ) : (
+                  <SearchableSelect
+                    label="Conservação"
+                    placeholder="Pesquisar ou selecionar conservação..."
+                    options={conservacaoOptions}
+                    value={produtoConservacao}
+                    required={true}
+                    onChange={(val) => setProdutoConservacao(val)}
+                  />
+                )}
+
+                {/* DESCRIÇÃO PRODUTO */}
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide mb-1.5">
+                    Descrição do Produto {!vincularDun && <span className="text-red-500">*</span>}
+                  </label>
+                  <textarea
+                    value={produtoDescr}
+                    onChange={(e) => setProdutoDescr(e.target.value)}
+                    disabled={vincularDun}
+                    placeholder="Ex: SUCO DE UVA INTEGRAL 1L"
+                    rows={3}
+                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 disabled:bg-slate-100 dark:disabled:bg-slate-800/60 disabled:text-slate-500 border-2 border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:border-primary-500 transition-all text-sm text-slate-900 dark:text-slate-100"
+                  />
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Footer Actions */}

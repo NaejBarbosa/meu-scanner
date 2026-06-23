@@ -642,12 +642,14 @@ export default function PesquisaProduto({ produtosValidos }: PesquisaProdutoProp
                   <span className="font-medium text-slate-500 dark:text-slate-400">EAN (Consumidor)</span>
                   <span className="font-mono text-slate-900 dark:text-slate-100 text-right font-semibold">{selectedProduct.produtoEan}</span>
                 </div>
-                {selectedProduct.produtoDun && (
-                  <div className="flex justify-between items-start gap-4 text-xs">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">DUN (Distribuição)</span>
+                <div className="flex justify-between items-start gap-4 text-xs">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">DUN (Distribuição)</span>
+                  {selectedProduct.produtoDun ? (
                     <span className="font-mono text-slate-900 dark:text-slate-100 text-right font-semibold">{selectedProduct.produtoDun}</span>
-                  </div>
-                )}
+                  ) : (
+                    <span className="text-slate-400 dark:text-slate-500 text-right italic font-normal">Não cadastrado</span>
+                  )}
+                </div>
                 {selectedProductValidade && (
                   <div className="flex justify-between items-start gap-4 text-xs border-t border-dashed border-slate-200 dark:border-slate-700 pt-3 mt-2">
                     <span className="font-semibold text-danger-600 dark:text-danger-400">Data de Vencimento</span>

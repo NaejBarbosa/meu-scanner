@@ -666,12 +666,14 @@ function HomeContent() {
             </div>
 
             <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
-              {confirmacao.dun && (
-                <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
+              <div className="flex justify-between items-start gap-4 text-sm">
+                <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
+                {confirmacao.dun ? (
                   <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.dun}</span>
-                </div>
-              )}
+                ) : (
+                  <span className="text-slate-400 dark:text-slate-500 text-right italic font-normal">Não cadastrado</span>
+                )}
+              </div>
               <div className="flex justify-between items-start gap-4 text-sm">
                 <span className="font-medium text-slate-500 dark:text-slate-400">EAN</span>
                 <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.ean}</span>
