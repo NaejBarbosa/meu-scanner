@@ -140,7 +140,7 @@ export default function DetalheProdutoModal({
             <p className="font-mono text-sm font-bold text-slate-800 dark:text-slate-200 mt-4 tracking-wider">
               EAN: {produto.produtoEan}
             </p>
-            <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 max-w-[200px]">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 max-w-[260px] mx-auto break-words text-center leading-relaxed">
               {produto.produtoDescr}
             </p>
           </div>
