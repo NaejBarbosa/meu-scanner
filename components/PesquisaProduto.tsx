@@ -25,7 +25,7 @@ export interface WatchlistItem extends ProdutoValido {
 
 interface PesquisaProdutoProps {
   produtosValidos: ProdutoValido[];
-  onProdutoCadastrado?: (novoProduto: ProdutoValido) => void;
+  onProdutoCadastrado?: (novoProduto: ProdutoValido, foiVinculado?: boolean) => void;
 }
 
 export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }: PesquisaProdutoProps) {
@@ -43,18 +43,18 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
     produtoParaVincular?: ProdutoValido;
   } | null>(null);
 
-  const handleCadastroProdutoSuccess = (novoProduto: ProdutoValido) => {
+  const handleCadastroProdutoSuccess = (novoProduto: ProdutoValido, foiVinculado?: boolean) => {
     if (onProdutoCadastrado) {
-      onProdutoCadastrado(novoProduto);
+      onProdutoCadastrado(novoProduto, foiVinculado);
     }
     if (cadastroNaoIdentificado?.adicionarWatchlist) {
       const newList = [...watchlist, { ...novoProduto, localizado: false }];
       saveWatchlist(newList);
       setNovoEanProcurado('');
       setShowAddManual(false);
-      showToast('Produto cadastrado e adicionado ao Radar!', 'success');
+      showToast(foiVinculado ? 'Produto vinculado e adicionado ao Radar!' : 'Produto cadastrado e adicionado ao Radar!', 'success');
     } else {
-      showToast('Produto cadastrado com sucesso!', 'success');
+      showToast(foiVinculado ? 'Produto vinculado com sucesso!' : 'Produto cadastrado com sucesso!', 'success');
       setIsWatchlistMatch(watchlist.some((w) => w.produtoEan === novoProduto.produtoEan));
       setIsMatchCelebration(false);
       setSelectedProduct(novoProduto);

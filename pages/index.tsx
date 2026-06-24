@@ -247,13 +247,17 @@ function HomeContent() {
     setItensRegistrados((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const handleCadastroProdutoSuccess = (novoProduto: ProdutoValido) => {
+  const handleCadastroProdutoSuccess = (novoProduto: ProdutoValido, foiVinculado?: boolean) => {
     setProdutosValidos((prev) => [...prev, novoProduto]);
     const ean = novoProduto.produtoEan;
     const dun = novoProduto.produtoDun;
     const validadeTemp = cadastroNaoIdentificado?.validadeTemp || '';
     setCadastroNaoIdentificado(null);
-    showToast('Produto cadastrado com sucesso!', 'success');
+    showToast(foiVinculado ? 'Produto vinculado com sucesso!' : 'Produto cadastrado com sucesso!', 'success');
+
+    if (foiVinculado) {
+      return;
+    }
 
     if (validadeTemp) {
       setConfirmacao({

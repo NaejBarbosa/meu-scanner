@@ -25,7 +25,7 @@ interface CadastroProdutoModalProps {
   initialProdutoParaVincular?: ProdutoValido;
   produtosValidos: ProdutoValido[];
   onClose: () => void;
-  onSuccess: (novoProduto: ProdutoValido) => void;
+  onSuccess: (novoProduto: ProdutoValido, foiVinculado?: boolean) => void;
 }
 
 // Componente SearchableSelect customizado e acessível
@@ -427,7 +427,7 @@ export default function CadastroProdutoModal({
         throw new Error(errMsg);
       }
 
-      onSuccess(novoProduto);
+      onSuccess(novoProduto, vincularDun);
     } catch (err: any) {
       setErrorMsg(err.message || 'Erro ao salvar o produto. Tente novamente.');
     } finally {
