@@ -81,8 +81,9 @@ export function validarDataReal(dateStr: string): boolean {
  */
 function extrairDadosDataMatrix(qrData: string) {
   const clean = qrData.trim().replace(/\s/g, ''); // remove espaços e quebras de linha
-  // O DUN é a segunda cadeia de caracteres depois de ";" e seguido de ";" mais 8 caracteres para a data de fabricação.
-  // Exemplo de padrão: 315492;17896419732553;202603062002148;
+  // O DUN/EAN é a segunda cadeia de caracteres depois de ";" e seguido de ";" mais 8 caracteres para a data de fabricação.
+  // Exemplo de padrão DUN: 315492;17896419732553;202603062002148
+  // Exemplo de padrão EAN: 852326;7896419714071;20260614935737572
   const regex = /^[^;]*;([^;]+);(\d{8})/;
   const match = clean.match(regex);
 
@@ -90,8 +91,8 @@ function extrairDadosDataMatrix(qrData: string) {
     return null;
   }
 
-  const dun14 = match[1];            // ex: "17896419732553" (ou com 1 dígito a menos)
-  const dataFabStr = match[2];       // ex: "20260306"
+  const codigo = match[1];            // ex: "17896419732553" (DUN) ou "7896419714071" (EAN)
+  const dataFabStr = match[2];        // ex: "20260306" ou "20260614"
 
   const anoFab = parseInt(dataFabStr.substring(0, 4), 10);
   const mesFab = parseInt(dataFabStr.substring(4, 6), 10);
@@ -113,10 +114,11 @@ function extrairDadosDataMatrix(qrData: string) {
   }
 
   const validadeFormatada = formatToDDMMYYYY(dataValidade);
+  const isDun = codigo.length === 14;
 
   return {
-    dun: dun14,
-    ean: undefined,
+    dun: isDun ? codigo : undefined,
+    ean: !isDun ? codigo : undefined,
     validade: validadeFormatada,
   };
 }

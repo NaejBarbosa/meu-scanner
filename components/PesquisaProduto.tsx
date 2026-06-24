@@ -164,7 +164,7 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
         if (prod) {
           setIsWatchlistMatch(watchlist.some((w) => w.produtoEan === prod.produtoEan));
           setIsMatchCelebration(false);
-          if (dun && validade) {
+          if (validade) {
             setSelectedProductValidade(validade);
           } else {
             setSelectedProductValidade(null);
@@ -341,7 +341,7 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
     setIsWatchlistMatch(isMatch);
     setIsMatchCelebration(!!isPendingMatch);
 
-    if (dun && validade) {
+    if (validade) {
       setSelectedProductValidade(validade);
     } else {
       setSelectedProductValidade(null);
