@@ -45,7 +45,7 @@ O código de endereçamento físico colado nas estantes (porta-paletes) segue o 
 > *   **Endereço Físico:** `A-1-1-E` ➡️ **Endereço no App:** `A11E`
 > *   **Endereço Físico:** `B-5-0-D` ➡️ **Endereço no App:** `B50D`
 
-Isso economiza espaço na tela do dispositivo do operador, acelera buscas rápidas e reduz o tempo de digitação manual de vagas em caso de falha de leitura, otimizando o fluxo de trabalho sob baixas temperaturas.
+Isso economiza espaço na tela do dispositivo do operador, acelera buscas rápidas e reduz o tempo de digitação manual de vagas in caso de falha de leitura, otimizando o fluxo de trabalho sob baixas temperaturas.
 
 ---
 
@@ -58,7 +58,7 @@ Para garantir a confiabilidade dos registros de estoque nas câmaras (**Resfriad
 
 ---
 
-## ✨ Funcionalidades Principais
+## ✨ Funcionalidades Principais & Ajustes Recentes
 
 *   **Leitor Multiformato via Câmera:** Escaneamento ágil com mira laser animada e interface em tempo real utilizando a câmera traseira do celular.
 *   **Envio de Imagem & Crop Inteligente:** Permite subir fotos de códigos da galeria do celular. Se a leitura automática falhar devido a reflexos comuns em câmaras frias, o app abre uma janela de enquadramento interativo (`react-zoom-pan-pinch`) para que o operador isole o código (Data Matrix ou código de barras) de forma manual.
@@ -66,9 +66,33 @@ Para garantir a confiabilidade dos registros de estoque nas câmaras (**Resfriad
     *   **GS1-128 / Data Matrix Bruto:** Identifica o padrão `01` (GTIN de 14 dígitos) e `17` (data de validade no formato `YYMMDD`).
     *   **Cálculo Automático de Validade:** Se o Data Matrix contiver a data de fabricação, o sistema calcula e sugere automaticamente a validade adicionando **+365 dias**.
     *   **DUN-14, EAN-13 e EAN-8:** Suporte para identificação de caixas fechadas de embarque (DUN-14) e itens individuais (EAN-13/EAN-8).
-*   **Google Sheets como Banco de Dados:** Conexão direta com a API do Google Sheets (`googleapis`), salvando e consultando dados diretamente em planilhas compartilhadas no Drive corporativo sem necessidade de servidores de banco de dados pesados e caros.
+*   **Google Sheets como Banco de Dados:** Conexão direta com a API do Google Sheets (`googleapis`), salvando e consultando dados diretamente em planilhas compartilhadas no Drive corporativo.
 *   **Radar de Validade / Watchlist:** Sistema de alerta integrado que avisa o operador se o produto escaneado faz parte de uma lista sob observação especial (watchlist), disparando efeitos visuais de comemoração (`canvas-confetti`) na localização do item.
 *   **Interface Premium com Dark Mode:** Desenvolvido com foco na estética moderna e conforto visual em ambientes escuros de câmaras frias.
+
+### 🆕 Novos Ajustes e Melhorias Incorporadas:
+*   **Busca Automática e Vinculação de EAN por QR Code:** Agora é possível ler ou escanear um EAN e fazer a busca ou associação rápida via câmera/galeria diretamente no fluxo de cadastro.
+*   **Unificação de Scanner DUN:** O campo de DUN foi simplificado para exibir um botão sutil de acionamento do scanner de QR Code ao lado de um seletor dropdown, melhorando a limpeza e organização da tela.
+*   **Vinculação Direta de DUN:** Adicionado botão para vincular DUN de forma simples e rápida diretamente na tela de detalhes do produto.
+*   **Normalização de EANs com Zeros à Esquerda:** Correção para garantir que códigos de marcas como Friboi sejam carregados e exibidos perfeitamente com imagens.
+*   **Experiência Visual de Imagens:** Exibição de imagens de produtos com fallbacks bem definidos e redimensionamento otimizado (avatar de produto aumentado para `h-48`) no modal de detalhes do produto.
+*   **Suporte a Marcadores de Peso customizados:** Tratamento dinâmico para produtos da marca Lar que necessitam de pesagem (`(pesar)` em minúsculo na identificação do produto).
+
+---
+
+## 📱 Ambiente de Desenvolvimento e Produção Móvel
+
+Um dos maiores diferenciais técnicos do **Meu Scanner** é que ele foi inteiramente desenvolvido, testado e mantido em um ambiente 100% móvel e local:
+
+*   **Hardware de Desenvolvimento:** Smartphone Android.
+*   **Ambiente de Linha de Comando:** Executado no **Termux**, emulando um contêiner **Ubuntu** completo via terminal.
+*   **Assistente de Desenvolvimento:** Pair-programming ativo com o **Agente Antigravity** (uma inteligência artificial do time da Google DeepMind projetada para Advanced Agentic Coding), que executa comandos do sistema operacional, diagnostica bugs, integra deploys automáticos via Vercel e gerencia o versionamento do código em tempo real.
+*   **Fluxo de Trabalho Mobile-First:** Toda a interface e funcionalidades de toque foram otimizadas e validadas diretamente na tela do dispositivo onde o operador realiza o trabalho, eliminando inconsistências comuns em emuladores desktop.
+
+### ⚙️ Integração Física com o Android (Termux-API):
+Para otimizar a usabilidade no celular, o projeto integra regras especiais de backend e script para o ecossistema Android:
+*   **Exportação em CP1252 (Windows-1252):** Os relatórios e planilhas CSV exportados a partir do banco de dados utilizam a codificação `cp1252` e separador ponto e vírgula (`;`). Isso garante que ao abrir o arquivo no Microsoft Excel ou Google Sheets para Android os acentos e caracteres da língua portuguesa sejam renderizados perfeitamente.
+*   **Indexação Instantânea de Mídia (Media Scan):** Ao salvar arquivos novos na pasta de downloads do celular (`/sdcard/Download/`), o sistema invoca a ferramenta do Termux `termux-media-scan /sdcard/Download/nome_do_arquivo.ext` imediatamente após a gravação. Isso força o Android a atualizar o índice de mídias imediatamente, fazendo com que o arquivo recém-criado apareça de forma instantânea nos gerenciadores de arquivos locais.
 
 ---
 
@@ -80,7 +104,7 @@ Para garantir a confiabilidade dos registros de estoque nas câmaras (**Resfriad
 *   **Leitor de Imagens:** [@zxing/library](https://github.com/zxing-js/library) & Barcode Detector API nativa do navegador
 *   **Banco de Dados & Integração:** Google Sheets API (`googleapis`)
 *   **Manipulação de Imagem:** `react-zoom-pan-pinch` (para zoom e recorte móvel)
-*   **Deploy:** Otimizado para hospedagem na [Vercel](https://vercel.com/) ou [Netlify](https://www.netlify.com/)
+*   **Deploy:** Otimizado para hospedagem na [Vercel](https://vercel.com/) (disparada via commits e pushes com a infraestrutura git do Termux) ou [Netlify](https://www.netlify.com/)
 
 ---
 
@@ -119,5 +143,8 @@ Acesse [http://localhost:3000](http://localhost:3000) no seu navegador ou acesse
 ### 5. Compilar para produção
 ```bash
 npm run build
+```
+Para inicializar o servidor em produção local:
+```bash
 npm run start
 ```
