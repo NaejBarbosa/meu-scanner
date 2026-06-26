@@ -132,6 +132,12 @@ function extrairDadosGS1Bruto(qrData: string) {
   // Remove espaços e quebras de linha
   let clean = qrData.replace(/\s/g, '');
   
+  // Remove parênteses para suportar leitores que formatam os IAs como (01) ou (17)
+  clean = clean.replace(/[()]/g, '');
+
+  // Remove prefixos de simbologia ISO/IEC 15424 comuns como ]C1 ou ]d2
+  clean = clean.replace(/^\][A-Za-z0-9]{2}/, '');
+  
   // Remove caracteres de controle ASCII comuns como \x1d (Group Separator)
   const controlCharsRegex = /[\x00-\x1F\x7F-\x9F]/g;
   if (controlCharsRegex.test(clean)) {
@@ -150,8 +156,12 @@ function extrairDadosGS1Bruto(qrData: string) {
   const dun14 = matchDun[1];
   console.log('[GS1Bruto] DUN encontrado:', dun14);
 
+  // Remove o bloco do DUN (incluindo o prefixo 01) da string de busca da validade
+  // para evitar que o "17" ou "15" no início do DUN cause falsos positivos.
+  const cleanSemDun = clean.replace(/01\d{14}/, '');
+
   // 2. Busca independente da data: /(?:17|15)(\d{6})/
-  const matchValidade = clean.match(/(?:17|15)(\d{6})/);
+  const matchValidade = cleanSemDun.match(/(?:17|15)(\d{6})/);
   let validadeFormatada: string | null = null;
 
   if (matchValidade) {

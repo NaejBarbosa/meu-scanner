@@ -278,9 +278,7 @@ function HomeContent() {
     setCadastroNaoIdentificado(null);
     showToast(foiVinculado ? 'Produto vinculado com sucesso!' : 'Produto cadastrado com sucesso!', 'success');
 
-    if (foiVinculado) {
-      return;
-    }
+
 
     if (validadeTemp) {
       setConfirmacao({
