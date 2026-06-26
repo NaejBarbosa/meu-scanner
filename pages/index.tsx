@@ -10,6 +10,7 @@ import MenuPrincipal from '../components/MenuPrincipal';
 import PesquisaProduto, { WatchlistItem } from '../components/PesquisaProduto';
 import { extrairDados } from '../lib/regex';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
+import ProdutoAvatar from '../components/ProdutoAvatar';
 
 interface ProdutoValido {
   marcaId: string;
@@ -647,75 +648,79 @@ function HomeContent() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-success-500/10 rounded-bl-full pointer-events-none animate-pulse" />
             )}
 
-            <div className="flex items-start gap-4 mb-5">
-              {isWatchlistMatch ? (
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-600 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce ring-4 ring-success-500/30">
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a3 3 0 10-3 3h3zm0-3a1 1 0 100-2 1 1 0 000 2zm0 8a2 2 0 110-4 2 2 0 010 4z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 12a4 4 0 110-8 4 4 0 010 8z" />
-                  </svg>
-                </div>
-              ) : (
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-700 flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-              )}
-              <div className="flex-1 min-w-0">
-                <h2 className={`text-lg font-extrabold ${isWatchlistMatch ? 'text-success-700 dark:text-success-400' : 'text-slate-900 dark:text-slate-100'}`}>
-                  {isWatchlistMatch ? '🎯 PRODUTO PROCURADO LOCALIZADO!' : 'Produto Detectado'}
-                </h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-                  {isWatchlistMatch ? 'Este produto estava no seu radar.' : 'Confirme os dados antes de adicionar'}
-                </p>
-              </div>
+            {/* Exibição da Imagem do Produto */}
+            <div className="mb-4">
+              <ProdutoAvatar ean={confirmacao.ean} descricao={confirmacao.produto.produtoDescr} />
             </div>
 
             <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
-              <div className="flex justify-between items-start gap-4 text-sm">
-                <span className="font-medium text-slate-500 dark:text-slate-400">DUN</span>
+              <div className="flex justify-between items-start gap-4 text-xs">
+                <span className="font-medium text-slate-500 dark:text-slate-400">Produto</span>
+                <span className="text-slate-900 dark:text-slate-100 text-right font-bold">{confirmacao.produto.produtoDescr}</span>
+              </div>
+              <div className="flex justify-between items-start gap-4 text-xs">
+                <span className="font-medium text-slate-500 dark:text-slate-400">Marca</span>
+                <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.marcaDescr}</span>
+              </div>
+              <div className="flex justify-between items-center text-xs">
+                <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
+                <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
+              </div>
+              {confirmacao.produto.produtoConservacao && (
+                <div className="flex justify-between items-center text-xs">
+                  <span className="font-medium text-slate-500 dark:text-slate-400">Conservação</span>
+                  <span className={`badge ${
+                    confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
+                      ? 'badge-primary' 
+                      : 'badge-warning'
+                  }`}>
+                    {confirmacao.produto.produtoConservacao}
+                  </span>
+                </div>
+              )}
+              <div className="flex justify-between items-start gap-4 text-xs border-t border-slate-200 dark:border-slate-700 pt-3 mt-3">
+                <span className="font-medium text-slate-500 dark:text-slate-400">EAN (Consumidor)</span>
+                <span className="font-mono text-slate-900 dark:text-slate-100 text-right font-semibold">{confirmacao.ean}</span>
+              </div>
+              <div className="flex justify-between items-start gap-4 text-xs">
+                <span className="font-medium text-slate-500 dark:text-slate-400">DUN (Distribuição)</span>
                 {confirmacao.dun ? (
-                  <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.dun}</span>
+                  <span className="font-mono text-slate-900 dark:text-slate-100 text-right font-semibold">{confirmacao.dun}</span>
                 ) : (
                   <span className="text-slate-400 dark:text-slate-500 text-right italic font-normal">Não cadastrado</span>
                 )}
               </div>
-              <div className="flex justify-between items-start gap-4 text-sm">
-                <span className="font-medium text-slate-500 dark:text-slate-400">EAN</span>
-                <span className="font-mono text-slate-900 dark:text-slate-100 text-right break-all">{confirmacao.ean}</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="font-medium text-slate-500 dark:text-slate-400">Validade</span>
-                <span className="font-semibold text-slate-900 dark:text-slate-100">{confirmacao.validade}</span>
-              </div>
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-3 mt-3 space-y-2">
-                <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">Marca</span>
-                  <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.marcaDescr}</span>
+              {confirmacao.validade && (
+                <div className="flex justify-between items-center gap-4 text-xs border-t border-dashed border-slate-200 dark:border-slate-700 pt-3 mt-2 overflow-visible">
+                  <span className="font-semibold text-slate-500 dark:text-slate-400">Data de Vencimento</span>
+                  {(() => {
+                    const checkIsVencido = (dateStr: string | null): boolean => {
+                      if (!dateStr) return false;
+                      const parts = dateStr.split('/');
+                      if (parts.length !== 3) return false;
+                      const dia = parseInt(parts[0], 10);
+                      const mes = parseInt(parts[1], 10) - 1;
+                      const ano = parseInt(parts[2], 10);
+                      const dataValidade = new Date(ano, mes, dia);
+                      const hoje = new Date();
+                      hoje.setHours(0, 0, 0, 0);
+                      return dataValidade < hoje;
+                    };
+                    return checkIsVencido(confirmacao.validade) ? (
+                      <div className="relative overflow-visible flex items-center justify-end">
+                        <span className="absolute -inset-1 rounded bg-red-500 animate-ping opacity-75" />
+                        <span className="relative font-mono text-white bg-red-600 px-2.5 py-1 rounded font-bold border border-red-700 text-xs shadow-md animate-pulse">
+                          🚨 {confirmacao.validade} (VENCIDO)
+                        </span>
+                      </div>
+                    ) : (
+                      <span className="font-mono text-emerald-700 dark:text-emerald-400 text-right font-bold bg-emerald-50 dark:bg-emerald-950/30 px-2.5 py-1 rounded border border-emerald-100 dark:border-emerald-900/50 text-xs">
+                        {confirmacao.validade}
+                      </span>
+                    );
+                  })()}
                 </div>
-                <div className="flex justify-between items-start gap-4 text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">Produto</span>
-                  <span className="text-slate-900 dark:text-slate-100 text-right">{confirmacao.produto.produtoDescr}</span>
-                </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="font-medium text-slate-500 dark:text-slate-400">Classe</span>
-                  <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
-                </div>
-                {/* Conservação */}
-                {confirmacao.produto.produtoConservacao && (
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="font-medium text-slate-500 dark:text-slate-400">Conservação</span>
-                    <span className={`badge ${
-                      confirmacao.produto.produtoConservacao.toLowerCase().includes('congelado') 
-                        ? 'badge-primary' 
-                        : 'badge-warning'
-                    }`}>
-                      {confirmacao.produto.produtoConservacao}
-                    </span>
-                  </div>
-                )}
-              </div>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">

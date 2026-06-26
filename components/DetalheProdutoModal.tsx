@@ -51,32 +51,6 @@ export default function DetalheProdutoModal({
         {/* Exibição da Imagem do Produto */}
         <ProdutoAvatar ean={produto.produtoEan} descricao={produto.produtoDescr} />
 
-        {/* Cabeçalho do Modal */}
-        <div className="flex items-start gap-4">
-          {isMatchCelebration ? (
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-success-500 to-success-600 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce ring-4 ring-success-500/30">
-              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a3 3 0 10-3 3h3zm0-3a1 1 0 100-2 1 1 0 000 2zm0 8a2 2 0 110-4 2 2 0 010 4z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 12a4 4 0 110-8 4 4 0 010 8z" />
-              </svg>
-            </div>
-          ) : (
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-              </svg>
-            </div>
-          )}
-          <div className="flex-1 min-w-0">
-            <h3 className={`text-lg font-extrabold ${isMatchCelebration ? 'text-success-700 dark:text-success-400' : 'text-slate-900 dark:text-slate-100'}`}>
-              {isMatchCelebration ? '🎯 PRODUTO LOCALIZADO!' : 'Ficha Técnica'}
-            </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              {isMatchCelebration ? 'Este produto estava na sua Lista de Procurados.' : 'Dados cadastrais da base de dados.'}
-            </p>
-          </div>
-        </div>
-
         {/* Informações cadastrais do produto */}
         {!showQRCode ? (
           <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 space-y-3">
@@ -115,11 +89,34 @@ export default function DetalheProdutoModal({
               )}
             </div>
             {validade && (
-              <div className="flex justify-between items-start gap-4 text-xs border-t border-dashed border-slate-200 dark:border-slate-700 pt-3 mt-2">
-                <span className="font-semibold text-danger-600 dark:text-danger-400">Data de Vencimento</span>
-                <span className="font-mono text-danger-700 dark:text-danger-400 text-right font-bold bg-danger-50 dark:bg-danger-950/30 px-2 py-0.5 rounded border border-danger-100 dark:border-danger-900/50">
-                  {validade}
-                </span>
+              <div className="flex justify-between items-center gap-4 text-xs border-t border-dashed border-slate-200 dark:border-slate-700 pt-3 mt-2 overflow-visible">
+                <span className="font-semibold text-slate-500 dark:text-slate-400">Data de Vencimento</span>
+                {(() => {
+                  const checkIsVencido = (dateStr: string | null): boolean => {
+                    if (!dateStr) return false;
+                    const parts = dateStr.split('/');
+                    if (parts.length !== 3) return false;
+                    const dia = parseInt(parts[0], 10);
+                    const mes = parseInt(parts[1], 10) - 1;
+                    const ano = parseInt(parts[2], 10);
+                    const dataValidade = new Date(ano, mes, dia);
+                    const hoje = new Date();
+                    hoje.setHours(0, 0, 0, 0);
+                    return dataValidade < hoje;
+                  };
+                  return checkIsVencido(validade) ? (
+                    <div className="relative overflow-visible flex items-center justify-end">
+                      <span className="absolute -inset-1 rounded bg-red-500 animate-ping opacity-75" />
+                      <span className="relative font-mono text-white bg-red-600 px-2.5 py-1 rounded font-bold border border-red-700 text-xs shadow-md animate-pulse">
+                        🚨 {validade} (VENCIDO)
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="font-mono text-emerald-700 dark:text-emerald-400 text-right font-bold bg-emerald-50 dark:bg-emerald-950/30 px-2.5 py-1 rounded border border-emerald-100 dark:border-emerald-900/50 text-xs">
+                      {validade}
+                    </span>
+                  );
+                })()}
               </div>
             )}
           </div>

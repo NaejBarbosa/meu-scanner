@@ -20,15 +20,15 @@ export default function ProdutoAvatar({ ean, descricao }: ProdutoAvatarProps) {
   return (
     <div className="w-full bg-white rounded-xl p-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center flex-shrink-0">
       {hasError ? (
-        <div className="h-48 w-full flex items-center justify-center text-slate-300 animate-fade-in">
-          <Package className="w-20 h-20 stroke-[1.5]" />
+        <div className="h-64 w-full flex items-center justify-center text-slate-300 animate-fade-in">
+          <Package className="w-24 h-24 stroke-[1.5]" />
         </div>
       ) : (
         <img
           src={`/imagens_produtos/${normalizedEan}.webp`}
           alt={descricao}
           onError={() => setHasError(true)}
-          className="h-48 w-full object-contain select-none animate-fade-in"
+          className="h-64 w-full object-contain select-none animate-fade-in"
         />
       )}
     </div>
