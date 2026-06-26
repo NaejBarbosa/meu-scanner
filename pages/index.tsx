@@ -692,7 +692,7 @@ function HomeContent() {
               </div>
               {confirmacao.validade && (
                 <div className="flex justify-between items-center gap-4 text-xs border-t border-dashed border-slate-200 dark:border-slate-700 pt-3 mt-2 overflow-visible">
-                  <span className="font-semibold text-slate-500 dark:text-slate-400">Data de Vencimento</span>
+                  <span className="font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">Data de Vencimento</span>
                   {(() => {
                     const checkIsVencido = (dateStr: string | null): boolean => {
                       if (!dateStr) return false;
@@ -709,12 +709,12 @@ function HomeContent() {
                     return checkIsVencido(confirmacao.validade) ? (
                       <div className="relative overflow-visible flex items-center justify-end">
                         <span className="absolute -inset-1 rounded bg-red-500 animate-ping opacity-75" />
-                        <span className="relative font-mono text-white bg-red-600 px-2.5 py-1 rounded font-bold border border-red-700 text-xs shadow-md animate-pulse">
+                        <span className="relative font-mono text-white bg-red-600 px-2.5 py-1 rounded font-bold border border-red-700 text-xs shadow-md animate-pulse whitespace-nowrap">
                           🚨 {confirmacao.validade} (VENCIDO)
                         </span>
                       </div>
                     ) : (
-                      <span className="font-mono text-emerald-700 dark:text-emerald-400 text-right font-bold bg-emerald-50 dark:bg-emerald-950/30 px-2.5 py-1 rounded border border-emerald-100 dark:border-emerald-900/50 text-xs">
+                      <span className="font-mono text-emerald-700 dark:text-emerald-400 text-right font-bold bg-emerald-50 dark:bg-emerald-950/30 px-2.5 py-1 rounded border border-emerald-100 dark:border-emerald-900/50 text-xs whitespace-nowrap">
                         {confirmacao.validade}
                       </span>
                     );
