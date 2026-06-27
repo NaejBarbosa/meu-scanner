@@ -508,11 +508,11 @@ function HomeContent() {
 
           {/* Status Recebimento Secundário - Exibido apenas no Mobile */}
           {sessaoAtiva && activeTab === 'scan' && (
-            <div className="flex sm:hidden items-center justify-between pb-3 pt-1 animate-fadeIn border-t border-slate-200/40 dark:border-slate-800/60 mt-1">
+            <div className="flex sm:hidden items-center justify-center gap-3.5 pb-3 pt-1.5 animate-fadeIn border-t border-slate-200/40 dark:border-slate-800/60 mt-1">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold tracking-wide uppercase">
-                  {language === 'pt' ? 'Recebimento' : 'Recepción'}
+                  {language === 'pt' ? 'Recebimento' : 'Recepción'}:
                 </span>
                 <span className="text-xs font-extrabold text-primary-600 dark:text-primary-400">
                   {sessaoAtiva.camara} · {sessaoAtiva.vaga}
