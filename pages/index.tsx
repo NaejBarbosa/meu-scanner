@@ -417,34 +417,44 @@ function HomeContent() {
               )}
 
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-md animate-pulse-subtle">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
+                  <path d="M6 10.5l6-3.5 6 3.5-6 3.5-6-3.5z" />
+                  <path d="M6 14.5l6-3.5 6 3.5-6 3.5-6-3.5z" />
+                  <path d="M6 10.5v4l6 3.5v-4M12 14v4l6-3.5v-4" />
                 </svg>
               </div>
-              <div>
-                <h1 className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">
-                  Controle de Recebimento
-                </h1>
-                {/* Badge câmara/vaga da sessão se estiver ativa e na aba de scan */}
-                {sessaoAtiva && activeTab === 'scan' && (
-                  <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-semibold bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 px-2 py-0.5 rounded-full animate-fadeIn">
-                      <svg className="w-3 h-3 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      {sessaoAtiva.camara} · {sessaoAtiva.vaga}
-                    </span>
-                    <button
-                      id="btn-redefinir-sessao"
-                      onClick={redefinirSessao}
-                      title="Redefinir câmara/vaga"
-                      className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 hover:text-danger-500 dark:hover:text-danger-400 transition-colors underline underline-offset-2 font-medium"
-                    >
-                      redefinir
-                    </button>
-                  </div>
-                )}
+              <div className="flex flex-col">
+                <div className="flex items-baseline gap-1.5">
+                  <h1 className="text-lg font-extrabold text-slate-900 dark:text-slate-100 leading-none tracking-tight">
+                    Palet<span className="text-primary-600 dark:text-primary-500">Scaner</span>
+                  </h1>
+                  <span className="text-[9px] text-slate-400 dark:text-slate-500 font-bold tracking-wider uppercase">
+                    v1.2
+                  </span>
+                </div>
+                
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold tracking-wide uppercase">
+                    Recebimento
+                  </span>
+                  {sessaoAtiva && activeTab === 'scan' && (
+                    <div className="flex items-center gap-1.5 animate-fadeIn">
+                      <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-[10px] font-bold text-primary-600 dark:text-primary-400">
+                        {sessaoAtiva.camara} · {sessaoAtiva.vaga}
+                      </span>
+                      <button
+                        id="btn-redefinir-sessao"
+                        onClick={redefinirSessao}
+                        title="Redefinir câmara/vaga"
+                        className="text-[9px] text-slate-400 dark:text-slate-500 hover:text-danger-500 dark:hover:text-danger-400 transition-colors underline font-medium"
+                      >
+                        (trocar)
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 

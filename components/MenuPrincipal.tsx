@@ -11,11 +11,11 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
     <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8 space-y-12 animate-fadeIn">
       {/* Boas-vindas Header */}
       <div className="text-center space-y-3 animate-slideUp" style={{ animationDelay: '0ms' }}>
-        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
-          Painel de Operações
+        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent uppercase tracking-wider">
+          PaletScaner
         </h2>
-        <p className="text-base text-slate-500 dark:text-slate-400 max-w-lg mx-auto leading-relaxed">
-          Selecione a ação que deseja realizar no sistema de controle de recebimento de câmara fria.
+        <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+          Logística inteligente e controle automatizado de recebimento para câmaras frias.
         </p>
       </div>
 
@@ -33,8 +33,11 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
           <div className="space-y-6">
             {/* Ícone */}
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg group-hover:shadow-primary-500/20 transition-all duration-300">
-              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+              <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
+                <path d="M6 10.5l6-3.5 6 3.5-6 3.5-6-3.5z" />
+                <path d="M6 14.5l6-3.5 6 3.5-6 3.5-6-3.5z" />
+                <path d="M6 10.5v4l6 3.5v-4M12 14v4l6-3.5v-4" />
               </svg>
             </div>
 
