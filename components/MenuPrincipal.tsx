@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface MenuPrincipalProps {
   onSelectScan: () => void;
@@ -7,6 +7,8 @@ interface MenuPrincipalProps {
 }
 
 export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelectPesquisa }: MenuPrincipalProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8 space-y-12 animate-fadeIn">
       {/* Boas-vindas Header */}
@@ -15,7 +17,7 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
           PaletScan
         </h2>
         <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-          Logística inteligente e controle automatizado de recebimento para câmaras frias.
+          {t('menuSubtitle')}
         </p>
       </div>
 
@@ -44,16 +46,16 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
             {/* Texto informativo */}
             <div className="space-y-2">
               <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                Registrar Entrada
+                {t('menuRegEntrada')}
               </h3>
               <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                Escaneie códigos Data Matrix, QR Code ou códigos de barras dos produtos. Valide compatibilidade com a câmara fria e defina a vaga correta de armazenamento.
+                {t('menuRegEntradaDesc')}
               </p>
             </div>
           </div>
 
           <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-primary-600 dark:text-primary-400">
-            <span>Iniciar Processo</span>
+            <span>{t('menuStartProcess')}</span>
             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -80,16 +82,16 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
             {/* Texto informativo */}
             <div className="space-y-2">
               <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-success-600 dark:group-hover:text-success-400 transition-colors">
-                Relatório Geral
+                {t('menuRelGeral')}
               </h3>
               <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                Consulte todos os produtos já armazenados. Realize buscas avançadas, aplique filtros inteligentes por datas de validade e recebimento, e acompanhe alertas de vencimento.
+                {t('menuRelGeralDesc')}
               </p>
             </div>
           </div>
 
           <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-success-600 dark:text-success-400">
-            <span>Visualizar Relatórios</span>
+            <span>{t('menuViewReports')}</span>
             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -116,16 +118,16 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
             {/* Texto informativo */}
             <div className="space-y-2">
               <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-warning-600 dark:group-hover:text-warning-400 transition-colors">
-                Pesquisa e Consulta
+                {t('menuPesquisa')}
               </h3>
               <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                Consulte a ficha técnica de produtos via busca avançada (Fuzzy Search) ou leitura de código EAN/DUN. Gerencie o radar de produtos procurados (Watchlist) e gere QR Codes para integração.
+                {t('menuPesquisaDesc')}
               </p>
             </div>
           </div>
 
           <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-warning-600 dark:text-warning-400">
-            <span>Abrir Consulta</span>
+            <span>{t('menuOpenQuery')}</span>
             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

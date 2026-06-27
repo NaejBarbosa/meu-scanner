@@ -10,6 +10,7 @@ import MenuPrincipal from '../components/MenuPrincipal';
 import PesquisaProduto, { WatchlistItem } from '../components/PesquisaProduto';
 import { extrairDados } from '../lib/regex';
 import { ThemeProvider, useTheme } from '../context/ThemeContext';
+import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import ProdutoAvatar from '../components/ProdutoAvatar';
 
 interface ProdutoValido {
@@ -59,6 +60,7 @@ const obterProdutoPorCodigo = (ean: string | undefined, dun: string | undefined,
 
 function HomeContent() {
   const { theme, toggleTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'menu' | 'scan' | 'relatorio' | 'pesquisa'>('menu');
   
   const [mounted, setMounted] = useState(false);
@@ -460,6 +462,32 @@ function HomeContent() {
 
             {/* Apenas botão de tema no Header (Navegação principal movida para o Painel Inicial) */}
             <div className="flex items-center gap-3">
+              {/* Seletor de Idioma PT / ES */}
+              <div className="flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl p-0.5 border border-slate-200/50 dark:border-slate-700/50 shadow-sm text-xs font-semibold">
+                <button
+                  onClick={() => setLanguage('pt')}
+                  className={`px-2 py-1 rounded-lg transition-all active:scale-95 text-[10px] sm:text-xs ${
+                    language === 'pt'
+                      ? 'bg-primary-500 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                  }`}
+                  title="Português"
+                >
+                  PT
+                </button>
+                <button
+                  onClick={() => setLanguage('es')}
+                  className={`px-2 py-1 rounded-lg transition-all active:scale-95 text-[10px] sm:text-xs ${
+                    language === 'es'
+                      ? 'bg-primary-500 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                  }`}
+                  title="Español"
+                >
+                  ES
+                </button>
+              </div>
+
               <button
                 onClick={toggleTheme}
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/50 dark:border-slate-700/50 transition-colors shadow-sm"
@@ -810,7 +838,9 @@ function HomeContent() {
 export default function Home() {
   return (
     <ThemeProvider>
-      <HomeContent />
+      <LanguageProvider>
+        <HomeContent />
+      </LanguageProvider>
     </ThemeProvider>
   );
 }
