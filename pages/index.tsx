@@ -220,17 +220,22 @@ function HomeContent() {
 
   const gravarTodosNoBanco = async () => {
     if (itensRegistrados.length === 0) {
-      showToast('Nenhum item na lista para gravar.', 'error');
+      showToast(language === 'pt' ? 'Nenhum item na lista para gravar.' : 'Ningún artículo en la lista para guardar.', 'error');
       return;
     }
 
     if (!sessaoAtiva) {
-      showToast('Sessão sem câmara/vaga definida. Redefina a sessão.', 'error');
+      showToast(language === 'pt' ? 'Sessão sem câmara/vaga definida. Redefina a sessão.' : 'Sesión sin cámara/posición definida. Redefina la sesión.', 'error');
       return;
     }
 
     setIsSubmitting(true);
-    showToast(`Gravando ${itensRegistrados.length} produto(s)...`, 'info');
+    showToast(
+      language === 'pt'
+        ? `Gravando ${itensRegistrados.length} produto(s)...`
+        : `Guardando ${itensRegistrados.length} producto(s)...`,
+      'info'
+    );
 
     let sucesso = true;
     for (const item of itensRegistrados) {
@@ -257,14 +262,24 @@ function HomeContent() {
     }
 
     if (sucesso) {
-      showToast(`${itensRegistrados.length} produto(s) gravado(s) com sucesso!`, 'success');
+      showToast(
+        language === 'pt'
+          ? `${itensRegistrados.length} produto(s) gravado(s) com sucesso!`
+          : `¡${itensRegistrados.length} producto(s) guardado(s) con éxito!`,
+        'success'
+      );
       setTimeout(() => {
         redefinirSessao();
         setIsSubmitting(false);
       }, 3000);
     } else {
       setIsSubmitting(false);
-      showToast('Erro ao gravar um ou mais produtos. Tente novamente.', 'error');
+      showToast(
+        language === 'pt'
+          ? 'Erro ao gravar um ou mais produtos. Tente novamente.'
+          : 'Error al guardar uno o más productos. Inténtelo de nuevo.',
+        'error'
+      );
     }
   };
 
@@ -278,7 +293,12 @@ function HomeContent() {
     const dun = novoProduto.produtoDun;
     const validadeTemp = cadastroNaoIdentificado?.validadeTemp || '';
     setCadastroNaoIdentificado(null);
-    showToast(foiVinculado ? 'Produto vinculado com sucesso!' : 'Produto cadastrado com sucesso!', 'success');
+    showToast(
+      foiVinculado
+        ? (language === 'pt' ? 'Produto vinculado com sucesso!' : '¡Producto vinculado con éxito!')
+        : (language === 'pt' ? 'Produto cadastrado com sucesso!' : '¡Producto registrado con éxito!'),
+      'success'
+    );
 
 
 
@@ -300,7 +320,12 @@ function HomeContent() {
     const safeBase = Array.isArray(baseProdutos) ? baseProdutos : [];
     const dados = extrairDados(text);
     if (!dados) {
-      showToast('Formato inválido. Escaneie um Data Matrix, QRCode ou código de barras válido.', 'error');
+      showToast(
+        language === 'pt'
+          ? 'Formato inválido. Escaneie um Data Matrix, QRCode ou código de barras válido.'
+          : 'Formato inválido. Escanee un Data Matrix, QRCode o código de barras válido.',
+        'error'
+      );
       return;
     }
     let { ean, dun, validade, tipo } = dados;
@@ -309,7 +334,12 @@ function HomeContent() {
     const produtoEncontrado = obterProdutoPorCodigo(ean, dun, safeBase);
 
     if (!produtoEncontrado) {
-      showToast(`Código ${dun || ean} não identificado na base. Abrindo cadastro...`, 'info');
+      showToast(
+        language === 'pt'
+          ? `Código ${dun || ean} não identificado na base. Abrindo cadastro...`
+          : `Código ${dun || ean} no identificado en la base. Abriendo registro...`,
+        'info'
+      );
       setCadastroNaoIdentificado({
         ean: ean || '',
         dun: dun || '',
@@ -327,7 +357,12 @@ function HomeContent() {
 
     // Valida duplicidade usando o EAN resolvido (seja pelo scan ou pela base)
     if (ean && scannedEans.has(ean)) {
-      showToast('Este código já foi adicionado à lista nesta sessão.', 'error');
+      showToast(
+        language === 'pt'
+          ? 'Este código já foi adicionado à lista nesta sessão.'
+          : 'Este código ya ha sido agregado a la lista en esta sesión.',
+        'error'
+      );
       return;
     }
 
@@ -382,11 +417,21 @@ function HomeContent() {
       const isProdResfriado = conservacao.includes('resfriado');
 
       if (isCamaraCongelado && !isProdCongelado) {
-        showToast(`Produto com conservação "${produto.produtoConservacao || 'Não definida'}" é incompatível com a câmara "${sessaoAtiva.camara}".`, 'error');
+        showToast(
+          language === 'pt'
+            ? `Produto com conservação "${produto.produtoConservacao || 'Não definida'}" é incompatível com a câmara "${sessaoAtiva.camara}".`
+            : `El producto con conservación "${produto.produtoConservacao || 'No definida'}" es incompatible con la cámara "${sessaoAtiva.camara}".`,
+          'error'
+        );
         return;
       }
       if (isCamaraResfriado && !isProdResfriado) {
-        showToast(`Produto com conservação "${produto.produtoConservacao || 'Não definida'}" é incompatível com a câmara "${sessaoAtiva.camara}".`, 'error');
+        showToast(
+          language === 'pt'
+            ? `Produto com conservação "${produto.produtoConservacao || 'Não definida'}" é incompatível com a câmara "${sessaoAtiva.camara}".`
+            : `El producto con conservación "${produto.produtoConservacao || 'No definida'}" es incompatible con la cámara "${sessaoAtiva.camara}".`,
+          'error'
+        );
         return;
       }
     }
