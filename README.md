@@ -1,4 +1,4 @@
-# Meu Scanner 📦🔍
+# PaletScan 📦🔍
 
 [![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/github-yxfyqmrp)
 
@@ -6,93 +6,77 @@ Uma solução moderna e intuitiva de escaneamento de códigos de barras, projeta
 
 ---
 
-## 💡 A Origem do Projeto: Do Chão de Fábrica à Tecnologia
+## 🎯 Proposta & Estratégia do Projeto
 
-Este projeto não nasceu em uma sala de reuniões corporativa, mas sim na vivência diária de quem opera e compreende as reais dificuldades logísticas no chão de fábrica. 
+A armazenagem e a gestão de estoque em câmaras frias exigem foco operacional e eficiência máxima. A estratégia principal do **PaletScan** baseia-se em dois pilares fundamentais:
 
-A aplicação foi idealizada e desenvolvida por um **Operador de Empilhadeira do setor de Perecíveis**, aliando o conhecimento prático e profundo da rotina operacional de armazenagem com um sólido background em tecnologia e melhoria contínua de processos. O objetivo principal foi criar uma ferramenta de alta usabilidade para dispositivos móveis que eliminasse o atrito do controle de validades, garantindo acuracidade operacional com o menor número de toques possível.
+*   **Foco no Impacto e Prevenção de Perdas:** O objetivo do sistema não é manter uma base de cadastro para a totalidade dos produtos da loja. Em vez disso, o foco está direcionado àqueles itens onde a dor operacional e financeira da perda por vencimento seria mais forte.
+*   **Agilização de Alto Giro:** Facilitar a identificação, o controle de validades e o fluxo de saída rápida de produtos de alto giro, otimizando o espaço das câmaras frias e reduzindo rupturas de estoque.
 
 ---
 
-## 🗺️ Lógica de Endereçamento de Vagas (PAS)
+## ✨ Funcionalidades Atuais
 
-A armazenagem em câmaras frias de perecíveis exige um endereçamento cirúrgico e de fácil visualização para os operadores de empilhadeira. O sistema de vagas deste aplicativo foi estruturado com base nas referências físicas do layout do depósito, descritas nos seguintes documentos de planejamento:
+O **PaletScan** foi projetado com uma interface altamente otimizada para o operador do chão de fábrica, reduzindo cliques e maximizando a acurácia dos dados. Suas principais funcionalidades incluem:
+
+*   **Leitor Multiformato via Câmera Traseira:** Escaneamento ágil com mira laser animada e interface em tempo real utilizando a câmera do dispositivo móvel.
+*   **Envio de Imagem & Recorte Inteligente (Crop):** Em ambientes frios, reflexos no plástico filme do palete ou iluminação deficiente podem dificultar a leitura automática. O app permite subir fotos da galeria e fornece uma janela de enquadramento interativo (`react-zoom-pan-pinch`) para que o operador isole e decodifique manualmente o código de barras ou Data Matrix.
+*   **Decodificador Inteligente (Regex Industrial):** Lógica avançada em [regex.ts](file:///root/meus-repos/PaletScan/lib/regex.ts) para interpretar strings industriais complexas:
+    *   **GS1-128 / Data Matrix Bruto:** Extração direta do padrão `01` (GTIN-14) e `17` (data de validade no formato `YYMMDD`).
+    *   **Cálculo Automático de Validade:** Se o Data Matrix contiver apenas a data de fabricação, o sistema proativamente calcula e sugere a data de validade adicionando **+365 dias**.
+    *   **EAN-13, EAN-8 e DUN-14:** Suporte a caixas de embarque e produtos individuais.
+    *   **Normalização de EANs:** Tratamento para preenchimento de zeros à esquerda (ex: produtos Friboi), garantindo o carregamento correto de imagens e dados.
+    *   **Suporte a Pesagem Customizada:** Reconhecimento dinâmico de produtos que necessitam de pesagem física (ex: indicativo `(pesar)` para marcas específicas, como Lar).
+*   **Banco de Dados Integrado com Google Sheets:** Sincronização em tempo real das operações de cadastro e consulta utilizando a API do Google Sheets (`googleapis`), gerando planilhas compartilhadas acessíveis corporativamente.
+*   **Radar de Validade & Watchlist:** Alerta visual e sonoro imediato se o operador escanear um produto que está sob observação especial na lista de atenção (Watchlist), disparando animações comemorativas (`canvas-confetti`) na localização do item para motivar o time.
+*   **Prevenção de Ocupação Duplicada:** Verificação inteligente em tempo real que impede a alocação de mais de um palete ativo no mesmo endereço físico da câmara, bloqueando o botão de confirmação e exibindo um aviso destacado.
+*   **Exportação Inteligente de Relatórios:** Geração de relatórios tabulares adequados às diretrizes do sistema operacional Android (veja a seção [Ambiente Móvel](#-ambiente-de-desenvolvimento-e-produção-móvel)).
+*   **Painel e Histórico de Cadastros:** Tela dedicada para visualizar todos os paletes registrados, permitindo filtros de busca e vinculação manual rápida de DUN-14 diretamente nos detalhes do produto.
+
+---
+
+## 🗺️ Lógica de Endereçamento de Paletes
+
+A armazenagem em câmaras frias exige um endereçamento preciso e de fácil visualização para os operadores de empilhadeira. O sistema de vagas deste aplicativo foi estruturado com base nas referências físicas do layout do depósito, descritas nos seguintes documentos de planejamento:
 
 *   [Visualização Física do Endereço (PAS_VAGAS_ENDERECO.jpeg)](https://drive.google.com/file/d/10ZuKOpKvAz85GU8wtilXAFVf2z9ltmEO/view?usp=drivesdk)
 *   [Planilha de Zoneamento de Vagas (Matriz_PAS.pdf)](https://drive.google.com/file/d/1dYnfBErtCrACiNqTub2XfxXhBhbW0knX/view?usp=drivesdk)
 
-### 📌 Estrutura do Endereço Físico
+### 📌 Composição do Código de Vaga
 
-O código de endereçamento físico colado nas estantes (porta-paletes) segue o padrão **`Hack-Módulo-Gaveta-Vaga`**, totalizando 7 caracteres separados por hifens (ex: `A-1-0-D` ou `B-5-3-E`). Cada elemento indica uma coordenada exata no depósito:
+O código de endereçamento físico segue o padrão **`Rack Módulo Gaveta Vaga`**, totalizando **4 caracteres contínuos e sem hifens** (ex: `A10D` ou `B53E`). Cada elemento indica uma coordenada exata no depósito:
 
 | Elemento | Significado | Valores Possíveis | Descrição |
 | :--- | :--- | :--- | :--- |
-| **Hack (Rack)** | Corredor | `A` (Direita) \| `B` (Esquerda) | Define o lado da estrutura porta-palete em relação ao corredor de entrada central. |
+| **Rack** | Corredor | `A` (Direita) \| `B` (Esquerda) | Define o lado da estrutura porta-palete em relação ao corredor de entrada central. |
 | **Módulo** | Coluna | `1`, `2`, `3`, `4`, `5` | Indica a posição horizontal (montante) a partir da entrada da câmara (1) até o fundo (5). |
 | **Gaveta** | Altura (Nível) | `0` (Chão) \| `1` (Inferior) \| `2` (Central) \| `3` (Superior) | O nível vertical de armazenagem. `0` é o palete blocado no solo; `1`, `2` e `3` são as prateleiras elevadas. |
 | **Vaga** | Posição Lateral | `D` (Direita) \| `E` (Esquerda) | A posição exata do palete na gaveta em questão. |
 
-#### Exemplo de Leitura Física:
-> `A-1-1-E` = **Hack A** (lado direito), **Módulo 1** (primeira coluna na entrada), **Gaveta 1** (primeira prateleira acima do chão), **Vaga E** (palete da esquerda).
+#### Exemplo de Leitura do Código:
+> `A11E` = **Rack A** (lado direito), **Módulo 1** (primeira coluna na entrada), **Gaveta 1** (primeiro nível acima do chão), **Vaga E** (palete da esquerda).
 
 ---
 
-### 📱 Tradução Digital: O Formato Compacto (Sem Hifens)
+### 🔄 Fluxo de Identificação e Controle Físico
 
-> [!NOTE]
-> Para tornar o uso em celulares e coletores rápido e eficiente, o aplicativo traduz o endereço físico de 7 caracteres para um formato compacto de **4 caracteres sem hifens** (ex: **`A11E`**).
-> 
-> *   **Endereço Físico:** `A-1-1-E` ➡️ **Endereço no App:** `A11E`
-> *   **Endereço Físico:** `B-5-0-D` ➡️ **Endereço no App:** `B50D`
+Para garantir a acuracidade da localização de cada lote estocado nas câmaras (**Resfriados 1, Resfriados 2, Congelados 1 e Congelados 2**), o processo segue o fluxo operacional abaixo:
 
-Isso economiza espaço na tela do dispositivo do operador, acelera buscas rápidas e reduz o tempo de digitação manual de vagas in caso de falha de leitura, otimizando o fluxo de trabalho sob baixas temperaturas.
-
----
-
-### 🛡️ Prevenção de Ocupação Duplicada
-
-Para garantir a confiabilidade dos registros de estoque nas câmaras (**Resfriados 1, Resfriados 2, Congelados 1 e Congelados 2**), o sistema implementa uma camada inteligente de prevenção de erros:
-1. Ao iniciar uma sessão de trabalho, o operador seleciona o destino (Câmara e Vaga).
-2. O aplicativo faz uma consulta em tempo real à planilha de controle (`/api/vagas-ocupadas`).
-3. Se a vaga selecionada já estiver associada a algum produto ativo no sistema, o botão de confirmação é bloqueado e um alerta vermelho é exibido na tela, impedindo que dois produtos diferentes sejam alocados na mesma vaga física por engano.
-
----
-
-## ✨ Funcionalidades Principais & Ajustes Recentes
-
-*   **Leitor Multiformato via Câmera:** Escaneamento ágil com mira laser animada e interface em tempo real utilizando a câmera traseira do celular.
-*   **Envio de Imagem & Crop Inteligente:** Permite subir fotos de códigos da galeria do celular. Se a leitura automática falhar devido a reflexos comuns em câmaras frias, o app abre uma janela de enquadramento interativo (`react-zoom-pan-pinch`) para que o operador isole o código (Data Matrix ou código de barras) de forma manual.
-*   **Decodificador Inteligente (Regex):** Lógica avançada em [regex.ts](file:///root/meus-repos/meu-scanner/lib/regex.ts) para interpretar strings industriais complexas:
-    *   **GS1-128 / Data Matrix Bruto:** Identifica o padrão `01` (GTIN de 14 dígitos) e `17` (data de validade no formato `YYMMDD`).
-    *   **Cálculo Automático de Validade:** Se o Data Matrix contiver a data de fabricação, o sistema calcula e sugere automaticamente a validade adicionando **+365 dias**.
-    *   **DUN-14, EAN-13 e EAN-8:** Suporte para identificação de caixas fechadas de embarque (DUN-14) e itens individuais (EAN-13/EAN-8).
-*   **Google Sheets como Banco de Dados:** Conexão direta com a API do Google Sheets (`googleapis`), salvando e consultando dados diretamente em planilhas compartilhadas no Drive corporativo.
-*   **Radar de Validade / Watchlist:** Sistema de alerta integrado que avisa o operador se o produto escaneado faz parte de uma lista sob observação especial (watchlist), disparando efeitos visuais de comemoração (`canvas-confetti`) na localização do item.
-*   **Interface Premium com Dark Mode:** Desenvolvido com foco na estética moderna e conforto visual em ambientes escuros de câmaras frias.
-
-### 🆕 Novos Ajustes e Melhorias Incorporadas:
-*   **Busca Automática e Vinculação de EAN por QR Code:** Agora é possível ler ou escanear um EAN e fazer a busca ou associação rápida via câmera/galeria diretamente no fluxo de cadastro.
-*   **Unificação de Scanner DUN:** O campo de DUN foi simplificado para exibir um botão sutil de acionamento do scanner de QR Code ao lado de um seletor dropdown, melhorando a limpeza e organização da tela.
-*   **Vinculação Direta de DUN:** Adicionado botão para vincular DUN de forma simples e rápida diretamente na tela de detalhes do produto.
-*   **Normalização de EANs com Zeros à Esquerda:** Correção para garantir que códigos de marcas como Friboi sejam carregados e exibidos perfeitamente com imagens.
-*   **Experiência Visual de Imagens:** Exibição de imagens de produtos com fallbacks bem definidos e redimensionamento otimizado (avatar de produto aumentado para `h-48`) no modal de detalhes do produto.
-*   **Suporte a Marcadores de Peso customizados:** Tratamento dinâmico para produtos da marca Lar que necessitam de pesagem (`(pesar)` em minúsculo na identificação do produto).
+1. **Gravação dos Dados:** O operador realiza a leitura e o cadastro dos dados do palete no aplicativo (associando o produto à câmara e vaga correspondentes).
+2. **Colagem das Etiquetas:** Após gravar os dados, o operador cola no **primeiro lastro do palete** (de baixo para cima e por baixo do plástico filme) uma etiqueta física contendo o código de endereçamento mais as iniciais da câmara (ex: `R1-A32E` ou `C2-B20D`). São coladas duas etiquetas por palete: **uma na frente e outra atrás**.
+3. **Resiliência de Controle:** Mesmo que, por alguma eventualidade operacional, o palete não seja colocado exatamente na vaga correta dentro da câmara, o controle do estoque é mantido com sucesso. Isso é garantido pois o palete carrega a sinalização física legível de sua vaga planejada e o número de variações do código de endereçamento é finito para cada câmara.
 
 ---
 
 ## 📱 Ambiente de Desenvolvimento e Produção Móvel
 
-Um dos maiores diferenciais técnicos do **Meu Scanner** é que ele foi inteiramente desenvolvido, testado e mantido em um ambiente 100% móvel e local:
+Um dos maiores diferenciais técnicos do **PaletScan** é a sua integração com o ecossistema móvel no qual o operador atua diariamente. O projeto foi estruturado para suportar o desenvolvimento e a execução direta no dispositivo físico:
 
-*   **Hardware de Desenvolvimento:** Smartphone Android.
-*   **Ambiente de Linha de Comando:** Executado no **Termux**, emulando um contêiner **Ubuntu** completo via terminal.
-*   **Assistente de Desenvolvimento:** Pair-programming ativo com o **Agente Antigravity** (uma inteligência artificial do time da Google DeepMind projetada para Advanced Agentic Coding), que executa comandos do sistema operacional, diagnostica bugs, integra deploys automáticos via Vercel e gerencia o versionamento do código em tempo real.
-*   **Fluxo de Trabalho Mobile-First:** Toda a interface e funcionalidades de toque foram otimizadas e validadas diretamente na tela do dispositivo onde o operador realiza o trabalho, eliminando inconsistências comuns em emuladores desktop.
-
-### ⚙️ Integração Física com o Android (Termux-API):
-Para otimizar a usabilidade no celular, o projeto integra regras especiais de backend e script para o ecossistema Android:
-*   **Exportação em CP1252 (Windows-1252):** Os relatórios e planilhas CSV exportados a partir do banco de dados utilizam a codificação `cp1252` e separador ponto e vírgula (`;`). Isso garante que ao abrir o arquivo no Microsoft Excel ou Google Sheets para Android os acentos e caracteres da língua portuguesa sejam renderizados perfeitamente.
-*   **Indexação Instantânea de Mídia (Media Scan):** Ao salvar arquivos novos na pasta de downloads do celular (`/sdcard/Download/`), o sistema invoca a ferramenta do Termux `termux-media-scan /sdcard/Download/nome_do_arquivo.ext` imediatamente após a gravação. Isso força o Android a atualizar o índice de mídias imediatamente, fazendo com que o arquivo recém-criado apareça de forma instantânea nos gerenciadores de arquivos locais.
+*   **Desenvolvimento Mobile-First:** O app foi validado e otimizado diretamente em celulares Android com emulador de terminal **Termux** rodando um contêiner Ubuntu completo.
+*   **Parceria Inteligente:** Integração ativa com o assistente de desenvolvimento **Antigravity** (IA da Google DeepMind), auxiliando no diagnóstico rápido, controle de git, automação e deploy.
+*   **Exportação de Planilhas CSV para Dispositivos Móveis:**
+    *   **Codificação CP1252 (Windows-1252) e Delimitador Ponto e Vírgula (`;`):** Ao exportar os dados tabulares do banco para download e abertura direta em ferramentas como Excel e Google Sheets no celular Android, o app utiliza a codificação Windows-1252. Isso garante a perfeita renderização de acentos, ç, ã e caracteres especiais sem erros de formatação.
+    *   **Indexação Instantânea de Arquivos no Android (Media Scan):** Imediatamente após a gravação de arquivos exportados na pasta de downloads do celular (`/sdcard/Download/`), o sistema invoca o comando `termux-media-scan /sdcard/Download/nome_do_arquivo.ext`. Isso força o Android a indexar e registrar a mídia de imediato na biblioteca do sistema operacional, tornando o arquivo visível sem atrasos nos gerenciadores de arquivos locais.
 
 ---
 
@@ -101,10 +85,10 @@ Para otimizar a usabilidade no celular, o projeto integra regras especiais de ba
 *   **Framework:** [Next.js](https://nextjs.org/) (Pages Router)
 *   **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
 *   **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
-*   **Leitor de Imagens:** [@zxing/library](https://github.com/zxing-js/library) & Barcode Detector API nativa do navegador
+*   **Leitor de Imagens/Câmera:** [@zxing/library](https://github.com/zxing-js/library) & Barcode Detector API nativa
 *   **Banco de Dados & Integração:** Google Sheets API (`googleapis`)
-*   **Manipulação de Imagem:** `react-zoom-pan-pinch` (para zoom e recorte móvel)
-*   **Deploy:** Otimizado para hospedagem na [Vercel](https://vercel.com/) (disparada via commits e pushes com a infraestrutura git do Termux) ou [Netlify](https://www.netlify.com/)
+*   **Manipulação de Imagem:** `react-zoom-pan-pinch` (para zoom e recorte de alta precisão)
+*   **Deploy:** Hospedagem nativa na [Vercel](https://vercel.com/) ou [Netlify](https://www.netlify.com/)
 
 ---
 
@@ -138,13 +122,10 @@ BANCO_VALIDA_SHEET_ID=id_da_planilha_contendo_a_base_de_produtos_validos
 ```bash
 npm run dev
 ```
-Acesse [http://localhost:3000](http://localhost:3000) no seu navegador ou acesse pelo celular na mesma rede local utilizando o IP do computador.
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador ou use o IP local do computador para acessar do celular conectado na mesma rede.
 
 ### 5. Compilar para produção
 ```bash
 npm run build
-```
-Para inicializar o servidor em produção local:
-```bash
 npm run start
 ```
