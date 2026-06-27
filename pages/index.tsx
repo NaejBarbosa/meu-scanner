@@ -340,25 +340,9 @@ function HomeContent() {
     }
   };
 
-  const handleQRCode = async (text: string) => {
-    showToast('Validando com a base em tempo real...', 'info');
-    try {
-      const res = await fetch('/api/validar');
-      if (res.ok) {
-        const data = await res.json();
-        if (Array.isArray(data)) {
-          setProdutosValidos(data);
-          processarLeituraComBase(text, data);
-          return;
-        }
-      }
-      const baseValida = Array.isArray(produtosValidos) ? produtosValidos : [];
-      processarLeituraComBase(text, baseValida);
-    } catch (err) {
-      console.error('Erro ao atualizar base no escaneamento:', err);
-      const baseValida = Array.isArray(produtosValidos) ? produtosValidos : [];
-      processarLeituraComBase(text, baseValida);
-    }
+  const handleQRCode = (text: string) => {
+    const baseValida = Array.isArray(produtosValidos) ? produtosValidos : [];
+    processarLeituraComBase(text, baseValida);
   };
 
   const handleValidadeConfirm = (validade: string) => {
