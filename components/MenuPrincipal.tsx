@@ -11,7 +11,7 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
     <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8 space-y-12 animate-fadeIn">
       {/* Boas-vindas Header */}
       <div className="text-center space-y-3 animate-slideUp" style={{ animationDelay: '0ms' }}>
-        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent uppercase tracking-wider">
+        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl bg-gradient-to-r from-primary-500 to-indigo-500 bg-clip-text text-transparent uppercase tracking-wider">
           PaletScan
         </h2>
         <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
@@ -32,7 +32,7 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
           
           <div className="space-y-6">
             {/* Ícone */}
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg group-hover:shadow-primary-500/20 transition-all duration-300">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-indigo-600 flex items-center justify-center shadow-lg group-hover:shadow-primary-500/25 transition-all duration-300">
               <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
                 <path d="M6 10.5l6-3.5 6 3.5-6 3.5-6-3.5z" />
