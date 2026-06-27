@@ -8,7 +8,7 @@ Uma solução moderna e intuitiva de escaneamento de códigos de barras, projeta
 
 ## 🎯 Proposta, Estratégia & Autoria
 
-O **PaletScan** não nasceu em uma sala de reuniões corporativas, mas sim no cotidiano logístico do chão de fábrica. O projeto foi idealizado e inteiramente desenvolvido por **Jean Barbosa**, Operador de Empilhadeira do setor de Perecíveis na **Loja 410 do Fort Atacadista no Rio Tavares (Florianópolis - SC)** — uma unidade desta rede de atacarejo —, em parceria inteligente com o **Agente Antigravity** (IA da Google DeepMind). A aplicação une o conhecimento prático da rotina de armazenagem com soluções modernas de tecnologia para eliminar o atrito no controle de validades e no endereçamento.
+O **PaletScan** não nasceu em uma sala de reuniões corporativas, mas sim no cotidiano logístico do chão de fábrica. O projeto foi idealizado e inteiramente desenvolvido por **Jean Barbosa**, Operador de Empilhadeira do setor de Perecíveis na **Loja 410 do Fort Atacadista no Rio Tavares (Florianópolis - SC)** — uma unidade desta rede de atacarejo —, em parceria inteligente com o **Agente Antigravity** (IA da Google DeepMind). Por falta de recursos de hardware tradicionais, toda a codificação e engenharia da aplicação não foram feitas em um computador, mas sim diretamente de um smartphone, tornando este projeto um verdadeiro marco de superação técnica e otimização de recursos. A aplicação une o conhecimento prático da rotina de armazenagem com soluções modernas de tecnologia para eliminar o atrito no controle de validades e no endereçamento.
 
 A armazenagem e a gestão de estoque em câmaras frias exigem foco operacional e eficiência máxima. A estratégia principal do **PaletScan** baseia-se em dois pilares fundamentais:
 
@@ -76,7 +76,7 @@ Para garantir a acuracidade da localização de cada lote estocado nas câmaras 
 
 Um dos maiores diferenciais técnicos do **PaletScan** é a sua integração com o ecossistema móvel no qual o operador atua diariamente. O projeto foi estruturado para suportar o desenvolvimento e a execução direta no dispositivo físico:
 
-*   **Desenvolvimento Mobile-First:** O app foi validado e otimizado diretamente em celulares Android com emulador de terminal **Termux** rodando um contêiner Ubuntu completo.
+*   **Desenvolvimento 100% Mobile (Smartphone):** Devido à falta de recursos para a aquisição de um computador, o projeto foi integralmente escrito, testado e mantido a partir de um smartphone Android. Utilizou-se o emulador de terminal **Termux** rodando um ambiente Linux (Ubuntu) completo, onde o app era desenvolvido e executado localmente de forma nativa no próprio celular.
 *   **Parceria Inteligente:** Integração ativa com o assistente de desenvolvimento **Antigravity** (IA da Google DeepMind), auxiliando no diagnóstico rápido, controle de git, automação e deploy.
 *   **Exportação de Planilhas CSV para Dispositivos Móveis:**
     *   **Codificação CP1252 (Windows-1252) e Delimitador Ponto e Vírgula (`;`):** Ao exportar os dados tabulares do banco para download e abertura direta em ferramentas como Excel e Google Sheets no celular Android, o app utiliza a codificação Windows-1252. Isso garante a perfeita renderização de acentos, ç, ã e caracteres especiais sem erros de formatação.
