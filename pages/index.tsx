@@ -427,7 +427,7 @@ function HomeContent() {
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-1.5">
                   <h1 className="text-lg font-extrabold text-slate-900 dark:text-slate-100 leading-none tracking-tight">
-                    Palet<span className="text-primary-600 dark:text-primary-500">Scaner</span>
+                    Palet<span className="text-primary-600 dark:text-primary-500">Scan</span>
                   </h1>
                   <span className="text-[9px] text-slate-400 dark:text-slate-500 font-bold tracking-wider uppercase">
                     v1.2

@@ -12,7 +12,7 @@ export default function MenuPrincipal({ onSelectScan, onSelectRelatorio, onSelec
       {/* Boas-vindas Header */}
       <div className="text-center space-y-3 animate-slideUp" style={{ animationDelay: '0ms' }}>
         <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent uppercase tracking-wider">
-          PaletScaner
+          PaletScan
         </h2>
         <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
           Logística inteligente e controle automatizado de recebimento para câmaras frias.
