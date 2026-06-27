@@ -32,6 +32,8 @@ O **PaletScan** foi projetado com uma interface altamente otimizada para o opera
 *   **Prevenção de Ocupação Duplicada:** Verificação inteligente em tempo real que impede a alocação de mais de um palete ativo no mesmo endereço físico da câmara, bloqueando o botão de confirmação e exibindo um aviso destacado.
 *   **Exportação Inteligente de Relatórios:** Geração de relatórios tabulares adequados às diretrizes do sistema operacional Android (veja a seção [Ambiente Móvel](#-ambiente-de-desenvolvimento-e-produção-móvel)).
 *   **Painel e Histórico de Cadastros:** Tela dedicada para visualizar todos os paletes registrados, permitindo filtros de busca e vinculação manual rápida de DUN-14 diretamente nos detalhes do produto.
+*   **Geração Externa de QR Codes de Estoque:** Capacidade de gerar QR Codes para leitura direta do estoque no sistema da loja, eliminando a necessidade de o operador acessar o outro sistema de retaguarda de forma direta.
+*   **Suporte Multi-idioma (Espanhol):** Possui a opção integrada de tradução completa da interface para o idioma espanhol, ampliando a acessibilidade para equipes internacionais ou operacionais diversas.
 
 ---
 
@@ -44,7 +46,7 @@ A armazenagem em câmaras frias exige um endereçamento preciso e de fácil visu
 
 ### 📌 Composição do Código de Vaga
 
-O código de endereçamento físico segue o padrão **`Rack Módulo Gaveta Vaga`**, totalizando **4 caracteres contínuos e sem hifens** (ex: `A10D` ou `B53E`). Cada elemento indica uma coordenada exata no depósito:
+O código de endereçamento físico segue o padrão Rack, Módulo, Gaveta e Vaga, totalizando 4 caracteres contínuos (ex: A10D ou B53E). Cada elemento indica uma coordenada exata no depósito:
 
 | Elemento | Significado | Valores Possíveis | Descrição |
 | :--- | :--- | :--- | :--- |
