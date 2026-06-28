@@ -247,9 +247,11 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
 
   // 3. Lógica para Leitura Rápida (Scanner)
   const handleDetectedScan = (text: string) => {
+    console.log("🔍 [DEBUG SCANNER] String bruta capturada:", text);
     const dados = extrairDados(text);
     if (!dados) {
-      showToast(language === 'pt' ? 'Código inválido. Tente novamente.' : 'Código inválido. Inténtelo de nuevo.', 'error');
+      const textoCurto = text.length > 40 ? text.substring(0, 40) + '...' : text;
+      showToast(`Lido: ${textoCurto} (Formato não reconhecido)`, 'error');
       return;
     }
 

@@ -221,7 +221,7 @@ export default function Scanner({
         onDetected(decoded);
         fecharPreview();
       } else {
-        setDebugMessage("Nenhum codigo detectado.");
+        setDebugMessage("Nenhum código encontrado na imagem");
       }
     } catch (err: any) {
       setDebugMessage(`Erro: ${err.message || err}`);
