@@ -101,11 +101,19 @@ export default function Scanner({
         if (result && !processing) {
           const text = result.getText();
           if (text) {
+            // 🔒 INTERCEPTADOR 1: Evita erro se o operador bipar APENAS o código da data (15 ou 17)
+            if (/^(?:\]C1)?(?:15|17)[2-3][0-9](?:0[1-9]|1[0-2])/.test(text) && !/(?:01|02)\d{14}/.test(text)) {
+              setDebugMessage('⚠️ Este código tem apenas a data. Foque no código com o DUN (01)!');
+              return; // Mantém a câmera aberta
+            }
+
+            // 🔒 INTERCEPTADOR 2: Trava para DUN Isolado
             if (text.length === 14 && /^\d{14}$/.test(text)) {
               setDunTemporario(text);
               setDebugMessage('Foque no código maior (com data) ou clique no botão abaixo.');
-              return;
+              return; // Mantém a câmera aberta
             }
+
             stopScanning();
             onDetected(text);
           }

@@ -127,18 +127,29 @@ function extrairDadosDataMatrix(qrData: string) {
  * Extrai DUN e data de validade de uma string GS1 bruta (sem delimitadores)
  */
 export const extrairDadosGS1Bruto = (texto: string): { dun?: string; ean?: string; validade?: string } | null => {
-  const matchDun = texto.match(/(?:^|[^0-9])01(\d{14})/);
-  const matchData = texto.match(/(?:17|15)(\d{6})/);
-  let dun = undefined;
+  // 1. Válvula de Escape (DUN isolado)
+  if (texto.length === 14 && /^\d{14}$/.test(texto)) {
+    return { dun: texto, validade: undefined };
+  }
+
+  // 2. Busca do DUN (IA 01 ou 02) ancorado no início do bloco de dados
+  const matchDun = texto.match(/(?:^|\]C1|[^0-9])(?:01|02)(\d{14})/);
+
+  // 3. Busca da Data (IA 15 ou 17) com Validador de Calendário Estrito
+  // Garante ano [2-3][0-9] (2020-2039), mês (01-12) e dia (01-31).
+  const matchData = texto.match(/(?:17|15)([2-3][0-9](?:0[1-9]|1[0-2])(?:0[1-9]|[12][0-9]|3[01]))/);
+
+  let dun = matchDun ? matchDun[1] : undefined;
   let validade = undefined;
-  if (matchDun) dun = matchDun[1];
+
   if (matchData) {
-    const dataValidadeBruta = matchData[1];
-    const ano = `20${dataValidadeBruta.substring(0, 2)}`;
-    const mes = dataValidadeBruta.substring(2, 4);
-    const dia = dataValidadeBruta.substring(4, 6);
+    const dataBruta = matchData[1];
+    const ano = `20${dataBruta.substring(0, 2)}`;
+    const mes = dataBruta.substring(2, 4);
+    const dia = dataBruta.substring(4, 6);
     validade = `${dia}/${mes}/${ano}`;
   }
+
   if (dun) return { dun, validade };
   return null;
 };
