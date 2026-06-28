@@ -101,26 +101,29 @@ export default function Scanner({
         if (result && !processing) {
           const text = result.getText();
           if (text) {
+            // 0. Limpador de Prefixos AIM (Remove ]C1, ]E0, ]I0, etc.)
+            const cleanText = text.replace(/^\][A-Za-z0-9]{2}/, '');
+
             // 1. Trava para DUN Isolado impresso sozinho
-            if (text.length === 14 && /^\d{14}$/.test(text)) {
-              setDunTemporario(text);
+            if (cleanText.length === 14 && /^\d{14}$/.test(cleanText)) {
+              setDunTemporario(cleanText);
               setDebugMessage('Foque no código maior (com data) ou clique no botão abaixo.');
-              return; // Mantém a câmera aberta
+              return;
             }
 
             // 2. Filtro de Relevância (Ignora SSCC, Lotes, Datas Isoladas e Lixo)
-            const temDun = /(?:01|02)\d{14}/.test(text);
-            const temEan = /^\d{13}$/.test(text);
-            const temPontoVirgula = text.includes(';');
+            const temDun = /(?:01|02)\d{14}/.test(cleanText);
+            const temEan = /^\d{13}$/.test(cleanText);
+            const temPontoVirgula = cleanText.includes(';');
 
             if (!temDun && !temEan && !temPontoVirgula) {
               setDebugMessage('Ignorando código irrelevante... Mova para o código principal (01).');
-              return; // MANTÉM A CÂMERA ABERTA procurando o código certo
+              return;
             }
 
-            // 3. Se for válido, paralisa e envia para o validador
+            // 3. Se for válido, paralisa e envia o texto LIMPO para o validador
             stopScanning();
-            onDetected(text);
+            onDetected(cleanText);
           }
         }
       });
