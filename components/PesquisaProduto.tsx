@@ -119,10 +119,18 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
       if (item.produtoEan === ean) {
         const nextState = !item.localizado;
         if (nextState) {
+          // Disparo duplo de confetes laterais
           confetti({
-            particleCount: 80,
-            spread: 50,
-            origin: { y: 0.8 },
+            particleCount: 60,
+            spread: 40,
+            origin: { x: 0.3, y: 0.8 },
+            colors: ['#06b6d4', '#6366f1', '#10b981'],
+            zIndex: 9999
+          });
+          confetti({
+            particleCount: 60,
+            spread: 40,
+            origin: { x: 0.7, y: 0.8 },
             colors: ['#06b6d4', '#6366f1', '#10b981'],
             zIndex: 9999
           });
@@ -274,17 +282,26 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
       return;
     }
 
-    // Verifica se produto escaneado está na watchlist
-    const isMatched = watchlist.some((w) => w.produtoEan === foundProduct.produtoEan);
+    // Verifica se produto escaneado está na watchlist e ainda não foi localizado
+    const isMatched = watchlist.some((w) => w.produtoEan === foundProduct.produtoEan && !w.localizado);
     
     setIsWatchlistMatch(isMatched);
     if (isMatched) {
       // Dispara confetes e celebração no modal
       setIsMatchCelebration(true);
+      
+      // Show de confetes em leque duplo lateral
       confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.65 },
+        particleCount: 100,
+        spread: 60,
+        origin: { x: 0.2, y: 0.65 },
+        colors: ['#06b6d4', '#6366f1', '#10b981'],
+        zIndex: 9999
+      });
+      confetti({
+        particleCount: 100,
+        spread: 60,
+        origin: { x: 0.8, y: 0.65 },
         colors: ['#06b6d4', '#6366f1', '#10b981'],
         zIndex: 9999
       });

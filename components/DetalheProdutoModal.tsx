@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import confetti from 'canvas-confetti';
 import { QRCodeSVG } from 'qrcode.react';
 import ProdutoAvatar from './ProdutoAvatar';
 import { ProdutoValido, WatchlistItem } from './PesquisaProduto';
@@ -28,9 +29,51 @@ export default function DetalheProdutoModal({
   const [mounted, setMounted] = useState(false);
   const [showQRCode, setShowQRCode] = useState(false);
 
+  const isPendingMatch = watchlist.some((w) => w.produtoEan === produto.produtoEan && !w.localizado);
+  const showMatchStyle = isMatchCelebration || isPendingMatch;
+
+  const triggerSpectacularConfetti = () => {
+    // Primeiro disparo em leque duplo
+    confetti({
+      particleCount: 120,
+      spread: 60,
+      origin: { x: 0.2, y: 0.65 },
+      zIndex: 9999,
+      colors: ['#06b6d4', '#6366f1', '#10b981']
+    });
+    confetti({
+      particleCount: 120,
+      spread: 60,
+      origin: { x: 0.8, y: 0.65 },
+      zIndex: 9999,
+      colors: ['#06b6d4', '#6366f1', '#10b981']
+    });
+
+    // Loop de comemoração contínua por 1.5 segundos
+    const duration = 1.5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999, colors: ['#06b6d4', '#6366f1', '#10b981'] };
+
+    const interval: any = setInterval(function() {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 40 * (timeLeft / duration);
+      confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.3 + 0.1, y: Math.random() - 0.2 } });
+      confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.3 + 0.6, y: Math.random() - 0.2 } });
+    }, 200);
+  };
+
   useEffect(() => {
     setMounted(true);
-  }, []);
+    if (showMatchStyle) {
+      triggerSpectacularConfetti();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showMatchStyle]);
 
   if (!mounted) return null;
 
@@ -40,14 +83,20 @@ export default function DetalheProdutoModal({
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm px-4">
       <div
         className={`card-elevated max-w-md w-full p-6 animate-scale-in relative overflow-hidden flex flex-col gap-4 ${
-          isMatchCelebration
+          showMatchStyle
             ? 'border-2 border-success-500 shadow-elevated bg-gradient-to-b from-success-50/10 to-transparent dark:from-success-950/10 ring-4 ring-success-500/20'
             : ''
         }`}
       >
         {/* Decoração Especial de Radar Match */}
-        {isMatchCelebration && (
-          <div className="absolute top-0 right-0 w-32 h-32 bg-success-500/10 rounded-bl-full pointer-events-none animate-pulse" />
+        {showMatchStyle && (
+          <>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-success-500/10 rounded-bl-full pointer-events-none animate-pulse" />
+            <div className="bg-success-500 text-white text-xs font-black px-3.5 py-1.5 rounded-full flex items-center gap-1.5 self-center shadow-md animate-bounce">
+              <span>🎯</span>
+              <span>{language === 'pt' ? 'PRODUTO PROCURADO ENCONTRADO!' : '¡PRODUCTO BUSCADO ENCONTRADO!'}</span>
+            </div>
+          </>
         )}
 
         {/* Exibição da Imagem do Produto */}
