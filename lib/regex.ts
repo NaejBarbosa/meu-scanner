@@ -227,14 +227,7 @@ export function extrairDados(text: string) {
     return { ean, validade: null, tipo: 'ean' as const };
   }
 
-  // 6. EAN-8 isolado - cadeia isolada de 8 dígitos apenas (nada antes, nada depois)
-  const ean8Regex = /^\d{8}$/;
-  const ean8Match = clean.match(ean8Regex);
-  if (ean8Match) {
-    const ean = ean8Match[0];
-    console.log('[extrairDados] EAN-8 detectado -> EAN:', ean);
-    return { ean, validade: null, tipo: 'ean' as const };
-  }
+
 
   console.error('[extrairDados] Nenhum formato reconhecido. Texto:', clean);
   return null;

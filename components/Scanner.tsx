@@ -110,7 +110,7 @@ export default function Scanner({
 
             // 2. Filtro de Relevância (Ignora SSCC, Lotes, Datas Isoladas e Lixo)
             const temDun = /(?:01|02)\d{14}/.test(text);
-            const temEan = /^\d{8}$|^\d{13}$/.test(text);
+            const temEan = /^\d{13}$/.test(text);
             const temPontoVirgula = text.includes(';');
 
             if (!temDun && !temEan && !temPontoVirgula) {
