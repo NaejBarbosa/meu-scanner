@@ -793,7 +793,7 @@ function HomeContent() {
               </div>
               <div className="flex justify-between items-center text-xs">
                 <span className="font-medium text-slate-500 dark:text-slate-400">{t('classe')}</span>
-                <span className="badge badge-primary">{confirmacao.produto.produtoClasse}</span>
+                <span className="badge badge-success">{confirmacao.produto.produtoClasse}</span>
               </div>
               {confirmacao.produto.produtoConservacao && (
                 <div className="flex justify-between items-center text-xs">
