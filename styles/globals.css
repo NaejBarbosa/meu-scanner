@@ -275,3 +275,7 @@ button:focus-visible {
   animation: pulseBorder 1.5s infinite ease-in-out;
 }
 
+/* Forçar a chuva de confetes a aparecer na frente de todos os modais */
+body > canvas {
+  z-index: 999999 !important;
+}
