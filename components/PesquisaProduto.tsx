@@ -314,6 +314,8 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
         newList[index] = { ...newList[index], localizado: true };
         saveWatchlist(newList);
       }
+    } else {
+      setIsMatchCelebration(false);
     }
 
     setSelectedProduct(foundProduct);
@@ -586,9 +588,13 @@ export default function PesquisaProduto({ produtosValidos, onProdutoCadastrado }
           isMatchCelebration={isMatchCelebration}
           watchlist={watchlist}
           toggleWatchlist={toggleWatchlist}
-          onClose={() => setSelectedProduct(null)}
+          onClose={() => {
+            setSelectedProduct(null);
+            setIsMatchCelebration(false);
+          }}
           onVincularDun={(prod) => {
             setSelectedProduct(null);
+            setIsMatchCelebration(false);
             setCadastroNaoIdentificado({
               ean: prod.produtoEan,
               dun: '',
