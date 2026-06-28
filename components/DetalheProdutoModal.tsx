@@ -100,7 +100,21 @@ export default function DetalheProdutoModal({
         )}
 
         {/* Exibição da Imagem do Produto */}
-        <ProdutoAvatar ean={produto.produtoEan} descricao={produto.produtoDescr} />
+        <div className="flex flex-col items-center justify-center">
+          <div className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
+            showMatchStyle 
+              ? 'ring-4 ring-success-500 shadow-lg shadow-success-500/30 animate-pulse-border' 
+              : ''
+          }`}>
+            <ProdutoAvatar ean={produto.produtoEan} descricao={produto.produtoDescr} />
+          </div>
+          {showMatchStyle && (
+            <p className="text-xs font-black text-success-600 dark:text-success-400 mt-2.5 flex items-center gap-1.5 tracking-wide animate-pulse">
+              <span className="inline-block w-2 h-2 rounded-full bg-success-500" />
+              {language === 'pt' ? 'Produto encontrado!' : '¡Producto encontrado!'}
+            </p>
+          )}
+        </div>
 
         {/* Informações cadastrais do produto */}
         {!showQRCode ? (

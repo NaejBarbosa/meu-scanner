@@ -760,8 +760,20 @@ function HomeContent() {
             )}
 
             {/* Exibição da Imagem do Produto */}
-            <div className="mb-4">
-              <ProdutoAvatar ean={confirmacao.ean} descricao={confirmacao.produto.produtoDescr} />
+            <div className="mb-4 flex flex-col items-center justify-center">
+              <div className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
+                isWatchlistMatch 
+                  ? 'ring-4 ring-success-500 shadow-lg shadow-success-500/30 animate-pulse-border' 
+                  : ''
+              }`}>
+                <ProdutoAvatar ean={confirmacao.ean} descricao={confirmacao.produto.produtoDescr} />
+              </div>
+              {isWatchlistMatch && (
+                <p className="text-xs font-black text-success-600 dark:text-success-400 mt-2.5 flex items-center gap-1.5 tracking-wide animate-pulse">
+                  <span className="inline-block w-2 h-2 rounded-full bg-success-500" />
+                  {language === 'pt' ? 'Produto encontrado!' : '¡Producto encontrado!'}
+                </p>
+              )}
             </div>
 
             <div className="bg-slate-100 dark:bg-slate-800/50 rounded-xl p-4 mb-5 space-y-3">
