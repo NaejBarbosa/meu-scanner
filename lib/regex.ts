@@ -126,65 +126,22 @@ function extrairDadosDataMatrix(qrData: string) {
 /**
  * Extrai DUN e data de validade de uma string GS1 bruta (sem delimitadores)
  */
-function extrairDadosGS1Bruto(qrData: string) {
-  console.log('[GS1Bruto] Iniciando análise para:', JSON.stringify(qrData));
-  
-  // Remove espaços e quebras de linha
-  let clean = qrData.replace(/\s/g, '');
-  
-  // Remove parênteses para suportar leitores que formatam os IAs como (01) ou (17)
-  clean = clean.replace(/[()]/g, '');
-
-  // Remove prefixos de simbologia ISO/IEC 15424 comuns como ]C1 ou ]d2
-  clean = clean.replace(/^\][A-Za-z0-9]{2}/, '');
-  
-  // Remove caracteres de controle ASCII comuns como \x1d (Group Separator)
-  const controlCharsRegex = /[\x00-\x1F\x7F-\x9F]/g;
-  if (controlCharsRegex.test(clean)) {
-    console.log('[GS1Bruto] Caracteres de controle invisíveis detectados e removidos.');
-    clean = clean.replace(controlCharsRegex, '');
-  }
-  
-  console.log('[GS1Bruto] String limpa para busca:', JSON.stringify(clean));
-
-  const texto = clean;
-
-  // 2. Faça a busca do DUN (IA 01) de forma independente usando: texto.match(/(?:^|[^0-9])01(\d{14})/);
+export const extrairDadosGS1Bruto = (texto: string): { dun?: string; ean?: string; validade?: string } | null => {
   const matchDun = texto.match(/(?:^|[^0-9])01(\d{14})/);
-  if (!matchDun) {
-    console.log('[GS1Bruto] DUN (01) não encontrado na string.');
-    return null;
-  }
-  const dun = matchDun[1];
-  console.log('[GS1Bruto] DUN encontrado:', dun);
-
-  // 3. Faça a busca da data (IA 15 ou 17) de forma independente usando: texto.match(/(?:17|15)(\d{6})/);
   const matchData = texto.match(/(?:17|15)(\d{6})/);
-  let validade: string | undefined = undefined;
-
+  let dun = undefined;
+  let validade = undefined;
+  if (matchDun) dun = matchDun[1];
   if (matchData) {
-    const dataStr = matchData[1]; // YYMMDD
-    console.log('[GS1Bruto] Validade bruta encontrada:', dataStr);
-
-    const yy = dataStr.substring(0, 2);
-    const mm = dataStr.substring(2, 4);
-    const dd = dataStr.substring(4, 6);
-
-    // 5. Formatação: Se a data for encontrada, formate-a para DD/MM/20AA.
-    validade = `${dd}/${mm}/20${yy}`;
-    console.log(`[GS1Bruto] Data formatada: ${validade}`);
-  } else {
-    console.log('[GS1Bruto] Identificador de validade (17 ou 15) não encontrado.');
+    const dataValidadeBruta = matchData[1];
+    const ano = `20${dataValidadeBruta.substring(0, 2)}`;
+    const mes = dataValidadeBruta.substring(2, 4);
+    const dia = dataValidadeBruta.substring(4, 6);
+    validade = `${dia}/${mes}/${ano}`;
   }
-
-  // 6. O retorno de sucesso deve ser: { dun: string, validade: string | undefined }.
-  console.log('[GS1Bruto] Sucesso! Dados extraídos:', { dun, validade });
-
-  return {
-    dun,
-    validade,
-  };
-}
+  if (dun) return { dun, validade };
+  return null;
+};
 
 /**
  * Extrai DUN, EAN e data de validade do texto bruto

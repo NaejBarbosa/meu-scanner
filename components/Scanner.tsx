@@ -32,6 +32,7 @@ export default function Scanner({
   const imageElementRef = useRef<HTMLImageElement>(null);
   const transformWrapperRef = useRef<any>(null);
   const [mounted, setMounted] = useState(false);
+  const [dunTemporario, setDunTemporario] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -100,6 +101,11 @@ export default function Scanner({
         if (result && !processing) {
           const text = result.getText();
           if (text) {
+            if (text.length === 14 && /^\d{14}$/.test(text)) {
+              setDunTemporario(text);
+              setDebugMessage('Foque no código maior (com data) ou clique no botão abaixo.');
+              return;
+            }
             stopScanning();
             onDetected(text);
           }
@@ -107,7 +113,7 @@ export default function Scanner({
       });
       setScanning(true);
     } catch (err: any) {
-      setDebugMessage('Erro ao acessar camera: ' + (err.message || 'verifique permissoes'));
+      setDebugMessage('Erro ao acessar câmera: ' + (err.message || 'verifique permissões'));
       setTimeout(() => setDebugMessage(null), 5000);
       stopScanning();
     } finally {
@@ -415,6 +421,20 @@ export default function Scanner({
             playsInline
             autoPlay
           />
+
+          {dunTemporario && (
+            <div className="absolute bottom-24 left-0 w-full flex justify-center z-50 px-4">
+              <button
+                onClick={() => {
+                  stopScanning();
+                  onDetected(dunTemporario);
+                }}
+                className="bg-primary-600 dark:bg-primary-500 text-white font-bold py-3 px-6 rounded-xl shadow-elevated animate-fade-in flex items-center gap-2"
+              >
+                Prosseguir apenas com DUN ({dunTemporario})
+              </button>
+            </div>
+          )}
 
           {/* Overlay escurecido nas bordas com furo no meio (viewfinder) com cantos arredondados acompanhando o contorno */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0">
