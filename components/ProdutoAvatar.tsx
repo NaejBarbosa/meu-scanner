@@ -18,17 +18,17 @@ export default function ProdutoAvatar({ ean, descricao }: ProdutoAvatarProps) {
   }, [ean]);
 
   return (
-    <div className="w-full aspect-square bg-white rounded-xl p-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center flex-shrink-0">
+    <div className="w-full h-48 relative flex items-center justify-center overflow-hidden bg-white rounded-t-xl shrink-0">
       {hasError ? (
-        <div className="w-full h-full flex items-center justify-center text-slate-300 animate-fade-in">
-          <Package className="w-24 h-24 stroke-[1.5]" />
+        <div className="max-w-full max-h-full flex items-center justify-center text-slate-300 animate-fade-in">
+          <Package className="w-20 h-20 stroke-[1.5]" />
         </div>
       ) : (
         <img
           src={`/imagens_produtos/${normalizedEan}.webp`}
           alt={descricao}
           onError={() => setHasError(true)}
-          className="w-full h-auto max-h-[40vh] object-contain rounded-lg select-none animate-fade-in self-center"
+          className="max-w-full max-h-full object-contain select-none animate-fade-in"
         />
       )}
     </div>
