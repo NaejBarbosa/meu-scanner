@@ -18,9 +18,9 @@ export default function ProdutoAvatar({ ean, descricao }: ProdutoAvatarProps) {
   }, [ean]);
 
   return (
-    <div className="w-full h-72 bg-white rounded-xl p-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center flex-shrink-0">
+    <div className="w-full aspect-square bg-white rounded-xl p-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center flex-shrink-0">
       {hasError ? (
-        <div className="h-full w-full flex items-center justify-center text-slate-300 animate-fade-in">
+        <div className="w-full h-full flex items-center justify-center text-slate-300 animate-fade-in">
           <Package className="w-24 h-24 stroke-[1.5]" />
         </div>
       ) : (
@@ -28,7 +28,7 @@ export default function ProdutoAvatar({ ean, descricao }: ProdutoAvatarProps) {
           src={`/imagens_produtos/${normalizedEan}.webp`}
           alt={descricao}
           onError={() => setHasError(true)}
-          className="h-full w-full object-cover select-none animate-fade-in"
+          className="w-full h-auto object-contain select-none animate-fade-in"
         />
       )}
     </div>
