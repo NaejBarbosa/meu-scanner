@@ -171,7 +171,7 @@ export default function DetalheProdutoModal({
                   <span>⚖️</span> {language === 'pt' ? 'Código de Pesar' : 'Código de Pesaje'}
                 </span>
                 <div className="flex items-center gap-1.5">
-                  <span className="font-mono text-slate-900 dark:text-slate-100 font-bold bg-primary-50 dark:bg-primary-950/40 text-primary-700 dark:text-primary-300 px-2.5 py-1 rounded border border-primary-200/50 dark:border-primary-900/30 group-hover:scale-105 transition-transform shadow-sm">
+                  <span className="font-mono font-bold bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 px-2.5 py-1 rounded border border-primary-200/50 dark:border-primary-800/30 group-hover:scale-105 transition-transform shadow-sm">
                     {produto.pesarCod}
                   </span>
                   <svg className="w-3.5 h-3.5 text-slate-400 group-hover:text-primary-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
