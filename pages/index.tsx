@@ -768,17 +768,15 @@ function HomeContent() {
             )}
 
             {/* Exibição da Imagem do Produto */}
-            <div className="flex flex-col items-center justify-center">
-              <div className="relative p-1.5 flex items-center justify-center w-full max-w-[280px]">
-                {isWatchlistMatch && (
-                  <span className="absolute inset-1.5 rounded-2xl bg-emerald-500 animate-ping opacity-75 pointer-events-none" />
-                )}
-                <div className={isWatchlistMatch 
-                  ? 'relative rounded-2xl overflow-hidden border-4 border-emerald-500 dark:border-emerald-400 shadow-lg shadow-emerald-500/50 animate-pulse transition-all duration-300 w-full'
-                  : 'w-full'
-                }>
-                  <ProdutoAvatar ean={confirmacao.ean} descricao={confirmacao.produto.produtoDescr} />
-                </div>
+            <div className="relative w-full">
+              {isWatchlistMatch && (
+                <span className="absolute -inset-1 rounded-2xl bg-emerald-500 animate-ping opacity-75 pointer-events-none" />
+              )}
+              <div className={isWatchlistMatch 
+                ? 'relative rounded-2xl overflow-hidden border-4 border-emerald-500 dark:border-emerald-400 shadow-lg shadow-emerald-500/50 animate-pulse transition-all duration-300 w-full'
+                : 'w-full'
+              }>
+                <ProdutoAvatar ean={confirmacao.ean} descricao={confirmacao.produto.produtoDescr} />
               </div>
             </div>
 

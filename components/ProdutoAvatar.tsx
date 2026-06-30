@@ -28,7 +28,7 @@ export default function ProdutoAvatar({ ean, descricao }: ProdutoAvatarProps) {
           src={`/imagens_produtos/${normalizedEan}.webp`}
           alt={descricao}
           onError={() => setHasError(true)}
-          className="h-full w-full object-contain select-none animate-fade-in"
+          className="h-full w-full object-cover select-none animate-fade-in"
         />
       )}
     </div>
