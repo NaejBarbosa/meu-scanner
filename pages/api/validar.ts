@@ -10,7 +10,7 @@ export default async function handler(
   try {
     const sheetId = process.env.BANCO_VALIDA_SHEET_ID as string;
     // Colunas A..G: marca-id, marca-descr, produto-classe, produto-ean, produto-dun, produto-conservacao, produto-descr
-    const data = await getSheetData(sheetId, 'banco_valida!A:G');
+    const data = await getSheetData(sheetId, 'banco_valida!A:H');
     // Ignorar cabeçalho (linha 1)
     const rows = data.slice(1).map((row) => ({
       marcaId: row[0],
@@ -20,6 +20,7 @@ export default async function handler(
       produtoDun: row[4] || '',
       produtoConservacao: row[5] || '',
       produtoDescr: row[6] || row[4] || '', // Fallback para coluna antiga se não houver 7 colunas
+      pesarCod: row[7] || '', // 8ª coluna (coluna H)
     }));
     res.status(200).json(rows);
   } catch (error) {

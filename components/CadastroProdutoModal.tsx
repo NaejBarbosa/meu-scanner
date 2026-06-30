@@ -18,6 +18,7 @@ interface ProdutoValido {
   produtoDun: string;
   produtoConservacao: string;
   produtoDescr: string;
+  pesarCod?: string;
 }
 
 interface CadastroProdutoModalProps {

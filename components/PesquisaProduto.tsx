@@ -18,6 +18,7 @@ export interface ProdutoValido {
   produtoDun: string;
   produtoConservacao: string;
   produtoDescr: string;
+  pesarCod?: string;
 }
 
 export interface WatchlistItem extends ProdutoValido {
