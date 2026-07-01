@@ -428,46 +428,67 @@ export default function Relatorio() {
           {/* Filtro Marca */}
           <div className="space-y-1">
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('marca')}</label>
-            <select
-              value={filtroMarca}
-              onChange={(e) => setFiltroMarca(e.target.value)}
-              className="input-field py-2 text-sm bg-none cursor-pointer"
-            >
-              <option value="">{language === 'pt' ? 'Todas as marcas' : 'Todas las marcas'}</option>
-              {marcasDisponiveis.map((marca) => (
-                <option key={marca} value={marca}>{marca}</option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                value={filtroMarca}
+                onChange={(e) => setFiltroMarca(e.target.value)}
+                className="input-field py-2 pr-10 text-sm appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
+              >
+                <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Todas as marcas' : 'Todas las marcas'}</option>
+                {marcasDisponiveis.map((marca) => (
+                  <option key={marca} value={marca} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{marca}</option>
+                ))}
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           {/* Filtro Classe */}
           <div className="space-y-1">
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('classe')}</label>
-            <select
-              value={filtroClasse}
-              onChange={(e) => setFiltroClasse(e.target.value)}
-              className="input-field py-2 text-sm bg-none cursor-pointer"
-            >
-              <option value="">{language === 'pt' ? 'Todas as classes' : 'Todas las clases'}</option>
-              {classesDisponiveis.map((classe) => (
-                <option key={classe} value={classe}>{classe}</option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                value={filtroClasse}
+                onChange={(e) => setFiltroClasse(e.target.value)}
+                className="input-field py-2 pr-10 text-sm appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
+              >
+                <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Todas as classes' : 'Todas las clases'}</option>
+                {classesDisponiveis.map((classe) => (
+                  <option key={classe} value={classe} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{classe}</option>
+                ))}
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           {/* Filtro Câmara */}
           <div className="space-y-1">
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('camara')}</label>
-            <select
-              value={filtroCamara}
-              onChange={(e) => setFiltroCamara(e.target.value)}
-              className="input-field py-2 text-sm bg-none cursor-pointer"
-            >
-              <option value="">{language === 'pt' ? 'Todas as câmaras' : 'Todas las cámaras'}</option>
-              {camarasDisponiveis.map((camara) => (
-                <option key={camara} value={camara}>{camara}</option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                value={filtroCamara}
+                onChange={(e) => setFiltroCamara(e.target.value)}
+                className="input-field py-2 pr-10 text-sm appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
+              >
+                <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Todas as câmaras' : 'Todas las cámaras'}</option>
+                {camarasDisponiveis.map((camara) => (
+                  <option key={camara} value={camara} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{camara}</option>
+                ))}
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           {/* Filtro Vaga */}
@@ -475,7 +496,7 @@ export default function Relatorio() {
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('vaga')}</label>
             <input
               type="text"
-              placeholder={language === 'pt' ? 'Digite o código da vaga...' : 'Ingrese el código de posición...'}
+              placeholder={language === 'pt' ? 'Digite o código da vaga...' : 'Ingrese el código de posição...'}
               value={filtroVaga}
               onChange={(e) => setFiltroVaga(e.target.value)}
               className="input-field py-2 text-sm"
@@ -487,20 +508,27 @@ export default function Relatorio() {
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
               {language === 'pt' ? 'Vencimento Inteligente' : 'Vencimiento Inteligente'}
             </label>
-            <select
-              value={filtroVencimentoSmart}
-              onChange={(e) => {
-                setFiltroVencimentoSmart(e.target.value);
-                if (e.target.value !== 'todos') setFiltroVencimentoExato('');
-              }}
-              className="input-field py-2 text-sm font-medium text-slate-800 dark:text-slate-100 cursor-pointer"
-            >
-              <option value="todos">{language === 'pt' ? 'Qualquer validade' : 'Cualquier vencimiento'}</option>
-              <option value="vencidos">❌ {language === 'pt' ? 'Já vencidos' : 'Ya vencidos'}</option>
-              <option value="estaSemana">🚨 {language === 'pt' ? 'Vence nesta semana' : 'Vence esta semana'}</option>
-              <option value="proximaSemana">⏳ {language === 'pt' ? 'Vence na próxima semana' : 'Vence la próxima semana'}</option>
-              <option value="esteMes">📅 {language === 'pt' ? 'Vence este mês' : 'Vence este mes'}</option>
-            </select>
+            <div className="relative">
+              <select
+                value={filtroVencimentoSmart}
+                onChange={(e) => {
+                  setFiltroVencimentoSmart(e.target.value);
+                  if (e.target.value !== 'todos') setFiltroVencimentoExato('');
+                }}
+                className="input-field py-2 pr-10 text-sm font-medium appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100"
+              >
+                <option value="todos" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Qualquer validade' : 'Cualquier vencimiento'}</option>
+                <option value="vencidos" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">❌ {language === 'pt' ? 'Já vencidos' : 'Ya vencidos'}</option>
+                <option value="estaSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">🚨 {language === 'pt' ? 'Vence nesta semana' : 'Vence esta semana'}</option>
+                <option value="proximaSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">⏳ {language === 'pt' ? 'Vence na próxima semana' : 'Vence la próxima semana'}</option>
+                <option value="esteMes" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">📅 {language === 'pt' ? 'Vence este mês' : 'Vence este mes'}</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           {/* Filtro de Vencimento Exato */}
@@ -524,19 +552,26 @@ export default function Relatorio() {
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
               {language === 'pt' ? 'Recebimento Inteligente' : 'Recepción Inteligente'}
             </label>
-            <select
-              value={filtroRecebimentoSmart}
-              onChange={(e) => {
-                setFiltroRecebimentoSmart(e.target.value);
-                if (e.target.value !== 'todos') setFiltroRecebimentoExato('');
-              }}
-              className="input-field py-2 text-sm font-medium text-slate-800 dark:text-slate-100 cursor-pointer"
-            >
-              <option value="todos">{language === 'pt' ? 'Qualquer recebimento' : 'Cualquier recepción'}</option>
-              <option value="estaSemana">📥 {language === 'pt' ? 'Recebido nesta semana' : 'Recibido esta semana'}</option>
-              <option value="anteriorSemana">📅 {language === 'pt' ? 'Recebido na semana anterior' : 'Recibido la semana anterior'}</option>
-              <option value="esteMes">🗓️ {language === 'pt' ? 'Recebido este mês' : 'Recibido este mes'}</option>
-            </select>
+            <div className="relative">
+              <select
+                value={filtroRecebimentoSmart}
+                onChange={(e) => {
+                  setFiltroRecebimentoSmart(e.target.value);
+                  if (e.target.value !== 'todos') setFiltroRecebimentoExato('');
+                }}
+                className="input-field py-2 pr-10 text-sm font-medium appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100"
+              >
+                <option value="todos" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Qualquer recebimento' : 'Cualquier recepción'}</option>
+                <option value="estaSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">📥 {language === 'pt' ? 'Recebido nesta semana' : 'Recibido esta semana'}</option>
+                <option value="anteriorSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">📅 {language === 'pt' ? 'Recebido na semana anterior' : 'Recibido la semana anterior'}</option>
+                <option value="esteMes" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">🗓️ {language === 'pt' ? 'Recebido este mês' : 'Recibido este mes'}</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           {/* Filtro de Recebimento Exato */}
