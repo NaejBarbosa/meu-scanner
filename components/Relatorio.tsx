@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface Registro {
@@ -12,6 +12,76 @@ interface Registro {
   produtoValidade: string;
   camara: string;
   camaraVaga: string;
+}
+
+interface CustomSelectProps {
+  value: string;
+  onChange: (val: string) => void;
+  options: { value: string; label: string }[];
+  placeholder: string;
+}
+
+function CustomSelect({ value, onChange, options, placeholder }: CustomSelectProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find(o => o.value === value);
+
+  return (
+    <div className="relative w-full" ref={containerRef}>
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-4 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-slate-100 text-sm font-medium text-left flex items-center justify-between shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all duration-200 cursor-pointer"
+      >
+        <span className="truncate">
+          {selectedOption ? selectedOption.label : placeholder}
+        </span>
+        <svg className={`w-4 h-4 text-slate-400 transition-transform duration-200 flex-shrink-0 ${isOpen ? 'transform rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <ul className="absolute z-50 w-full mt-1.5 max-h-60 overflow-y-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg divide-y divide-slate-100 dark:divide-slate-700 animate-fadeIn">
+          {options.map((opt) => {
+            const isSelected = opt.value === value;
+            return (
+              <li
+                key={opt.value}
+                onClick={() => {
+                  onChange(opt.value);
+                  setIsOpen(false);
+                }}
+                className={`px-4 py-2.5 text-sm cursor-pointer transition-colors flex items-center justify-between ${
+                  isSelected 
+                    ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-semibold' 
+                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50'
+                }`}
+              >
+                <span className="truncate">{opt.label}</span>
+                {isSelected && (
+                  <svg className="w-4 h-4 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
 }
 
 export default function Relatorio() {
@@ -84,6 +154,40 @@ export default function Relatorio() {
     const unique = Array.from(new Set(registros.map((r) => r.camara).filter(Boolean)));
     return unique.sort();
   }, [registros]);
+
+  // Opções estruturadas para o CustomSelect
+  const marcasOptions = useMemo(() => {
+    const baseOptions = [{ value: '', label: language === 'pt' ? 'Todas as marcas' : 'Todas las marcas' }];
+    const extraOptions = marcasDisponiveis.map(m => ({ value: m, label: m }));
+    return [...baseOptions, ...extraOptions];
+  }, [marcasDisponiveis, language]);
+
+  const classesOptions = useMemo(() => {
+    const baseOptions = [{ value: '', label: language === 'pt' ? 'Todas as classes' : 'Todas las clases' }];
+    const extraOptions = classesDisponiveis.map(c => ({ value: c, label: c }));
+    return [...baseOptions, ...extraOptions];
+  }, [classesDisponiveis, language]);
+
+  const camarasOptions = useMemo(() => {
+    const baseOptions = [{ value: '', label: language === 'pt' ? 'Todas as câmaras' : 'Todas las cámaras' }];
+    const extraOptions = camarasDisponiveis.map(c => ({ value: c, label: c }));
+    return [...baseOptions, ...extraOptions];
+  }, [camarasDisponiveis, language]);
+
+  const vencimentoSmartOptions = useMemo(() => [
+    { value: 'todos', label: language === 'pt' ? 'Qualquer validade' : 'Cualquier vencimiento' },
+    { value: 'vencidos', label: language === 'pt' ? '❌ Já vencidos' : 'Ya vencidos' },
+    { value: 'estaSemana', label: language === 'pt' ? '🚨 Vence nesta semana' : 'Vence esta semana' },
+    { value: 'proximaSemana', label: language === 'pt' ? '⏳ Vence na próxima semana' : 'Vence la próxima semana' },
+    { value: 'esteMes', label: language === 'pt' ? '📅 Vence este mês' : 'Vence este mes' }
+  ], [language]);
+
+  const recebimentoSmartOptions = useMemo(() => [
+    { value: 'todos', label: language === 'pt' ? 'Qualquer recebimento' : 'Cualquier recepción' },
+    { value: 'estaSemana', label: language === 'pt' ? '📥 Recebido nesta semana' : 'Recibido esta semana' },
+    { value: 'anteriorSemana', label: language === 'pt' ? '📅 Recebido na semana anterior' : 'Recibido la semana anterior' },
+    { value: 'esteMes', label: language === 'pt' ? '🗓️ Recebido este mês' : 'Recibido este mes' }
+  ], [language]);
 
   // Cálculos de datas para os filtros inteligentes
   const dateRanges = useMemo(() => {
@@ -428,67 +532,34 @@ export default function Relatorio() {
           {/* Filtro Marca */}
           <div className="space-y-1">
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('marca')}</label>
-            <div className="relative">
-              <select
-                value={filtroMarca}
-                onChange={(e) => setFiltroMarca(e.target.value)}
-                className="input-field py-2 pr-10 text-sm appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
-              >
-                <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Todas as marcas' : 'Todas las marcas'}</option>
-                {marcasDisponiveis.map((marca) => (
-                  <option key={marca} value={marca} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{marca}</option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
+            <CustomSelect
+              value={filtroMarca}
+              onChange={setFiltroMarca}
+              options={marcasOptions}
+              placeholder={language === 'pt' ? 'Todas as marcas' : 'Todas las marcas'}
+            />
           </div>
 
           {/* Filtro Classe */}
           <div className="space-y-1">
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('classe')}</label>
-            <div className="relative">
-              <select
-                value={filtroClasse}
-                onChange={(e) => setFiltroClasse(e.target.value)}
-                className="input-field py-2 pr-10 text-sm appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
-              >
-                <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Todas as classes' : 'Todas las clases'}</option>
-                {classesDisponiveis.map((classe) => (
-                  <option key={classe} value={classe} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{classe}</option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
+            <CustomSelect
+              value={filtroClasse}
+              onChange={setFiltroClasse}
+              options={classesOptions}
+              placeholder={language === 'pt' ? 'Todas as classes' : 'Todas las clases'}
+            />
           </div>
 
           {/* Filtro Câmara */}
           <div className="space-y-1">
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('camara')}</label>
-            <div className="relative">
-              <select
-                value={filtroCamara}
-                onChange={(e) => setFiltroCamara(e.target.value)}
-                className="input-field py-2 pr-10 text-sm appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
-              >
-                <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Todas as câmaras' : 'Todas las cámaras'}</option>
-                {camarasDisponiveis.map((camara) => (
-                  <option key={camara} value={camara} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{camara}</option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
+            <CustomSelect
+              value={filtroCamara}
+              onChange={setFiltroCamara}
+              options={camarasOptions}
+              placeholder={language === 'pt' ? 'Todas as câmaras' : 'Todas las cámaras'}
+            />
           </div>
 
           {/* Filtro Vaga */}
@@ -508,27 +579,15 @@ export default function Relatorio() {
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
               {language === 'pt' ? 'Vencimento Inteligente' : 'Vencimiento Inteligente'}
             </label>
-            <div className="relative">
-              <select
-                value={filtroVencimentoSmart}
-                onChange={(e) => {
-                  setFiltroVencimentoSmart(e.target.value);
-                  if (e.target.value !== 'todos') setFiltroVencimentoExato('');
-                }}
-                className="input-field py-2 pr-10 text-sm font-medium appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100"
-              >
-                <option value="todos" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Qualquer validade' : 'Cualquier vencimiento'}</option>
-                <option value="vencidos" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">❌ {language === 'pt' ? 'Já vencidos' : 'Ya vencidos'}</option>
-                <option value="estaSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">🚨 {language === 'pt' ? 'Vence nesta semana' : 'Vence esta semana'}</option>
-                <option value="proximaSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">⏳ {language === 'pt' ? 'Vence na próxima semana' : 'Vence la próxima semana'}</option>
-                <option value="esteMes" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">📅 {language === 'pt' ? 'Vence este mês' : 'Vence este mes'}</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
+            <CustomSelect
+              value={filtroVencimentoSmart}
+              onChange={(val) => {
+                setFiltroVencimentoSmart(val);
+                if (val !== 'todos') setFiltroVencimentoExato('');
+              }}
+              options={vencimentoSmartOptions}
+              placeholder={language === 'pt' ? 'Qualquer validade' : 'Cualquier vencimiento'}
+            />
           </div>
 
           {/* Filtro de Vencimento Exato */}
@@ -552,26 +611,15 @@ export default function Relatorio() {
             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
               {language === 'pt' ? 'Recebimento Inteligente' : 'Recepción Inteligente'}
             </label>
-            <div className="relative">
-              <select
-                value={filtroRecebimentoSmart}
-                onChange={(e) => {
-                  setFiltroRecebimentoSmart(e.target.value);
-                  if (e.target.value !== 'todos') setFiltroRecebimentoExato('');
-                }}
-                className="input-field py-2 pr-10 text-sm font-medium appearance-none cursor-pointer bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100"
-              >
-                <option value="todos" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">{language === 'pt' ? 'Qualquer recebimento' : 'Cualquier recepción'}</option>
-                <option value="estaSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">📥 {language === 'pt' ? 'Recebido nesta semana' : 'Recibido esta semana'}</option>
-                <option value="anteriorSemana" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">📅 {language === 'pt' ? 'Recebido na semana anterior' : 'Recibido la semana anterior'}</option>
-                <option value="esteMes" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">🗓️ {language === 'pt' ? 'Recebido este mês' : 'Recibido este mes'}</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400 dark:text-slate-500">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
+            <CustomSelect
+              value={filtroRecebimentoSmart}
+              onChange={(val) => {
+                setFiltroRecebimentoSmart(val);
+                if (val !== 'todos') setFiltroRecebimentoExato('');
+              }}
+              options={recebimentoSmartOptions}
+              placeholder={language === 'pt' ? 'Qualquer recebimento' : 'Cualquier recepción'}
+            />
           </div>
 
           {/* Filtro de Recebimento Exato */}
