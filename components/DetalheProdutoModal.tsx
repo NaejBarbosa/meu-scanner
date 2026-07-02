@@ -7,6 +7,9 @@ import { ProdutoValido, WatchlistItem } from './PesquisaProduto';
 import { useLanguage } from '../context/LanguageContext';
 import { getClasseBadgeColor } from '../lib/badgeUtils';
 
+// Opção para ativar ou desativar a funcionalidade de geração de QR Code do produto
+const ENABLE_QRCODE_GENERATION = false;
+
 interface DetalheProdutoModalProps {
   produto: ProdutoValido;
   validade: string | null;
@@ -258,7 +261,7 @@ export default function DetalheProdutoModal({
 
         {/* Ações */}
         <div className="flex flex-col gap-2">
-          {!showQRCode && !showPesarCod ? (
+          {ENABLE_QRCODE_GENERATION && !showQRCode && !showPesarCod ? (
             <button
               onClick={() => {
                 setShowQRCode(true);
@@ -271,7 +274,7 @@ export default function DetalheProdutoModal({
               </svg>
               {language === 'pt' ? 'Gerar QR Code (EAN)' : 'Generar código QR (EAN)'}
             </button>
-          ) : (
+          ) : showQRCode ? (
             <button
               onClick={() => {
                 setShowQRCode(false);
@@ -284,7 +287,7 @@ export default function DetalheProdutoModal({
               </svg>
               {language === 'pt' ? 'Voltar para os Detalhes' : 'Volver a los Detalles'}
             </button>
-          )}
+          ) : null}
 
           {!produto.produtoDun && onVincularDun && (
             <button
